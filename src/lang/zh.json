@@ -1,0 +1,881 @@
+{
+  "Header": {
+    "home": "首頁",
+    "plastics": "南亞塑膠城",
+    "application": "防火材應用",
+    "pipe": "塑料管材防火包覆",
+    "welding": "電銲防火用",
+    "household": "家庭防火用",
+    "seats": "座椅內包覆防火材",
+    "daily": "排風管",
+    "insulation": "電線管路",
+    "customize": "客製產品開發",
+    "test": "防火測試",
+    "case": "成功案例",
+    "certificate": "品質證書",
+    "contact": "聯絡我們",
+    "lang": "語系"
+  },
+  "Footer": {
+    "title1": "全球銷售通路",
+    "title2": "產品資訊",
+    "title3": "聯絡資訊",
+    "title4": "快速連結",
+    "plastics": "南亞塑膠城",
+    "pipe": "塑料管材防火包覆",
+    "welding": "電銲防火用",
+    "household": "家庭防火用",
+    "seats": "座椅內包覆防火材",
+    "daily": "排風管",
+    "insulation": "電線管路",
+    "customize": "客製產品開發",
+    "address": "台北市敦化北路201號台塑大樓3樓502室",
+    "copyright": "Copyright © 2019 南亞塑膠工業股份有限公司 All Rights Reserved.",
+    "remind": "網站內之所有著作及資料，其著作權、專利權、商標、其他智慧財產權、所有權或其他權利，均為本企業所有，非經本企業合法授權，不得擅自重製、改作或以其他任何形式、基於任何目的加以使用。"
+  },
+  "Home": {
+    "thermometer": [{
+        "title": "ANDRE-TEX P",
+        "detail1": "厚度x寬度：2.2mm x 40”",
+        "detail2": "重量：400 g/M",
+        "detail3": "限氧指數(L.O.I.)：>40"
+      },
+      {
+        "title": "ANDRE-TEX T",
+        "detail1": "厚度x寬度：2.5mm x 59”",
+        "detail2": "重量：300 g/M",
+        "detail3": "限氧指數(L.O.I.).：40"
+      },
+      {
+        "title": "ANDRE-TEX W",
+        "detail1": "厚度x寬度：3.0mm x 55”",
+        "detail2": "重量：500 g/M",
+        "detail3": "限氧指數(L.O.I.).：>40"
+      },
+      {
+        "title": "ANDRE-TEX I",
+        "detail1": "厚度x寬度：0.3mm x 40”",
+        "detail2": "重量：400 g/M",
+        "detail3": "限氧指數(L.O.I.).：35"
+      },
+      {
+        "title": "ANDRE-TEX S",
+        "detail1": "厚度x寬度：4.0mm x 59”",
+        "detail2": "重量：600 g/M",
+        "detail3": "限氧指數(L.O.I.).：35"
+      },
+      {
+        "title": "ANDRE-TEX H",
+        "detail1": "厚度x寬度：3.0mm x 59”",
+        "detail2": "重量：500 g/M",
+        "detail3": "限氧指數(L.O.I.).：40"
+      }
+    ],
+    "card": [{
+      "link": "/nanya-andre-tex/#/application/pipe",
+      "img": "btnCard-1.jpg",
+      "imgMob": "btnCard-1-m.jpg",
+      "title": "塑膠管材",
+      "desc": "給你住家、辦公大樓最好的防護"
+    }, {
+      "link": "/nanya-andre-tex/#/application/welding",
+      "img": "btnCard-2.jpg",
+      "imgMob": "btnCard-2-m.jpg",
+      "title": "電焊用",
+      "desc": "防火毯耐拉扯、阻攔電焊熔渣飛濺"
+    }, {
+      "link": "/nanya-andre-tex/#/application/household",
+      "img": "btnCard-3.jpg",
+      "imgMob": "btnCard-3-m.jpg",
+      "title": "家庭/飯店",
+      "desc": "家庭、飯店防火安全防護最佳守衛"
+    }, {
+      "link": "/nanya-andre-tex/#/application/seats",
+      "img": "btnCard-4.jpg",
+      "imgMob": "btnCard-4-m.jpg",
+      "title": "座椅內用",
+      "desc": "通過多項BS國際認證與  ISO 5660:2015測試"
+    }, {
+      "link": "/nanya-andre-tex/#/application/daily",
+      "img": "btnCard-5.jpg",
+      "imgMob": "btnCard-5-m.jpg",
+      "title": "排風管",
+      "desc": "排風管防火、防水包覆"
+    }, {
+      "link": "/nanya-andre-tex/#/application/insulation",
+      "img": "btnCard-6.jpg",
+      "imgMob": "btnCard-6-m.jpg",
+      "title": "電線管路",
+      "desc": "電線管路防火、耐燃絕緣、 防水的首選"
+    }, {
+      "link": "/nanya-andre-tex/#/customize",
+      "img": "btnCard-7.jpg",
+      "imgMob": "btnCard-7-m.jpg",
+      "title": "客製開發",
+      "desc": "提供定製開發，問題解決方案"
+    }, {
+      "link": "/nanya-andre-tex/#/test",
+      "img": "btnCard-8.jpg",
+      "imgMob": "btnCard-8-m.jpg",
+      "title": "防火測試",
+      "desc": "耐瞬燃1200℃，長時耐熱350℃ 具不燃不熔融、焚燒無毒特性。"
+    }],
+    "recommend": {
+      "title": "推薦選購",
+      "product": [{
+        "name": "運動商品纏條(不織布)1",
+        "description": "用途<br>網球拍、高爾夫球桿、手套等纏條用不織布基材。<br><br>特性<br>厚度可依客戶需求調整，不織布複合樹脂微伸縮性，易加工。"
+      }, {
+        "name": "運動商品纏條(不織布)2",
+        "description": "用途<br>網球拍、高爾夫球桿、手套等纏條用不織布基材。<br><br>特性<br>厚度可依客戶需求調整，不織布複合樹脂微伸縮性，易加工。"
+      }]
+    },
+    "contact": {
+      "title": "聯絡我們"
+    }
+  },
+  "About": {
+    "title": "123"
+  },
+  "Application": {
+    "pipe": {
+      "title": "pipe的標題",
+      "Swiper": {
+        "val": 0,
+        "pic": [{
+            "title": "塑料管材防火包覆",
+            "subTitle": "塑膠管材",
+            "link": ["pipe/pipe-1.jpg", "pipe/pipe-2.jpg", "pipe/pipe-3.png", "pipe/pipe-4.jpg", "pipe/pipe-5.jpg", "pipe/pipe-6.jpg", "pipe/pipe-7.jpg"]
+          }
+        ],
+        "option": {
+          "title": "塑料管材防火包覆",
+          "item": ["塑膠管材"]
+        }
+      },
+      "tab": {
+        "title": "內容",
+        "content": [{
+          "name": "產品簡介",
+          "data": [{
+            "img": "different.png",
+            "title": "產品差異",
+            "desc": "管路防火材比起一般防火材多了人造礦物纖維加強結構"
+          }, {
+            "img": "size.png",
+            "title": "產品尺寸",
+            "desc": "產品認證2.0mm厚、寬幅100公分一種規格"
+          }, {
+            "img": "transaction.png",
+            "title": "交易模式",
+            "desc": "由經銷商服務接洽"
+          }, {
+            "img": "min.png",
+            "title": "最低購量",
+            "desc": "由經銷商服務接洽，基本上以捲為單位(18米)"
+          }]
+        },{
+          "name": "產品特性",
+          "data": [{
+            "img": "safe.png",
+            "title": "產品安全",
+            "desc": "無毒、無煙、不引起皮膚不適"
+          }, {
+            "img": "soft.png",
+            "title": "產品施工",
+            "desc": "相較於其他防火毯柔軟、好施工"
+          }, {
+            "img": "stable.jpg",
+            "title": "品質穩定",
+            "desc": "製程控制、產品測試"
+          }, {
+            "img": "custom.jpg",
+            "title": "客製展品開發",
+            "desc": "用量大時可配合客戶要求做調整"
+          }]
+        },{
+          "name": "品質證書",
+          "data": [{
+            "img": "certificate-1.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2.jpg",
+            "title": "檢驗報告"
+          }]
+        }]
+      }
+    },
+    "household": {
+      "title": "household的標題",
+      "Swiper": {
+        "val": 0,
+        "pic": [{
+            "title": "家庭防火用",
+            "subTitle": "家庭/飯店",
+            "link": ["household/hotelFamily-1.jpg", "household/hotelFamily-2.jpg", "household/hotelFamily-3.jpg", "household/hotelFamily-4.jpg", "household/hotelFamily-5.jpg", "household/hotelFamily-6.jpg", "household/hotelFamily-7.jpg", "household/hotelFamily-8.jpg"]
+          }
+        ],
+        "option": {
+          "title": "家庭防火用",
+          "item": ["家庭/飯店"]
+        }
+      },
+      "tab": {
+        "title": "內容",
+        "content": [{
+          "name": "產品簡介",
+          "data": [{
+            "img": "different.jpg",
+            "title": "產品差異",
+            "desc": "比起他牌防火毯防火能力更佳、對人體無影響"
+          }, {
+            "img": "size.png",
+            "title": "產品尺寸",
+            "desc": "厚度分為1.5、2.5、3.0、6.0四種厚度，寬幅150公分"
+          }, {
+            "img": "transaction.png",
+            "title": "交易模式",
+            "desc": "50碼以下由材料商提供，50碼以上由公司直接提供(購物說明)"
+          }, {
+            "img": "min.png",
+            "title": "最低購量",
+            "desc": "50碼"
+          }]
+        },{
+          "name": "產品特性",
+          "data": [{
+            "img": "safe.png",
+            "title": "產品安全",
+            "desc": "無毒、無煙、不引起皮膚不適"
+          }, {
+            "img": "soft.png",
+            "title": "產品施工",
+            "desc": "相較於其他防火毯柔軟、好施工"
+          }, {
+            "img": "stable.jpg",
+            "title": "品質穩定",
+            "desc": "製程控制、產品測試"
+          }, {
+            "img": "custom.jpg",
+            "title": "客製產品開發",
+            "desc": "用量大時可配合客戶要求做調整"
+          }]
+        },{
+          "name": "品質證書",
+          "data": [{
+            "img": "certificate-1.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-3.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-4.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-5.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-6.jpg",
+            "title": "檢驗報告"
+          }]
+        }]
+      }
+    },
+    "daily": {
+      "title": "daily的標題",
+      "Swiper": {
+        "val": 0,
+        "pic": [{
+            "title": "排風管",
+            "subTitle": "排風管",
+            "link": ["daily/exhaustPipe-1.jpg", "daily/exhaustPipe-2.jpg"]
+          }
+        ],
+        "option": {
+          "title": "排風管",
+          "item": ["排風管"]
+        }
+      },
+      "tab": {
+        "title": "內容",
+        "content": [{
+          "name": "產品簡介",
+          "data": [{
+            "img": "different.png",
+            "title": "產品差異",
+            "desc": "較他牌防火材防水、防火性能更好"
+          }, {
+            "img": "size.png",
+            "title": "產品尺寸",
+            "desc": "厚度為3.5mm，寬幅為100公分"
+          }, {
+            "img": "transaction.png",
+            "title": "交易模式",
+            "desc": "由本公司直接提供"
+          }, {
+            "img": "min.png",
+            "title": "最低購量",
+            "desc": "300碼"
+          }]
+        },{
+          "name": "產品特性",
+          "data": [{
+            "img": "safe.png",
+            "title": "產品安全",
+            "desc": "無毒、無煙、不引起皮膚不適"
+          }, {
+            "img": "soft.png",
+            "title": "產品施工",
+            "desc": "相較於其他防火毯柔軟、好施工"
+          }, {
+            "img": "stable.jpg",
+            "title": "品質穩定",
+            "desc": "製程控制、產品測試"
+          }, {
+            "img": "custom.jpg",
+            "title": "客製展品開發",
+            "desc": "用量大時可配合客戶要求做調整"
+          }]
+        },{
+          "name": "品質證書",
+          "data": []
+        }]
+      }
+    },
+    "insulation": {
+      "title": "insulation的標題",
+      "Swiper": {
+        "val": 0,
+        "pic": [{
+            "title": "排風管",
+            "subTitle": "電銲用",
+            "link": ["insulation/welding-1.jpg", "insulation/welding-2.jpg", "insulation/welding-3.jpg", "insulation/welding-4.jpg", "insulation/welding-5.jpg", "insulation/welding-6.jpg", "insulation/welding-7.jpg", "insulation/welding-8.jpg", "insulation/welding-9.jpg", "insulation/welding-10.jpg", "insulation/welding-11.jpg", "insulation/welding-12.jpg"]
+          }
+        ],
+        "option": {
+          "title": "排風管",
+          "item": ["電銲用"]
+        }
+      },
+      "tab": {
+        "title": "內容",
+        "content": [{
+          "name": "產品簡介",
+          "data": [{
+            "img": "different.png",
+            "title": "產品差異",
+            "desc": "產品厚度較其他產品薄、且絕緣效果極佳"
+          }, {
+            "img": "size.png",
+            "title": "產品尺寸",
+            "desc": "厚度0.3mm，寬幅100公分"
+          }, {
+            "img": "transaction.png",
+            "title": "交易模式",
+            "desc": "由本公司直接提供"
+          }, {
+            "img": "min.png",
+            "title": "最低購量",
+            "desc": "300碼"
+          }]
+        },{
+          "name": "產品特性",
+          "data": [{
+            "img": "safe.png",
+            "title": "產品安全",
+            "desc": "無毒、無煙、不引起皮膚不適"
+          }, {
+            "img": "soft.png",
+            "title": "產品施工",
+            "desc": "相較於其他防火毯柔軟、好施工"
+          }, {
+            "img": "stable.jpg",
+            "title": "品質穩定",
+            "desc": "製程控制、產品測試"
+          }, {
+            "img": "custom.jpg",
+            "title": "客製展品開發",
+            "desc": "用量大時可配合客戶要求做調整"
+          }]
+        },{
+          "name": "品質證書",
+          "data": []
+        }]
+      }
+    },
+    "seats": {
+      "title": "seats的標題",
+      "Swiper": {
+        "val": 0,
+        "pic": [{
+            "title": "座椅內用防火材",
+            "subTitle": "飛機座椅內用",
+            "link": ["seats/airplane-1.jpg", "seats/airplane-2.jpg", "seats/airplane-3.jpg", "seats/airplane-4.jpg", "seats/airplane-5.jpg", "seats/airplane-6.jpg"]
+          },
+          {
+            "title": "座椅內用防火材",
+            "subTitle": "高鐵座椅內用",
+            "link": ["seats/highSpeedRail-1.jpg", "seats/highSpeedRail-2.jpg", "seats/highSpeedRail-3.jpg", "seats/highSpeedRail-4.jpg", "seats/highSpeedRail-5.jpg"]
+          },
+          {
+            "title": "座椅內用防火材",
+            "subTitle": "電影院座椅內用",
+            "link": ["seats/movieTheater-1.jpg", "seats/movieTheater-2.jpg", "seats/movieTheater-3.jpg"]
+          }
+        ],
+        "option": {
+          "title": "座椅內用防火材",
+          "item": ["飛機座椅內用", "高鐵座椅內用", "電影院座椅內用"]
+        }
+      },
+      "tab": {
+        "title": "內容",
+        "content": [{
+          "name": "產品簡介",
+          "data": [{
+            "img": "different.jpg",
+            "title": "產品差異",
+            "desc": "比起他牌防火毯防火能力更佳、對人體無影響"
+          }, {
+            "img": "size.png",
+            "title": "產品尺寸",
+            "desc": "認證厚度為2.5mm，寬幅為150公分"
+          }, {
+            "img": "transaction.png",
+            "title": "交易模式",
+            "desc": "50碼以下由材料商提供，50碼以上由公司直接提供"
+          }, {
+            "img": "min.png",
+            "title": "最低購量",
+            "desc": "50碼"
+          }]
+        },{
+          "name": "產品特性",
+          "data": [{
+            "img": "safe.png",
+            "title": "產品安全",
+            "desc": "無毒、無煙、不引起皮膚不適"
+          }, {
+            "img": "soft.png",
+            "title": "產品施工",
+            "desc": "相較於其他防火毯柔軟、好施工"
+          }, {
+            "img": "stable.jpg",
+            "title": "品質穩定",
+            "desc": "製程控制、產品測試"
+          }, {
+            "img": "custom.jpg",
+            "title": "客製展品開發",
+            "desc": "用量大時可配合客戶要求做調整"
+          }]
+        },{
+          "name": "品質證書",
+          "data": [{
+            "img": "certificate-1-1.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-2.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-3.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-4.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2-1.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2-2.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2-3.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2-4.jpg",
+            "title": "檢驗報告"
+          }]
+        }]
+      }
+    },
+    "welding": {
+      "title": "welding的標題",
+      "Swiper": {
+        "val": 0,
+        "pic": [{
+            "title": "電銲用",
+            "subTitle": "電銲用",
+            "link": ["welding/welding-1.jpg", "welding/welding-2.jpg", "welding/welding-3.jpg", "welding/welding-4.jpg", "welding/welding-5.jpg", "welding/welding-6.jpg", "welding/welding-7.jpg", "welding/welding-8.jpg", "welding/welding-9.jpg", "welding/welding-10.jpg", "welding/welding-11.jpg", "welding/welding-12.jpg"]
+          }
+        ],
+        "option": {
+          "title": "電銲用",
+          "item": ["電銲用"]
+        }
+      },
+      "tab": {
+        "title": "內容",
+        "content": [{
+          "name": "產品簡介",
+          "data": [{
+            "img": "different.png",
+            "title": "產品差異",
+            "desc": "電銲防火毯有多一層夾網，強化物性及防止熔渣掉落"
+          }, {
+            "img": "size.png",
+            "title": "產品尺寸",
+            "desc": "分為3.0及6.0mm兩種"
+          }, {
+            "img": "transaction.png",
+            "title": "交易模式",
+            "desc": "50碼以下由材料商提供，50碼以上由公司直接提供"
+          }, {
+            "img": "min.png",
+            "title": "最低購量",
+            "desc": "50碼"
+          }]
+        },{
+          "name": "產品特性",
+          "data": [{
+            "img": "safe.png",
+            "title": "產品安全",
+            "desc": "無毒、無煙、不引起皮膚不適"
+          }, {
+            "img": "soft.png",
+            "title": "產品施工",
+            "desc": "相較於其他防火毯柔軟、好施工"
+          }, {
+            "img": "stable.jpg",
+            "title": "品質穩定",
+            "desc": "製程控制、產品測試"
+          }, {
+            "img": "custom.jpg",
+            "title": "客製展品開發",
+            "desc": "用量大時可配合客戶要求做調整"
+          }]
+        },{
+          "name": "品質證書",
+          "data": [{
+            "img": "certificate-1-1.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-2.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-3.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-4.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-5.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-1-6.jpg",
+            "title": "檢驗報告"
+          }, {
+            "img": "certificate-2-1.jpg",
+            "title": "檢驗報告"
+          }]
+        }]
+      }
+    }
+  },
+  "Examples": {
+    "title": "成功案例",
+    "card": [{
+      "link": "#swiperTarget",
+      "img": "taoyuan.jpg",
+      "imgMob": "taoyuan.jpg",
+      "title": "桃園 芙蓉匯"
+    }, {
+      "link": "#swiperTarget",
+      "img": "xinzhuang.jpg",
+      "imgMob": "xinzhuang.jpg",
+      "title": "新莊 麗寶雙璽"
+    }, {
+      "link": "#swiperTarget",
+      "img": "building95.jpg",
+      "imgMob": "building95.jpg",
+      "title": "遠雄95大樓"
+    }, {
+      "link": "#swiperTarget",
+      "img": "seaPalace.jpg",
+      "imgMob": "seaPalace.jpg",
+      "title": "海上皇宮"
+    }, {
+      "link": "#swiperTarget",
+      "img": "sea.jpg",
+      "imgMob": "sea.jpg",
+      "title": "海洋都心三期"
+    }],
+    "Swiper": {
+      "pic": [{
+          "title": "桃園 芙蓉匯",
+          "link": ["taoyuan-1.jpg", "taoyuan-2.jpg", "taoyuan-3.jpg", "taoyuan-4.jpg", "taoyuan-5.jpg", "taoyuan-6.jpg"]
+        },
+        {
+          "title": "新莊 麗寶雙璽",
+          "link": ["xinzhuang-1.jpg", "xinzhuang-2.jpg", "xinzhuang-3.jpg", "xinzhuang-4.jpg", "xinzhuang-5.jpg"]
+        },
+        {
+          "title": "遠雄95大樓",
+          "link": ["building95-1.jpg", "building95-2.jpg", "building95-3.jpg", "building95-4.jpg", "building95-5.jpg", "building95-6.jpg"]
+        },
+        {
+          "title": "海上皇宮",
+          "link": ["seaPalace-1.jpg", "seaPalace-2.jpg", "seaPalace-3.jpg", "seaPalace-4.jpg"]
+        },
+        {
+          "title": "海洋都心三期",
+          "link": ["sea-1.jpg", "sea-2.jpg", "sea-3.jpg", "sea-4.jpg", "sea-5.jpg", "sea-6.jpg"]
+        }
+      ],
+      "option": [
+        "桃園 芙蓉匯",
+        "新莊 麗寶雙璽",
+        "遠雄95大樓",
+        "海上皇宮",
+        "海洋都心三期"
+      ]
+    }
+  },
+  "FireTest": {
+    "tab": {
+      "title": "防火材測試",
+      "desc": "經塑膠中心測試，評等1級。可抗瞬燃1200℃高溫，長時間耐熱範圍350～450℃，具不燃燒、不熔融特性，焚燒過程不會產生有毒廢氣，無二次公害。 可供防火毯(滅火毯)、耐燃包覆材、耐熱墊材等安全防護用途。",
+      "btn": [
+        {
+          "link": "#swiperTarget",
+          "text": "Ander-tex火燄實測"
+        },
+        {
+          "link": "#tableTarget",
+          "text": "測試項目條件"
+        },
+        {
+          "link": "#centerTarget",
+          "text": "塑膠中心測試"
+        },
+        {
+          "link": "#resultTarget",
+          "text": "測試結果"
+        }
+      ]
+    },
+    "Swiper": {
+      "pic": [{
+          "title": "座椅內用防火材",
+          "subTitle": "影片：加工燃燒測試",
+          "link": ["test01-1.jpg", "test01-2.jpg", "test01-3.jpg", "test01-4.jpg", "test01-5.jpg", "test01-6.jpg"]
+        },
+        {
+          "title": "座椅內用防火材",
+          "subTitle": "影片：加工燃燒測試",
+          "link": ["test02-1.jpg", "test02-2.jpg"]
+        },
+        {
+          "title": "座椅內用防火材",
+          "subTitle": "影片：加工燃燒測試",
+          "link": ["test03-1.jpg", "test03-2.jpg", "test03-3.jpg", "test03-4.jpg", "test03-5.jpg", "test03-6.jpg"]
+        },
+        {
+          "title": "座椅內用防火材",
+          "subTitle": "影片：加工燃燒測試",
+          "link": ["test04-1.jpg", "test04-2.jpg"]
+        }
+      ],
+      "option": [
+        "噴燈600℃X2min",
+        "電焊1070℃X30sec",
+        "噴燈1100℃X2min",
+        "電焊1300℃X30sec"
+      ]
+    },
+    "table": {
+      "title": "測試項目及條件",
+      "thead": {
+        "item": "項次",
+        "source": "防火隔熱材來源",
+        "species": "明火種類",
+        "temperature": "溫度",
+        "time": "接觸時間",
+        "status": "防火隔熱材狀態"
+      },
+      "tr1": {
+        "item": "1",
+        "source": "市售一般級<br>保溫.隔熱.隔音材",
+        "species": "噴燈",
+        "temperature": "600℃",
+        "time": "4sec",
+        "status": "延燒、破洞、黑煙、熔融。"
+      },
+      "tr2": {
+        "item": "2",
+        "source": "市售防火.隔熱.保溫毯",
+        "temperature": "600℃",
+        "time": "18sec",
+        "status": "不延燒、破洞、白煙、熔融。"
+      },
+      "tr3": {
+        "item": "南亞",
+        "source": "樹林廠開發防火毯",
+        "temperature": "635℃",
+        "time": "2 min",
+        "status": "不延燒、無熔融、無廢氣產生、1000℃↑有碳化現象。"
+      },
+      "tr4": {
+        "temperature": "1100℃"
+      },
+      "tr5": {
+        "source": "樹林廠開發防火毯",
+        "species": "電焊焊渣<br><span class='note'>(掉落高度40cm)</span>",
+        "temperature": "1070℃",
+        "time": "30sec",
+        "status": "不延燒、無熔融、無廢氣產生、降低電焊焊渣彈跳高度與範圍。"
+      },
+      "tr6": {
+        "temperature": "1300℃"
+      },
+      "remark1": "※防火材測試使用熱影像對照圖。",
+      "remark2": "※當日測試實況：",
+      "remarkLink": "YouTube搜尋南亞防火毯"
+    },
+    "test": {
+      "title": "塑膠中心測試",
+      "attach": "評等1級",
+      "content": {
+        "title": "南亞防火毯，噴燈高溫燃燒防火性、防燄性、限氧指數，測試評等 1 級。",
+        "list": [
+          {
+            "text": "防火性：評等 1 級。",
+            "note": "(依CNS 10285 L3196 A4測試)"
+          },
+          {
+            "text": "防燄性：評等 1 級。",
+            "note": "(以CNS 7614 A3125 前處理A法測試)"
+          },
+          {
+            "text": "限氧指數：指數45↑。",
+            "note": "(以ASTM D2863法測試)"
+          }
+        ]
+      }
+    },
+    "list": {
+      "title": "測試結果",
+      "listItem": [
+        "南亞防火材經噴燈高溫燃燒測試較一般市售防火、滅火(隔熱、保溫)等材質，堅固耐用、不易破損、不延燒、不熔融、不產生毒廢氣造成二次公害。",
+        "電焊測試可降低電焊焊渣彈跳高度與範圍。",
+        "重量適當可折疊、易收藏不會有玻璃纖維易脆化缺點、不含石棉及限用物質等優異特性。",
+        "限氧指數:ASTM D2863法指數45↑。",
+        "應用範圍廣泛如工程明火防火毯(電焊、氣焊、砂磨、高溫切割) 防火隔簾、耐熱包覆材、保溫材、耐熱墊、汽車隔音、隔熱材、高溫作業區隔熱毯、家庭滅火毯安全防護用途。",
+        "測試結果CNS 10285 L3196 A4、CNS 7614 A3125均評等1級。限氧指數:ASTM D2863法指數45↑。"
+      ]
+    }
+  },
+  "Certificate": {
+    "content": [{
+      "btnImg": "tab01.jpg",
+      "name": "塑膠管材防火包覆",
+      "data": [{
+        "img": "certificate01-1.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate01-2.jpg",
+        "title": "檢驗報告"
+      }]
+    }, {
+      "btnImg": "tab02.jpg",
+      "name": "電焊防火用",
+      "data": [{
+        "img": "certificate02-1-1.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate02-1-2.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate02-1-3.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate02-1-4.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate02-1-5.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate02-1-6.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate02-2-1.jpg",
+        "title": "檢驗報告"
+      }]
+    }, {
+      "btnImg": "tab03.jpg",
+      "name": "座椅內包防火材",
+      "data": [{
+        "img": "certificate03-1-1.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-1-2.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-1-3.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-1-4.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-2-1.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-2-2.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-2-3.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate03-2-4.jpg",
+        "title": "檢驗報告"
+      }]
+    }, {
+      "btnImg": "tab04.jpg",
+      "name": "家庭、飯店防火毯",
+      "data": [{
+        "img": "certificate04-1.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate04-2.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate04-3.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate04-4.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate04-5.jpg",
+        "title": "檢驗報告"
+      }, {
+        "img": "certificate04-6.jpg",
+        "title": "檢驗報告"
+      }]
+    }]
+  },
+  "Swiper": {
+    "pic": [{
+        "title": "座椅內用防火材1",
+        "subTitle": "飛機座椅1",
+        "link": ["fuli.jpg", "blackcat1.jpg", "blackcat2.jpg"]
+      },
+      {
+        "title": "座椅內用防火材2",
+        "subTitle": "飛機座椅2",
+        "link": ["test.jpg", "test2.png", "test3.png", "test4.png"]
+      }
+    ]
+  }
+}

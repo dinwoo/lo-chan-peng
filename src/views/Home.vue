@@ -1,18 +1,27 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+article.home
+  BannerSwiper(
+    :pictureLink="bannerLink"
+  )
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import BannerSwiper from "@/components/BannerSwiper.vue";
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    BannerSwiper,
+  },
+  data() {
+    return {
+      bannerLink: [
+        {
+          1: "bg.jpg",
+          2: "bg2.jpg",
+        },
+      ],
+    }
+  },
 }
 </script>
