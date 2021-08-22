@@ -1,7 +1,8 @@
 <template lang="pug">
 header
-  figure.logo
-    img(src="@/assets/images/logo.png")
+  router-link.page-link(:to="{name:'Home'}")
+    figure.logo
+      img(src="@/assets/images/logo.png")
   .menu
     .lang En
     .lang Ch
@@ -15,33 +16,66 @@ header
       img(src="@/assets/images/telegram-icon.png")
     figure.icon
       img(src="@/assets/images/member-icon.png")
-    .ham
-    .sub-menu
-      .lang-box
-        .lang En
-        .lang Ch
-      .close
-      router-link.page-link(:to="{name:'About'}") 關於藝術家
-      router-link.page-link(:to="{name:'About'}") 最新消息
-      router-link.page-link(:to="{name:'About'}") 作品導覽
-      router-link.page-link(:to="{name:'About'}") 聯絡資訊
-      router-link.page-link(:to="{name:'About'}") 線上課程
-      .social-box
-        figure.icon
-          img(src="@/assets/images/fb-icon.png")
-        figure.icon
-          img(src="@/assets/images/ig-icon.png")
-        figure.icon
-          img(src="@/assets/images/yt-icon.png")
-        figure.icon
-          img(src="@/assets/images/telegram-icon.png")
-      .login 登入
+    .ham(v-if="isMobile" @click="showMenu=!showMenu")
+    .ham(v-else @mouseenter="showMenu=true" @mouseleave="showMenu=false")
+    .sub-menu(v-if="showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
+      .menu-box
+        .lang-box
+          .lang En
+          .lang Ch
+        .close(@click="showMenu=false")
+        router-link.page-link(:to="{name:'About'}") 關於藝術家
+        router-link.page-link(:to="{name:'News'}") 最新消息
+        router-link.page-link(:to="{name:'About'}") 作品導覽
+        router-link.page-link(:to="{name:'Contact'}") 聯絡資訊
+        router-link.page-link(:to="{name:'Course'}") 線上課程
+        .social-box
+          figure.icon
+            img(src="@/assets/images/fb-icon.png")
+          figure.icon
+            img(src="@/assets/images/ig-icon.png")
+          figure.icon
+            img(src="@/assets/images/yt-icon.png")
+          figure.icon
+            img(src="@/assets/images/telegram-icon.png")
+        .login 登入
 
 </template>
 
 <script>
+import {
+  mapState
+} from "vuex";
+
 export default {
   name: 'Header',
+  data() {
+    return {
+      isMobile: false,
+      showMenu: false
+    }
+  },
+  computed: {
+    ...mapState(["screenWidth"]),
+  },
+  mounted() {
+    this.$nextTick(()=>{
+      this.isMobile = this.screenWidth < 768;
+
+    })
+  },
+  watch: {
+    screenWidth(val) {
+      if (!this.timer) {
+        this.isMobile = val < 768;
+        this.timer = true;
+        setTimeout(()=> {
+          // console.log(val);
+          this.timer = false;
+        }, 400);
+      }
+    },
+  },
 }
 </script>
 
@@ -81,16 +115,17 @@ header
       opacity: .6
       cursor: pointer
     .sub-menu
-      display: none
-      padding: 50px 70px
-      border-radius: 1rem
-      background-color: rgba($gray-002,.75)
-      box-shadow: 5px 5px 10px rgba(#494949,.75%)
-      text-align: center
+      padding-top: 40px
       position: absolute
-      right: 0
-      bottom: -35px
+      right: 0px
+      bottom: 5px
       transform: translateY(100%)
+      .menu-box
+        padding: 50px 70px
+        border-radius: 1rem
+        background-color: rgba($gray-002,.75)
+        box-shadow: 5px 5px 10px rgba(#494949,.75%)
+        text-align: center
       .page-link
         display: block
         margin: 20px 0
@@ -116,22 +151,9 @@ header
       figure.icon
         display: none
       .ham
-        width: 36px
-        height: 25px
-        margin-left: 40px
-        background-image: linear-gradient($gray-001 0%,$gray-001 calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),$gray-001 calc(50% - 2px),$gray-001 calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),$gray-001 calc(100% - 4px),$gray-001 100%)
-        opacity: .6
-        cursor: pointer
       .sub-menu
-        padding: 50px 70px
-        border-radius: 1rem
-        background-color: rgba($gray-002,.75)
-        box-shadow: 5px 5px 10px rgba(#494949,.75%)
-        text-align: center
-        position: absolute
-        right: 0
-        bottom: -35px
-        transform: translateY(100%)
+        .menu-box
+          position: relative
         .page-link
           display: block
           margin: 20px 0
@@ -152,6 +174,7 @@ header
           width: 30px
           height: 30px
           transform: rotate(-45deg)
+          cursor: pointer
           position: absolute
           top: 15px
           right: 15px

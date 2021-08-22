@@ -5,10 +5,10 @@ footer
       img(src="@/assets/images/logo-en.png")
     .page-box
       router-link.page-link(:to="{name:'About'}") 關於藝術家
-      router-link.page-link(:to="{name:'About'}") 最新消息
+      router-link.page-link(:to="{name:'News'}") 最新消息
       router-link.page-link(:to="{name:'About'}") 作品導覽
-      router-link.page-link(:to="{name:'About'}") 聯絡資訊
-      router-link.page-link(:to="{name:'About'}") 線上課程
+      router-link.page-link(:to="{name:'Contact'}") 聯絡資訊
+      router-link.page-link(:to="{name:'Course'}") 線上課程
     .social-box
       figure.icon
         img(src="@/assets/images/fb-icon.png")
@@ -86,6 +86,6 @@ footer
       display: block
       text-align: center
       p
-        font-size: 0.6rem
+        font-size: 0.75rem
         color: $gray-005
 </style>

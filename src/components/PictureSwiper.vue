@@ -1,10 +1,10 @@
 <template lang="pug">
-#banner-swiper
+#picture-swiper
   VueSlickCarousel(
     v-bind="settings"
     ref="carousel"
   )
-    .banner-pic(
+    .picture-pic(
       v-for="(pic,index) in pictureLink[linkIndex]" :key="index"
     )
       .pic(
@@ -26,7 +26,7 @@ import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
-  name:"BannerSwiper",
+  name:"PictureSwiper",
   components: {
     VueSlickCarousel,
   },
@@ -35,7 +35,7 @@ export default {
     return {
       settings: {
         dots: true,
-        dotsClass: "slick-dots custom-dot-class banner-dots",
+        dotsClass: "slick-dots custom-dot-class picture-dots",
         edgeFriction: 0.35,
         infinite: true,
         speed: 500,
@@ -85,9 +85,9 @@ export default {
 <style lang="sass">
 @import "@/assets/sass/var.sass"
 
-.banner-dots
-  padding: 0 70px
-  bottom: 60px
+.picture-dots
+  padding: 30px 0
+  bottom: -80px
   text-align: left
   li
     margin: 0 10px
@@ -108,14 +108,13 @@ export default {
   // outline: 1px solid #f00
   &:focus
     outline: none
-#banner-swiper
+#picture-swiper
   width: 100%
-  // padding-bottom: 40px
+  padding-bottom: 80px
   position: relative
-  overflow: hidden
-  .banner-pic
+  .picture-pic
     width: 100%
-    padding-bottom: 100vh
+    padding-bottom: 75%
     position: relative
     @include rwd(768px)
       padding-bottom: 152%
@@ -127,11 +126,12 @@ export default {
       background-repeat: no-repeat
       +pstc0
   .arrow-control
-    width: 40px
     position: absolute
-    bottom: 45px
-    right: 65px
+    bottom: 30px
+    right: 0px
     figure.arrow
-      margin-bottom: 10px
+      width: 40px
+      margin-left: 15px
       cursor: pointer
+      +dib
 </style>

@@ -20,6 +20,10 @@ export default {
           1: "bg.jpg",
           2: "bg2.jpg",
         },
+        {
+          1: "bg.jpg",
+          2: "bg2.jpg",
+        },
       ],
     }
   },

@@ -14,7 +14,6 @@ export default new Vuex.Store({
       state.lang = value;
     },
     setScreenWidth(state, value) {
-      console.log(value)
       state.screenWidth = value;
     }
   },

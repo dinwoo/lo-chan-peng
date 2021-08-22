@@ -1,17 +1,15 @@
 <template lang="pug">
 #app
-  Header
-  router-view
-  Footer
+  component(:is="$route.meta.layout")
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import HomeLayout from "@/layouts/HomeLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
   components: {
-    Header,
-    Footer,
+    HomeLayout,
+    DefaultLayout
   },
   data() {
     return {};
@@ -63,11 +61,6 @@ a
 	text-decoration: none
 
 html
-  width: 100%
-  padding: 0 50px
-  font-size: 20px
   background-color: #000
-  box-sizing: border-box
-  +rwd(768px)
-    padding: 0 2rem
+
 </style>

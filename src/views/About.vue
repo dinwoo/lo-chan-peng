@@ -108,7 +108,6 @@ export default {
 @import "@/assets/sass/var.sass"
 
 article.about
-  padding-top: 115px
   section.banner
     border-radius: 1rem
     overflow: hidden
@@ -168,7 +167,6 @@ article.about
         .mb
           margin-bottom: 60px
   +rwd(768px)
-    // padding-top: 115px
     section.banner
       figure.banner-pic
     section.intro
