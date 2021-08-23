@@ -1,6 +1,8 @@
 <template lang="pug">
 .button-wrapper
-  .btn {{title}}
+  .btn(
+    :class="{'right':type == 'right'}"
+  ) {{title}}
 
 </template>
 
@@ -13,7 +15,7 @@ export default {
   name:"Button",
   components: {
   },
-  props: ['title'],
+  props: ['title','type'],
   data() {
     return {
     };
@@ -43,6 +45,9 @@ export default {
     background-color: $gray-005
     text-align: center
     cursor: pointer
+    &.right
+      margin: 3rem 0
+      margin-left: auto
     +rwd(768px)
       width: 180px
       margin: 2rem auto

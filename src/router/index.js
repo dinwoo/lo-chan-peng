@@ -29,6 +29,12 @@ const routes = [
     component: () => import('@/views/NewsInfo.vue'),
   },
   {
+    path: '/works',
+    name: 'Works',
+    meta:{layout:'DefaultLayout'},
+    component: () => import('@/views/Works.vue'),
+  },
+  {
     path: '/course',
     name: 'Course',
     meta:{layout:'DefaultLayout'},
@@ -53,3 +59,4 @@ const router = new VueRouter({
 })
 
 export default router
+

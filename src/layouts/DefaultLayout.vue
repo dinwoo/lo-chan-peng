@@ -38,4 +38,5 @@ export default {
 
 article
   padding-top: 115px
+
 </style>

@@ -13,7 +13,7 @@
 =rwd5($h:900px,$w:900px)
 	@media only screen and (max-height: $h) and (max-width: $w)
 		@content
-		
+
 =minW($w)
 	@media only screen and (min-width: $w)
 		@content
@@ -23,7 +23,6 @@
 =minH($h:900px)
 	@media only screen and (min-height: $h)
 		@content
-
 
 =clearfix
 	&:after
@@ -75,7 +74,6 @@
 		&:hover
 			@content
 
-
 =pstc0($t:0,$l:0,$b:0,$r:0)
 	position: absolute
 	top: $t
@@ -102,6 +100,29 @@
 	display: inline-block
 	vertical-align: middle
 
+=input-style
+	.input-box
+		.input-title
+			padding-bottom: 1rem
+			font-size: 1.4rem
+			color: $gray-005
+		input,textarea
+			width: 100%
+			padding: 0 1rem
+			font-size: 1rem
+			line-height: 3rem
+			color: $gray-004
+			border-radius: 1.5rem
+			border: 1px solid $gray-004
+			background-color: transparent
+			box-sizing: border-box
+			&:focus
+				outline: none
+		textarea
+			height: 260px
+			padding: 1rem
+			line-height: 1.5
+			resize: none
 
 $gray-001: #cecfcf
 $gray-002: #e0dfe1

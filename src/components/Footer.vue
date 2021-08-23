@@ -6,7 +6,7 @@ footer
     .page-box
       router-link.page-link(:to="{name:'About'}") 關於藝術家
       router-link.page-link(:to="{name:'News'}") 最新消息
-      router-link.page-link(:to="{name:'About'}") 作品導覽
+      router-link.page-link(:to="{name:'Works'}") 作品導覽
       router-link.page-link(:to="{name:'Contact'}") 聯絡資訊
       router-link.page-link(:to="{name:'Course'}") 線上課程
     .social-box
