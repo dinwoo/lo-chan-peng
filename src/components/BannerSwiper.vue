@@ -18,15 +18,15 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
-import VueSlickCarousel from "vue-slick-carousel"
+import { mapState } from "vuex";
+import VueSlickCarousel from "vue-slick-carousel";
 // optional style for arrows & dots
-import "vue-slick-carousel/dist/vue-slick-carousel.css"
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css"
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "BannerSwiper",
   components: {
-    VueSlickCarousel
+    VueSlickCarousel,
   },
   props: ["pictureLink"],
   data() {
@@ -36,20 +36,21 @@ export default {
         dotsClass: "slick-dots custom-dot-class banner-dots",
         edgeFriction: 0.35,
         infinite: true,
-        speed: 500,
+        autoplaySpeed: 5000,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        arrows: false
+        autoplay: true,
+        arrows: false,
       },
       slidesToShow: 0,
       showOption: false,
-      isMobile: document.body.clientWidth < 768
-    }
+      isMobile: document.body.clientWidth < 768,
+    };
   },
   watch: {
     screenWidth(val) {
-      this.isMobile = val < 768
+      this.isMobile = val < 768;
       // if (!this.timer) {
       //   this.screenWidth = val;
       //   this.timer = true;
@@ -59,24 +60,24 @@ export default {
       //     that.timer = false;
       //   }, 400);
       // }
-    }
+    },
   },
   mounted() {},
   computed: {
     ...mapState(["screenWidth"]),
     linkIndex() {
-      return this.isMobile ? "mobile" : "pc"
-    }
+      return this.isMobile ? "mobile" : "pc";
+    },
   },
   methods: {
     prev() {
-      this.$refs.carousel.prev()
+      this.$refs.carousel.prev();
     },
     next() {
-      this.$refs.carousel.next()
-    }
-  }
-}
+      this.$refs.carousel.next();
+    },
+  },
+};
 </script>
 
 <style lang="sass">
@@ -90,7 +91,7 @@ export default {
     margin: 0 10px
     button
       &:before
-        color: $gray-004
+        color: $gray-005
         opacity: 1
     &.slick-active
       button

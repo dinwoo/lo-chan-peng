@@ -1,74 +1,53 @@
 <template lang="pug">
-article.news-info
+article.news-info(v-if="!isLoading")
   section.banner
     figure.news-icon
       img(src="@/assets/images/news-icon.png")
   section.main
-    CardInfo(:cardData="newsData")
+    CardInfo(:cardData="news.detail")
   section.related
     .title 相關文章
-    RelatedList(:relatedListData="relatedListData")
+    RelatedList(
+      :relatedListData="news.detail.otherNews" routeName="NewsInfo"
+    )
 
 
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
+import { mapState, mapActions } from "vuex";
 import CardInfo from "@/components/CardInfo.vue";
 import RelatedList from "@/components/RelatedList.vue";
 
 export default {
-  name: 'NewsInfo',
+  name: "NewsInfo",
   components: {
     CardInfo,
-    RelatedList
+    RelatedList,
   },
   data() {
-    return {
-      newsData:{
-        id:1,
-        date:'01 Jul 2021',
-        title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-        content: '早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。'
-      },
-      relatedListData:[
-        {
-          id:1,
-          routeName: 'NewsInfo',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-        },
-        {
-          id:2,
-          routeName: 'NewsInfo',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-        },
-        {
-          id:3,
-          routeName: 'NewsInfo',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-        },
-        {
-          id:4,
-          routeName: 'NewsInfo',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-        },
-      ]
-    }
+    return {};
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["isLoading", "news"]),
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {});
+  },
+  created() {
+    this.getNewsDetail()
+      .then(() => {
+        console.log("success");
+      })
+      .catch(() => {
+        console.log("fail");
+      });
   },
   methods: {
+    ...mapActions(["getNewsDetail"]),
   },
-  watch: {
-  },
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

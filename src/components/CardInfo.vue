@@ -1,12 +1,12 @@
 <template lang="pug">
 .card-info-wrapper
   PictureSwiper(
-    :pictureLink="pictureLink"
+    v-if="cardData.imgList.length"
+    :pictureLink="cardData.imgList"
   )
-  .date {{cardData.date}}
-  .card-pic(style="")
+  .date {{cardData.dateTime}}
   .card-title {{cardData.title}}
-  .card-content {{cardData.content}}
+  .card-description {{cardData.description}}
 
 </template>
 
@@ -17,33 +17,18 @@
 import PictureSwiper from "@/components/PictureSwiper.vue";
 
 export default {
-  name:"CardInfo",
+  name: "CardInfo",
   components: {
-    PictureSwiper
+    PictureSwiper,
   },
   props: ["cardData"],
   data() {
-    return {
-      pictureLink: [
-        {
-          1: "news-example.jpg",
-          2: "news-example.jpg",
-        },
-        {
-          1: "news-example.jpg",
-          2: "news-example.jpg",
-        },
-      ],
-    };
+    return {};
   },
-  watch: {
-  },
-  mounted() {
-  },
-  computed: {
-  },
-  methods: {
-  },
+  watch: {},
+  mounted() {},
+  computed: {},
+  methods: {},
 };
 </script>
 
@@ -60,7 +45,7 @@ export default {
     margin: 1rem 0
     font-size: 1.4rem
     color: $gray-004
-  .card-content
+  .card-description
     font-size: 1rem
     line-height: 1.5
     color: $gray-005

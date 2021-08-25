@@ -1,77 +1,54 @@
 <template lang="pug">
-article.course-info
+article.course-info(v-if="!isLoading")
   section.banner
     figure.course-icon
       img(src="@/assets/images/course-icon.png")
   section.main
-    CardInfo(:cardData="courseData")
+    CardInfo(:cardData="course.detail")
     Button(title='課 程')
   section.related
     .title 相關文章
-    RelatedList(:relatedListData="relatedListData")
+    RelatedList(:relatedListData="course.detail.otherCourses" routeName="CourseInfo")
 
 
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
+import { mapState, mapActions } from "vuex";
 import CardInfo from "@/components/CardInfo.vue";
 import RelatedList from "@/components/RelatedList.vue";
 import Button from "@/components/Button.vue";
 
 export default {
-  name: 'NewsInfo',
+  name: "CourseInfo",
   components: {
     CardInfo,
     RelatedList,
-    Button
+    Button,
   },
   data() {
-    return {
-      courseData:{
-        id:1,
-        date:'01 Jul 2021',
-        title:'【國際藝術家的油畫課｜從入門到經典三大技法】 課程內容簡介',
-        content: '早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。'
-      },
-      relatedListData:[
-        {
-          id:1,
-          routeName:'CourseInfo',
-          title:'【國際藝術家的油畫課｜從入門到經典三大技法】 課程內容簡介',
-        },
-        {
-          id:2,
-          routeName:'CourseInfo',
-          title:'【國際藝術家的油畫課｜從入門到經典三大技法】 課程內容簡介',
-        },
-        {
-          id:3,
-          routeName:'CourseInfo',
-          title:'【國際藝術家的油畫課｜從入門到經典三大技法】 課程內容簡介',
-        },
-        {
-          id:4,
-          routeName:'CourseInfo',
-          title:'【國際藝術家的油畫課｜從入門到經典三大技法】 課程內容簡介',
-        },
-      ]
-    }
+    return {};
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["isLoading", "course"]),
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {});
+  },
+  created() {
+    this.getCourseDetail()
+      .then(() => {
+        console.log("success");
+      })
+      .catch(() => {
+        console.log("fail");
+      });
   },
   methods: {
+    ...mapActions(["getCourseDetail"]),
   },
-  watch: {
-  },
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

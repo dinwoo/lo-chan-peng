@@ -5,7 +5,7 @@
     ref="carousel"
   )
     .picture-pic(
-      v-for="(pic,index) in pictureLink[linkIndex]" :key="index"
+      v-for="(pic,index) in pictureLink" :key="index"
     )
       .pic(
         :style="`background-image:url('${compileFilePath(pic)}')`"
@@ -18,15 +18,12 @@
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
-  name:"PictureSwiper",
+  name: "PictureSwiper",
   components: {
     VueSlickCarousel,
   },
@@ -49,35 +46,16 @@ export default {
       isMobile: document.body.clientWidth < 768,
     };
   },
-  watch: {
-    screenWidth(val) {
-      this.isMobile = val < 768;
-      // if (!this.timer) {
-      //   this.screenWidth = val;
-      //   this.timer = true;
-      //   let that = this;
-      //   setTimeout(function() {
-      //     // console.log(val);
-      //     that.timer = false;
-      //   }, 400);
-      // }
-    },
-  },
-  mounted() {
-  },
-  computed: {
-    ...mapState(["screenWidth"]),
-    linkIndex() {
-      return this.isMobile ? 1 : 0;
-    },
-  },
+  watch: {},
+  mounted() {},
+  computed: {},
   methods: {
-    prev(){
-      this.$refs.carousel.prev()
+    prev() {
+      this.$refs.carousel.prev();
     },
-    next(){
-      this.$refs.carousel.next()
-    }
+    next() {
+      this.$refs.carousel.next();
+    },
   },
 };
 </script>
@@ -93,7 +71,7 @@ export default {
     margin: 0 10px
     button
       &:before
-        color: $gray-004
+        color: $gray-005
         opacity: 1
     &.slick-active
       button

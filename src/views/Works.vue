@@ -8,44 +8,48 @@ article.works
     .wrapper
       .year-mobile 2018
       .years-list
-        .year.active 2013
-        .year 2013
-        .year 2013
-        .year 2013
+        .year(
+          v-for="(year,index) in work.years" :key="index"
+        ) {{year}}
       .works-box
-        .work-item(v-for="item in 5")
+        .work-item(v-for="work in work.list" :key="work.id")
           .work-pic
-          .work-name 敘利亞的少年
-          .work-info 水墨  60 x 96 cm  2020
+          .work-name {{work.name}}
+          .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
-import SearchBox from "@/components/SearchBox"
+import { mapState, mapActions } from "vuex";
+import SearchBox from "@/components/SearchBox";
 
 export default {
-  name: 'Works',
+  name: "Works",
   components: {
-    SearchBox
+    SearchBox,
   },
   data() {
-    return {
-    }
+    return {};
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["isLoading", "work"]),
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {});
+  },
+  created() {
+    Promise.all([this.getWorkYears(), this.getWorkList()])
+      .then(() => {
+        console.log("success");
+      })
+      .catch(() => {
+        console.log("fail");
+      });
   },
   methods: {
+    ...mapActions(["getWorkYears", "getWorkList"]),
   },
-  watch: {
-  },
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>
@@ -56,6 +60,11 @@ article.works
     .works-banner
       width: 100%
   section.main
+    width: 100%
+    max-width: 1280px
+    padding: 0 15px
+    margin: auto
+    box-sizing: border-box
     .wrapper
       padding: 2rem 0
       .year-mobile

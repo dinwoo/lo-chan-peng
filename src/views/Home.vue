@@ -1,6 +1,7 @@
 <template lang="pug">
 article.home
   BannerSwiper(
+    v-if="showBanner"
     :pictureLink="home.banner"
   )
 </template>
@@ -17,16 +18,17 @@ export default {
   },
   data() {
     return {
-      bannerLink: [
-        {
-          1: "bg.jpg",
-          2: "bg2.jpg"
-        },
-        {
-          1: "bg.jpg",
-          2: "bg2.jpg"
-        }
-      ]
+      showBanner: false
+      // bannerLink: [
+      //   {
+      //     1: "bg.jpg",
+      //     2: "bg2.jpg"
+      //   },
+      //   {
+      //     1: "bg.jpg",
+      //     2: "bg2.jpg"
+      //   }
+      // ]
     }
   },
   computed: {
@@ -36,6 +38,7 @@ export default {
     this.getBanner()
       .then(() => {
         console.log("success")
+        this.showBanner = true
       })
       .catch(() => {
         console.log("fail")

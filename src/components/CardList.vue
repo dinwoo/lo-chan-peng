@@ -2,12 +2,12 @@
 .card-list-wrapper
   router-link.news-item(
     v-for="card in cardData" :key="card.id"
-    :to="{name:card.routeName,params:{id:card.id}}"
+    :to="{name:routeName,params:{id:card.id}}"
   )
-    .date {{card.date}}
+    .date {{card.dateTime}}
     .news-pic(style="")
     .news-title {{card.title}}
-    .news-content {{card.content}}
+    .news-description {{card.description}}
 
 </template>
 
@@ -19,7 +19,10 @@ export default {
   name:"CardList",
   components: {
   },
-  props: ["cardData"],
+  props: {
+    cardData:Array,
+    routeName: String
+  },
   data() {
     return {
     };
@@ -62,7 +65,7 @@ export default {
       margin: 1.2rem 0
       font-size: 1.4rem
       color: $gray-004
-    .news-content
+    .news-description
       font-size: 1rem
       line-height: 1.5
       color: $gray-005
@@ -72,5 +75,5 @@ export default {
       .date
       .news-pic
       .news-title
-      .news-content
+      .news-description
 </style>

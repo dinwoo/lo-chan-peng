@@ -9,7 +9,7 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
   components: {
     HomeLayout,
-    DefaultLayout
+    DefaultLayout,
   },
   data() {
     return {};
@@ -18,7 +18,7 @@ export default {
     window.onresize = () => {
       return (() => {
         window.screenWidth = document.body.clientWidth;
-        this.$store.commit("setScreenWidth", window.screenWidth);
+        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth);
         // that.screenWidth = window.screenWidth;
       })();
     };
@@ -41,7 +41,7 @@ export default {
   src: url("assets/fonts/Axininca-Ft-SILDoulos-Italic.ttf") format("truetype")
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap');
-  
+
 // @font-face
 //   font-family: 'SourceHanSerif'
 //   src: url("assets/fonts/SourceHanSerif-Regular.ttc") format("truetype")
@@ -62,5 +62,4 @@ a
 
 html
   background-color: #000
-
 </style>

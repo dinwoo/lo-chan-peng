@@ -1,65 +1,47 @@
 <template lang="pug">
-article.news
+article.news(v-if="!isLoading")
   section.banner
     figure.news-icon
       img(src="@/assets/images/news-icon.png")
   section.main
     SearchBox
-    CardList(:cardData="newsListData")
+    CardList(:cardData="news.list" routeName="NewsInfo")
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
-import CardList from "@/components/CardList"
-import SearchBox from "@/components/SearchBox"
+import { mapState, mapActions } from "vuex";
+import CardList from "@/components/CardList";
+import SearchBox from "@/components/SearchBox";
 
 export default {
-  name: 'News',
+  name: "News",
   components: {
     CardList,
-    SearchBox
+    SearchBox,
   },
   data() {
-    return {
-      newsListData:[
-        {
-          id:1,
-          routeName: 'NewsInfo',
-          date:'01 Jul 2021',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-          content: '早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。'
-        },
-        {
-          id:2,
-          routeName: 'NewsInfo',
-          date:'02 Jul 2021',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-          content: '早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。'
-        },
-        {
-          id:3,
-          routeName: 'NewsInfo',
-          date:'03 Jul 2021',
-          title:'唯一亞洲藝術家「羅展鵬」受邀與世界藝術大師共同展出',
-          content: '早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。'
-        },
-      ]
-    }
+    return {};
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["isLoading", "news"]),
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {});
+  },
+  created() {
+    this.getNewsList()
+      .then(() => {
+        console.log("success");
+      })
+      .catch(() => {
+        console.log("fail");
+      });
   },
   methods: {
+    ...mapActions(["getNewsList"]),
   },
-  watch: {
-  },
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>
@@ -71,6 +53,12 @@ article.news
     .news-icon
       width: 275px
       margin: auto
+  section.main
+    width: 100%
+    max-width: 1280px
+    padding: 0 15px
+    margin: auto
+    box-sizing: border-box
   +rwd(768px)
     section.banner
       padding: 15vw 0
