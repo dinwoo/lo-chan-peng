@@ -1,10 +1,10 @@
 <template lang="pug">
-article.contact-info
+article.register-info
   section.banner
-    figure.contact-icon
-      img(src="@/assets/images/contact-icon.png")
+    figure.member-icon
+      img(src="@/assets/images/member-title.png")
   section.form
-    .title 聯絡我們
+    .title 建立帳戶
     .row
       .column-2
         .input-box
@@ -12,20 +12,26 @@ article.contact-info
           input(type="text")
       .column-2
         .input-box
-          .input-title 電話
+          .input-title 生日
           input(type="text")
+    .row
+      .column-2
+        .input-box
+          .input-title 帳號
+          input(type="text")
+      .column-2
+        .input-box
+          .input-title 密碼
+          input(type="password")
     .row
       .column-1
         .input-box
           .input-title 信箱
           input(type="text")
-    .row
-      .column-1
-        .input-box
-          .input-title 信箱
-          textarea
     .btn-box
-      Button(title='送出',type="right")
+      Button(title='登入',type="right")
+          
+
 
 </template>
 
@@ -36,7 +42,7 @@ import {
 import Button from "@/components/Button.vue";
 
 export default {
-  name: 'Contact',
+  name: 'Register',
   components: {
     Button
   },
@@ -63,10 +69,10 @@ export default {
 
 +input-style
 
-article.contact-info
+article.register-info
   section.banner
     padding: 150px 0
-    .contact-icon
+    .member-icon
       width: 465px
       margin: auto
   section.form
@@ -90,6 +96,40 @@ article.contact-info
       +dib
       & + .column-2
         margin-left: 8%
+    .register-box
+      padding: 2rem 0
+      border-top: 1px solid $gray-004
+      display: flex
+      justify-content: space-between
+      .register-btn
+        text-align: center
+        &:nth-child(1)
+          order: 2
+        &:nth-child(2)
+          order: 1
+        .register-title
+          margin-bottom: .5rem
+          font-size: 1.4rem
+          color: $gray-004
+        .btn
+          display: inline-block
+          padding: 0 3rem
+          font-size: 1.4rem
+          line-height: 3rem
+          border-radius: 1.5rem
+          color: $gray-001
+          background-color: $gray-005
+          text-align: center
+          cursor: pointer
+          .fb-icon
+            width: 30px
+            margin-right: 0.5rem
+            line-height: 1
+            +dib
+          p
+            font-size: 1.4rem
+            color: #000
+            +dib
   +rwd(1440px)
     section.form
       .title
@@ -101,7 +141,7 @@ article.contact-info
   +rwd(768px)
     section.banner
       padding: 15vw 0
-      .contact-icon
+      .member-icon
         width: 35vw
     section.form
       .title
@@ -111,4 +151,18 @@ article.contact-info
         width: 100%
         & + .column-2
           margin-left: 0%
+      .register-box
+        padding: 0
+        display: block
+        .register-btn
+          padding: 2rem 0
+          border-bottom: 1px solid $gray-004
+          .register-title
+          .btn
+            padding: 0 2rem
+            .fb-icon
+              width: 20px
+              margin-right: 0.5rem
+            p
+              font-size: 1rem
 </style>

@@ -6,6 +6,7 @@ article.works
   section.main
     SearchBox
     .wrapper
+      .year-mobile 2018
       .years-list
         .year.active 2013
         .year 2013
@@ -57,6 +58,8 @@ article.works
   section.main
     .wrapper
       padding: 2rem 0
+      .year-mobile
+        display: none
       .years-list
         width: 120px
         display: inline-block
@@ -74,6 +77,7 @@ article.works
         .year
           font-size: 1.6rem
           color: $gray-005
+          cursor: pointer
           position: relative
           +before
             width: 1rem
@@ -125,38 +129,25 @@ article.works
     section.main
       .wrapper
         padding: 2rem 0
+        .year-mobile
+          display: block
+          padding: 1rem 0
+          margin-bottom: 2rem
+          font-size: 2rem
+          color: $gray-004
+          border-bottom: 1px solid $gray-004
+          text-align: center
         .years-list
-          display: none
-          width: 120px
-          +before
-            width: 1px
-            height: calc(100% - 1.6rem)
-            background-color: $gray-005
-            position: absolute
-            top: 0
-            bottom: 0
-            right: 0.5rem
-            margin: auto
+          width: 80px
+          margin: 0 auto 2rem
+          display: block
+          &:before
+            right: 8px
           .year
-            font-size: 1.6rem
-            color: $gray-005
-            position: relative
-            +before
-              width: 1rem
-              height: 1rem
-              border-radius: 50%
-              background-color: $gray-005
-              position: absolute
-              top: 0
-              bottom: 0
-              right: 0
-              margin: auto
-            & + .year
-              margin-top: 3rem
-            &.active
-              color: #fff
-              &:before
-                background-color: #fff
+            font-size: 1.2rem
+            &:before
+              width: 16px
+              height: 16px
         .works-box
           width: 100%
           .work-item

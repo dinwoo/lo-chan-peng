@@ -52,6 +52,18 @@ const routes = [
     meta:{layout:'DefaultLayout'},
     component: () => import('@/views/Contact.vue'),
   },
+  {
+    path: '/member',
+    name: 'Member',
+    meta:{layout:'DefaultLayout'},
+    component: () => import('@/views/Member.vue'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    meta:{layout:'DefaultLayout'},
+    component: () => import('@/views/Register.vue'),
+  },
 ]
 
 const router = new VueRouter({

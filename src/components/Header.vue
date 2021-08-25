@@ -14,8 +14,9 @@ header
       img(src="@/assets/images/yt-icon.png")
     figure.icon
       img(src="@/assets/images/telegram-icon.png")
-    figure.icon
-      img(src="@/assets/images/member-icon.png")
+    router-link(:to="{name:'Member'}")
+      figure.icon
+        img(src="@/assets/images/member-icon.png")
     .ham(v-if="isMobile" @click="showMenu=!showMenu")
     .ham(v-else @mouseenter="showMenu=true" @mouseleave="showMenu=false")
     .sub-menu(v-if="showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
@@ -101,8 +102,10 @@ header
     .lang
       margin: 0 10px
       font-size: 1rem
-      color: #fff
+      color: $gray-005
       cursor: pointer
+      &.active,&:hover
+        color: $gray-004
     figure.icon
       width: 35px
       margin: 0 10px

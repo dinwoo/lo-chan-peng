@@ -18,8 +18,9 @@ footer
         img(src="@/assets/images/yt-icon.png")
       figure.icon
         img(src="@/assets/images/telegram-icon.png")
-      figure.icon
-        img(src="@/assets/images/member-icon.png")
+      router-link(:to="{name:'Member'}")
+        figure.icon
+          img(src="@/assets/images/member-icon.png")
   .copyright
     p Copyright © 2021  LO CHAN PENG All righta RENU
     p Just Design
