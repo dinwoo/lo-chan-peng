@@ -1,10 +1,15 @@
 // const webpack = require('webpack');
-process.env.VUE_APP_VERSION = require("./package.json").version;
+process.env.VUE_APP_VERSION = require("./package.json").version
+const path = require("path")
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 module.exports = {
   runtimeCompiler: true,
   // 為了鑲嵌進laravel專案而做的設定
-  publicPath: "./",
+  publicPath: "/",
   devServer: {
     /* https option */
     // open: process.platform === 'darwin',
@@ -12,6 +17,11 @@ module.exports = {
     // port: 9004 // CHANGE YOUR PORT HERE!
     // https: true,
     // hotOnly: false,
+  },
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set("@", resolve("src"))
+      .set("@assets", resolve("src/assets"))
+      .set("@components", resolve("src/components"))
   }
-
-};
+}
