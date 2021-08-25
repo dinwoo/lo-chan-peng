@@ -1,7 +1,7 @@
 <template lang="pug">
 article.home
   BannerSwiper(
-    :pictureLink="bannerLink"
+    :pictureLink="home.banner"
   )
 </template>
 
@@ -30,10 +30,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(["testData"])
+    ...mapState(["home"])
   },
   created() {
-    this.getTest(1)
+    this.getBanner()
       .then(() => {
         console.log("success")
       })
@@ -42,7 +42,7 @@ export default {
       })
   },
   methods: {
-    ...mapActions({ getTest: "GET_TEST" })
+    ...mapActions(["getBanner"])
   }
 }
 </script>

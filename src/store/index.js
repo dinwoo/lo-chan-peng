@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     lang: null, // 存放使用者選用的語系
     screenWidth: document.body.clientWidth,
-    testData: []
+    home: {
+      banner: {}
+    }
   },
   mutations: {
     // 切換語系設定
@@ -18,21 +20,18 @@ export default new Vuex.Store({
     setScreenWidth(state, value) {
       state.screenWidth = value
     },
-    setTest(state, data) {
-      state.testData = data
+    SET_BANNER(state, data) {
+      state.home.banner = data
     }
   },
   actions: {
-    GET_TEST(context, id) {
-      console.log(id)
+    getBanner(context) {
       return new Promise((resolve, reject) => {
-        ApiService.get("/test", "", {
-          id: id
-        })
+        ApiService.get("/index/banners", "", {})
           .then(({ data }) => {
-            if (data.success) {
+            if (data.code == 200) {
               console.log(data)
-              context.commit("setTest", data.data)
+              context.commit("SET_BANNER", data.data)
             }
             resolve()
           })
