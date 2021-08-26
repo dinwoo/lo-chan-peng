@@ -1,64 +1,57 @@
 <template lang="pug">
 article.member-info
-  section.banner
-    figure.member-icon
-      img(src="@/assets/images/member-title.png")
   section.form
-    .title 登入帳戶
+    .title 會員資料
     .row
       .column-2
         .input-box
-          .input-title 帳號
+          .input-title 姓名
           input(type="text")
       .column-2
         .input-box
-          .input-title 密碼
-          input(type="password")
+          .input-title 生日
+          input(type="text")
+    .row
+      .column-1
+        .input-box
+          .input-title 帳號
+          input(type="text")
+      //- .column-2
+      //-   .input-box
+      //-     .input-title 密碼
+      //-     input(type="password")
+    .row
+      .column-1
+        .input-box
+          .input-title 信箱
+          input(type="text")
     .btn-box
-      //- Button(title='忘記密碼',type="right")
-      Button(title='登入',type="right")
-    .register-box
-      .register-btn
-        p.register-title 或以下列方式登入
-        .btn
-          figure.fb-icon
-            img(src="@/assets/images/fb-btn-icon.png")
-          p 以Facebook帳號登入
-      .register-btn
-        p.register-title 新用戶？
-        router-link.btn(:to="{name:'Register'}")
-          p 註冊
+      Button(title='編輯',type="right")
           
 
 
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
-  name: 'Member',
+  name: "Member",
   components: {
     Button
   },
   data() {
-    return {
-    }
+    return {}
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {})
   },
-  methods: {
-  },
-  watch: {
-  },
+  methods: {},
+  watch: {}
 }
 </script>
 
@@ -68,11 +61,6 @@ export default {
 +input-style
 
 article.member-info
-  section.banner
-    padding: 150px 0
-    .member-icon
-      width: 465px
-      margin: auto
   section.form
     width: 100%
     max-width: 960px
@@ -137,10 +125,6 @@ article.member-info
         left: 0px
         border-bottom: 1px solid $gray-005
   +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .member-icon
-        width: 35vw
     section.form
       .title
       .column-1

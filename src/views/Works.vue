@@ -19,37 +19,46 @@ article.works
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import SearchBox from "@/components/SearchBox";
+import { mapState, mapActions } from "vuex"
+import SearchBox from "@/components/SearchBox"
 
 export default {
   name: "Works",
   components: {
-    SearchBox,
+    SearchBox
   },
   data() {
-    return {};
+    return {}
   },
   computed: {
-    ...mapState(["isLoading", "work"]),
+    ...mapState(["isLoading", "lang", "work"])
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {})
   },
   created() {
-    Promise.all([this.getWorkYears(), this.getWorkList()])
+    this.getWorkYears()
       .then(() => {
-        console.log("success");
+        console.log("getWorkYears success")
+        return this.getWorkList({
+          year: this.work.years[0],
+          pageSize: 10,
+          currentPage: 1,
+          channel: this.lang
+        })
+      })
+      .then(() => {
+        console.log("getWorkList success")
       })
       .catch(() => {
-        console.log("fail");
-      });
+        console.log("fail")
+      })
   },
   methods: {
-    ...mapActions(["getWorkYears", "getWorkList"]),
+    ...mapActions(["getWorkYears", "getWorkList"])
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

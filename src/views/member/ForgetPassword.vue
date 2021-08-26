@@ -1,66 +1,40 @@
 <template lang="pug">
-article.register-info
-  section.banner
-    figure.member-icon
-      img(src="@/assets/images/member-title.png")
+article.member-info
   section.form
-    .title 建立帳戶
-    .row
-      .column-2
-        .input-box
-          .input-title 姓名
-          input(type="text")
-      .column-2
-        .input-box
-          .input-title 生日
-          input(type="text")
-    .row
-      .column-2
-        .input-box
-          .input-title 帳號
-          input(type="text")
-      .column-2
-        .input-box
-          .input-title 密碼
-          input(type="password")
+    .title 修改密碼(忘記密碼)
     .row
       .column-1
         .input-box
-          .input-title 信箱
+          .input-title 帳號
           input(type="text")
     .btn-box
-      Button(title='登入',type="right")
+      //- Button(title='忘記密碼',type="right")
+      Button(title='送出')
           
 
 
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
-  name: 'Register',
+  name: "Member",
   components: {
     Button
   },
   data() {
-    return {
-    }
+    return {}
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {})
   },
-  methods: {
-  },
-  watch: {
-  },
+  methods: {},
+  watch: {}
 }
 </script>
 
@@ -69,12 +43,7 @@ export default {
 
 +input-style
 
-article.register-info
-  section.banner
-    padding: 150px 0
-    .member-icon
-      width: 465px
-      margin: auto
+article.member-info
   section.form
     width: 100%
     max-width: 960px
@@ -139,10 +108,6 @@ article.register-info
         left: 0px
         border-bottom: 1px solid $gray-005
   +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .member-icon
-        width: 35vw
     section.form
       .title
       .column-1

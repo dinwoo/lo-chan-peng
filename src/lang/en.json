@@ -1,34 +1,10 @@
 {
-  "title": "MIS footmark",
-  "description": "IT learn",
-  "About": {
-    "title": "456"
-  },
-  "Application": {
-    "material1": {
-      "title": "material1 title",
-      "content": [{
-          "name": "name1",
-          "link": "blackcat.jpg"
-        },
-        {
-          "name": "name2",
-          "link": "blackcat.jpg"
-        }
-      ]
-    }
-  },
-  "Swiper": {
-    "pic": [{
-        "title": "en1",
-        "subTitle": "en1",
-        "link": ["fuli.jpg", "blackcat1.jpg", "blackcat2.jpg"]
-      },
-      {
-        "title": "en2",
-        "subTitle": "en2",
-        "link": ["test.jpg", "test2.png", "test3.png", "test4.png"]
-      }
-    ]
+  "Menu": {
+    "about": "About",
+    "news": "News",
+    "works": "Works",
+    "contact": "Contact",
+    "course": "Course",
+    "login": "Login"
   }
 }

@@ -4,34 +4,26 @@
 </template>
 
 <script>
-import HomeLayout from "@/layouts/HomeLayout";
-import DefaultLayout from "@/layouts/DefaultLayout";
+import HomeLayout from "@/layouts/HomeLayout"
+import DefaultLayout from "@/layouts/DefaultLayout"
 export default {
   components: {
     HomeLayout,
-    DefaultLayout,
+    DefaultLayout
   },
   data() {
-    return {};
+    return {}
   },
   mounted() {
     window.onresize = () => {
       return (() => {
-        window.screenWidth = document.body.clientWidth;
-        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth);
+        window.screenWidth = document.body.clientWidth
+        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth)
         // that.screenWidth = window.screenWidth;
-      })();
-    };
-  },
-  methods: {
-    // 儲存切換的語系
-    setLang(value) {
-      this.$store.commit("setLang", value);
-      this.$i18n.locale = value;
-      localStorage.setItem("footmark-lang", value);
-    },
-  },
-};
+      })()
+    }
+  }
+}
 </script>
 
 <style lang="sass">
@@ -54,7 +46,7 @@ export default {
 
 img
 	width: 100%
-	vertical-align: top
+	vertical-align: middle
 
 a
 	color: #000

@@ -4,8 +4,8 @@ header
     figure.logo
       img(src="@/assets/images/logo.png")
   .menu
-    .lang En
-    .lang Ch
+    .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
+    .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
     figure.icon
       img(src="@/assets/images/fb-icon.png")
     figure.icon
@@ -25,11 +25,11 @@ header
           .lang En
           .lang Ch
         .close(@click="showMenu=false")
-        router-link.page-link(:to="{name:'About'}") 關於藝術家
-        router-link.page-link(:to="{name:'News'}") 最新消息
-        router-link.page-link(:to="{name:'Works'}") 作品導覽
-        router-link.page-link(:to="{name:'Contact'}") 聯絡資訊
-        router-link.page-link(:to="{name:'Course'}") 線上課程
+        router-link.page-link(:to="{name:'About'}") {{$t(`Menu.about`)}}
+        router-link.page-link(:to="{name:'News'}") {{$t(`Menu.news`)}}
+        router-link.page-link(:to="{name:'Works'}") {{$t(`Menu.works`)}}
+        router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
+        router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
         .social-box
           figure.icon
             img(src="@/assets/images/fb-icon.png")
@@ -39,17 +39,15 @@ header
             img(src="@/assets/images/yt-icon.png")
           figure.icon
             img(src="@/assets/images/telegram-icon.png")
-        .login 登入
+        .login {{$t(`Menu.login`)}}
 
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
+import { mapState } from "vuex"
 
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {
       isMobile: false,
@@ -57,26 +55,33 @@ export default {
     }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["lang", "screenWidth"])
   },
   mounted() {
-    this.$nextTick(()=>{
-      this.isMobile = this.screenWidth < 768;
-
+    this.$nextTick(() => {
+      this.isMobile = this.screenWidth < 768
     })
+  },
+  methods: {
+    // 儲存切換的語系
+    setLang(value) {
+      this.$store.commit("SET_LANG", value)
+      this.$i18n.locale = value
+      localStorage.setItem("footmark-lang", value)
+    }
   },
   watch: {
     screenWidth(val) {
       if (!this.timer) {
-        this.isMobile = val < 768;
-        this.timer = true;
-        setTimeout(()=> {
+        this.isMobile = val < 768
+        this.timer = true
+        setTimeout(() => {
           // console.log(val);
-          this.timer = false;
-        }, 400);
+          this.timer = false
+        }, 400)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -143,6 +148,13 @@ header
         display: none
       .login
         display: none
+  +rwd(960px)
+    padding: 40px 20px
+    figure.logo
+      width: 300px
+    .menu
+      .ham
+        margin-left: 20px
   +rwd(768px)
     // padding: 40px 50px
     figure.logo

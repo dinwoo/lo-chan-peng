@@ -4,11 +4,11 @@ footer
     figure.logo
       img(src="@/assets/images/logo-en.png")
     .page-box
-      router-link.page-link(:to="{name:'About'}") 關於藝術家
-      router-link.page-link(:to="{name:'News'}") 最新消息
-      router-link.page-link(:to="{name:'Works'}") 作品導覽
-      router-link.page-link(:to="{name:'Contact'}") 聯絡資訊
-      router-link.page-link(:to="{name:'Course'}") 線上課程
+        router-link.page-link(:to="{name:'About'}") {{$t(`Menu.about`)}}
+        router-link.page-link(:to="{name:'News'}") {{$t(`Menu.news`)}}
+        router-link.page-link(:to="{name:'Works'}") {{$t(`Menu.works`)}}
+        router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
+        router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
     .social-box
       figure.icon
         img(src="@/assets/images/fb-icon.png")
@@ -28,7 +28,7 @@ footer
 
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer"
 }
 </script>
 
@@ -44,6 +44,7 @@ footer
     box-sizing: border-box
     display: flex
     justify-content: space-between
+    align-items: center
     position: relative
     &:before,&:after
       content: ''
@@ -59,10 +60,11 @@ footer
       bottom: 0
       left: 0
     figure.logo
-      width: 330px
+      width: 300px
+      line-height: 1
     .page-box
       .page-link
-        margin: 0 1.6rem
+        margin: 0 1.4rem
         font-size: 1rem
         color: $gray-005
     .social-box
@@ -78,6 +80,36 @@ footer
     justify-content: space-between
     p
       color: $gray-005
+  +rwd(1280px)
+    // padding-top: 50px
+    .menu
+      padding: 1rem .8rem
+      figure.logo
+        width: 200px
+      .page-box
+        .page-link
+          margin: 0 1rem
+      .social-box
+        figure.icon
+          width: 25px
+    .copyright
+      padding: .8rem
+  +rwd(1080px)
+    // padding-top: 50px
+    .menu
+      padding: 1rem 0rem
+      figure.logo
+        width: 160px
+      .page-box
+        .page-link
+          margin: 0 .3rem
+          font-size: 0.7em
+      .social-box
+        figure.icon
+          width: 20px
+          margin: 0 5px
+    .copyright
+      padding: .8rem
   +rwd(768px)
     // padding-top: 50px
     .menu
