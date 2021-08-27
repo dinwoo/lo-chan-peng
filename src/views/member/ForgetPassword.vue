@@ -6,36 +6,51 @@ article.member-info
       .column-1
         .input-box
           .input-title 帳號
-          input(type="text")
+          input(type="text" v-model="account")
     .btn-box
-      //- Button(title='忘記密碼',type="right")
-      Button(title='送出')
+      Button(title='送出' @click="postPasswordTokenHandler")
           
 
 
 </template>
 
 <script>
-import { mapState } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
-    return {}
+    return { account: "" };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
-  methods: {},
-  watch: {}
-}
+  methods: {
+    ...mapActions(["postPasswordToken"]),
+    postPasswordTokenHandler() {
+      if (this.account == "") {
+        alert("請填寫帳號");
+        return false;
+      }
+
+      this.postPasswordToken(this.account)
+        .then(() => {
+          this.$router.push({ name: "PasswordEdit" });
+        })
+        .catch(() => {
+          alert("傳送失敗");
+        });
+    },
+  },
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

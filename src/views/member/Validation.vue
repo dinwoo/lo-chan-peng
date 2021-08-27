@@ -6,68 +6,52 @@ article.member-info
       .column-1
         .input-box
           .input-title 驗證碼
-          input(type="text")
+          input(type="text" v-model="token")
     .btn-box
       //- Button(title='忘記密碼',type="right")
-      Button(title='驗證')
+      Button(title='驗證' @click="postValidationHandler")
           
 
 
 </template>
 
 <script>
-import { mapState } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
-    return {}
+    return { token: "" };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   methods: {
-    ...mapActions(["postSignup"]),
-    postSignupHandler() {
-      if (this.name == "") {
-        alert("請填寫姓名")
-        return false
-      } else if (!this.verifyPhone(this.phone)) {
-        alert("電話錯誤")
-        return false
-      } else if (!this.verifyEmail(this.email)) {
-        alert("Email錯誤")
-        return false
-      } else if (this.content == "") {
-        alert("請填寫內容")
-        return false
+    ...mapActions(["postValidation"]),
+    postValidationHandler() {
+      if (this.token == "") {
+        alert("請填寫驗證碼");
+        return false;
       }
 
-      this.postSignup({
-        name: this.name,
-        birthday: this.birthday,
-        account: this.account,
-        password: this.password,
-        confirmPassword: this.confirmPassword,
-        email: this.email
-      })
+      this.postValidation(this.token)
         .then(() => {
-          this.$router.push({ name: "Validation" })
+          this.$router.push({ name: "Member" });
         })
         .catch(() => {
-          alert("傳送失敗")
-        })
-    }
+          alert("傳送失敗");
+        });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

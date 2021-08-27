@@ -1,21 +1,21 @@
 <template lang="pug">
-article.member-info
+article.member-info(v-if="!isLoading")
   section.form
     .title 會員資料
     .row
       .column-2
         .input-box
           .input-title 姓名
-          input(type="text")
+          input(type="text" v-model="member.name" :disabled="!isEdit")
       .column-2
         .input-box
           .input-title 生日
-          input(type="text")
+          input(type="date" v-model="member.birthday" :disabled="!isEdit")
     .row
       .column-1
         .input-box
           .input-title 帳號
-          input(type="text")
+          input(type="text" v-model="member.account" disabled)
       //- .column-2
       //-   .input-box
       //-     .input-title 密碼
@@ -24,35 +24,65 @@ article.member-info
       .column-1
         .input-box
           .input-title 信箱
-          input(type="text")
+          input(type="text" v-model="member.email" disabled)
     .btn-box
-      Button(title='編輯',type="right")
+      Button(:title="isEdit?'送出':'編輯'",type="right" @click="btnHandler")
           
 
 
 </template>
 
 <script>
-import { mapState } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
-    return {}
+    return {
+      isEdit: false,
+    };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["isLoading", "member"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
-  methods: {},
-  watch: {}
-}
+  created() {
+    this.getMemberInfo()
+      .then(() => {
+        console.log("success");
+      })
+      .catch(() => {
+        console.log("fail");
+      });
+  },
+  methods: {
+    ...mapActions(["getMemberInfo", "putMemberInfo"]),
+    btnHandler() {
+      if (!this.isEdit) {
+        this.isEdit = true;
+      } else {
+        console.log("send");
+        this.putMemberInfo({
+          name: this.member.name,
+          birthday: this.member.birthday,
+        })
+          .then(() => {
+            console.log("success");
+          })
+          .catch(() => {
+            console.log("fail");
+          });
+      }
+    },
+  },
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

@@ -17,13 +17,13 @@ export default {
   components: {},
   props: ["title", "type"],
   data() {
-    return {}
+    return {};
   },
   watch: {},
   mounted() {},
   computed: {},
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
 <style lang="sass" scoped>
@@ -49,4 +49,6 @@ export default {
       // font-size: 1.4rem
       line-height: 3rem
       border-radius: 1.5rem
+      &.right
+        margin: 1rem auto
 </style>

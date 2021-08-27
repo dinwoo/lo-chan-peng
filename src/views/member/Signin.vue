@@ -6,14 +6,17 @@ article.member-info
       .column-2
         .input-box
           .input-title 帳號
-          input(type="text")
+          input(type="text" v-model="account")
       .column-2
         .input-box
           .input-title 密碼
-          input(type="password")
+          input(type="password" v-model="password")
     .btn-box
-      //- Button(title='忘記密碼',type="right")
-      Button(title='登入',type="right")
+      .btn
+        router-link(:to="{name:'ForgetPassword'}")
+          Button(title='忘記密碼',type="right")
+      .btn
+        Button(title='登入',type="right" @click="postSigninHandler")
     .register-box
       .register-btn
         p.register-title 或以下列方式登入
@@ -31,26 +34,50 @@ article.member-info
 </template>
 
 <script>
-import { mapState } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
-    return {}
+    return {
+      account: "",
+      password: "",
+    };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
-  methods: {},
-  watch: {}
-}
+  methods: {
+    ...mapActions(["postSignin"]),
+    postSigninHandler() {
+      if (this.account == "") {
+        alert("請填寫帳號");
+        return false;
+      } else if (this.password == "") {
+        alert("請填寫密碼");
+        return false;
+      }
+      this.postSignin({
+        account: this.account,
+        password: this.password,
+      })
+        .then(() => {
+          this.$router.push({ name: "Member" });
+        })
+        .catch(() => {
+          alert("傳送失敗");
+        });
+    },
+  },
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>
@@ -60,26 +87,11 @@ export default {
 
 article.member-info
   section.form
-    width: 100%
-    max-width: 960px
-    padding: 0 15px
-    margin: auto
-    box-sizing: border-box
-    position: relative
-    .title
-      font-size: 1.8rem
-      letter-spacing: 4px
-      color: $gray-005
-      position: absolute
-      left: -200px
-    .column-1
-      margin-bottom: 1rem
-    .column-2
-      width: 46%
-      margin-bottom: 1rem
-      +dib
-      & + .column-2
-        margin-left: 8%
+    .btn-box
+      display: flex
+      justify-content: flex-end
+      .btn
+        margin-left: 1rem
     .register-box
       padding: 2rem 0
       border-top: 1px solid $gray-004
@@ -114,23 +126,13 @@ article.member-info
             font-size: 1.4rem
             color: #000
             +dib
-  +rwd(1440px)
-    section.form
-      .title
-        margin-bottom: 2rem
-        font-size: 1.6rem
-        position: relative
-        left: 0px
-        border-bottom: 1px solid $gray-005
   +rwd(768px)
     section.form
-      .title
-      .column-1
-        margin-bottom: 1rem
-      .column-2
-        width: 100%
-        & + .column-2
-          margin-left: 0%
+      .btn-box
+        flex-wrap: wrap
+        .btn
+          width: 100%
+          margin-left: 0
       .register-box
         padding: 0
         display: block
