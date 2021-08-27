@@ -157,6 +157,27 @@ export default new Vuex.Store({
           })
       })
     },
+    postEmail(context, data) {
+      const { name, phone, email, content } = data
+      context.commit("SET_LOADING", true)
+      return new Promise((resolve, reject) => {
+        ApiService.post("/contact/send", {
+          name,
+          phone,
+          email,
+          content
+        })
+          .then(() => {
+            context.commit("SET_LOADING", false)
+            resolve()
+          })
+          .catch(({ response }) => {
+            context.commit("SET_LOADING", false)
+            console.log(response)
+            reject()
+          })
+      })
+    },
     getCourseList(context) {
       context.commit("SET_LOADING", true)
       return new Promise((resolve, reject) => {
@@ -184,6 +205,47 @@ export default new Vuex.Store({
             if (data.code == 200) {
               context.commit("SET_COURSE_DETAIL", data.data)
             }
+            resolve()
+          })
+          .catch(({ response }) => {
+            context.commit("SET_LOADING", false)
+            console.log(response)
+            reject()
+          })
+      })
+    },
+    // member
+    postSignup(context, data) {
+      const { name, birthday, account, password, confirmPassword, email } = data
+      context.commit("SET_LOADING", true)
+      return new Promise((resolve, reject) => {
+        ApiService.post("/member/signup", {
+          name,
+          birthday,
+          account,
+          password,
+          confirmPassword,
+          email
+        })
+          .then(() => {
+            context.commit("SET_LOADING", false)
+            resolve()
+          })
+          .catch(({ response }) => {
+            context.commit("SET_LOADING", false)
+            console.log(response)
+            reject()
+          })
+      })
+    },
+    postValidation(context, token) {
+      context.commit("SET_LOADING", true)
+      return new Promise((resolve, reject) => {
+        ApiService.post("/member/validation", {
+          token
+        })
+          .then(() => {
+            context.commit("SET_LOADING", false)
             resolve()
           })
           .catch(({ response }) => {

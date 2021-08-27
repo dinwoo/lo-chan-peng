@@ -2,6 +2,7 @@
 .button-wrapper
   .btn(
     :class="{'right':type == 'right'}"
+    @click="$emit('click')"
   ) {{title}}
 
 </template>
@@ -12,23 +13,17 @@
 // } from "vuex";
 
 export default {
-  name:"Button",
-  components: {
-  },
-  props: ['title','type'],
+  name: "Button",
+  components: {},
+  props: ["title", "type"],
   data() {
-    return {
-    };
+    return {}
   },
-  watch: {
-  },
-  mounted() {
-  },
-  computed: {
-  },
-  methods: {
-  },
-};
+  watch: {},
+  mounted() {},
+  computed: {},
+  methods: {}
+}
 </script>
 
 <style lang="sass" scoped>

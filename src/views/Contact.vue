@@ -9,52 +9,87 @@ article.contact-info
       .column-2
         .input-box
           .input-title 姓名
-          input(type="text")
+          input(type="text" v-model="name")
       .column-2
         .input-box
           .input-title 電話
-          input(type="text")
+          input(type="text" v-model="phone")
     .row
       .column-1
         .input-box
           .input-title 信箱
-          input(type="text")
+          input(type="text" v-model="email")
     .row
       .column-1
         .input-box
-          .input-title 信箱
-          textarea
+          .input-title 內容
+          textarea(v-model="content")
     .btn-box
-      Button(title='送出',type="right")
+      Button(title='送出',type="right" @click="postEmailHandler")
 
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
+import mixins from "@/mixins/index.js"
 
 export default {
-  name: 'Contact',
+  name: "Contact",
   components: {
     Button
   },
+  mixins: [mixins],
   data() {
     return {
+      name: "",
+      phone: "",
+      email: "",
+      content: ""
     }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
-    this.$nextTick(()=>{
-    })
+    this.$nextTick(() => {})
   },
   methods: {
+    ...mapActions(["postEmail"]),
+    postEmailHandler() {
+      if (this.name == "") {
+        alert("請填寫姓名")
+        return false
+      } else if (!this.verifyPhone(this.phone)) {
+        alert("電話錯誤")
+        return false
+      } else if (!this.verifyEmail(this.email)) {
+        alert("Email錯誤")
+        return false
+      } else if (this.content == "") {
+        alert("請填寫內容")
+        return false
+      }
+
+      this.postEmail({
+        name: this.name,
+        phone: this.phone,
+        email: this.email,
+        content: this.content
+      })
+        .then(() => {
+          alert("傳送成功")
+          this.name = ""
+          this.phone = ""
+          this.email = ""
+          this.content = ""
+        })
+        .catch(() => {
+          alert("傳送失敗")
+        })
+    }
   },
-  watch: {
-  },
+  watch: {}
 }
 </script>
 
