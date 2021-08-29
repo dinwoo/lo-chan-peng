@@ -1,44 +1,54 @@
-import Vue from "vue"
-import App from "./App.vue"
-import router from "./router"
-import store from "./store"
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-import VueI18n from "vue-i18n" // 引入 Vue I18n
-import ch from "./lang/ch"
-import en from "./lang/en"
+import VueI18n from "vue-i18n"; // 引入 Vue I18n
+import ch from "./lang/ch";
+import en from "./lang/en";
 
-import mixinMethod from "@/mixins/index.js"
+import VueScrollmagic from "vue-scrollmagic";
 
-import "./plugins/axios"
+import mixinMethod from "@/mixins/index.js";
+
+import "./plugins/axios";
 // mock
-import "./fake-db/index.js"
+import "./fake-db/index.js";
 
-Vue.use(VueI18n)
-Vue.mixin(mixinMethod)
+Vue.use(VueI18n);
+Vue.mixin(mixinMethod);
 // 預設使用的語系
-let locale = "ch"
+let locale = "ch";
 
 // 檢查 localStorage 是否已有保存使用者選用的語系資訊
 if (localStorage.getItem("footmark-lang")) {
-  locale = localStorage.getItem("footmark-lang")
-  store.commit("SET_LANG", locale)
+  locale = localStorage.getItem("footmark-lang");
+  store.commit("SET_LANG", locale);
 } else {
-  store.commit("SET_LANG", locale)
+  store.commit("SET_LANG", locale);
 }
 
 const i18n = new VueI18n({
   locale: locale,
   messages: {
     ch,
-    en
-  }
-})
+    en,
+  },
+});
 
-Vue.config.productionTip = false
+Vue.use(VueScrollmagic);
+Vue.use(VueScrollmagic, {
+  verical: true,
+  globalSceneOptions: {},
+  loglevel: 2,
+  refreshInterval: 100,
+});
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   i18n,
-  render: (h) => h(App)
-}).$mount("#app")
+  render: (h) => h(App),
+}).$mount("#app");

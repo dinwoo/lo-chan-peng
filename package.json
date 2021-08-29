@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "gsap": "^3.7.1",
     "vue": "^2.6.11",
     "vue-cli-plugin-pug": "^1.0.7",
     "vue-i18n": "^8.22.1",
     "vue-router": "^3.2.0",
+    "vue-scrollmagic": "^1.2.0",
     "vue-slick-carousel": "^1.0.6",
     "vue-slide-toggle": "1.1.1",
     "vuejs-paginate": "^2.1.0",

@@ -3,7 +3,7 @@ article.about
   section.banner
     figure.banner-pic
       img(src="@/assets/images/about-banner.jpg")
-  section.intro
+  section.intro#test
     .content
       .title
         | 羅 展鵬
@@ -55,15 +55,14 @@ article.about
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
+import { mapState } from "vuex";
 import { VueSlideToggle } from "vue-slide-toggle";
+import { gsap } from "gsap";
 
 export default {
-  name: 'About',
+  name: "About",
   components: {
-    VueSlideToggle
+    VueSlideToggle,
   },
   data() {
     return {
@@ -73,35 +72,48 @@ export default {
       open4: true,
       open5: true,
       open6: true,
-    }
+    };
   },
   computed: {
     ...mapState(["screenWidth"]),
-    isOpen(){
-      return this.screenWidth>768?true:false
-    }
-  },
-  mounted() {
-    this.$nextTick(()=>{
-      this.setSwitch()
-    })
-  },
-  methods: {
-    setSwitch(){
-      this.open1 = this.isOpen
-      this.open2 = this.isOpen
-      this.open3 = this.isOpen
-      this.open4 = this.isOpen
-      this.open5 = this.isOpen
-      this.open6 = this.isOpen
-    }
-  },
-  watch: {
-    screenWidth() {      
-      this.setSwitch()
+    isOpen() {
+      return this.screenWidth > 768 ? true : false;
     },
   },
-}
+  mounted() {
+    this.$nextTick(() => {
+      this.setSwitch();
+    });
+    gsap.set("#test", {
+      y: 100,
+      opacity: 0,
+    });
+    const scene2 = this.$scrollmagic
+      .scene({
+        triggerElement: "#test",
+      })
+      // Declaration of animation and attaching to element
+      .setTween("#test", {})
+      .addIndicators({ name: "2" });
+
+    this.$scrollmagic.addScene(scene2);
+  },
+  methods: {
+    setSwitch() {
+      this.open1 = this.isOpen;
+      this.open2 = this.isOpen;
+      this.open3 = this.isOpen;
+      this.open4 = this.isOpen;
+      this.open5 = this.isOpen;
+      this.open6 = this.isOpen;
+    },
+  },
+  watch: {
+    screenWidth() {
+      this.setSwitch();
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -212,5 +224,4 @@ article.about
             width: 100%
           .colum-2
             width: 100%
-    
 </style>
