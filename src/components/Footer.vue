@@ -18,9 +18,8 @@ footer
         img(src="@/assets/images/yt-icon.png")
       figure.icon
         img(src="@/assets/images/telegram-icon.png")
-      router-link(:to="{name:'Member'}")
-        figure.icon
-          img(src="@/assets/images/member-icon.png")
+      figure.icon(@click="goMember()")
+        img(src="@/assets/images/member-icon.png")
   .copyright
     p Copyright © 2021  LO CHAN PENG All righta RENU
     p Just Design
@@ -28,8 +27,19 @@ footer
 
 <script>
 export default {
-  name: "Footer"
-}
+  name: "Footer",
+  methods: {
+    goMember() {
+      if (localStorage.getItem("account")) {
+        if (this.$route.name == "Member") return;
+        this.$router.push({ name: "Member" });
+      } else {
+        if (this.$route.name == "Signin") return;
+        this.$router.push({ name: "Signin" });
+      }
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>

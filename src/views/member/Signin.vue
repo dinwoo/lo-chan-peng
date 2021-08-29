@@ -68,7 +68,9 @@ export default {
         account: this.account,
         password: this.password,
       })
-        .then(() => {
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("account", res.data.account);
           this.$router.push({ name: "Member" });
         })
         .catch(() => {

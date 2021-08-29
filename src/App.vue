@@ -4,26 +4,26 @@
 </template>
 
 <script>
-import HomeLayout from "@/layouts/HomeLayout"
-import DefaultLayout from "@/layouts/DefaultLayout"
+import HomeLayout from "@/layouts/HomeLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
   components: {
     HomeLayout,
-    DefaultLayout
+    DefaultLayout,
   },
   data() {
-    return {}
+    return {};
   },
   mounted() {
     window.onresize = () => {
       return (() => {
-        window.screenWidth = document.body.clientWidth
-        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth)
+        window.screenWidth = document.body.clientWidth;
+        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth);
         // that.screenWidth = window.screenWidth;
-      })()
-    }
-  }
-}
+      })();
+    };
+  },
+};
 </script>
 
 <style lang="sass">
@@ -54,4 +54,18 @@ a
 
 html
   background-color: #000
+
+ul.paginate-box
+  width: 100%
+  margin: 2rem 0
+  list-style: none
+  display: flex
+  justify-content: center
+  li
+    margin: 0 .5rem
+    a
+      color: $gray-005
+    &.active
+      a
+        color: $gray-004
 </style>

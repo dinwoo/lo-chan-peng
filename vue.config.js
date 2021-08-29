@@ -1,15 +1,15 @@
 // const webpack = require('webpack');
-process.env.VUE_APP_VERSION = require("./package.json").version
-const path = require("path")
+process.env.VUE_APP_VERSION = require("./package.json").version;
+const path = require("path");
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
   runtimeCompiler: true,
   // 為了鑲嵌進laravel專案而做的設定
-  publicPath: "/",
+  publicPath: "/lo-chan-peng",
   devServer: {
     /* https option */
     // open: process.platform === 'darwin',
@@ -22,6 +22,6 @@ module.exports = {
     config.resolve.alias
       .set("@", resolve("src"))
       .set("@assets", resolve("src/assets"))
-      .set("@components", resolve("src/components"))
-  }
-}
+      .set("@components", resolve("src/components"));
+  },
+};

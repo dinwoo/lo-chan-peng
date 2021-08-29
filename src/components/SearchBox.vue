@@ -1,8 +1,10 @@
 <template lang="pug">
 .search-box-wrapper
   .search-box
-    input(type="text")
-    figure.search-icon
+    input(type="text" v-model="txt")
+    figure.search-icon(
+      @click="$emit('searchHandler',txt)"
+    )
       img(src="@/assets/images/search-icon.png")
 </template>
 
@@ -11,23 +13,22 @@
 //   mapState
 // } from "vuex";
 export default {
-  name:"SearchBox",
-  components: {
-    
+  name: "SearchBox",
+  components: {},
+  props: {
+    searchTxt: String,
   },
-  props: [],
   data() {
-    return {
-    };
+    return { txt: "" };
   },
   watch: {
+    searchTxt(val) {
+      this.txt = val;
+    },
   },
-  mounted() {
-  },
-  computed: {
-  },
-  methods: {
-  },
+  mounted() {},
+  computed: {},
+  methods: {},
 };
 </script>
 

@@ -1,10 +1,22 @@
 <template lang="pug">
-article.course(v-if="!isLoading")
+article.course
   section.banner
     figure.course-icon
       img(src="@/assets/images/course-icon.png")
   section.main
-    CardList(:cardData="course.list" routeName="CourseInfo")
+    SearchBox(
+      :searchTxt="searchTxt"
+      @searchHandler="searchHandler"
+    )
+    CardList(v-if="!isLoading" :cardData="course.list" routeName="CourseInfo")
+    paginate(
+      :page-count="course.allPages||0"
+      :click-handler="pageHandler"
+      :prev-text="'Prev'"
+      :next-text="'Next'"
+      :container-class="'paginate-box'"
+      :hide-prev-next="true"
+    )
   section.qa-part
     figure.qa-icon
       img(src="@/assets/images/qa-icon.png")
@@ -23,35 +35,57 @@ import { mapState, mapActions } from "vuex";
 
 import CardList from "@/components/CardList";
 import { VueSlideToggle } from "vue-slide-toggle";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
 
 export default {
   name: "Course",
   components: {
     CardList,
     VueSlideToggle,
+    SearchBox,
+    Paginate,
   },
   data() {
     return {
       open: false,
+      pageSize: 10,
+      searchTxt: "",
     };
   },
   computed: {
-    ...mapState(["isLoading", "course"]),
+    ...mapState(["isLoading", "lang", "course"]),
   },
   mounted() {
     this.$nextTick(() => {});
   },
   created() {
-    this.getCourseList()
-      .then(() => {
-        console.log("success");
-      })
-      .catch(() => {
-        console.log("fail");
-      });
+    this.getCourseList();
   },
   methods: {
-    ...mapActions(["getCourseList"]),
+    ...mapActions(["getCourseListApi"]),
+    getCourseList(select, currentPage) {
+      this.getCourseListApi({
+        select,
+        pageSize: this.pageSize,
+        currentPage,
+        channel: this.lang,
+      })
+        .then(() => {
+          console.log("success");
+        })
+        .catch(() => {
+          console.log("fail");
+        });
+    },
+    searchHandler(txt) {
+      this.searchTxt = txt;
+      this.getCourseList(txt, 1);
+    },
+    pageHandler(pageNum) {
+      this.getCourseList(this.searchTxt, pageNum);
+      console.log(pageNum);
+    },
   },
   watch: {},
 };

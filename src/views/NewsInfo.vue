@@ -29,13 +29,16 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["isLoading", "news"]),
+    ...mapState(["isLoading", "lang", "news"]),
   },
   mounted() {
     this.$nextTick(() => {});
   },
   created() {
-    this.getNewsDetail()
+    this.getNewsDetail({
+      id: this.$route.params.id,
+      channel: this.lang,
+    })
       .then(() => {
         console.log("success");
       })

@@ -42,6 +42,9 @@ export default new Vuex.Store({
     },
     SET_NEWS_LIST(state, data) {
       state.news.list = data.news;
+      state.news.allPages = data.allPages;
+      state.news.currentPage = data.currentPage;
+      state.news.amount = data.amount;
     },
     SET_NEWS_DETAIL(state, data) {
       state.news.detail = data;
@@ -51,9 +54,15 @@ export default new Vuex.Store({
     },
     SET_WORK_LIST(state, data) {
       state.work.list = data.works;
+      state.work.allPages = data.allPages;
+      state.work.currentPage = data.currentPage;
+      state.work.amount = data.amount;
     },
     SET_COURSE_LIST(state, data) {
       state.course.list = data.courses;
+      state.course.allPages = data.allPages;
+      state.course.currentPage = data.currentPage;
+      state.course.amount = data.amount;
     },
     SET_COURSE_DETAIL(state, data) {
       state.course.detail = data;
@@ -81,10 +90,17 @@ export default new Vuex.Store({
           });
       });
     },
-    getNewsList(context) {
+    getNewsListApi(context, data) {
+      console.log(data);
+      const { select, pageSize, currentPage, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/news/list", {})
+        ApiService.post("/news/list", {
+          select,
+          pageSize,
+          currentPage,
+          channel,
+        })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -99,10 +115,11 @@ export default new Vuex.Store({
           });
       });
     },
-    getNewsDetail(context) {
+    getNewsDetail(context, data) {
+      const { id, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/news/detail", {})
+        ApiService.post("/news/detail", { id, channel })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -135,7 +152,7 @@ export default new Vuex.Store({
           });
       });
     },
-    getWorkList(context, data) {
+    getWorkListApi(context, data) {
       console.log(data);
       const { year, select, pageSize, currentPage, channel } = data;
       context.commit("SET_LOADING", true);
@@ -182,10 +199,17 @@ export default new Vuex.Store({
           });
       });
     },
-    getCourseList(context) {
+    getCourseListApi(context, data) {
+      console.log(data);
+      const { select, pageSize, currentPage, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/course/list", {})
+        ApiService.post("/course/list", {
+          select,
+          pageSize,
+          currentPage,
+          channel,
+        })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -311,9 +335,9 @@ export default new Vuex.Store({
           account,
           password,
         })
-          .then(() => {
+          .then(({ data }) => {
             context.commit("SET_LOADING", false);
-            resolve();
+            resolve(data);
           })
           .catch(({ response }) => {
             context.commit("SET_LOADING", false);

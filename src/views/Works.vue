@@ -4,61 +4,110 @@ article.works
     figure.works-banner
       img(src="@/assets/images/works-banner.png")
   section.main
-    SearchBox
-    .wrapper
+    SearchBox(
+      :searchTxt="searchTxt"
+      @searchHandler="searchHandler"
+    )
+    .wrapper(v-if="!isLoading")
       .year-mobile 2018
       .years-list
         .year(
           v-for="(year,index) in work.years" :key="index"
+          @click="searchYear(year)"
         ) {{year}}
       .works-box
         .work-item(v-for="work in work.list" :key="work.id")
           .work-pic
           .work-name {{work.name}}
           .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
+        paginate(
+          v-model="pageNum"
+          :page-count="work.allPages||0"
+          :click-handler="pageHandler"
+          :prev-text="'Prev'"
+          :next-text="'Next'"
+          :container-class="'paginate-box'"
+          :hide-prev-next="true"
+        )
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import SearchBox from "@/components/SearchBox"
+import { mapState, mapActions } from "vuex";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
 
 export default {
   name: "Works",
   components: {
-    SearchBox
+    SearchBox,
+    Paginate,
   },
   data() {
-    return {}
+    return {
+      pageSize: 10,
+      pageNum: 1,
+      nowYear: "",
+      searchTxt: "",
+    };
   },
   computed: {
-    ...mapState(["isLoading", "lang", "work"])
+    ...mapState(["isLoading", "lang", "work"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   created() {
     this.getWorkYears()
       .then(() => {
-        console.log("getWorkYears success")
-        return this.getWorkList({
-          year: this.work.years[0],
-          pageSize: 10,
-          currentPage: 1,
-          channel: this.lang
-        })
-      })
-      .then(() => {
-        console.log("getWorkList success")
+        console.log("getWorkYears success");
+        this.nowYear = this.work.years[0];
+        this.apiList();
       })
       .catch(() => {
-        console.log("fail")
-      })
+        console.log("fail");
+      });
   },
   methods: {
-    ...mapActions(["getWorkYears", "getWorkList"])
+    ...mapActions(["getWorkYears", "getWorkListApi"]),
+    getWorkList(year, select, currentPage) {
+      this.getWorkListApi({
+        year,
+        select,
+        pageSize: this.pageSize,
+        currentPage,
+        channel: this.lang,
+      })
+        .then(() => {
+          console.log("getWorkListApi success");
+        })
+        .catch(() => {
+          console.log("fail");
+        });
+    },
+    apiList() {
+      this.getWorkList(this.nowYear, this.searchTxt, this.pageNum);
+    },
+    searchYear(year) {
+      console.log(year);
+      this.nowYear = year;
+      this.searchTxt = "";
+      this.pageNum = 1;
+      this.apiList();
+    },
+    searchHandler(txt) {
+      this.searchTxt = txt;
+      this.nowYear = "";
+      this.pageNum = 1;
+      this.apiList();
+    },
+    pageHandler(pageNum) {
+      console.log(pageNum);
+      this.pageNum = pageNum;
+      this.apiList();
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>
