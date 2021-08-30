@@ -6,63 +6,88 @@ article.about
   section.intro#test
     .content
       .title
-        | 羅 展鵬
+        | {{$t(`About.name`)}}
         .slide-switch(@click="open1=!open1") {{open1?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open1")
           .info.colum-1.mb.dark
-            | 1983 生於臺灣 
+            | {{$t(`About.birth`)}}
             br
-            | 主要創作媒材|油畫、水墨、複合媒材
-          .info.colum-2
-            | 早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。2011年起以 駐村藝術家的身份，參與多項國際大型藝術交流計劃，如:德國柏林(2011)和美國洛杉 磯ESMoA當代美術館(El Segundo Museum of Arts)(2013)。近年來參與的主要展覽與 博覽會，如:《2020 「被歷史改變的人與改變歷史的人」，台灣》、 《肖像2020聯展(Portraiture 2020，美國》、《墨嵐2017》，臺北以及
-            br
-            | 倫 敦、東京、大阪、釜山、首爾、莫斯科、新加坡等地國際藝術博覽會。
-          .info.colum-2
-            | 作品被典藏於美國洛 杉磯ESMoA當代美術館、國立臺灣美術館、奇美博物館、聯邦文教基金會以及國內外諸多私人收藏家。 
-            br
-            br
-            | 羅展鵬的作品以人物肖像畫為主要主題，創作媒材涵蓋油畫與水墨。在作品中，羅展鵬時常探究時間、歷史與生死虛實的議題。透過具象且細膩的人物肖像畫，以及如折舊、破損、燃燒、污漬等的痕跡，帶給觀者強烈的視覺體驗，藉此將時間、歷史等這類抽象的概念，轉化為可見的要素並轉化為其獨特的藝術語彙。
+            | {{$t(`About.creativeMedia`)}}
+          .info.colum-2(v-html="$t(`About.info`)")
   section.intro
     .content
       .title
-        | 簡歷
+        p(v-html="$t(`About.title1`)")
         .slide-switch(@click="open2=!open2") {{open2?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open2")
           .info.colum-2.mb
-            .sub-title 學歷
-            | 藝術學碩士|國立臺灣師範大學美術系⻄畫組
-            br
-            | 藝術學學士|中國文化大學美術系
+            .sub-title {{$t(`About.educationTitle`)}}
+            p(v-html="$t(`About.education`)")
           .info.colum-2.mb
-            .sub-title 現職
-            | 職業藝術家 
-            br
-            | 助理教授，私立玄奘大學，臺灣
+            .sub-title {{$t(`About.currentJobTitle`)}}
+            p(v-html="$t(`About.currentJob`)")
           .info.colum-1
-            .sub-title 經歷
-            .year
-              p 2013
+            .sub-title {{$t(`About.experience.title`)}}
+            .year(v-for="yearList in $t(`About.experience.list`)" :key="yearList.year")
+              p {{yearList.year}}
               ul
-                li 駐村美國洛杉磯ESMoA當代美術館(El Segundo Museum of Arts)
-            .year
-              p 2011
+                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+  section.intro
+    .content
+      .title
+        p(v-html="$t(`About.title2`)")
+        .slide-switch(@click="open3=!open3") {{open3?"－":"＋"}}
+      .intro-box
+        VueSlideToggle(:open="open3")
+          .info.colum-1.mb
+            .sub-title {{$t(`About.soloExhibitions.title`)}}
+            .year(v-for="yearList in $t(`About.soloExhibitions.list`)" :key="yearList.year")
+              p {{yearList.year}}
               ul
-                li 駐村德國柏林
-            br
-            |     
+                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+          .info.colum-1mb
+            .sub-title {{$t(`About.groupExhibitions.title`)}}
+            .year(v-for="yearList in $t(`About.groupExhibitions.list`)" :key="yearList.year")
+              p {{yearList.year}}
+              ul
+                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+  section.intro
+    .content
+      .title
+        p(v-html="$t(`About.title3`)")
+        .slide-switch(@click="open4=!open4") {{open4?"－":"＋"}}
+      .intro-box
+        VueSlideToggle(:open="open4")
+          .info.colum-1.mb
+            .year(v-for="yearList in $t(`About.awards.list`)" :key="yearList.year")
+              p {{yearList.year}}
+              ul
+                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+  section.intro
+    .content
+      .title
+        p(v-html="$t(`About.title4`)")
+        .slide-switch(@click="open5=!open5") {{open5?"－":"＋"}}
+      .intro-box
+        VueSlideToggle(:open="open5")
+          .info.colum-1
+            .year(v-for="yearList in $t(`About.collections.list`)" :key="yearList.year")
+              p {{yearList.year}}
+              ul
+                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { VueSlideToggle } from "vue-slide-toggle";
-import { gsap } from "gsap";
+import { mapState } from "vuex"
+import { VueSlideToggle } from "vue-slide-toggle"
+// import { gsap } from "gsap"
 
 export default {
   name: "About",
   components: {
-    VueSlideToggle,
+    VueSlideToggle
   },
   data() {
     return {
@@ -70,50 +95,48 @@ export default {
       open2: true,
       open3: true,
       open4: true,
-      open5: true,
-      open6: true,
-    };
+      open5: true
+    }
   },
   computed: {
     ...mapState(["screenWidth"]),
     isOpen() {
-      return this.screenWidth > 768 ? true : false;
-    },
+      return this.screenWidth > 768 ? true : false
+    }
   },
   mounted() {
     this.$nextTick(() => {
-      this.setSwitch();
-    });
-    gsap.set("#test", {
-      y: 100,
-      opacity: 0,
-    });
+      this.setSwitch()
+    })
+    // gsap.set("#test", {
+    //   y: 100,
+    //   opacity: 0,
+    // });
     const scene2 = this.$scrollmagic
       .scene({
-        triggerElement: "#test",
+        triggerElement: "#test"
       })
       // Declaration of animation and attaching to element
       .setTween("#test", {})
-      .addIndicators({ name: "2" });
+      .addIndicators({ name: "2" })
 
-    this.$scrollmagic.addScene(scene2);
+    this.$scrollmagic.addScene(scene2)
   },
   methods: {
     setSwitch() {
-      this.open1 = this.isOpen;
-      this.open2 = this.isOpen;
-      this.open3 = this.isOpen;
-      this.open4 = this.isOpen;
-      this.open5 = this.isOpen;
-      this.open6 = this.isOpen;
-    },
+      this.open1 = this.isOpen
+      this.open2 = this.isOpen
+      this.open3 = this.isOpen
+      this.open4 = this.isOpen
+      this.open5 = this.isOpen
+    }
   },
   watch: {
     screenWidth() {
-      this.setSwitch();
-    },
-  },
-};
+      this.setSwitch()
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -173,7 +196,9 @@ article.about
         .colum-1
           width: 100%
         .colum-2
-          width: 50%
+          width: 100%
+          column-count: 2
+          column-gap: 30px
         .dark
           color: $gray-004
         .mb

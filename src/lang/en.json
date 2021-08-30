@@ -6,5 +6,227 @@
     "contact": "Contact",
     "course": "Course",
     "login": "Login"
+  },
+  "About": {
+    "name": "Lo Chan Peng",
+    "birth": "1989 Born in Taiwan ",
+    "creativeMedia": "Specialization | Oil Painting, ink and mix media",
+    "info": "早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。2011年起以 駐村藝術家的身份，參與多項國際大型藝術交流計劃，如:德國柏林(2011)和美國洛杉 磯ESMoA當代美術館(El Segundo Museum of Arts)(2013)。近年來參與的主要展覽與 博覽會，如:《2020 「被歷史改變的人與改變歷史的人」，台灣》、 《肖像2020聯展(Portraiture 2020，美國》、《墨嵐2017》，臺北以及倫 敦、東京、大阪、釜山、首爾、莫斯科、新加坡等地國際藝術博覽會。作品被典藏於美國洛 杉磯ESMoA當代美術館、國立臺灣美術館、奇美博物館、聯邦文教基金會以及國內外諸多私人收藏家。<br><br>羅展鵬的作品以人物肖像畫為主要主題，創作媒材涵蓋油畫與水墨。在作品中，羅展鵬時常探究時間、歷史與生死虛實的議題。透過具象且細膩的人物肖像畫，以及如折舊、破損、燃燒、污漬等的痕跡，帶給觀者強烈的視覺體驗，藉此將時間、歷史等這類抽象的概念，轉化為可見的要素並轉化為其獨特的藝術語彙。",
+    "title1": "簡歷",
+    "educationTitle": "Education",
+    "education": "MA, Department of Fine Arts, National Taiwan Normal University, Taiwan<br>BA, Department of Fin Arts, Chinese Culture University, Taiwan",
+    "currentJobTitle": "Current Occupations",
+    "currentJob": "Professional Artist<br>Assistant Professor, Department of Art of Creative Design, Hsuan Chuang University, Taiwan",
+    "experience": {
+      "title": "Artist Residency",
+      "list": [
+        {
+          "year": "2013",
+          "items": [
+            "Artist Residency in ESMoA (El Segundo Museum of Arts), Los Angeles, USA."
+          ]
+        },
+        {
+          "year": "2011",
+          "items": ["Artist Residency in Berlin, Germany"]
+        }
+      ]
+    },
+    "title2": "展覽/<br>藝博會",
+    "soloExhibitions": {
+      "title": "Solo Exhibitions",
+      "list": [
+        {
+          "year": "2020",
+          "items": [
+            "Historic Movers and Shakers, and the Doomed, Daguan Gallery, Taipei, Taiwan"
+          ]
+        },
+        { "year": "2017", "items": ["Misty, Daguan Gallery, Taipei"] },
+        {
+          "year": "2014",
+          "items": ["The Spiritual Portrait, AKI Gallery, Taipei"]
+        },
+        {
+          "year": "2013",
+          "items": ["The Edge of Darkness, AKI Gallery, Taipei"]
+        },
+        {
+          "year": "2010",
+          "items": [
+            "Art HK10: HONG KONG INTERNATIONAL ART FAIR 2010, Hong Kong"
+          ]
+        },
+        {
+          "year": "2009",
+          "items": ["Strawberry Generation Studio, AKI Gallery, Taipei"]
+        }
+      ]
+    },
+    "groupExhibitions": {
+      "title": "聯展/藝博會",
+      "list": [
+        {
+          "year": "2021",
+          "items": [
+            "ARC 沙龍展 ，西班牙現代藝術博物館 ，巴賽隆納，西班牙",
+            "ARC 沙龍展 ，蘇富比紐約 ，美國"
+          ]
+        },
+        {
+          "year": "2020",
+          "items": ["「肖像畫 2020」，阿卡迪亞畫廊，洛杉磯，美國"]
+        },
+        {
+          "year": "2019",
+          "items": [
+            "「Mondo Tondo」，阿卡迪亞畫廊，洛杉磯，美國",
+            "「奇麗之美 - 台灣精微寫實藝術大展」，奇美博物館，臺南，臺灣",
+            "「台灣禮讚」，台南市立美術館，臺南，臺灣"
+          ]
+        },
+        {
+          "year": "2018",
+          "items": ["ART TAIPEI 台北國際藝術博覽會，臺北，臺灣"]
+        },
+        {
+          "year": "2017",
+          "items": [
+            "「香港水墨藝博會」，香港會議展覽中心，香港",
+            "港都國際藝術博覽會，高雄，臺灣",
+            "ART FAIR TOKYO 2016 東京藝術博覽會，東京，日本",
+            "「存在的情境─東亞當代寫實藝術展」，毓繡美術館，南投，臺灣"
+          ]
+        },
+        {
+          "year": "2015",
+          "items": [
+            "ART TAIPEI 2015 臺北國際藝術博覽會，臺北，臺灣",
+            "ART 15 LONDON 倫敦藝術博覽會，倫敦，英國",
+            "ART FAIR TOKYO 2015 東京藝術博覽會，東京，日本"
+          ]
+        },
+        {
+          "year": "2014",
+          "items": [
+            "ART TAIPEI 2014 臺北國際藝術博覽會，臺北，臺灣",
+            "「界：臺灣當代藝術展1995-2013」，康乃爾大學強生美術館，伊薩卡，美國",
+            "ART 14 LONDON 倫敦藝術博覽會，倫敦，英國"
+          ]
+        },
+        {
+          "year": "2013",
+          "items": [
+            "ART TAIPEI 2013 臺北國際藝術博覽會，臺北，臺灣",
+            "「EXPERIENCE03:TRUTH」，ESMoA美術館，洛杉磯，美國"
+          ]
+        },
+        {
+          "year": "2012",
+          "items": [
+            "ART TAIPEI 2012 臺北國際藝術博覽會，臺北，臺灣",
+            "ART FAIR TOKYO 2012 東京藝術博覽會，東京，日本",
+            "「亞洲具像─四國聯展」，YOSHIAKI INOUE Gallery，大阪，日本",
+            "Galleryseoul12首爾頂級藝博，首爾，韓國",
+            "「YES Taiwan IV-Young Emerging Stars Taiwan」，也趣藝廊，臺北，臺灣",
+            "Mancy’s Tokyo Art Nights，東京，日本"
+          ]
+        },
+        {
+          "year": "2011",
+          "items": [
+            "「白日夢」，LOWER Akihabara Gallery，東京，日本",
+            "「James Reid printshop」，Artlab21 studio，波昂，德國",
+            "ART TAIPEI 2011 臺北國際藝術博覽會，臺北，臺灣",
+            "「複感‧動觀」2011海峽兩岸當代藝術展，中國美術館，北京，中國",
+            "Art Stage 新加坡藝術博覽會，Mariner Bay Sands，新加坡"
+          ]
+        },
+        {
+          "year": "2010",
+          "items": [
+            "「臺灣報到」2010臺灣雙年展，國立臺灣美術館，臺中，臺灣",
+            "ShContemporary 10 上海當代藝術博覽會，上海，中國",
+            "「汽球人間」，Lower Akihabara Gallery，東京，日本",
+            "ART TAIPEI 2010臺北國際藝術博覽會，臺北，臺灣",
+            "「後青春」，國立臺灣美術館，臺中，臺灣 / 關渡美術館，臺北，臺灣",
+            "Mancy’s Tokyo Art Nights ，東京，日本"
+          ]
+        },
+        {
+          "year": "2009",
+          "items": [
+            "ShContemporary 上海當代藝術博覽會，上海，中國",
+            "「YOUNG ART TAIPEI」臺北國際當代藝術博覽會，臺北，臺灣",
+            "「似曾相似的小宇宙」SMALL WORLD，E105藝術設計中心，波昂，德國 "
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "ART FAIR 21當代藝術博覽會，科隆，德國",
+            "「碩果與新芽」奇美藝術獎20年成果展，新光三越新天地，臺南，臺灣 / 國立臺灣藝術大學，臺北，臺灣",
+            "「ART TAIPEI 2008」臺北國際藝術博覽會，臺北，臺灣",
+            "「高雄美術獎」，高雄市立美術館，高雄，臺灣"
+          ]
+        }
+      ]
+    },
+    "title3": "獲獎",
+    "awards": {
+      "list": [
+        {
+          "year": "2020",
+          "items": [
+            "ARC收藏獎|藝術復興中心，美國",
+            "肖像畫類榮譽獎|藝術復興中心，美國",
+            "ARC 最佳人氣獎|藝術復興中心，美國",
+            "美國肖像畫學會第二十二屆國際年度肖像畫大賽 精選五十"
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "高雄美術獎 首獎",
+            "溫世仁百合獎 美術類水彩寫生比賽金獎",
+            "高雄美術獎 得主",
+            "國立美術館 青年藝術典藏計畫"
+          ]
+        },
+        { "year": "2007", "items": ["奇美人材培訓計畫獎"] },
+        { "year": "2005", "items": ["奇美人才培訓獎"] },
+        {
+          "year": "2004",
+          "items": ["全國青年寫生比賽 大專組第一名 ", "聯邦新人獎 首獎"]
+        },
+        {
+          "year": "2003",
+          "items": [
+            "光華獅子盃寫生 大專社會組金獅獎(第一名)",
+            "中國文化大學 美術系系展第一名另得校長獎"
+          ]
+        }
+      ]
+    },
+    "title4": "典藏",
+    "collections": {
+      "list": [
+        {
+          "year": "",
+          "items": [
+            "美國洛杉磯ESMoA當代美術館，洛杉磯，美國",
+            "國立臺灣美術館，臺中，臺灣",
+            "奇美博物館，臺南，臺灣",
+            "警察專科學校，臺北，臺灣",
+            "行天宮文化基金會，臺北，臺灣",
+            "桃園縣文化局，桃園，臺灣",
+            "國父紀念館，臺北，臺灣",
+            "中和庄文史研究協會，臺北，臺灣",
+            "聯邦文教基金會，臺北，臺灣",
+            "光華獅子會，臺北，臺灣"
+          ]
+        }
+      ]
+    }
   }
 }

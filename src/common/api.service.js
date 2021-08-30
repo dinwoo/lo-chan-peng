@@ -32,8 +32,9 @@ const ApiService = {
     return Vue.axios.put(`${resource}`, params)
   },
 
-  delete(resource) {
-    return Vue.axios.delete(resource)
+  delete(resource, slug = "", params) {
+    const route = slug ? `${resource}/${slug}` : `${resource}`
+    return Vue.axios.delete(route, { params: params })
   }
 }
 

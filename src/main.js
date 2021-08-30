@@ -17,6 +17,10 @@ import "./fake-db/index.js";
 
 Vue.use(VueI18n);
 Vue.mixin(mixinMethod);
+router.afterEach(() => {
+  window.scrollTo(0, 0) //切换路由之后滚动条始终在最顶部
+})
+
 // 預設使用的語系
 let locale = "ch";
 
