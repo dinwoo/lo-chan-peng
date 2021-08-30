@@ -14,7 +14,7 @@ article.about
             | {{$t(`About.birth`)}}
             br
             | {{$t(`About.creativeMedia`)}}
-          .info.colum-2(v-html="$t(`About.info`)")
+          .info.colum-1.separate(v-html="$t(`About.info`)")
   section.intro
     .content
       .title
@@ -49,10 +49,11 @@ article.about
                 li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
           .info.colum-1mb
             .sub-title {{$t(`About.groupExhibitions.title`)}}
-            .year(v-for="yearList in $t(`About.groupExhibitions.list`)" :key="yearList.year")
-              p {{yearList.year}}
-              ul
-                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+            .separate
+              .year(v-for="yearList in $t(`About.groupExhibitions.list`)" :key="yearList.year")
+                p {{yearList.year}}
+                ul
+                  li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
   section.intro
     .content
       .title
@@ -61,10 +62,11 @@ article.about
       .intro-box
         VueSlideToggle(:open="open4")
           .info.colum-1.mb
-            .year(v-for="yearList in $t(`About.awards.list`)" :key="yearList.year")
-              p {{yearList.year}}
-              ul
-                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+            .separate
+              .year(v-for="yearList in $t(`About.awards.list`)" :key="yearList.year")
+                p {{yearList.year}}
+                ul
+                  li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
   section.intro
     .content
       .title
@@ -75,19 +77,19 @@ article.about
           .info.colum-1
             .year(v-for="yearList in $t(`About.collections.list`)" :key="yearList.year")
               p {{yearList.year}}
-              ul
+              ul.separate
                 li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
 </template>
 
 <script>
-import { mapState } from "vuex"
-import { VueSlideToggle } from "vue-slide-toggle"
+import { mapState } from "vuex";
+import { VueSlideToggle } from "vue-slide-toggle";
 // import { gsap } from "gsap"
 
 export default {
   name: "About",
   components: {
-    VueSlideToggle
+    VueSlideToggle,
   },
   data() {
     return {
@@ -95,48 +97,48 @@ export default {
       open2: true,
       open3: true,
       open4: true,
-      open5: true
-    }
+      open5: true,
+    };
   },
   computed: {
     ...mapState(["screenWidth"]),
     isOpen() {
-      return this.screenWidth > 768 ? true : false
-    }
+      return this.screenWidth > 768 ? true : false;
+    },
   },
   mounted() {
     this.$nextTick(() => {
-      this.setSwitch()
-    })
+      this.setSwitch();
+    });
     // gsap.set("#test", {
     //   y: 100,
     //   opacity: 0,
     // });
     const scene2 = this.$scrollmagic
       .scene({
-        triggerElement: "#test"
+        triggerElement: "#test",
       })
       // Declaration of animation and attaching to element
       .setTween("#test", {})
-      .addIndicators({ name: "2" })
+      .addIndicators({ name: "2" });
 
-    this.$scrollmagic.addScene(scene2)
+    this.$scrollmagic.addScene(scene2);
   },
   methods: {
     setSwitch() {
-      this.open1 = this.isOpen
-      this.open2 = this.isOpen
-      this.open3 = this.isOpen
-      this.open4 = this.isOpen
-      this.open5 = this.isOpen
-    }
+      this.open1 = this.isOpen;
+      this.open2 = this.isOpen;
+      this.open3 = this.isOpen;
+      this.open4 = this.isOpen;
+      this.open5 = this.isOpen;
+    },
   },
   watch: {
     screenWidth() {
-      this.setSwitch()
-    }
-  }
-}
+      this.setSwitch();
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -196,13 +198,14 @@ article.about
         .colum-1
           width: 100%
         .colum-2
-          width: 100%
-          column-count: 2
-          column-gap: 30px
+          width: 50%
         .dark
           color: $gray-004
         .mb
           margin-bottom: 60px
+        .separate
+          column-count: 2
+          column-gap: 30px
   +rwd(768px)
     section.banner
       figure.banner-pic
@@ -249,4 +252,6 @@ article.about
             width: 100%
           .colum-2
             width: 100%
+          .separate
+            column-count: 1
 </style>

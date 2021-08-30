@@ -16,7 +16,7 @@ article.works
           @click="searchYear(year)"
         ) {{year}}
       .works-box
-        .work-item(v-for="work in work.list" :key="work.id")
+        .work-item(v-for="work in work.list" :key="work.id" @click="showWork(work)")
           .work-pic
           .work-name {{work.name}}
           .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
@@ -29,6 +29,13 @@ article.works
           :container-class="'paginate-box'"
           :hide-prev-next="true"
         )
+  section.popup(v-if="isShowPopup")
+    .close(@click="isShowPopup=false")
+    .wrapper
+      .work-pic
+      .work-name {{popupWork.name}}
+      .work-info {{popupWork.type}}  {{popupWork.width}} x {{popupWork.height}} {{popupWork.unit}}  {{popupWork.year}}
+      
 </template>
 
 <script>
@@ -48,6 +55,16 @@ export default {
       pageNum: 1,
       nowYear: "",
       searchTxt: "",
+      isShowPopup: false,
+      popupWork: {
+        name: "",
+        img: "",
+        type: "",
+        width: null,
+        height: null,
+        unit: "",
+        year: "",
+      },
     };
   },
   computed: {
@@ -104,6 +121,10 @@ export default {
       console.log(pageNum);
       this.pageNum = pageNum;
       this.apiList();
+    },
+    showWork(work) {
+      this.isShowPopup = true;
+      this.popupWork = work;
     },
   },
   watch: {},
@@ -174,6 +195,7 @@ article.works
           display: inline-block
           vertical-align: top
           text-align: center
+          cursor: pointer
           .work-pic
             width: 100%
             padding-bottom: 100%
@@ -190,6 +212,55 @@ article.works
             font-size: 1rem
             line-height: 1.5
             color: $gray-005
+  section.popup
+    width: 100%
+    height: 100%
+    background-color: rgba(#000,.9)
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 101
+    .close
+      display: block
+      width: 3rem
+      height: 3rem
+      transform: rotate(-45deg)
+      cursor: pointer
+      position: absolute
+      top: 2rem
+      right: 2rem
+      &:before,&:after
+        content: ''
+        display: block
+        background-color: #fff
+        +pstc0
+      &:before
+        width: 100%
+        height: 2px
+      &:after
+        width: 2px
+        height: 100%
+    .wrapper
+      width: 80vh
+      max-width: 90vw
+      text-align: center
+      +pstc5
+      .work-pic
+        width: 100%
+        padding-bottom: 100%
+        margin-bottom: 1.5rem
+        background-image: url('../assets/images/works-example.png')
+        background-size: contain
+        background-position: center center
+        background-repeat: no-repeat
+      .work-name
+        font-size: 1.4rem
+        line-height: 1.5
+        color: $gray-004
+      .work-info
+        font-size: 1rem
+        line-height: 1.5
+        color: $gray-005
   +rwd(768px)
     section.banner
       .works-banner

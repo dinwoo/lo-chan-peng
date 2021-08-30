@@ -18,11 +18,11 @@ import "./fake-db/index.js";
 Vue.use(VueI18n);
 Vue.mixin(mixinMethod);
 router.afterEach(() => {
-  window.scrollTo(0, 0) //切换路由之后滚动条始终在最顶部
-})
+  window.scrollTo(0, 0); //切换路由之后滚动条始终在最顶部
+});
 
 // 預設使用的語系
-let locale = "ch";
+let locale = "en";
 
 // 檢查 localStorage 是否已有保存使用者選用的語系資訊
 if (localStorage.getItem("footmark-lang")) {
