@@ -1,13 +1,13 @@
 <template lang="pug">
 .card-list-wrapper
-  router-link.news-item(
+  router-link.card-item(
     v-for="card in cardData" :key="card.id"
     :to="{name:routeName,params:{id:card.id}}"
   )
     .date {{card.dateTime}}
-    .news-pic(style="")
-    .news-title {{card.title}}
-    .news-description {{card.description}}
+    .card-pic(style="")
+    .card-title {{card.title}}
+    .card-description {{card.description}}
 
 </template>
 
@@ -15,27 +15,60 @@
 // import {
 //   mapState
 // } from "vuex";
+import { TweenMax, gsap } from "gsap"
+
 export default {
-  name:"CardList",
-  components: {
-  },
+  name: "CardList",
+  components: {},
   props: {
-    cardData:Array,
+    cardData: Array,
     routeName: String
   },
   data() {
     return {
-    };
+      sceneArr: []
+    }
   },
-  watch: {
-  },
+  watch: {},
   mounted() {
+    this.$nextTick(() => {
+      this.setInitial()
+      this.setAnimate()
+    })
   },
-  computed: {
-  },
+  computed: {},
   methods: {
-  },
-};
+    setInitial() {
+      gsap.set(".card-list-wrapper .card-item", {
+        y: 50,
+        opacity: 0
+      })
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: ".card-list-wrapper .card-item",
+          reverse: false
+        })
+        .setTween(
+          TweenMax.staggerTo(
+            ".card-list-wrapper .card-item",
+            1,
+            {
+              y: 0,
+              opacity: 1
+            },
+            0.2
+          )
+        )
+      // .addIndicators({ name: "card-list" })
+
+      this.sceneArr.forEach((scene) => {
+        this.$scrollmagic.addScene(scene)
+      })
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -45,7 +78,7 @@ export default {
   display: flex
   justify-content: space-between
   flex-wrap: wrap
-  .news-item
+  .card-item
     width: 46%
     margin-bottom: 2rem
     display: block
@@ -53,7 +86,7 @@ export default {
       margin-bottom: 1rem
       font-size: 1.4rem
       color: $gray-004
-    .news-pic
+    .card-pic
       background-image: url('../assets/images/news-example.jpg')
       width: 100%
       padding-bottom: 63.701923%
@@ -61,19 +94,19 @@ export default {
       background-size: cover
       background-position: center center
       background-repeat: no-repeat
-    .news-title
+    .card-title
       margin: 1.2rem 0
       font-size: 1.4rem
       color: $gray-004
-    .news-description
+    .card-description
       font-size: 1rem
       line-height: 1.5
       color: $gray-005
   +rwd(768px)
-    .news-item
+    .card-item
       width: 100%
       .date
-      .news-pic
-      .news-title
-      .news-description
+      .card-pic
+      .card-title
+      .card-description
 </style>

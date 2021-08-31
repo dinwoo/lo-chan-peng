@@ -1,9 +1,9 @@
 <template lang="pug">
-article.news-info(v-if="!isLoading")
+article.news-info
   section.banner
     figure.news-icon
       img(src="@/assets/images/news-icon.png")
-  section.main
+  section.main(v-if="!isLoading")
     CardInfo(:cardData="news.detail")
   section.related
     .title 相關文章
@@ -15,42 +15,74 @@ article.news-info(v-if="!isLoading")
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import CardInfo from "@/components/CardInfo.vue";
-import RelatedList from "@/components/RelatedList.vue";
+import { mapState, mapActions } from "vuex"
+import CardInfo from "@/components/CardInfo.vue"
+import RelatedList from "@/components/RelatedList.vue"
+import { gsap } from "gsap"
 
 export default {
   name: "NewsInfo",
   components: {
     CardInfo,
-    RelatedList,
+    RelatedList
   },
   data() {
-    return {};
+    return {
+      sceneArr: []
+    }
   },
   computed: {
-    ...mapState(["isLoading", "lang", "news"]),
+    ...mapState(["isLoading", "lang", "news"])
+  },
+  beforeDestroy() {
+    this.sceneArr.map((scene) => {
+      this.$scrollmagic.removeScene(scene)
+    })
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {
+      this.setInitial()
+      this.setAnimate()
+    })
   },
   created() {
     this.getNewsDetail({
       id: this.$route.params.id,
-      channel: this.lang,
+      channel: this.lang
     })
       .then(() => {
-        console.log("success");
+        console.log("success")
       })
       .catch(() => {
-        console.log("fail");
-      });
+        console.log("fail")
+      })
   },
   methods: {
     ...mapActions(["getNewsDetail"]),
+    setInitial() {
+      gsap.set("section.banner", {
+        opacity: 0
+      })
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.banner",
+          reverse: false
+        })
+        .setTween("section.banner", 1, {
+          opacity: 1
+        })
+      // .addIndicators({ name: "banner" })
+
+      this.sceneArr.forEach((scene) => {
+        console.log(scene)
+        this.$scrollmagic.addScene(scene)
+      })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

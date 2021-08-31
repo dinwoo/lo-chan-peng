@@ -1,5 +1,5 @@
 <template lang="pug">
-.related-list-wrapper
+.related-list-wrapper(v-if="!isLoading")
   VueSlickCarousel(
     v-bind="settings"
     ref="carousel"
@@ -14,13 +14,11 @@
 </template>
 
 <script>
-// import {
-//   mapState
-// } from "vuex";
-import VueSlickCarousel from "vue-slick-carousel";
+import { mapState } from "vuex"
+import VueSlickCarousel from "vue-slick-carousel"
 // optional style for arrows & dots
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import "vue-slick-carousel/dist/vue-slick-carousel.css"
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css"
 
 export default {
   name: "RelatedList",
@@ -43,25 +41,27 @@ export default {
             breakpoint: 1024,
             settings: {
               slidesToShow: 3,
-              slidesToScroll: 3,
-            },
+              slidesToScroll: 3
+            }
           },
           {
             breakpoint: 600,
             settings: {
               slidesToShow: 2,
-              slidesToScroll: 2,
-            },
-          },
-        ],
-      },
-    };
+              slidesToScroll: 2
+            }
+          }
+        ]
+      }
+    }
   },
   watch: {},
   mounted() {},
-  computed: {},
-  methods: {},
-};
+  computed: {
+    ...mapState(["isLoading"])
+  },
+  methods: {}
+}
 </script>
 
 <style lang="sass" scoped>

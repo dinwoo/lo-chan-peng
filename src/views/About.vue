@@ -3,7 +3,7 @@ article.about
   section.banner
     figure.banner-pic
       img(src="@/assets/images/about-banner.jpg")
-  section.intro#test
+  section.intro.intro1
     .content
       .title
         | {{$t(`About.name`)}}
@@ -15,7 +15,7 @@ article.about
             br
             | {{$t(`About.creativeMedia`)}}
           .info.colum-1.separate(v-html="$t(`About.info`)")
-  section.intro
+  section.intro.intro2
     .content
       .title
         p(v-html="$t(`About.title1`)")
@@ -34,7 +34,7 @@ article.about
               p {{yearList.year}}
               ul
                 li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-  section.intro
+  section.intro.intro3
     .content
       .title
         p(v-html="$t(`About.title2`)")
@@ -54,7 +54,7 @@ article.about
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-  section.intro
+  section.intro.intro4
     .content
       .title
         p(v-html="$t(`About.title3`)")
@@ -67,7 +67,7 @@ article.about
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-  section.intro
+  section.intro.intro5
     .content
       .title
         p(v-html="$t(`About.title4`)")
@@ -82,14 +82,14 @@ article.about
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { VueSlideToggle } from "vue-slide-toggle";
-// import { gsap } from "gsap"
+import { mapState } from "vuex"
+import { VueSlideToggle } from "vue-slide-toggle"
+import { gsap } from "gsap"
 
 export default {
   name: "About",
   components: {
-    VueSlideToggle,
+    VueSlideToggle
   },
   data() {
     return {
@@ -98,47 +98,141 @@ export default {
       open3: true,
       open4: true,
       open5: true,
-    };
+      sceneArr: []
+    }
   },
   computed: {
     ...mapState(["screenWidth"]),
     isOpen() {
-      return this.screenWidth > 768 ? true : false;
-    },
+      return this.screenWidth > 768 ? true : false
+    }
+  },
+  beforeDestroy() {
+    this.sceneArr.map((scene) => {
+      this.$scrollmagic.removeScene(scene)
+    })
   },
   mounted() {
     this.$nextTick(() => {
-      this.setSwitch();
-    });
-    // gsap.set("#test", {
-    //   y: 100,
-    //   opacity: 0,
-    // });
-    const scene2 = this.$scrollmagic
-      .scene({
-        triggerElement: "#test",
-      })
-      // Declaration of animation and attaching to element
-      .setTween("#test", {})
-      .addIndicators({ name: "2" });
-
-    this.$scrollmagic.addScene(scene2);
+      this.setSwitch()
+      this.setInitial()
+      this.setAnimate()
+    })
   },
   methods: {
     setSwitch() {
-      this.open1 = this.isOpen;
-      this.open2 = this.isOpen;
-      this.open3 = this.isOpen;
-      this.open4 = this.isOpen;
-      this.open5 = this.isOpen;
+      this.open1 = this.isOpen
+      this.open2 = this.isOpen
+      this.open3 = this.isOpen
+      this.open4 = this.isOpen
+      this.open5 = this.isOpen
     },
+    setInitial() {
+      gsap.set("section.banner", {
+        y: 100,
+        opacity: 0
+      })
+      gsap.set("section.intro1", {
+        y: 100,
+        opacity: 0
+      })
+      gsap.set("section.intro2", {
+        y: 100,
+        opacity: 0
+      })
+      gsap.set("section.intro3", {
+        y: 100,
+        opacity: 0
+      })
+      gsap.set("section.intro4", {
+        y: 100,
+        opacity: 0
+      })
+      gsap.set("section.intro5", {
+        y: 100,
+        opacity: 0
+      })
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.banner",
+          reverse: false
+        })
+        .setTween("section.banner", 1, {
+          y: 0,
+          opacity: 1
+        })
+      // .addIndicators({ name: "banner" })
+
+      this.sceneArr[1] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.intro1",
+          reverse: false
+        })
+        .setTween("section.intro1", 1, {
+          y: 0,
+          opacity: 1
+        })
+      // .addIndicators({ name: "intro1" })
+
+      this.sceneArr[2] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.intro2",
+          reverse: false
+        })
+        .setTween("section.intro2", 1, {
+          y: 0,
+          opacity: 1
+        })
+      // .addIndicators({ name: "intro2" })
+
+      this.sceneArr[3] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.intro3",
+          reverse: false
+        })
+        .setTween("section.intro3", 1, {
+          y: 0,
+          opacity: 1
+        })
+      // .addIndicators({ name: "intro3" })
+
+      this.sceneArr[4] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.intro4",
+          reverse: false
+        })
+        .setTween("section.intro4", 1, {
+          y: 0,
+          opacity: 1
+        })
+      // .addIndicators({ name: "intro4" })
+
+      this.sceneArr[5] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.intro5",
+          reverse: false,
+          offset: -100
+        })
+        .setTween("section.intro5", 1, {
+          y: 0,
+          opacity: 1
+        })
+      // .addIndicators({ name: "intro5" })
+
+      this.sceneArr.forEach((scene) => {
+        console.log(scene)
+        this.$scrollmagic.addScene(scene)
+      })
+    }
   },
   watch: {
     screenWidth() {
-      this.setSwitch();
-    },
-  },
-};
+      this.setSwitch()
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
