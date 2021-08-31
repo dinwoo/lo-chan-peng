@@ -10,14 +10,18 @@ footer
         router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
         router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
     .social-box
-      figure.icon
-        img(src="@/assets/images/fb-icon.png")
-      figure.icon
-        img(src="@/assets/images/ig-icon.png")
-      figure.icon
-        img(src="@/assets/images/yt-icon.png")
-      figure.icon
-        img(src="@/assets/images/telegram-icon.png")
+      a(href="https://www.facebook.com/lo.c.peng" target="_blank")
+        figure.icon
+          img(src="@/assets/images/fb-icon.png")
+      a(href="https://www.instagram.com/lochanpeng/" target="_blank")
+        figure.icon
+          img(src="@/assets/images/ig-icon.png")
+      a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
+        figure.icon
+          img(src="@/assets/images/yt-icon.png")
+      a(href="https://t.me/lochanpeng2022" target="_blank")
+        figure.icon
+          img(src="@/assets/images/telegram-icon.png")
       figure.icon(@click="goMember()")
         img(src="@/assets/images/member-icon.png")
   .copyright

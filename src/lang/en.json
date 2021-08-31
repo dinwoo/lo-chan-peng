@@ -64,166 +64,306 @@
       ]
     },
     "groupExhibitions": {
-      "title": "聯展/藝博會",
+      "title": "Group Exhibitions",
       "list": [
         {
           "year": "2021",
           "items": [
-            "ARC 沙龍展 ，西班牙現代藝術博物館 ，巴賽隆納，西班牙",
-            "ARC 沙龍展 ，蘇富比紐約 ，美國"
+            "ARC Salon,Sotheby’s NY,European museum of modern art，Barcelona, Spain",
+            "ARC Salon,Sotheby’s NY,US"
           ]
         },
         {
           "year": "2020",
-          "items": ["「肖像畫 2020」，阿卡迪亞畫廊，洛杉磯，美國"]
+          "items": [
+            "The Possibility of of Watercolour, Department of Culture Affairs, Taoyuan, Taiwan ",
+            "ART TAIPEI, Taipei, Taiwan",
+            "Portraiture 2020, Arcadia Contemporary, Los Angeles, US"
+          ]
         },
         {
           "year": "2019",
           "items": [
-            "「Mondo Tondo」，阿卡迪亞畫廊，洛杉磯，美國",
-            "「奇麗之美 - 台灣精微寫實藝術大展」，奇美博物館，臺南，臺灣",
-            "「台灣禮讚」，台南市立美術館，臺南，臺灣"
+            "Mondo Tondo, Arcadia Contemporary, Los Angeles, US",
+            "Hyperrealism Art in Taiwan, Chimei Museum, Tainan, Taiwan",
+            "Taiwan Panegyric, Tainan Art Museum, Tainan, Taiwan"
           ]
         },
         {
           "year": "2018",
-          "items": ["ART TAIPEI 台北國際藝術博覽會，臺北，臺灣"]
+          "items": [
+            "ART TAIPEI, Taipei, Taiwan",
+            "Passing by/Emplacing: sealing one’s reminisce and oblivion, Daguan Gallery, Taipei, Taiwan",
+            "Spring Frolicking with Puppies, Daguan Gallery, Taipei, Taiwan",
+            "Ink Asia, Hong Kong Exhibition and Convention Centre, Hong Kong"
+          ]
         },
         {
           "year": "2017",
           "items": [
-            "「香港水墨藝博會」，香港會議展覽中心，香港",
-            "港都國際藝術博覽會，高雄，臺灣",
-            "ART FAIR TOKYO 2016 東京藝術博覽會，東京，日本",
-            "「存在的情境─東亞當代寫實藝術展」，毓繡美術館，南投，臺灣"
+            "Let’s Talk History – the Trilogy of Art Gallery industry in Taiwan, Daguan Gallery, Taipei, Taiwan"
+          ]
+        },
+        {
+          "year": "2016",
+          "items": [
+            "Kaohsiung Harbor International Art Fair, Kaohsiung Exhibition Center (KEC), Kaohsiung, Taiwan",
+            "ART FAIR TOKYO 2016, Tokyo, Japan",
+            "Situation of Existence: Contemporary Realistic Art in East Asia, YU-HSIU MUSEUM, Nantou, Taiwan"
           ]
         },
         {
           "year": "2015",
           "items": [
-            "ART TAIPEI 2015 臺北國際藝術博覽會，臺北，臺灣",
-            "ART 15 LONDON 倫敦藝術博覽會，倫敦，英國",
-            "ART FAIR TOKYO 2015 東京藝術博覽會，東京，日本"
+            "ART TAIPEI 2015, Taipei World Trade Center I, Taipei, Taiwan",
+            "ART BUSAN 2015, Bexco, Busan, South Korea",
+            "ART 15 London’s New Modern and Contemporary Art Fair, Olympia Grand Hall, London, UK",
+            "ART FAIR TOKYO 2015, Tokyo, Japan"
           ]
         },
         {
           "year": "2014",
           "items": [
-            "ART TAIPEI 2014 臺北國際藝術博覽會，臺北，臺灣",
-            "「界：臺灣當代藝術展1995-2013」，康乃爾大學強生美術館，伊薩卡，美國",
-            "ART 14 LONDON 倫敦藝術博覽會，倫敦，英國"
+            "ART TAIPEI 2014, Taipei World Trade Center I, Taipei, Taiwan",
+            "Asian Realism II, AKI Gallery, Taipei, Taiwan",
+            "Asian Realism II, YOSHIAKI INOUE GALLERY, Osaka, Japan",
+            "Jie : Boundaries of Self in Contemporary Art from Taiwan 1995-2013, Herbert F. Johnson Museum of Art, Cornell University, USA",
+            "ART 14 London’s New Modern and Contemporary Art Fair, Olympia Grand Hall, London, UK"
           ]
         },
         {
           "year": "2013",
           "items": [
-            "ART TAIPEI 2013 臺北國際藝術博覽會，臺北，臺灣",
-            "「EXPERIENCE03:TRUTH」，ESMoA美術館，洛杉磯，美國"
+            "ART TAIPEI 2013, Taipei World Trade Center I, Taipei, Taiwan",
+            "EXPERIENCE03:TRUTH, El Segundo Museum of art, ESMoA, Los Angeles, U.S.A",
+            "ART TAINAN 2013, Tainan, Taiwan",
+            "Symbiosis AKI Gallery, Taipei, Taiwan"
           ]
         },
         {
           "year": "2012",
           "items": [
-            "ART TAIPEI 2012 臺北國際藝術博覽會，臺北，臺灣",
-            "ART FAIR TOKYO 2012 東京藝術博覽會，東京，日本",
-            "「亞洲具像─四國聯展」，YOSHIAKI INOUE Gallery，大阪，日本",
-            "Galleryseoul12首爾頂級藝博，首爾，韓國",
-            "「YES Taiwan IV-Young Emerging Stars Taiwan」，也趣藝廊，臺北，臺灣",
-            "Mancy’s Tokyo Art Nights，東京，日本"
+            "Art Taipei 2012, Taipei, World Trade Center I, Taipei, Taiwan",
+            "ART FAIR TOKYO, Tokyo, Japan",
+            "ASIAN REALISM, YOSHIAKI INOUE Gallery, Osaka, Japan",
+            "Galleryseoul12, Seoul, Korea",
+            "Y.E.S., Taiwan-- Young Emerging Stars, AKI Gallery, Taipei, Taiwan",
+            "Mancy’s Art Night, Tokyo, Japan"
           ]
         },
         {
           "year": "2011",
           "items": [
-            "「白日夢」，LOWER Akihabara Gallery，東京，日本",
-            "「James Reid printshop」，Artlab21 studio，波昂，德國",
-            "ART TAIPEI 2011 臺北國際藝術博覽會，臺北，臺灣",
-            "「複感‧動觀」2011海峽兩岸當代藝術展，中國美術館，北京，中國",
-            "Art Stage 新加坡藝術博覽會，Mariner Bay Sands，新加坡"
+            "Perceive TCAC, Taipei, Taiwan",
+            "白日夢 a Daydream, LOWER Akihabara Gallery, Tokyo, Japan",
+            "James Reid printshop, artlab21 studio, Bonn, Germany",
+            "Art Taipei 2011, Taipei World Trade Center I, Taipei, Taiwan",
+            "Dual Senses and Dynamic Views —— Contemporary Art Exhibition across the Taiwan Straits of 2011",
+            "Art Stage Singapore, Mariner By Sads, Singapore"
           ]
         },
         {
           "year": "2010",
           "items": [
-            "「臺灣報到」2010臺灣雙年展，國立臺灣美術館，臺中，臺灣",
-            "ShContemporary 10 上海當代藝術博覽會，上海，中國",
-            "「汽球人間」，Lower Akihabara Gallery，東京，日本",
-            "ART TAIPEI 2010臺北國際藝術博覽會，臺北，臺灣",
-            "「後青春」，國立臺灣美術館，臺中，臺灣 / 關渡美術館，臺北，臺灣",
-            "Mancy’s Tokyo Art Nights ，東京，日本"
+            "YES TAIWAN, Taiwan Biennial, National Taiwan Museum of Fine Arts, Taichung, Taiwan",
+            "ShContemporary 10, Shanghai, China",
+            "汽球人間, Lower Akihabara Gallery, Tokyo",
+            "Art Taipei 2010, Taipei World Trade Center I, Taipei, Taiwan",
+            "Post-Adolescence, National Taiwan Museum of Fine Arts,Taichung; Kuandu Museum of Fine Arts, Taipei            ",
+            "Mancy’s Tokyo Art Nights Tokyo, Japan"
           ]
         },
         {
           "year": "2009",
           "items": [
-            "ShContemporary 上海當代藝術博覽會，上海，中國",
-            "「YOUNG ART TAIPEI」臺北國際當代藝術博覽會，臺北，臺灣",
-            "「似曾相似的小宇宙」SMALL WORLD，E105藝術設計中心，波昂，德國 "
+            "ShContemporary Shanghai, China",
+            "YOUNG ART TAIPEI, Sunworld Dynasty Hotel, Taipei, Taiwan",
+            "SMALL WORLD, E105 Gallery, Bonn, Germany",
+            "National Elite Art Graduates, The NHCUE Gallery, Hsinchu, Taiwan"
           ]
         },
         {
           "year": "2008",
           "items": [
-            "ART FAIR 21當代藝術博覽會，科隆，德國",
-            "「碩果與新芽」奇美藝術獎20年成果展，新光三越新天地，臺南，臺灣 / 國立臺灣藝術大學，臺北，臺灣",
-            "「ART TAIPEI 2008」臺北國際藝術博覽會，臺北，臺灣",
-            "「高雄美術獎」，高雄市立美術館，高雄，臺灣"
+            "Karma: The Samsara Of Contemporary Painting, The NTNU Gallery, Taipei, Taiwan",
+            "ART FAIR 21, Cologne, Germany",
+            "Seasoned by Generation, Chi-Mei Art Award 20th Anniversary Tour Exhibition Shin Kong New Life Square, Tainan/ National Taiwan University of the Arts, Taipei, Taiwan",
+            "ART TAIPEI 2008, Taipei World Trade Center I, Taipei, Taiwan",
+            "ID, identification of new generation, Aki Gallery, Taipei",
+            "New Eight Stars Show Capital Art Center, Taipei, Taiwan",
+            "11st Session of Beijing International Art Exposition China World Trade Center, Beijing",
+            "Kaohsiung Arts Award, Kaohsiung Museum of Fine Arts, Kaohsiung, Taiwan"
+          ]
+        },
+        {
+          "year": "2007",
+          "items": [
+            "Contemporary Dialogue, Impressions Art Gallery Taipei Assumed, Taiwanese Aki Gallery"
+          ]
+        },
+        {
+          "year": "2006",
+          "items": [
+            "The Sha Mao Mt. Painting Association Yearly Exhibition of 2003, Dr. Sun Yat-Sen Memorial Hall",
+            "Hua- Gang experimental art space group exhibition, Hua- Gang gallery",
+            "Taiwan Now-‘UP STAIRS, DOWN STAIRS’ group exhibition, Pacific Cultural Foundation Art Center"
+          ]
+        },
+        {
+          "year": "2005",
+          "items": [
+            "Oriental Avant-garde Taipei Art Festival -The RT style spin cooperation performer",
+            "National Art Exhibition of the Republic of China traveling exhibition Taichung, Taipei, Kaohsiung",
+            "Union Culture &Art foundation traveling exhibition "
+          ]
+        },
+        {
+          "year": "2004",
+          "items": [
+            "Sexy Baby The Circus Art Organization group exhibition, Hua- Gang Gallery",
+            "The 4th exhibition of Hu Tou Mt. Painting Association, Dan-shui Art Center",
+            "Atypical realistic syndrome, Pacific Cultural Foundation Art Center",
+            "Oh~! The six S.A.R.D.I.N.E group exhibition, South North Gallery Hua- Gang Gallery"
           ]
         }
       ]
     },
-    "title3": "獲獎",
+    "title3": "Awards",
     "awards": {
       "list": [
         {
           "year": "2020",
           "items": [
-            "ARC收藏獎|藝術復興中心，美國",
-            "肖像畫類榮譽獎|藝術復興中心，美國",
-            "ARC 最佳人氣獎|藝術復興中心，美國",
-            "美國肖像畫學會第二十二屆國際年度肖像畫大賽 精選五十"
+            "ARC Purchase Award | Art Renewal Center (ARC), USA ",
+            "Honorable Mention / Portraiture | Art Renewal Center (ARC), USA",
+            "ARC People’s Choice Award | Art Renewal Center (ARC), USA",
+            "Select 50!, 22nd International Annual Portrait Competition, Portrait Society of America, USA"
           ]
         },
         {
           "year": "2008",
           "items": [
-            "高雄美術獎 首獎",
-            "溫世仁百合獎 美術類水彩寫生比賽金獎",
-            "高雄美術獎 得主",
-            "國立美術館 青年藝術典藏計畫"
+            "The Sketching Competition Of Sayling Wen Cultural & Educational Foundation, golden award",
+            "Kaohsiung Awards2008"
           ]
         },
-        { "year": "2007", "items": ["奇美人材培訓計畫獎"] },
-        { "year": "2005", "items": ["奇美人才培訓獎"] },
+        { 
+          "year": "2007",
+          "items": [
+            "The Chi-Mei Art Cultivation Awards"
+          ]
+        },
+        { 
+          "year": "2006",
+          "items": [
+            "The 24th Tao Yuan Arts Exhibition of Tao Yuan County ,excellent painting",
+            "Taiwan Police College anniversary art exhibition, first prize",
+            "The Sketching Competition of CCU, second place",
+            "Taipei county police bureau art exhibition, first prize",
+            "The Cathay New Age Potential Art Award, silver award"
+          ]
+        },
+        {
+          "year": "2005", 
+          "items": [
+            "Shuang-He art exhibition, second place",
+            "The 23rd Tao Yuan Arts Exhibition of Tao Yuan County, first prize (water color)",
+            "National Large-sized Oil Paintings Exhibition, honorable mention award",
+            "The National Art Award Of Xing Tian Temple, third place of adults",
+            "Taipei county police bureau art exhibition, finalist",
+            "Taipei county police bureau art exhibition, first prize",
+            "National Fine Arts Exhibition, honorable mention award",
+            "National Art Exhibition of the Republic of China, excellent painting award",
+            "CCU Fine Arts Exhibition (western painting), first prize",
+            "The Chi-Mei Art Cultivation Awards"
+          ] 
+        },
         {
           "year": "2004",
-          "items": ["全國青年寫生比賽 大專組第一名 ", "聯邦新人獎 首獎"]
+          "items": [
+            "The Sketching Competition of National Youth, first prize of university", 
+            "Union Culture &Art foundation Young Artist Award, top prize",
+            "Taiwan Police College anniversary art exhibition, second place",
+            "The 6th Xin Zhuang Art Exhibition Of Xin Zhuang City, first prize of water color of university",
+            "The 9th Da-Dun Art Exhibition Of Tai Chung City, honorable mention award (water color)",
+            "Shuang-He art exhibition, Shuang-He award (first prize)"
+          ]
         },
         {
           "year": "2003",
           "items": [
-            "光華獅子盃寫生 大專社會組金獅獎(第一名)",
-            "中國文化大學 美術系系展第一名另得校長獎"
+            "Taipei county police bureau art exhibition, third place",
+            "International Art Prize of oil painting, honorable mention award",
+            "Guang Hua Lions Club sketching competition ,golden lion award (first prize)",
+            "National Fine Arts Exhibition, finalist",
+            "CCU Fine Arts Exhibition (western painting), first prize & principal prize",
+            "Tai Yang Art exhibition, honorable mention award (water color)",
+            "National oil painting prize, finalist"
+          ]
+        },
+        {
+          "year": "2002",
+          "items": [
+            "National Student Arts Exhibition , first prize of university"
+          ]
+        },
+        {
+          "year": "2000",
+          "items": [
+            "National Youth sketching competition, second place of senior high school",
+            "Yang San Lang Memorial water painting sketching competition, honorable mention award of senior high school",
+            "The Sketching Competition Of Feng Ye Art Association ,first prize",
+            "The Sketching Competition Of the Seven County of Taipei County , second place",
+            "Min Cheng Cup Sketching Competition, second place",
+            "Reserve Serviceman Sketching Competition, third place",
+            "The Painting Hometown Sketching Competition Of Kee Lung City, second place of senior high school",
+            "The Special Talent scholarship of The Zhang Qi Yun Scholarship of 2001"
           ]
         }
       ]
     },
-    "title4": "典藏",
+    "title4": "Collections",
     "collections": {
       "list": [
         {
-          "year": "",
+          "year": "2013",
           "items": [
-            "美國洛杉磯ESMoA當代美術館，洛杉磯，美國",
-            "國立臺灣美術館，臺中，臺灣",
-            "奇美博物館，臺南，臺灣",
-            "警察專科學校，臺北，臺灣",
-            "行天宮文化基金會，臺北，臺灣",
-            "桃園縣文化局，桃園，臺灣",
-            "國父紀念館，臺北，臺灣",
-            "中和庄文史研究協會，臺北，臺灣",
-            "聯邦文教基金會，臺北，臺灣",
-            "光華獅子會，臺北，臺灣"
+            "Ashen face -Strolling in the Fog of TRUTH Exhibition El Segundo Museum of Arts, Los Angeles, USA"
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "Youth Diary of the Strawberry Cell Division 3, National Taiwan Museum, Taichung "
+          ]
+        },
+        {
+          "year": "2007",
+          "items": [
+            "Chi-Mei Art Foundation Chi-Mei Museum, Tainan"
+          ]
+        },
+        {
+          "year": "2005",
+          "items": [
+            "Chi-Mei Art Foundation Chi-Mei Museum ,Tainan",
+            "Taiwan Police College anniversary art exhibition of 2005 Taiwan Police College anniversary, Taipei",
+            "Xing Tian Temple Art Award of 2005　 Xing Tian Temple Cultural Foundation, Taipei",
+            "National Youth sketching competition of 2004 Dr. Sun Yat- Sen Memorial Hall, Taipei"
+          ]
+        },
+        {
+          "year": "2004",
+          "items": [
+            "Tao Yuan Arts Exhibition of TaoYuan County of 2004 Department of Cultural Affairs of Tao Yuan County, Taipei",
+            "Shuang-He art exhibition of 2004 The Chung He Town Cultural History Research Association,Taipei",
+            "Union Culture &Art foundation Young Artist Award 0f 2004 Union Culture &Art foundation, Taipei"
+          ]
+        },
+        {
+          "year": "2003",
+          "items": [
+            "Guang Hua Lions Club sketching competition 0f 2003 Guang Hua Lions Club, Taipei"
           ]
         }
       ]
