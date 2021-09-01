@@ -42,6 +42,7 @@ article.works
 import { mapState, mapActions } from "vuex";
 import SearchBox from "@/components/SearchBox";
 import Paginate from "vuejs-paginate";
+import { gsap } from "gsap";
 
 export default {
   name: "Works",
@@ -65,13 +66,22 @@ export default {
         unit: "",
         year: "",
       },
+      sceneArr: [],
     };
   },
   computed: {
     ...mapState(["isLoading", "lang", "work"]),
   },
+  beforeDestroy() {
+    this.sceneArr.map((scene) => {
+      this.$scrollmagic.removeScene(scene);
+    });
+  },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {
+      this.setInitial();
+      this.setAnimate();
+    });
   },
   created() {
     this.getWorkYears()
@@ -125,6 +135,27 @@ export default {
     showWork(work) {
       this.isShowPopup = true;
       this.popupWork = work;
+    },
+    setInitial() {
+      gsap.set("section.banner", {
+        opacity: 0,
+      });
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.banner",
+          reverse: false,
+        })
+        .setTween("section.banner", 1, {
+          opacity: 1,
+        });
+      // .addIndicators({ name: "banner" })
+
+      this.sceneArr.forEach((scene) => {
+        console.log(scene);
+        this.$scrollmagic.addScene(scene);
+      });
     },
   },
   watch: {},
