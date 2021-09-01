@@ -21,22 +21,22 @@ article.course
     figure.qa-icon
       img(src="@/assets/images/qa-icon.png")
     .qa-box
-      .qa-item
+      .qa-item(v-for="(qa,index) in qaList" :key="index")
         .title 
-          p 1.請問如何在網站購買課程？
-          .more-btn(@click="open=!open") More
-        VueSlideToggle(:open="open")
-          .content 早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。早年陸續榮獲國內多個大型藝術獎項，如:聯邦美術新人獎(2004)、奇美藝術獎 (2007)、國泰藝術獎新世紀潛力畫展銀獎(2006)、高雄美術獎(2008)。
+          p(v-html="qa.question")
+          .more-btn(@click="switchHandler(index)") More
+        VueSlideToggle(:open="openSwitch[index]")
+          .content(v-html="qa.answer")
         
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex"
 
-import CardList from "@/components/CardList";
-import { VueSlideToggle } from "vue-slide-toggle";
-import SearchBox from "@/components/SearchBox";
-import Paginate from "vuejs-paginate";
+import CardList from "@/components/CardList"
+import { VueSlideToggle } from "vue-slide-toggle"
+import SearchBox from "@/components/SearchBox"
+import Paginate from "vuejs-paginate"
 
 export default {
   name: "Course",
@@ -44,23 +44,30 @@ export default {
     CardList,
     VueSlideToggle,
     SearchBox,
-    Paginate,
+    Paginate
   },
   data() {
     return {
-      open: false,
+      openSwitch: [],
       pageSize: 10,
-      searchTxt: "",
-    };
+      searchTxt: ""
+    }
   },
   computed: {
     ...mapState(["isLoading", "lang", "course"]),
+    qaList() {
+      return this.$t(`QA.list`)
+    }
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {
+      this.qaList.forEach(() => {
+        this.openSwitch.push(false)
+      })
+    })
   },
   created() {
-    this.getCourseList();
+    this.getCourseList()
   },
   methods: {
     ...mapActions(["getCourseListApi"]),
@@ -69,27 +76,49 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang,
+        channel: this.lang
       })
         .then(() => {
-          console.log("success");
+          console.log("success")
         })
         .catch(() => {
-          console.log("fail");
-        });
+          console.log("fail")
+        })
     },
     searchHandler(txt) {
-      this.searchTxt = txt;
-      this.getCourseList(txt, 1);
+      this.searchTxt = txt
+      this.getCourseList(txt, 1)
     },
     pageHandler(pageNum) {
-      this.getCourseList(this.searchTxt, pageNum);
-      console.log(pageNum);
+      this.getCourseList(this.searchTxt, pageNum)
+      console.log(pageNum)
     },
+    switchHandler(index) {
+      this.$set(this.openSwitch, index, !this.openSwitch[index])
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
+
+<style lang="sass">
+@import "@/assets/sass/var.sass"
+.title
+  p
+    a
+      font-size: 1.4rem
+      color: $gray-004
+      display: inline-block
+      vertical-align: baseline
+      text-decoration: underline
+.content
+  a
+    font-size: 1rem
+    letter-spacing: .5px
+    line-height: 2
+    color: $gray-005
+    text-decoration: underline
+</style>
 
 <style lang="sass" scoped>
 @import "@/assets/sass/var.sass"
@@ -137,6 +166,11 @@ article.course
           letter-spacing: .5px
           line-height: 2
           color: $gray-005
+          a
+            font-size: 1rem
+            letter-spacing: .5px
+            line-height: 2
+            color: $gray-005
   +rwd(768px)
     section.banner
       padding: 15vw 0

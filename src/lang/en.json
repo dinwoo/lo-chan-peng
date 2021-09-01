@@ -247,13 +247,11 @@
             "Kaohsiung Awards2008"
           ]
         },
-        { 
+        {
           "year": "2007",
-          "items": [
-            "The Chi-Mei Art Cultivation Awards"
-          ]
+          "items": ["The Chi-Mei Art Cultivation Awards"]
         },
-        { 
+        {
           "year": "2006",
           "items": [
             "The 24th Tao Yuan Arts Exhibition of Tao Yuan County ,excellent painting",
@@ -264,7 +262,7 @@
           ]
         },
         {
-          "year": "2005", 
+          "year": "2005",
           "items": [
             "Shuang-He art exhibition, second place",
             "The 23rd Tao Yuan Arts Exhibition of Tao Yuan County, first prize (water color)",
@@ -276,12 +274,12 @@
             "National Art Exhibition of the Republic of China, excellent painting award",
             "CCU Fine Arts Exhibition (western painting), first prize",
             "The Chi-Mei Art Cultivation Awards"
-          ] 
+          ]
         },
         {
           "year": "2004",
           "items": [
-            "The Sketching Competition of National Youth, first prize of university", 
+            "The Sketching Competition of National Youth, first prize of university",
             "Union Culture &Art foundation Young Artist Award, top prize",
             "Taiwan Police College anniversary art exhibition, second place",
             "The 6th Xin Zhuang Art Exhibition Of Xin Zhuang City, first prize of water color of university",
@@ -339,9 +337,7 @@
         },
         {
           "year": "2007",
-          "items": [
-            "Chi-Mei Art Foundation Chi-Mei Museum, Tainan"
-          ]
+          "items": ["Chi-Mei Art Foundation Chi-Mei Museum, Tainan"]
         },
         {
           "year": "2005",
@@ -368,5 +364,45 @@
         }
       ]
     }
+  },
+  "QA": {
+    "list": [
+      {
+        "question": "Q1. Do I need any tool and knowledge before the lessons?",
+        "answer": "-We suggest you sign up for these lessons with a drawing understanding. For those without any experience, Lo has drawing lessons and the link is here.<br>-Oil painting materials: paints, brushes, oils, palette, palette knives"
+      },
+      {
+        "question": "Q2. Do I need oil painting foundation",
+        "answer": "These lessons are for beginners to intermediate students. They are suitable for beginners and intermediate students who wish to advance. Lo is working on lessons for advanced students. He will gradually introduce them in the future."
+      },
+      {
+        "question": "Q3. Who is Lo Chan Peng",
+        "answer": "Lo Chan Peng is an international acclaimed artist with exhibitions around the world. For more please click on the link"
+      },
+      {
+        "question": "Q4. How long can I watch these lessons for?",
+        "answer": "You have unlimited access to the lessons from your computers, tables, or cellphones without the limitation of time or location."
+      },
+      {
+        "question": "Q5. How can I get my questions answered?",
+        "answer": "Welcome to send questions to <a href='https://t.me/lochanpeng2022' target='_blank'>Lo’s Telegram Group</a> There are hundreds of students here as well."
+      },
+      {
+        "question": "Q6 How do I purchase?",
+        "answer": "Simple! Click on “Purchase” and you will become a member."
+      },
+      {
+        "question": "Q7. What are payments methods",
+        "answer": "Currently we only accept payment via Paypal. Please register with paypal first."
+      },
+      {
+        "question": "Q8. Can I send English in Lo’s Telegram link ",
+        "answer": "Lo can communicate with English. However, if in depth in English, the members in Lo’s Telegram group will help. These members consist of great artists from around the world. Lo hopes this group will help one another as a big family without border. You are welcome to join first. Not all homework will get critics but watching others’ works in the group will improve your skills as well."
+      },
+      {
+        "question": "Q9. If I have further questions after these lessons, what to do?",
+        "answer": "Join Lo’s Telegram group and ask away. Our members are passionate and they are around the world."
+      }
+    ]
   }
 }
