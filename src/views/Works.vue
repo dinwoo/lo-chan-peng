@@ -42,7 +42,7 @@ article.works
 import { mapState, mapActions } from "vuex";
 import SearchBox from "@/components/SearchBox";
 import Paginate from "vuejs-paginate";
-import { gsap } from "gsap";
+import { TweenMax, gsap } from "gsap";
 
 export default {
   name: "Works",
@@ -79,8 +79,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.setInitial();
-      this.setAnimate();
+      gsap.set("section.banner", {
+        opacity: 0,
+      });
     });
   },
   created() {
@@ -106,6 +107,8 @@ export default {
       })
         .then(() => {
           console.log("getWorkListApi success");
+          this.setInitial();
+          this.setAnimate();
         })
         .catch(() => {
           console.log("fail");
@@ -140,6 +143,10 @@ export default {
       gsap.set("section.banner", {
         opacity: 0,
       });
+      gsap.set(".work-item", {
+        y: 50,
+        opacity: 0,
+      });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
@@ -151,6 +158,25 @@ export default {
           opacity: 1,
         });
       // .addIndicators({ name: "banner" })
+
+      this.sceneArr[1] = this.$scrollmagic
+        .scene({
+          triggerElement: ".work-item",
+          reverse: false,
+          triggerHook: 1,
+        })
+        .on("enter", function() {
+          TweenMax.staggerTo(
+            ".work-item",
+            1,
+            {
+              y: 0,
+              opacity: 1,
+            },
+            0.2
+          );
+        });
+      // .addIndicators({ name: "card-list" });
 
       this.sceneArr.forEach((scene) => {
         console.log(scene);
