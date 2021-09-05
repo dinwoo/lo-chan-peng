@@ -51,54 +51,55 @@ header
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 
 export default {
   name: "Header",
   data() {
     return {
       isMobile: false,
-      showMenu: false
-    }
+      showMenu: false,
+    };
   },
   computed: {
-    ...mapState(["lang", "screenWidth"])
+    ...mapState(["lang", "screenWidth"]),
   },
   mounted() {
     this.$nextTick(() => {
-      this.isMobile = this.screenWidth < 768
-    })
+      this.isMobile = this.screenWidth < 768;
+    });
   },
   methods: {
     // 儲存切換的語系
     setLang(value) {
-      this.$store.commit("SET_LANG", value)
-      this.$i18n.locale = value
-      localStorage.setItem("footmark-lang", value)
+      this.$store.commit("SET_LANG", value);
+      this.$i18n.locale = value;
+      localStorage.setItem("footmark-lang", value);
+      this.$router.go(0);
     },
     goMember() {
       if (localStorage.getItem("account")) {
-        if (this.$route.name == "Member") return
-        this.$router.push({ name: "Member" })
+        if (this.$route.name == "Member") return;
+        this.$router.push({ name: "Member" });
       } else {
-        if (this.$route.name == "Signin") return
-        this.$router.push({ name: "Signin" })
+        if (this.$route.name == "Signin") return;
+        this.$router.push({ name: "Signin" });
       }
-    }
+    },
   },
   watch: {
     screenWidth(val) {
       if (!this.timer) {
-        this.isMobile = val < 768
-        this.timer = true
+        this.isMobile = val < 768;
+        this.timer = true;
         setTimeout(() => {
           // console.log(val);
-          this.timer = false
-        }, 400)
+          this.timer = false;
+        }, 400);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>

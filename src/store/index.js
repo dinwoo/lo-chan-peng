@@ -75,7 +75,7 @@ export default new Vuex.Store({
     getBanner(context) {
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.get("/index/banners", "", {})
+        ApiService.get("api/index/banners", "", {})
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -95,7 +95,7 @@ export default new Vuex.Store({
       const { select, pageSize, currentPage, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/news/list", {
+        ApiService.post("api/news/list", {
           select,
           pageSize,
           currentPage,
@@ -119,7 +119,7 @@ export default new Vuex.Store({
       const { id, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/news/detail", { id, channel })
+        ApiService.post("api/news/detail", { id, channel })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -137,7 +137,7 @@ export default new Vuex.Store({
     getWorkYears(context) {
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.get("/work/years", "", {})
+        ApiService.get("api/work/years", "", {})
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -157,7 +157,7 @@ export default new Vuex.Store({
       const { year, select, pageSize, currentPage, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/work/list", {
+        ApiService.post("api/work/list", {
           year,
           select,
           pageSize,
@@ -182,7 +182,7 @@ export default new Vuex.Store({
       const { name, phone, email, content } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/contact/send", {
+        ApiService.post("api/contact/send", {
           name,
           phone,
           email,
@@ -204,7 +204,7 @@ export default new Vuex.Store({
       const { select, pageSize, currentPage, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/course/list", {
+        ApiService.post("api/course/list", {
           select,
           pageSize,
           currentPage,
@@ -224,10 +224,11 @@ export default new Vuex.Store({
           });
       });
     },
-    getCourseDetail(context) {
+    getCourseDetail(context, data) {
+      const { id, channel } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/course/detail", {})
+        ApiService.post("api/course/detail", { id, channel })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
@@ -254,7 +255,7 @@ export default new Vuex.Store({
       } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/member/signup", {
+        ApiService.post("api/member/signup", {
           name,
           birthday,
           account,
@@ -276,7 +277,7 @@ export default new Vuex.Store({
     postValidation(context, token) {
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/member/validation", {
+        ApiService.post("api/member/validation", {
           token,
         })
           .then(() => {
@@ -290,16 +291,16 @@ export default new Vuex.Store({
           });
       });
     },
-    getMemberInfo(context) {
+    getMemberInfo(context, account) {
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.get("/member/info", "", {})
+        ApiService.post("api/member/info", { account })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
               context.commit("SET_MEMBER_INFO", data.data);
             }
-            resolve();
+            resolve(data);
           })
           .catch(({ response }) => {
             context.commit("SET_LOADING", false);
@@ -309,10 +310,11 @@ export default new Vuex.Store({
       });
     },
     putMemberInfo(context, data) {
-      const { name, birthday } = data;
+      const { token, name, birthday } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.put("/member/edit", {
+        ApiService.post("api/member/edit", {
+          token,
           name,
           birthday,
         })
@@ -331,7 +333,7 @@ export default new Vuex.Store({
       const { account, password } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/member/signin", {
+        ApiService.post("api/member/signin", {
           account,
           password,
         })
@@ -349,7 +351,7 @@ export default new Vuex.Store({
     postPasswordToken(context, account) {
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.post("/member/password/trigger", {
+        ApiService.post("api/member/password/trigger", {
           account,
         })
           .then(() => {
@@ -367,7 +369,7 @@ export default new Vuex.Store({
       const { token, password, confirmPassword } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.put("/member/password/trigger", {
+        ApiService.put("api/member/password/trigger", {
           token,
           password,
           confirmPassword,

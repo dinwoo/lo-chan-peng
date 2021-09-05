@@ -8,7 +8,7 @@
       v-for="(pic,index) in pictureLink" :key="index"
     )
       .pic(
-        :style="`background-image:url('${compileFilePath(pic)}')`"
+        :style="`background-image:url('${pic}')`"
       )
   .arrow-control
     figure.arrow(@click="prev()")

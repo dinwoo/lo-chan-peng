@@ -8,7 +8,7 @@
       v-for="item in relatedListData" :key="item.id"
       :to="{name:routeName,params:{id:item.id}}"
     )
-      .related-pic(style="")
+      .related-pic(:style="`background-image: url('${item.img}')`")
       .related-title {{item.title}}
 
 </template>

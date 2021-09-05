@@ -27,6 +27,8 @@ article.member-info(v-if="!isLoading")
           input(type="text" v-model="member.email" disabled)
     .btn-box
       .btn
+        Button(title="登出",type="right" @click="logoutHandler")
+      .btn
         router-link(:to="{name:'ForgetPassword'}")
           Button(title="修改密碼",type="right")
       .btn
@@ -57,9 +59,10 @@ export default {
     this.$nextTick(() => {});
   },
   created() {
-    this.getMemberInfo()
-      .then(() => {
-        console.log("success");
+    this.getMemberInfo(localStorage.getItem("account"))
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
       })
       .catch(() => {
         console.log("fail");
@@ -73,6 +76,7 @@ export default {
       } else {
         console.log("send");
         this.putMemberInfo({
+          token: localStorage.getItem("token"),
           name: this.member.name,
           birthday: this.member.birthday,
         })
@@ -83,6 +87,11 @@ export default {
             console.log("fail");
           });
       }
+    },
+    logoutHandler() {
+      localStorage.removeItem("account");
+      localStorage.removeItem("token");
+      this.$router.push({ name: "Signin" });
     },
   },
   watch: {},
@@ -100,6 +109,7 @@ article.member-info
       display: flex
       justify-content: flex-end
       .btn
+        flex: 1
         margin-left: 1rem
   +rwd(768px)
     section.form

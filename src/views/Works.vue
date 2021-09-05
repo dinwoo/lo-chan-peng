@@ -17,7 +17,7 @@ article.works
         ) {{year}}
       .works-box
         .work-item(v-for="work in work.list" :key="work.id" @click="showWork(work)")
-          .work-pic
+          .work-pic(:style="`background-image: url('${work.img}')`")
           .work-name {{work.name}}
           .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
         paginate(
@@ -32,7 +32,7 @@ article.works
   section.popup(v-if="isShowPopup")
     .close(@click="isShowPopup=false")
     .wrapper
-      .work-pic
+      .work-pic(:style="`background-image: url('${popupWork.img}')`")
       .work-name {{popupWork.name}}
       .work-info {{popupWork.type}}  {{popupWork.width}} x {{popupWork.height}} {{popupWork.unit}}  {{popupWork.year}}
       
@@ -257,7 +257,7 @@ article.works
             width: 100%
             padding-bottom: 100%
             margin-bottom: 1.5rem
-            background-image: url('../assets/images/works-example.png')
+            // background-image: url('../assets/images/works-example.png')
             background-size: contain
             background-position: center center
             background-repeat: no-repeat
@@ -306,7 +306,7 @@ article.works
         width: 100%
         padding-bottom: 100%
         margin-bottom: 1.5rem
-        background-image: url('../assets/images/works-example.png')
+        // background-image: url('../assets/images/works-example.png')
         background-size: contain
         background-position: center center
         background-repeat: no-repeat

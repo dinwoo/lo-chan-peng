@@ -260,5 +260,20 @@
         "answer": "完全可以在羅展鵬藝術村（<a href='https://t.me/lochanpeng2022' target='_blank'>超連結</a>）Telegram 群組提出問題，無論是什麼語言，我們的成員非常熱情，並且居於世界各地。"
       }
     ]
+  },
+  "Member":{
+    "infoTitle":"會員資料",
+    "signinTitle":"登入帳戶",
+    "name":"姓名",
+    "birthday":"生日",
+    "account":"帳號",
+    "email":"信箱",
+    "editPsw": "修改密碼",
+    "send":"送出",
+    "forgotPsw":"忘記密碼",
+    "signin":"登入",
+    "newUser":"新用戶？",
+    "registerBtn":"註冊",
+    "registerFb":"以Facebook帳號登入"
   }
 }

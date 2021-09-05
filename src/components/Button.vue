@@ -31,7 +31,8 @@ export default {
 
 .button-wrapper
   .btn
-    width: 300px
+    width: 100%
+    max-width: 300px
     margin: 3rem auto
     font-size: 1.4rem
     line-height: 4rem

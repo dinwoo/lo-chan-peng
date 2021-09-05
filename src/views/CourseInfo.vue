@@ -44,7 +44,10 @@ export default {
     this.$nextTick(() => {});
   },
   created() {
-    this.getCourseDetail()
+    this.getCourseDetail({
+      id: parseInt(this.$route.params.id),
+      channel: this.lang,
+    })
       .then(() => {
         console.log("success");
         this.setInitial();
@@ -80,6 +83,7 @@ export default {
         .scene({
           triggerElement: "section.related",
           reverse: false,
+          triggerHook: 0.8,
         })
         .setTween("section.related", 1, {
           y: 0,

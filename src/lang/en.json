@@ -404,5 +404,20 @@
         "answer": "Join Lo’s Telegram group and ask away. Our members are passionate and they are around the world."
       }
     ]
+  },
+  "Member":{
+    "infoTitle":"會員資料",
+    "signinTitle":"登入帳戶",
+    "name":"姓名",
+    "birthday":"生日",
+    "account":"帳號",
+    "email":"信箱",
+    "editPsw": "修改密碼",
+    "send":"送出",
+    "forgotPsw":"忘記密碼",
+    "signin":"登入",
+    "newUser":"新用戶？",
+    "registerBtn":"註冊",
+    "registerFb":"以Facebook帳號登入"
   }
 }

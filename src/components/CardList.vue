@@ -5,7 +5,7 @@
     :to="{name:routeName,params:{id:card.id}}"
   )
     .date {{card.dateTime}}
-    .card-pic(style="")
+    .card-pic(:style="`background-image: url('${card.img}')`")
     .card-title {{card.title}}
     .card-description {{card.description}}
 
@@ -93,7 +93,7 @@ export default {
       font-size: 1.4rem
       color: $gray-004
     .card-pic
-      background-image: url('../assets/images/news-example.jpg')
+      // background-image: url('../assets/images/news-example.jpg')
       width: 100%
       padding-bottom: 63.701923%
       border-radius: 10px

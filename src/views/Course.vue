@@ -31,12 +31,12 @@ article.course
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapState, mapActions } from "vuex";
 
-import CardList from "@/components/CardList"
-import { VueSlideToggle } from "vue-slide-toggle"
-import SearchBox from "@/components/SearchBox"
-import Paginate from "vuejs-paginate"
+import CardList from "@/components/CardList";
+import { VueSlideToggle } from "vue-slide-toggle";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
 
 export default {
   name: "Course",
@@ -44,30 +44,30 @@ export default {
     CardList,
     VueSlideToggle,
     SearchBox,
-    Paginate
+    Paginate,
   },
   data() {
     return {
       openSwitch: [],
       pageSize: 10,
-      searchTxt: ""
-    }
+      searchTxt: "",
+    };
   },
   computed: {
     ...mapState(["isLoading", "lang", "course"]),
     qaList() {
-      return this.$t(`QA.list`)
-    }
+      return this.$t(`QA.list`);
+    },
   },
   mounted() {
     this.$nextTick(() => {
       this.qaList.forEach(() => {
-        this.openSwitch.push(false)
-      })
-    })
+        this.openSwitch.push(false);
+      });
+    });
   },
   created() {
-    this.getCourseList()
+    this.getCourseList("", 1);
   },
   methods: {
     ...mapActions(["getCourseListApi"]),
@@ -76,29 +76,29 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang
+        channel: this.lang,
       })
         .then(() => {
-          console.log("success")
+          console.log("success");
         })
         .catch(() => {
-          console.log("fail")
-        })
+          console.log("fail");
+        });
     },
     searchHandler(txt) {
-      this.searchTxt = txt
-      this.getCourseList(txt, 1)
+      this.searchTxt = txt;
+      this.getCourseList(txt, 1);
     },
     pageHandler(pageNum) {
-      this.getCourseList(this.searchTxt, pageNum)
-      console.log(pageNum)
+      this.getCourseList(this.searchTxt, pageNum);
+      console.log(pageNum);
     },
     switchHandler(index) {
-      this.$set(this.openSwitch, index, !this.openSwitch[index])
-    }
+      this.$set(this.openSwitch, index, !this.openSwitch[index]);
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass">

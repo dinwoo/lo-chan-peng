@@ -47,7 +47,7 @@ export default {
   },
   created() {
     this.getNewsDetail({
-      id: this.$route.params.id,
+      id: parseInt(this.$route.params.id),
       channel: this.lang,
     })
       .then(() => {
@@ -83,12 +83,13 @@ export default {
         .scene({
           triggerElement: "section.related",
           reverse: false,
+          triggerHook: 0.8,
         })
         .setTween("section.related", 1, {
           y: 0,
           opacity: 1,
         });
-      // .addIndicators({ name: "related" })
+      // .addIndicators({ name: "related" });
 
       this.sceneArr.forEach((scene) => {
         console.log(scene);

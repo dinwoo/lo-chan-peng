@@ -71,6 +71,7 @@ export default {
         .then((res) => {
           console.log(res);
           localStorage.setItem("account", res.data.account);
+          localStorage.setItem("token", res.data.token);
           this.$router.push({ name: "Member" });
         })
         .catch(() => {
@@ -93,6 +94,7 @@ article.member-info
       display: flex
       justify-content: flex-end
       .btn
+        width: 300px
         margin-left: 1rem
     .register-box
       padding: 2rem 0

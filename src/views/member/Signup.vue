@@ -97,6 +97,7 @@ export default {
         email: this.email,
       })
         .then(() => {
+          localStorage.setItem("account", this.account);
           this.$router.push({ name: "Validation" });
         })
         .catch(() => {
