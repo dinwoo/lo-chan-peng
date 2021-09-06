@@ -39,63 +39,68 @@ article.member-info(v-if="!isLoading")
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
   name: "Member",
   components: {
-    Button,
+    Button
   },
   data() {
     return {
-      isEdit: false,
-    };
+      isEdit: false
+    }
   },
   computed: {
-    ...mapState(["isLoading", "member"]),
+    ...mapState(["isLoading", "member"])
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {})
   },
   created() {
-    this.getMemberInfo(localStorage.getItem("account"))
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.token);
-      })
-      .catch(() => {
-        console.log("fail");
-      });
+    const account = localStorage.getItem("account")
+    if (!account) {
+      this.$router.push({ name: "Signin" })
+    } else {
+      this.getMemberInfo()
+        .then((res) => {
+          console.log(res)
+          localStorage.setItem("token", res.data.token)
+        })
+        .catch(() => {
+          console.log("fail")
+        })
+    }
   },
   methods: {
     ...mapActions(["getMemberInfo", "putMemberInfo"]),
     btnHandler() {
       if (!this.isEdit) {
-        this.isEdit = true;
+        this.isEdit = true
       } else {
-        console.log("send");
+        console.log("send")
         this.putMemberInfo({
           token: localStorage.getItem("token"),
           name: this.member.name,
-          birthday: this.member.birthday,
+          birthday: this.member.birthday
         })
           .then(() => {
-            console.log("success");
+            console.log("success")
           })
           .catch(() => {
-            console.log("fail");
-          });
+            console.log("fail")
+          })
       }
     },
     logoutHandler() {
-      localStorage.removeItem("account");
-      localStorage.removeItem("token");
-      this.$router.push({ name: "Signin" });
-    },
+      localStorage.removeItem("account")
+      localStorage.removeItem("token")
+      this.$router.push({ name: "Signin" })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>
