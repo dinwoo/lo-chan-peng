@@ -9,8 +9,8 @@ article.works
       @searchHandler="searchHandler"
     )
     .wrapper(v-if="!isLoading")
-      .year-mobile 2018
-      .years-list
+      .year-mobile(v-if="!isSelect" @click="isSelect=true") {{nowYear}}
+      .years-list(v-if="isSelect")
         .year(
           v-for="(year,index) in work.years" :key="index"
           @click="searchYear(year)"
@@ -57,6 +57,7 @@ export default {
       nowYear: "",
       searchTxt: "",
       isShowPopup: false,
+      isSelect: true,
       popupWork: {
         name: "",
         img: "",
@@ -70,7 +71,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isLoading", "lang", "work"]),
+    ...mapState(["isLoading", "lang", "work", "screenWidth"]),
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
@@ -107,6 +108,7 @@ export default {
       })
         .then(() => {
           console.log("getWorkListApi success");
+          if (this.screenWidth <= 768) this.isSelect = false;
           this.setInitial();
           this.setAnimate();
         })
@@ -332,6 +334,7 @@ article.works
           color: $gray-004
           border-bottom: 1px solid $gray-004
           text-align: center
+          cursor: pointer
         .years-list
           width: 80px
           margin: 0 auto 2rem

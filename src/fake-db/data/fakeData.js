@@ -143,13 +143,13 @@ import mock, { withDelay } from "@/fake-db/mock.js";
 //   return withDelay(500, [200, response]);
 // });
 
-mock.onPost("api/contact/send").reply(() => {
-  const response = {
-    code: 200,
-    msg: "",
-  };
-  return withDelay(500, [200, response]);
-});
+// mock.onPost("api/contact/send").reply(() => {
+//   const response = {
+//     code: 200,
+//     msg: "",
+//   };
+//   return withDelay(500, [200, response]);
+// });
 
 // mock.onPost("api/course/list").reply(() => {
 //   const response = {
@@ -280,18 +280,18 @@ mock.onPost("api/contact/send").reply(() => {
 //   return withDelay(500, [200, response]);
 // });
 
-mock.onPost("api/member/password/trigger").reply(() => {
-  const response = {
-    code: 200,
-    msg: "",
-  };
-  return withDelay(500, [200, response]);
-});
+// mock.onPost("api/member/password/trigger").reply(() => {
+//   const response = {
+//     code: 200,
+//     msg: "",
+//   };
+//   return withDelay(500, [200, response]);
+// });
 
-mock.onPut("api/member/password/trigger").reply(() => {
-  const response = {
-    code: 200,
-    msg: "",
-  };
-  return withDelay(500, [200, response]);
-});
+// mock.onPut("api/member/password/trigger").reply(() => {
+//   const response = {
+//     code: 200,
+//     msg: "",
+//   };
+//   return withDelay(500, [200, response]);
+// });

@@ -95,6 +95,7 @@ export default {
         password: this.password,
         confirmPassword: this.confirmPassword,
         email: this.email,
+        type: 1,
       })
         .then(() => {
           localStorage.setItem("account", this.account);

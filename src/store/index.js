@@ -252,6 +252,7 @@ export default new Vuex.Store({
         password,
         confirmPassword,
         email,
+        type,
       } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
@@ -262,6 +263,7 @@ export default new Vuex.Store({
           password,
           confirmPassword,
           email,
+          type,
         })
           .then(() => {
             context.commit("SET_LOADING", false);
@@ -369,7 +371,7 @@ export default new Vuex.Store({
       const { token, password, confirmPassword } = data;
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.put("api/member/password/trigger", {
+        ApiService.post("api/member/password/edit", {
           token,
           password,
           confirmPassword,

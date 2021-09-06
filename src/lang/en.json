@@ -411,13 +411,15 @@
     "name":"姓名",
     "birthday":"生日",
     "account":"帳號",
+    "password":"密碼",
     "email":"信箱",
     "editPsw": "修改密碼",
     "send":"送出",
+    "edit":"編輯",
     "forgotPsw":"忘記密碼",
+    "logout":"登出",
     "signin":"登入",
     "newUser":"新用戶？",
-    "registerBtn":"註冊",
-    "registerFb":"以Facebook帳號登入"
+    "registerBtn":"註冊"
   }
 }

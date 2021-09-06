@@ -1,21 +1,22 @@
 <template lang="pug">
 article.member-info(v-if="!isLoading")
   section.form
-    .title 會員資料
+    .title {{$t(`Member.infoTitle`)}}
     .row
       .column-2
         .input-box
-          .input-title 姓名
+          .input-title {{$t(`Member.name`)}}
           input(type="text" v-model="member.name" :disabled="!isEdit")
       .column-2
         .input-box
-          .input-title 生日
+          .input-title {{$t(`Member.birthday`)}}
           input(type="date" v-model="member.birthday" :disabled="!isEdit")
     .row
       .column-1
         .input-box
-          .input-title 帳號
-          input(type="text" v-model="member.account" disabled)
+          .input-title {{$t(`Member.account`)}}
+          //- input(type="text" v-model="member.account" disabled)
+          p.input-txt {{member.account}}
       //- .column-2
       //-   .input-box
       //-     .input-title 密碼
@@ -23,84 +24,85 @@ article.member-info(v-if="!isLoading")
     .row
       .column-1
         .input-box
-          .input-title 信箱
-          input(type="text" v-model="member.email" disabled)
+          .input-title {{$t(`Member.email`)}}
+          //- input(type="text" v-model="member.email" disabled)
+          p.input-txt {{member.email}}
     .btn-box
       .btn
-        Button(title="登出",type="right" @click="logoutHandler")
+        Button(:title="$t(`Member.logout`)",type="right" @click="logoutHandler")
       .btn
         router-link(:to="{name:'ForgetPassword'}")
-          Button(title="修改密碼",type="right")
+          Button(:title="$t(`Member.editPsw`)",type="right")
       .btn
-        Button(:title="isEdit?'送出':'編輯'",type="right" @click="btnHandler")
+        Button(:title="isEdit?$t(`Member.send`):$t(`Member.edit`)",type="right" @click="btnHandler")
           
 
 
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
     return {
-      isEdit: false
-    }
+      isEdit: false,
+    };
   },
   computed: {
-    ...mapState(["isLoading", "member"])
+    ...mapState(["isLoading", "member"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   created() {
-    const account = localStorage.getItem("account")
+    const account = localStorage.getItem("account");
     if (!account) {
-      this.$router.push({ name: "Signin" })
+      this.$router.push({ name: "Signin" });
     } else {
-      this.getMemberInfo()
+      this.getMemberInfo(account)
         .then((res) => {
-          console.log(res)
-          localStorage.setItem("token", res.data.token)
+          console.log(res);
+          localStorage.setItem("token", res.data.token);
         })
         .catch(() => {
-          console.log("fail")
-        })
+          console.log("fail");
+        });
     }
   },
   methods: {
     ...mapActions(["getMemberInfo", "putMemberInfo"]),
     btnHandler() {
       if (!this.isEdit) {
-        this.isEdit = true
+        this.isEdit = true;
       } else {
-        console.log("send")
+        console.log("send");
         this.putMemberInfo({
           token: localStorage.getItem("token"),
           name: this.member.name,
-          birthday: this.member.birthday
+          birthday: this.member.birthday,
         })
           .then(() => {
-            console.log("success")
+            console.log("success");
           })
           .catch(() => {
-            console.log("fail")
-          })
+            console.log("fail");
+          });
       }
     },
     logoutHandler() {
-      localStorage.removeItem("account")
-      localStorage.removeItem("token")
-      this.$router.push({ name: "Signin" })
-    }
+      localStorage.removeItem("account");
+      localStorage.removeItem("token");
+      this.$router.push({ name: "Signin" });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

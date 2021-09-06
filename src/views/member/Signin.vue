@@ -1,33 +1,33 @@
 <template lang="pug">
 article.member-info
   section.form
-    .title 登入帳戶
+    .title {{$t(`Member.signinTitle`)}}
     .row
       .column-2
         .input-box
-          .input-title 帳號
+          .input-title {{$t(`Member.account`)}}
           input(type="text" v-model="account")
       .column-2
         .input-box
-          .input-title 密碼
+          .input-title {{$t(`Member.password`)}}
           input(type="password" v-model="password")
     .btn-box
       .btn
         router-link(:to="{name:'ForgetPassword'}")
-          Button(title='忘記密碼',type="right")
+          Button(:title='$t(`Member.forgotPsw`)',type="right")
       .btn
-        Button(title='登入',type="right" @click="postSigninHandler")
+        Button(:title='$t(`Member.signin`)',type="right" @click="postSigninHandler")
     .register-box
+      //- .register-btn
+      //-   p.register-title 或以下列方式登入
+      //-   .btn
+      //-     figure.fb-icon
+      //-       img(src="@/assets/images/fb-btn-icon.png")
+      //-     p 以Facebook帳號登入
       .register-btn
-        p.register-title 或以下列方式登入
-        .btn
-          figure.fb-icon
-            img(src="@/assets/images/fb-btn-icon.png")
-          p 以Facebook帳號登入
-      .register-btn
-        p.register-title 新用戶？
+        p.register-title {{$t(`Member.newUser`)}}
         router-link.btn(:to="{name:'Signup'}")
-          p 註冊
+          p {{$t(`Member.registerBtn`)}}
           
 
 
