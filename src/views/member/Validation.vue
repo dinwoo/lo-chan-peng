@@ -1,57 +1,57 @@
 <template lang="pug">
 article.member-info
   section.form
-    .title 會員驗證
+    .title {{$t(`Member.validateTitle`)}}
     .row
       .column-1
         .input-box
-          .input-title 驗證碼
+          .input-title {{$t(`Member.token`)}}
           input(type="text" v-model="token")
     .btn-box
       //- Button(title='忘記密碼',type="right")
-      Button(title='驗證' @click="postValidationHandler")
+      Button(:title='$t(`Member.send`)' @click="postValidationHandler")
           
 
 
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
   name: "Member",
   components: {
-    Button,
+    Button
   },
   data() {
-    return { token: "" };
+    return { token: "" }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {})
   },
   methods: {
     ...mapActions(["postValidation"]),
     postValidationHandler() {
       if (this.token == "") {
-        alert("請填寫驗證碼");
-        return false;
+        alert("請填寫驗證碼")
+        return false
       }
 
       this.postValidation(this.token)
         .then(() => {
-          this.$router.push({ name: "Member" });
+          this.$router.push({ name: "Member" })
         })
         .catch(() => {
-          alert("傳送失敗");
-        });
-    },
+          alert("傳送失敗")
+        })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

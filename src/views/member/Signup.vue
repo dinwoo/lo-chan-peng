@@ -1,51 +1,51 @@
 <template lang="pug">
 article.member-info
   section.form
-    .title 建立帳戶
+    .title {{$t(`Member.signupTitle`)}}
     .row
       .column-2
         .input-box
-          .input-title 姓名
+          .input-title {{$t(`Member.name`)}}
           input(type="text" v-model="name")
       .column-2
         .input-box
-          .input-title 生日
+          .input-title {{$t(`Member.birthday`)}}
           input(type="date" v-model="birthday")
     .row
       .column-1
         .input-box
-          .input-title 帳號
+          .input-title {{$t(`Member.account`)}}
           input(type="text" v-model="account")
     .row
       .column-2
         .input-box
-          .input-title 密碼
+          .input-title {{$t(`Member.password`)}}
           input(type="password" v-model="password")
       .column-2
         .input-box
-          .input-title 密碼確認
+          .input-title {{$t(`Member.confirmPassword`)}}
           input(type="password" v-model="confirmPassword")
     .row
       .column-1
         .input-box
-          .input-title 信箱
+          .input-title {{$t(`Member.email`)}}
           input(type="text" v-model="email")
     .btn-box
-      Button(title='註冊',type="right" @click="postSignupHandler")
+      Button(:title='$t(`Member.registerBtn`)',type="right" @click="postSignupHandler")
           
 
 
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
-import mixins from "@/mixins/index.js";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
+import mixins from "@/mixins/index.js"
 
 export default {
   name: "Member",
   components: {
-    Button,
+    Button
   },
   mixins: [mixins],
   data() {
@@ -55,37 +55,37 @@ export default {
       account: "",
       password: "",
       confirmPassword: "",
-      email: "",
-    };
+      email: ""
+    }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {})
   },
   methods: {
     ...mapActions(["postSignup"]),
     postSignupHandler() {
       if (this.name == "") {
-        alert("請填寫姓名");
-        return false;
+        alert("請填寫姓名")
+        return false
       } else if (this.birthday == "") {
-        alert("請填寫生日");
-        return false;
+        alert("請填寫生日")
+        return false
       } else if (this.account == "") {
-        alert("請填寫帳號");
-        return false;
+        alert("請填寫帳號")
+        return false
       } else if (
         this.password == "" ||
         this.confirmPassword == "" ||
         this.password != this.confirmPassword
       ) {
-        alert("密碼錯誤");
-        return false;
+        alert("密碼錯誤")
+        return false
       } else if (!this.verifyEmail(this.email)) {
-        alert("Email錯誤");
-        return false;
+        alert("Email錯誤")
+        return false
       }
 
       this.postSignup({
@@ -95,19 +95,19 @@ export default {
         password: this.password,
         confirmPassword: this.confirmPassword,
         email: this.email,
-        type: 1,
+        type: 1
       })
         .then(() => {
-          localStorage.setItem("account", this.account);
-          this.$router.push({ name: "Validation" });
+          localStorage.setItem("account", this.account)
+          this.$router.push({ name: "Validation" })
         })
         .catch(() => {
-          alert("傳送失敗");
-        });
-    },
+          alert("傳送失敗")
+        })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

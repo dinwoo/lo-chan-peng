@@ -261,21 +261,26 @@
       }
     ]
   },
-  "Member":{
-    "infoTitle":"會員資料",
-    "signinTitle":"登入帳戶",
-    "name":"姓名",
-    "birthday":"生日",
-    "account":"帳號",
-    "password":"密碼",
-    "email":"信箱",
+  "Member": {
+    "infoTitle": "會員資料",
+    "signinTitle": "登入帳戶",
+    "signupTitle": "建立帳戶",
+    "forgotPswTitle": "修改密碼(忘記密碼)",
+    "validateTitle": "會員驗證",
+    "name": "姓名",
+    "birthday": "生日",
+    "account": "帳號",
+    "password": "密碼",
+    "confirmPassword": "密碼確認",
+    "email": "信箱",
     "editPsw": "修改密碼",
-    "send":"送出",
-    "edit":"編輯",
-    "forgotPsw":"忘記密碼",
-    "logout":"登出",
-    "signin":"登入",
-    "newUser":"新用戶？",
-    "registerBtn":"註冊"
+    "send": "送出",
+    "edit": "編輯",
+    "forgotPsw": "忘記密碼",
+    "logout": "登出",
+    "signin": "登入",
+    "newUser": "新用戶？",
+    "registerBtn": "註冊",
+    "token": "驗證碼"
   }
 }

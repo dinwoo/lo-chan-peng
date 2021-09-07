@@ -405,21 +405,26 @@
       }
     ]
   },
-  "Member":{
-    "infoTitle":"會員資料",
-    "signinTitle":"登入帳戶",
-    "name":"姓名",
-    "birthday":"生日",
-    "account":"帳號",
-    "password":"密碼",
-    "email":"信箱",
-    "editPsw": "修改密碼",
-    "send":"送出",
-    "edit":"編輯",
-    "forgotPsw":"忘記密碼",
-    "logout":"登出",
-    "signin":"登入",
-    "newUser":"新用戶？",
-    "registerBtn":"註冊"
+  "Member": {
+    "infoTitle": "Profile",
+    "signinTitle": "Login Account",
+    "signupTitle": "Create Account",
+    "forgotPswTitle": "Change Password",
+    "validateTitle": "Verification",
+    "name": "Name",
+    "birthday": "Birthday",
+    "account": "Account",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "email": "Email",
+    "editPsw": "Change Password",
+    "send": "Send",
+    "edit": "Edit",
+    "forgotPsw": "Forgot Password",
+    "logout": "Logout",
+    "signin": "Login",
+    "newUser": "New Member?",
+    "registerBtn": "Register",
+    "token": "Verification code"
   }
 }
