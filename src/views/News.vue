@@ -4,10 +4,11 @@ article.news
     figure.news-icon
       img(src="@/assets/images/news-icon.png")
   section.main
-    SearchBox(
-      :searchTxt="searchTxt"
-      @searchHandler="searchHandler"
-    )
+    .search-box
+      SearchBox(
+        :searchTxt="searchTxt"
+        @searchHandler="searchHandler"
+      )
     CardList(v-if="!isLoading" :cardData="news.list" routeName="NewsInfo")
     paginate(
       :page-count="news.allPages||0"
@@ -25,7 +26,7 @@ import { mapState, mapActions } from "vuex"
 import CardList from "@/components/CardList"
 import SearchBox from "@/components/SearchBox"
 import Paginate from "vuejs-paginate"
-import { gsap } from "gsap"
+import { TweenMax, gsap } from "gsap"
 
 export default {
   name: "News",
@@ -83,7 +84,7 @@ export default {
       console.log(pageNum)
     },
     setInitial() {
-      gsap.set("section.banner", {
+      gsap.set("section.banner,.search-box", {
         opacity: 0
       })
     },
@@ -93,8 +94,20 @@ export default {
           triggerElement: "section.banner",
           reverse: false
         })
-        .setTween("section.banner", 1, {
-          opacity: 1
+        .on("enter", function() {
+          gsap
+            .timeline()
+            .add(
+              TweenMax.to("section.banner", 1, {
+                opacity: 1
+              })
+            )
+            .add(
+              TweenMax.to(".search-box", 1, {
+                opacity: 1,
+                delay: -0.5
+              })
+            )
         })
       // .addIndicators({ name: "banner" })
 

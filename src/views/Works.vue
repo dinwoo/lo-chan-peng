@@ -4,10 +4,11 @@ article.works
     figure.works-banner
       img(src="@/assets/images/works-banner.png")
   section.main
-    SearchBox(
-      :searchTxt="searchTxt"
-      @searchHandler="searchHandler"
-    )
+    .search-box
+      SearchBox(
+        :searchTxt="searchTxt"
+        @searchHandler="searchHandler"
+      )
     .wrapper(v-if="!isLoading")
       .year-mobile(v-if="!isSelect" @click="isSelect=true") {{nowYear}}
       .years-list(v-if="isSelect")
@@ -39,16 +40,16 @@ article.works
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import SearchBox from "@/components/SearchBox";
-import Paginate from "vuejs-paginate";
-import { TweenMax, gsap } from "gsap";
+import { mapState, mapActions } from "vuex"
+import SearchBox from "@/components/SearchBox"
+import Paginate from "vuejs-paginate"
+import { TweenMax, gsap } from "gsap"
 
 export default {
   name: "Works",
   components: {
     SearchBox,
-    Paginate,
+    Paginate
   },
   data() {
     return {
@@ -65,36 +66,36 @@ export default {
         width: null,
         height: null,
         unit: "",
-        year: "",
+        year: ""
       },
-      sceneArr: [],
-    };
+      sceneArr: []
+    }
   },
   computed: {
-    ...mapState(["isLoading", "lang", "work", "screenWidth"]),
+    ...mapState(["isLoading", "lang", "work", "screenWidth"])
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene);
-    });
+      this.$scrollmagic.removeScene(scene)
+    })
   },
   mounted() {
     this.$nextTick(() => {
-      gsap.set("section.banner", {
-        opacity: 0,
-      });
-    });
+      gsap.set("section.banner,.search-box", {
+        opacity: 0
+      })
+    })
   },
   created() {
     this.getWorkYears()
       .then(() => {
-        console.log("getWorkYears success");
-        this.nowYear = this.work.years[0];
-        this.apiList();
+        console.log("getWorkYears success")
+        this.nowYear = this.work.years[0]
+        this.apiList()
       })
       .catch(() => {
-        console.log("fail");
-      });
+        console.log("fail")
+      })
   },
   methods: {
     ...mapActions(["getWorkYears", "getWorkListApi"]),
@@ -104,68 +105,83 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang,
+        channel: this.lang
       })
         .then(() => {
-          console.log("getWorkListApi success");
-          if (this.screenWidth <= 768) this.isSelect = false;
-          this.setInitial();
-          this.setAnimate();
+          console.log("getWorkListApi success")
+          if (this.screenWidth <= 768) this.isSelect = false
+          this.setInitial()
+          this.setAnimate()
         })
         .catch(() => {
-          console.log("fail");
-        });
+          console.log("fail")
+        })
     },
     apiList() {
-      this.getWorkList(this.nowYear, this.searchTxt, this.pageNum);
+      this.getWorkList(this.nowYear, this.searchTxt, this.pageNum)
     },
     searchYear(year) {
-      console.log(year);
-      this.nowYear = year;
-      this.searchTxt = "";
-      this.pageNum = 1;
-      this.apiList();
+      console.log(year)
+      this.nowYear = year
+      this.searchTxt = ""
+      this.pageNum = 1
+      this.apiList()
     },
     searchHandler(txt) {
-      this.searchTxt = txt;
-      this.nowYear = "";
-      this.pageNum = 1;
-      this.apiList();
+      this.searchTxt = txt
+      this.nowYear = ""
+      this.pageNum = 1
+      this.apiList()
     },
     pageHandler(pageNum) {
-      console.log(pageNum);
-      this.pageNum = pageNum;
-      this.apiList();
+      console.log(pageNum)
+      this.pageNum = pageNum
+      this.apiList()
     },
     showWork(work) {
-      this.isShowPopup = true;
-      this.popupWork = work;
+      this.isShowPopup = true
+      this.popupWork = work
     },
     setInitial() {
       gsap.set("section.banner", {
-        opacity: 0,
-      });
+        opacity: 0
+      })
+      gsap.set(".search-box", {
+        opacity: 0
+      })
       gsap.set(".work-item", {
         y: 50,
-        opacity: 0,
-      });
+        opacity: 0
+      })
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false,
+          reverse: false
         })
-        .setTween("section.banner", 1, {
-          opacity: 1,
-        });
+        .on("enter", function() {
+          gsap
+            .timeline()
+            .add(
+              TweenMax.to("section.banner", 1, {
+                opacity: 1
+              })
+            )
+            .add(
+              TweenMax.to(".search-box", 1, {
+                opacity: 1,
+                delay: -0.5
+              })
+            )
+        })
       // .addIndicators({ name: "banner" })
 
       this.sceneArr[1] = this.$scrollmagic
         .scene({
           triggerElement: ".work-item",
           reverse: false,
-          triggerHook: 1,
+          triggerHook: 1
         })
         .on("enter", function() {
           TweenMax.staggerTo(
@@ -173,21 +189,21 @@ export default {
             1,
             {
               y: 0,
-              opacity: 1,
+              opacity: 1
             },
             0.2
-          );
-        });
+          )
+        })
       // .addIndicators({ name: "card-list" });
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene);
-        this.$scrollmagic.addScene(scene);
-      });
-    },
+        console.log(scene)
+        this.$scrollmagic.addScene(scene)
+      })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>
