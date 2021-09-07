@@ -28,11 +28,11 @@ header
           .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
           .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
         .close(@click="showMenu=false")
-        router-link.page-link(:to="{name:'About'}") {{$t(`Menu.about`)}}
-        router-link.page-link(:to="{name:'News'}") {{$t(`Menu.news`)}}
-        router-link.page-link(:to="{name:'Works'}") {{$t(`Menu.works`)}}
-        router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
-        router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
+        .page-link(@click="routeTo('About')") {{$t(`Menu.about`)}}
+        .page-link(@click="routeTo('News')") {{$t(`Menu.news`)}}
+        .page-link(@click="routeTo('Works')") {{$t(`Menu.works`)}}
+        .page-link(@click="routeTo('Contact')") {{$t(`Menu.contact`)}}
+        .page-link(@click="routeTo('Course')") {{$t(`Menu.course`)}}
         .social-box
           a(href="https://www.facebook.com/lo.c.peng" target="_blank")
             figure.icon
@@ -51,55 +51,59 @@ header
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "vuex"
 
 export default {
   name: "Header",
   data() {
     return {
       isMobile: false,
-      showMenu: false,
-    };
+      showMenu: false
+    }
   },
   computed: {
-    ...mapState(["lang", "screenWidth"]),
+    ...mapState(["lang", "screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {
-      this.isMobile = this.screenWidth < 768;
-    });
+      this.isMobile = this.screenWidth < 768
+    })
   },
   methods: {
     // 儲存切換的語系
     setLang(value) {
-      this.$store.commit("SET_LANG", value);
-      this.$i18n.locale = value;
-      localStorage.setItem("footmark-lang", value);
-      this.$router.go(0);
+      this.$store.commit("SET_LANG", value)
+      this.$i18n.locale = value
+      localStorage.setItem("footmark-lang", value)
+      this.$router.go(0)
+    },
+    routeTo(routeName) {
+      this.showMenu = false
+      this.$router.push({ name: routeName })
     },
     goMember() {
       if (localStorage.getItem("account")) {
-        if (this.$route.name == "Member") return;
-        this.$router.push({ name: "Member" });
+        if (this.$route.name == "Member") return
+        this.$router.push({ name: "Member" })
       } else {
-        if (this.$route.name == "Signin") return;
-        this.$router.push({ name: "Signin" });
+        if (this.$route.name == "Signin") return
+        this.$router.push({ name: "Signin" })
       }
-    },
+    }
   },
   watch: {
     screenWidth(val) {
       if (!this.timer) {
-        this.isMobile = val < 768;
-        this.timer = true;
+        this.isMobile = val < 768
+        this.timer = true
         setTimeout(() => {
           // console.log(val);
-          this.timer = false;
-        }, 400);
+          this.timer = false
+        }, 400)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -157,6 +161,7 @@ header
         font-size: 1rem
         letter-spacing: 2px
         color: $gray-003
+        cursor: pointer
       .lang-box
         display: none
       .close
