@@ -13,7 +13,7 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    meta: { layout: "DefaultLayout" },
+    meta: { layout: "DefaultLayout", title: "關於" },
     component: () => import("@/views/About.vue")
   },
   {

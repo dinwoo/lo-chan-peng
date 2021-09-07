@@ -1,4 +1,9 @@
 {
+  "Meta": {
+    "title": "Lo Chan Peng",
+    "description": "description",
+    "keyword": "keyword"
+  },
   "Menu": {
     "about": "About",
     "news": "News",

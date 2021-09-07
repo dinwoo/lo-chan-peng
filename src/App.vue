@@ -4,26 +4,54 @@
 </template>
 
 <script>
-import HomeLayout from "@/layouts/HomeLayout";
-import DefaultLayout from "@/layouts/DefaultLayout";
+import HomeLayout from "@/layouts/HomeLayout"
+import DefaultLayout from "@/layouts/DefaultLayout"
 export default {
   components: {
     HomeLayout,
-    DefaultLayout,
+    DefaultLayout
   },
   data() {
-    return {};
+    return {}
+  },
+  metaInfo() {
+    return {
+      title: this.$t(`Meta.title`),
+      // title: this.$route.meta.title,
+      meta: [
+        {
+          name: "title",
+          content: this.$t(`Meta.title`)
+        },
+        {
+          name: "description",
+          content: this.$t(`Meta.description`)
+        },
+        {
+          name: "keyword",
+          content: this.$t(`Meta.keyword`)
+        },
+        {
+          name: "og:title",
+          content: this.$t(`Meta.title`)
+        },
+        {
+          name: "og:description",
+          content: this.$t(`Meta.description`)
+        }
+      ]
+    }
   },
   mounted() {
     window.onresize = () => {
       return (() => {
-        window.screenWidth = document.body.clientWidth;
-        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth);
+        window.screenWidth = document.body.clientWidth
+        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth)
         // that.screenWidth = window.screenWidth;
-      })();
-    };
-  },
-};
+      })()
+    }
+  }
+}
 </script>
 
 <style lang="sass">

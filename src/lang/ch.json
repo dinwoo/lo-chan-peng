@@ -1,4 +1,9 @@
 {
+  "Meta": {
+    "title": "羅展鵬",
+    "description": "description",
+    "keyword": "keyword"
+  },
   "Menu": {
     "about": "關於藝術家",
     "news": "最新消息",
