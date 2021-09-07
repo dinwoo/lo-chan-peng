@@ -1,7 +1,7 @@
 <template lang="pug">
 article.member-info
   section.form
-    .title {{$t(`Member.forgotPswTitle`)}}
+    .title(v-html="$t(`Member.forgotPswTitle`)")
     .row
       .column-1
         .input-box
@@ -25,58 +25,62 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
     return {
       token: "",
       password: "",
-      confirmPassword: ""
-    }
+      confirmPassword: "",
+    };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {
+      if (this.$route.query.t) {
+        this.token = this.$route.query.t;
+      }
+    });
   },
   methods: {
     ...mapActions(["putPasswordInfo"]),
     putPasswordInfoHandler() {
       if (this.token == "") {
-        alert("請填寫驗證碼")
-        return false
+        alert("請填寫驗證碼");
+        return false;
       } else if (
         this.password == "" ||
         this.confirmPassword == "" ||
         this.password != this.confirmPassword
       ) {
-        alert("密碼錯誤")
-        return false
+        alert("密碼錯誤");
+        return false;
       }
 
       this.putPasswordInfo({
         token: this.token,
         password: this.password,
-        confirmPassword: this.confirmPassword
+        confirmPassword: this.confirmPassword,
       })
         .then(() => {
-          alert("修改成功")
-          this.$router.push({ name: "Signin" })
+          alert("修改成功");
+          this.$router.push({ name: "Signin" });
         })
         .catch(() => {
-          alert("傳送失敗")
-        })
-    }
+          alert("傳送失敗");
+        });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

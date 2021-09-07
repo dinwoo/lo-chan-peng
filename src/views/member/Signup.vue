@@ -1,7 +1,7 @@
 <template lang="pug">
 article.member-info
   section.form
-    .title {{$t(`Member.signupTitle`)}}
+    .title(v-html="$t(`Member.signupTitle`)")
     .row
       .column-2
         .input-box
@@ -10,7 +10,7 @@ article.member-info
       .column-2
         .input-box
           .input-title {{$t(`Member.birthday`)}}
-          input(type="date" v-model="birthday")
+          input.edit(type="date" v-model="birthday")
     .row
       .column-1
         .input-box
@@ -38,14 +38,14 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Button from "@/components/Button.vue"
-import mixins from "@/mixins/index.js"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
+import mixins from "@/mixins/index.js";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   mixins: [mixins],
   data() {
@@ -55,38 +55,38 @@ export default {
       account: "",
       password: "",
       confirmPassword: "",
-      email: ""
-    }
+      email: "",
+    };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   methods: {
     ...mapActions(["postSignup"]),
     postSignupHandler() {
-      if (this.name == "") {
-        alert("請填寫姓名")
-        return false
-      } else if (this.birthday == "") {
-        alert("請填寫生日")
-        return false
-      } else if (this.account == "") {
-        alert("請填寫帳號")
-        return false
-      } else if (
-        this.password == "" ||
-        this.confirmPassword == "" ||
-        this.password != this.confirmPassword
-      ) {
-        alert("密碼錯誤")
-        return false
-      } else if (!this.verifyEmail(this.email)) {
-        alert("Email錯誤")
-        return false
-      }
+      // if (this.name == "") {
+      //   alert("name is required");
+      //   return false;
+      // } else if (this.birthday == "") {
+      //   alert("birthday is required");
+      //   return false;
+      // } else if (this.account == "") {
+      //   alert("account is required");
+      //   return false;
+      // } else if (
+      //   this.password == "" ||
+      //   this.confirmPassword == "" ||
+      //   this.password != this.confirmPassword
+      // ) {
+      //   alert("password is not the same");
+      //   return false;
+      // } else if (!this.verifyEmail(this.email)) {
+      //   alert("please enter the correct email format, ex：aa@bb.com");
+      //   return false;
+      // }
 
       this.postSignup({
         name: this.name,
@@ -95,19 +95,19 @@ export default {
         password: this.password,
         confirmPassword: this.confirmPassword,
         email: this.email,
-        type: 1
+        type: 1,
       })
         .then(() => {
-          localStorage.setItem("account", this.account)
-          this.$router.push({ name: "Validation" })
+          localStorage.setItem("account", this.account);
+          this.$router.push({ name: "Validation" });
         })
         .catch(() => {
-          alert("傳送失敗")
-        })
-    }
+          alert("傳送失敗");
+        });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

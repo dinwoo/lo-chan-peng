@@ -18,15 +18,15 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
-import VueSlickCarousel from "vue-slick-carousel"
+import { mapState } from "vuex";
+import VueSlickCarousel from "vue-slick-carousel";
 // optional style for arrows & dots
-import "vue-slick-carousel/dist/vue-slick-carousel.css"
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css"
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "BannerSwiper",
   components: {
-    VueSlickCarousel
+    VueSlickCarousel,
   },
   props: ["pictureLink"],
   data() {
@@ -41,16 +41,16 @@ export default {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        arrows: false
+        arrows: false,
       },
       slidesToShow: 0,
       showOption: false,
-      isMobile: document.body.clientWidth < 768
-    }
+      isMobile: document.body.clientWidth < 768,
+    };
   },
   watch: {
     screenWidth(val) {
-      this.isMobile = val < 768
+      this.isMobile = val < 768;
       // if (!this.timer) {
       //   this.screenWidth = val;
       //   this.timer = true;
@@ -60,24 +60,24 @@ export default {
       //     that.timer = false;
       //   }, 400);
       // }
-    }
+    },
   },
   mounted() {},
   computed: {
     ...mapState(["screenWidth"]),
     linkIndex() {
-      return this.isMobile ? "mobile" : "pc"
-    }
+      return this.isMobile ? "mobile" : "pc";
+    },
   },
   methods: {
     prev() {
-      this.$refs.carousel.prev()
+      this.$refs.carousel.prev();
     },
     next() {
-      this.$refs.carousel.next()
-    }
-  }
-}
+      this.$refs.carousel.next();
+    },
+  },
+};
 </script>
 
 <style lang="sass">
@@ -116,7 +116,7 @@ export default {
     padding-bottom: 100vh
     position: relative
     @include rwd(768px)
-      padding-bottom: 152%
+      // padding-bottom: 152%
     .pic
       width: 100%
       height: 100%

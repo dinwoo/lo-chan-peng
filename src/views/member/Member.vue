@@ -10,26 +10,26 @@ article.member-info
 </template>
 
 <script>
-import { mapState } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
-    Button
+    Button,
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   methods: {},
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass">
@@ -50,6 +50,8 @@ section.form
     color: $gray-005
     position: absolute
     left: -200px
+    .break
+      display: block
   .column-1
     margin-bottom: 1rem
   .column-2
@@ -65,6 +67,9 @@ section.form
       position: relative
       left: 0px
       border-bottom: 1px solid $gray-005
+      .break
+        display: inline
+        padding-left: 1rem
   +rwd(768px)
     .title
     .column-1

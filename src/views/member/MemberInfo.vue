@@ -1,16 +1,18 @@
 <template lang="pug">
 article.member-info(v-if="!isLoading")
   section.form
-    .title {{$t(`Member.infoTitle`)}}
+    .title(v-html="isEdit?$t(`Member.editTitle`):$t(`Member.infoTitle`)")
     .row
       .column-2
         .input-box
           .input-title {{$t(`Member.name`)}}
-          input(type="text" v-model="member.name" :disabled="!isEdit")
+          input(type="text" v-model="member.name" :disabled="!isEdit" v-if="isEdit")
+          p.input-txt(v-else) {{member.name}}
       .column-2
         .input-box
           .input-title {{$t(`Member.birthday`)}}
-          input(type="date" v-model="member.birthday" :disabled="!isEdit")
+          input(type="date" v-model="member.birthday" :disabled="!isEdit" :class="{'edit':isEdit}" v-if="isEdit")
+          p.input-txt(v-else) {{member.birthday}}
     .row
       .column-1
         .input-box
@@ -28,11 +30,14 @@ article.member-info(v-if="!isLoading")
           //- input(type="text" v-model="member.email" disabled)
           p.input-txt {{member.email}}
     .btn-box
-      .btn
+      .btn(v-if="!isEdit")
         Button(:title="$t(`Member.logout`)",type="right" @click="logoutHandler")
-      .btn
+      .btn(v-if="!isEdit")
         router-link(:to="{name:'ForgetPassword'}")
           Button(:title="$t(`Member.editPsw`)",type="right")
+      .btn(v-if="isEdit")
+      .btn(v-if="isEdit")
+        Button(:title="$t(`Member.cancel`)",type="right" @click="isEdit=false")
       .btn
         Button(:title="isEdit?$t(`Member.send`):$t(`Member.edit`)",type="right" @click="btnHandler")
           
@@ -69,6 +74,7 @@ export default {
         .then((res) => {
           console.log(res);
           localStorage.setItem("token", res.data.token);
+          this.isEdit = false;
         })
         .catch(() => {
           console.log("fail");
@@ -89,6 +95,7 @@ export default {
         })
           .then(() => {
             console.log("success");
+            this.isEdit = false;
           })
           .catch(() => {
             console.log("fail");
@@ -114,7 +121,7 @@ article.member-info
   section.form
     .btn-box
       display: flex
-      justify-content: flex-end
+      justify-content: space-between
       .btn
         flex: 1
         margin-left: 1rem

@@ -1,18 +1,23 @@
 <template lang="pug">
 #app
   component(:is="$route.meta.layout")
+  .loading-mask(v-if="isLoading")
+    figure.loding-icon
+      img(src="@/assets/images/loading-icon.svg")
+    
 </template>
 
 <script>
-import HomeLayout from "@/layouts/HomeLayout"
-import DefaultLayout from "@/layouts/DefaultLayout"
+import { mapState } from "vuex";
+import HomeLayout from "@/layouts/HomeLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
   components: {
     HomeLayout,
-    DefaultLayout
+    DefaultLayout,
   },
   data() {
-    return {}
+    return {};
   },
   metaInfo() {
     return {
@@ -21,37 +26,40 @@ export default {
       meta: [
         {
           name: "title",
-          content: this.$t(`Meta.title`)
+          content: this.$t(`Meta.title`),
         },
         {
           name: "description",
-          content: this.$t(`Meta.description`)
+          content: this.$t(`Meta.description`),
         },
         {
           name: "keyword",
-          content: this.$t(`Meta.keyword`)
+          content: this.$t(`Meta.keyword`),
         },
         {
           name: "og:title",
-          content: this.$t(`Meta.title`)
+          content: this.$t(`Meta.title`),
         },
         {
           name: "og:description",
-          content: this.$t(`Meta.description`)
-        }
-      ]
-    }
+          content: this.$t(`Meta.description`),
+        },
+      ],
+    };
+  },
+  computed: {
+    ...mapState(["isLoading", "lang", "course"]),
   },
   mounted() {
     window.onresize = () => {
       return (() => {
-        window.screenWidth = document.body.clientWidth
-        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth)
+        window.screenWidth = document.body.clientWidth;
+        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth);
         // that.screenWidth = window.screenWidth;
-      })()
-    }
-  }
-}
+      })();
+    };
+  },
+};
 </script>
 
 <style lang="sass">
@@ -96,4 +104,20 @@ ul.paginate-box
     &.active
       a
         color: $gray-004
+</style>
+
+<style lang="sass" scoped>
+@import "@/assets/sass/var.sass"
+
+.loading-mask
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  left: 0
+  background-color: rgba(#000,.7)
+  z-index: 101
+  figure.loding-icon
+    width: 50px
+    +pstc5
 </style>
