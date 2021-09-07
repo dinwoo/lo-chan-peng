@@ -62,6 +62,11 @@ export default {
       return this.$t(`QA.list`)
     }
   },
+  beforeDestroy() {
+    this.sceneArr.map((scene) => {
+      this.$scrollmagic.removeScene(scene)
+    })
+  },
   mounted() {
     this.$nextTick(() => {
       this.qaList.forEach(() => {
