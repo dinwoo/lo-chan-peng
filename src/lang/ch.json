@@ -32,7 +32,7 @@
         { "year": "2011", "items": ["駐村德國柏林"] }
       ]
     },
-    "title2": "展覽/<br>藝博會",
+    "title2": "展覽/<span class='break'>藝博會</span>",
     "soloExhibitions": {
       "title": "個展",
       "list": [
@@ -289,5 +289,23 @@
     "newUser": "新用戶？",
     "registerBtn": "註冊",
     "token": "驗證碼"
+  },
+  "Work": {
+    "yearTitle": "作品年代"
+  },
+  "Course": {
+    "btn": "課 程",
+    "relatedTitle": "相關文章"
+  },
+  "News": {
+    "relatedTitle": "相關新聞"
+  },
+  "Contact": {
+    "title": "聯絡我們",
+    "name": "姓名",
+    "phone": "電話",
+    "email": "信箱",
+    "content": "內容",
+    "send": "送出"
   }
 }

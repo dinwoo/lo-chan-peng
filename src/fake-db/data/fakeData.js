@@ -41,7 +41,7 @@ mock.onPost("api/news/list").reply(() => {
           dateTime: "01 Jul 2021"
         }
       ],
-      allPages: 5,
+      allPage: 5,
       currentPage: 1,
       amount: 150
     },
@@ -133,7 +133,7 @@ mock.onPost("api/work/list").reply(() => {
           year: "1980"
         }
       ],
-      allPages: 5,
+      allPage: 5,
       currentPage: 1,
       amount: 150
     },
@@ -164,7 +164,7 @@ mock.onPost("api/course/list").reply(() => {
           dateTime: "01 Jul 2021"
         }
       ],
-      allPages: 5,
+      allPage: 5,
       currentPage: 1,
       amount: 150
     },

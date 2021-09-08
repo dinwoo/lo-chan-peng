@@ -15,46 +15,46 @@
 // import {
 //   mapState
 // } from "vuex";
-import { TweenMax, gsap } from "gsap";
+import { TweenMax, gsap } from "gsap"
 
 export default {
   name: "CardList",
   components: {},
   props: {
     cardData: Array,
-    routeName: String,
+    routeName: String
   },
   data() {
     return {
-      sceneArr: [],
-    };
+      sceneArr: []
+    }
   },
   watch: {},
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene);
-    });
+      this.$scrollmagic.removeScene(scene)
+    })
   },
   mounted() {
     this.$nextTick(() => {
-      this.setInitial();
-      this.setAnimate();
-    });
+      this.setInitial()
+      this.setAnimate()
+    })
   },
   computed: {},
   methods: {
     setInitial() {
       gsap.set(".card-list-wrapper .card-item", {
         y: 50,
-        opacity: 0,
-      });
+        opacity: 0
+      })
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: ".card-list-wrapper .card-item",
           reverse: false,
-          triggerHook: 1,
+          triggerHook: 1
         })
         .on("enter", function() {
           TweenMax.staggerTo(
@@ -62,19 +62,19 @@ export default {
             1,
             {
               y: 0,
-              opacity: 1,
+              opacity: 1
             },
             0.2
-          );
-        });
+          )
+        })
       // .addIndicators({ name: "card-list" });
 
       this.sceneArr.forEach((scene) => {
-        this.$scrollmagic.addScene(scene);
-      });
-    },
-  },
-};
+        this.$scrollmagic.addScene(scene)
+      })
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -108,6 +108,11 @@ export default {
       font-size: 1rem
       line-height: 1.5
       color: $gray-005
+      display: -webkit-box
+      -webkit-line-clamp: 2
+      -webkit-box-orient: vertical
+      white-space: normal
+      overflow: hidden
   +rwd(768px)
     .card-item
       width: 100%

@@ -11,7 +11,7 @@ article.course
       )
     CardList(v-if="!isLoading" :cardData="course.list" routeName="CourseInfo")
     paginate(
-      :page-count="course.allPages||0"
+      :page-count="course.allPage||0"
       :click-handler="pageHandler"
       :prev-text="'Prev'"
       :next-text="'Next'"
