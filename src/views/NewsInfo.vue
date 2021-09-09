@@ -17,103 +17,103 @@ article.news-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import CardInfo from "@/components/CardInfo.vue"
-import RelatedList from "@/components/RelatedList.vue"
-import { gsap } from "gsap"
+import { mapState, mapActions } from "vuex";
+import CardInfo from "@/components/CardInfo.vue";
+import RelatedList from "@/components/RelatedList.vue";
+import { gsap } from "gsap";
 
 export default {
   name: "NewsInfo",
   components: {
     CardInfo,
-    RelatedList
+    RelatedList,
   },
   data() {
     return {
-      sceneArr: []
-    }
+      sceneArr: [],
+    };
   },
   computed: {
-    ...mapState(["isLoading", "lang", "news"])
+    ...mapState(["isLoading", "lang", "news"]),
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene)
-    })
+      this.$scrollmagic.removeScene(scene);
+    });
   },
   mounted() {
     this.$nextTick(() => {
-      this.setInitial()
-      this.setAnimate()
-    })
+      this.setInitial();
+      this.setAnimate();
+    });
   },
   created() {
-    this.getNewsData()
+    this.getNewsData();
   },
   methods: {
     ...mapActions(["getNewsDetail"]),
     getNewsData() {
       this.getNewsDetail({
         id: parseInt(this.$route.params.id),
-        channel: this.lang
+        channel: this.lang,
       })
         .then(() => {
-          console.log("success")
+          console.log("success");
         })
         .catch(() => {
-          console.log("fail")
-        })
+          console.log("fail");
+        });
     },
     setInitial() {
       gsap.set("section.banner", {
-        opacity: 0
-      })
+        opacity: 0,
+      });
       gsap.set("section.related", {
         y: 50,
-        opacity: 0
-      })
+        opacity: 0,
+      });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false
+          reverse: false,
         })
         .setTween("section.banner", 1, {
-          opacity: 1
-        })
+          opacity: 1,
+        });
       // .addIndicators({ name: "banner" })
 
       this.sceneArr[1] = this.$scrollmagic
         .scene({
           triggerElement: "section.related",
           reverse: false,
-          triggerHook: 0.8
+          triggerHook: 0.8,
         })
         .setTween("section.related", 1, {
           y: 0,
-          opacity: 1
-        })
+          opacity: 1,
+        });
       // .addIndicators({ name: "related" });
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene)
-        this.$scrollmagic.addScene(scene)
-      })
+        console.log(scene);
+        this.$scrollmagic.addScene(scene);
+      });
     },
     goTop() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
-      })
-    }
+        behavior: "smooth",
+      });
+    },
   },
   watch: {
     "$route.params.id": function() {
-      this.getNewsData()
-    }
-  }
-}
+      this.getNewsData();
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -154,10 +154,10 @@ article.news-info
       position: relative
       .pre-page,.go-top
         display: block
-        width: 2rem
-        height: 2rem
+        width: 4rem
+        height: 4rem
         background-image: url('../assets/images/arrow.png')
-        background-size: 1.2rem
+        background-size: 2rem
         background-position: center center
         background-repeat: no-repeat
         cursor: pointer

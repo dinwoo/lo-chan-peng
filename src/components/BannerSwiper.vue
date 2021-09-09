@@ -11,10 +11,10 @@
         :style="`background-image:url('${compileFilePath(pic)}')`"
       )
   .arrow-control
-    figure.arrow(@click="prev()")
-      img(src="@/assets/images/arrow-left-icon.png")
-    figure.arrow(@click="next()")
-      img(src="@/assets/images/arrow-right-icon.png")
+    .arrow.svg_box(@click="prev()")
+      include ../assets/pug/arrow-left.pug
+    .arrow.svg_box(@click="next()")
+      include ../assets/pug/arrow-right.pug
 </template>
 
 <script>
@@ -84,11 +84,11 @@ export default {
 @import "@/assets/sass/var.sass"
 
 .banner-dots
-  padding: 0 70px
-  bottom: 60px
+  padding: 0 60px
+  bottom: 50px
   text-align: left
   li
-    margin: 0 10px
+    margin: 0 5px
     button
       &:before
         color: $gray-005
@@ -97,6 +97,8 @@ export default {
       button
         &:before
           color: $gray-001
+  +rwd(768px)
+    padding: 0 15px
 </style>
 
 <style lang="sass" scoped>
@@ -129,7 +131,17 @@ export default {
     position: absolute
     bottom: 45px
     right: 65px
-    figure.arrow
+    .arrow
       margin-bottom: 10px
       cursor: pointer
+      fill: none
+      stroke: $gray-004
+      transition: .3s
+      +hover
+        stroke: #fff
+    +rwd(768px)
+      width: 30px
+      right: 15px
+      .arrow
+        margin-bottom: 5px
 </style>

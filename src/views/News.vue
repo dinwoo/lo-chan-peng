@@ -22,42 +22,42 @@ article.news
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import CardList from "@/components/CardList"
-import SearchBox from "@/components/SearchBox"
-import Paginate from "vuejs-paginate"
-import { TweenMax, gsap } from "gsap"
+import { mapState, mapActions } from "vuex";
+import CardList from "@/components/CardList";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
+import { TweenMax, gsap } from "gsap";
 
 export default {
   name: "News",
   components: {
     CardList,
     SearchBox,
-    Paginate
+    Paginate,
   },
   data() {
     return {
-      pageSize: 10,
+      pageSize: 6,
       searchTxt: "",
-      sceneArr: []
-    }
+      sceneArr: [],
+    };
   },
   computed: {
-    ...mapState(["isLoading", "lang", "news"])
+    ...mapState(["isLoading", "lang", "news"]),
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene)
-    })
+      this.$scrollmagic.removeScene(scene);
+    });
   },
   mounted() {
     this.$nextTick(() => {
-      this.setInitial()
-      this.setAnimate()
-    })
+      this.setInitial();
+      this.setAnimate();
+    });
   },
   created() {
-    this.getNewsList("", 1)
+    this.getNewsList("", 1);
   },
   methods: {
     ...mapActions(["getNewsListApi"]),
@@ -66,59 +66,59 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang
+        channel: this.lang,
       })
         .then(() => {
-          console.log("success")
+          console.log("success");
         })
         .catch(() => {
-          console.log("fail")
-        })
+          console.log("fail");
+        });
     },
     searchHandler(txt) {
-      this.searchTxt = txt
-      this.getNewsList(txt, 1)
+      this.searchTxt = txt;
+      this.getNewsList(txt, 1);
     },
     pageHandler(pageNum) {
-      this.getNewsList(this.searchTxt, pageNum)
-      console.log(pageNum)
+      this.getNewsList(this.searchTxt, pageNum);
+      console.log(pageNum);
     },
     setInitial() {
       gsap.set("section.banner,.search-box", {
-        opacity: 0
-      })
+        opacity: 0,
+      });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false
+          reverse: false,
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1
+                opacity: 1,
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5
+                delay: -0.5,
               })
-            )
-        })
+            );
+        });
       // .addIndicators({ name: "banner" })
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene)
-        this.$scrollmagic.addScene(scene)
-      })
-    }
+        console.log(scene);
+        this.$scrollmagic.addScene(scene);
+      });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

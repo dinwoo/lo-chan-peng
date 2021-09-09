@@ -11,19 +11,19 @@ footer
         router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
     .social-box
       a(href="https://www.facebook.com/lo.c.peng" target="_blank")
-        figure.icon
-          img(src="@/assets/images/fb-icon.png")
+        .icon.svg_box
+          include ../assets/pug/fb.pug
       a(href="https://www.instagram.com/lochanpeng/" target="_blank")
-        figure.icon
-          img(src="@/assets/images/ig-icon.png")
+        .icon.svg_box
+          include ../assets/pug/ig.pug
       a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
-        figure.icon
-          img(src="@/assets/images/yt-icon.png")
+        .icon.svg_box
+          include ../assets/pug/yt.pug
       a(href="https://t.me/lochanpeng2022" target="_blank")
-        figure.icon
-          img(src="@/assets/images/telegram-icon.png")
-      figure.icon(@click="goMember()")
-        img(src="@/assets/images/member-icon.png")
+        .icon.svg_box
+          include ../assets/pug/telegram.pug
+      .icon.svg_box(@click="goMember()")
+        include ../assets/pug/member.pug
   .copyright
     p Copyright © 2021  LO CHAN PENG All righta RENU
     p Just Design
@@ -80,13 +80,20 @@ footer
       .page-link
         margin: 0 1.4rem
         font-size: 1rem
-        color: $gray-005
+        color: $gray-004
+        transition: .3s
+        +hover
+          color: #fff
     .social-box
-      figure.icon
+      .icon
         width: 35px
         margin: 0 10px
         cursor: pointer
+        fill: $gray-004
+        transition: .3s
         +dib
+        +hover
+          fill: #fff
   .copyright
     padding: .8rem
     box-sizing: border-box

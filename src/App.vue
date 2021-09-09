@@ -90,6 +90,9 @@ a
 
 html
   background-color: #000
+  font-size: 16px
+  +rwd(768px)
+    font-size: 12px
 
 ul.paginate-box
   width: 100%

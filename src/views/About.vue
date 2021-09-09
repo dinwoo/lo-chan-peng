@@ -83,14 +83,14 @@ article.about
 </template>
 
 <script>
-import { mapState } from "vuex"
-import { VueSlideToggle } from "vue-slide-toggle"
-import { TweenMax, gsap } from "gsap"
+import { mapState } from "vuex";
+import { VueSlideToggle } from "vue-slide-toggle";
+import { TweenMax, gsap } from "gsap";
 
 export default {
   name: "About",
   components: {
-    VueSlideToggle
+    VueSlideToggle,
   },
   data() {
     return {
@@ -99,51 +99,51 @@ export default {
       open3: true,
       open4: true,
       open5: true,
-      sceneArr: []
-    }
+      sceneArr: [],
+    };
   },
   computed: {
     ...mapState(["screenWidth"]),
     isOpen() {
-      return this.screenWidth > 768 ? true : false
-    }
+      return this.screenWidth > 768 ? true : false;
+    },
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene)
-    })
+      this.$scrollmagic.removeScene(scene);
+    });
   },
   mounted() {
     this.$nextTick(() => {
-      this.setSwitch()
-      this.setInitial()
-      this.setAnimate()
-    })
+      this.setSwitch();
+      this.setInitial();
+      this.setAnimate();
+    });
   },
   methods: {
     setSwitch() {
-      this.open1 = this.isOpen
-      this.open2 = this.isOpen
-      this.open3 = this.isOpen
-      this.open4 = this.isOpen
-      this.open5 = this.isOpen
+      this.open1 = this.isOpen;
+      this.open2 = this.isOpen;
+      this.open3 = this.isOpen;
+      this.open4 = this.isOpen;
+      this.open5 = this.isOpen;
     },
     setInitial() {
       gsap.set("section.banner", {
         y: 100,
-        opacity: 0
-      })
+        opacity: 0,
+      });
       gsap.set("section.intro", {
         y: 100,
-        opacity: 0
-      })
+        opacity: 0,
+      });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
           triggerHook: 1,
-          reverse: false
+          reverse: false,
         })
         // .setTween(tl)
         .on("enter", function() {
@@ -151,7 +151,7 @@ export default {
             .timeline()
             .to("section.banner", 1, {
               y: 0,
-              opacity: 1
+              opacity: 1,
             })
             .add(
               TweenMax.staggerTo(
@@ -160,25 +160,25 @@ export default {
                 {
                   y: 0,
                   opacity: 1,
-                  delay: -1
+                  delay: -1,
                 },
                 0.5
               )
-            )
-        })
+            );
+        });
       // .addIndicators({ name: "banner" });
 
       this.sceneArr.forEach((scene) => {
-        this.$scrollmagic.addScene(scene)
-      })
-    }
+        this.$scrollmagic.addScene(scene);
+      });
+    },
   },
   watch: {
     screenWidth() {
-      this.setSwitch()
-    }
-  }
-}
+      this.setSwitch();
+    },
+  },
+};
 </script>
 
 <style lang="sass">
@@ -270,7 +270,7 @@ article.about
     section.intro
       width: 100%
       padding: 0rem
-      margin-top: 1.5rem
+      margin-top: 1rem
       border-radius: 1.5rem
       background-color: transparent
       .content

@@ -38,7 +38,7 @@ export default {
 .search-box-wrapper
   width: 100%
   .search-box
-    width: 450px
+    width: 350px
     margin-left: auto
     margin-bottom: 2rem
     border: 1px solid $gray-004
@@ -64,9 +64,14 @@ export default {
       +dib
   +rwd(768px)
     .search-box
-      width: 70vw
+      width: 50vw
       margin: auto
-      margin-bottom: 1rem
+      margin-bottom: 2rem
       input[type="text"]
+        width: calc( 100% - 32px )
       .search-icon
+        width: 20px
+        padding: 6px
+        background-color: $gray-004
+        cursor: pointer
 </style>

@@ -7,19 +7,19 @@ header
     .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
     .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
     a(href="https://www.facebook.com/lo.c.peng" target="_blank")
-      figure.icon
-        img(src="@/assets/images/fb-icon.png")
+      .svg_box
+        include ../assets/pug/fb.pug
     a(href="https://www.instagram.com/lochanpeng/" target="_blank")
-      figure.icon
-        img(src="@/assets/images/ig-icon.png")
+      .svg_box
+        include ../assets/pug/ig.pug
     a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
-      figure.icon
-        img(src="@/assets/images/yt-icon.png")
+      .svg_box
+        include ../assets/pug/yt.pug
     a(href="https://t.me/lochanpeng2022" target="_blank")
-      figure.icon
-        img(src="@/assets/images/telegram-icon.png")
-    figure.icon(@click="goMember()")
-      img(src="@/assets/images/member-icon.png")
+      .svg_box
+        include ../assets/pug/telegram.pug
+    .svg_box(@click="goMember()")
+      include ../assets/pug/member.pug
     .ham(v-if="isMobile" @click="showMenu=!showMenu")
     .ham(v-else @mouseenter="showMenu=true" @mouseleave="showMenu=false")
     .sub-menu(v-if="showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
@@ -35,76 +35,108 @@ header
         .page-link(:class="{'active':$route.name=='Course'||$route.name=='CourseInfo'}" @click="routeTo('Course')") {{$t(`Menu.course`)}}
         .social-box
           a(href="https://www.facebook.com/lo.c.peng" target="_blank")
-            figure.icon
-              img(src="@/assets/images/fb-icon.png")
+            .svg_box
+              include ../assets/pug/fb.pug
           a(href="https://www.instagram.com/lochanpeng/" target="_blank")
-            figure.icon
-              img(src="@/assets/images/ig-icon.png")
+            .svg_box
+              include ../assets/pug/ig.pug
           a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
-            figure.icon
-              img(src="@/assets/images/yt-icon.png")
+            .svg_box
+              include ../assets/pug/yt.pug
           a(href="https://t.me/lochanpeng2022" target="_blank")
-            figure.icon
-              img(src="@/assets/images/telegram-icon.png")
+            .svg_box
+              include ../assets/pug/telegram.pug
         .login(@click="goMember()") {{$t(`Menu.login`)}}
 
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
+import { gsap } from "gsap";
 
 export default {
   name: "Header",
   data() {
     return {
       isMobile: false,
-      showMenu: false
-    }
+      showMenu: false,
+      sceneArr: [],
+    };
   },
   computed: {
-    ...mapState(["lang", "screenWidth"])
+    ...mapState(["lang", "screenWidth"]),
+  },
+  beforeDestroy() {
+    this.sceneArr.map((scene) => {
+      this.$scrollmagic.removeScene(scene);
+    });
   },
   mounted() {
     this.$nextTick(() => {
-      this.isMobile = this.screenWidth < 768
-    })
+      this.isMobile = this.screenWidth < 768;
+      this.setAnimate();
+    });
   },
   methods: {
     // 儲存切換的語系
     setLang(value) {
-      this.$store.commit("SET_LANG", value)
-      this.$i18n.locale = value
-      localStorage.setItem("footmark-lang", value)
-      this.$router.go(0)
+      this.$store.commit("SET_LANG", value);
+      this.$i18n.locale = value;
+      localStorage.setItem("footmark-lang", value);
+      this.$router.go(0);
     },
     routeTo(routeName) {
-      this.showMenu = false
-      this.$router.push({ name: routeName })
+      this.showMenu = false;
+      this.$router.push({ name: routeName });
     },
     goMember() {
-      this.showMenu = false
+      this.showMenu = false;
       if (localStorage.getItem("account")) {
-        if (this.$route.name == "Member") return
-        this.$router.push({ name: "Member" })
+        if (this.$route.name == "Member") return;
+        this.$router.push({ name: "Member" });
       } else {
-        if (this.$route.name == "Signin") return
-        this.$router.push({ name: "Signin" })
+        if (this.$route.name == "Signin") return;
+        this.$router.push({ name: "Signin" });
       }
-    }
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: "body",
+          triggerHook: 0,
+          offset: 120,
+          reverse: true,
+        })
+        .on("enter", function() {
+          gsap.to("header", {
+            opacity: 0,
+          });
+        })
+        .on("leave", function() {
+          gsap.to("header", {
+            opacity: 1,
+          });
+        });
+      // .addIndicators({ name: "header" });
+
+      this.sceneArr.forEach((scene) => {
+        this.$scrollmagic.addScene(scene);
+      });
+    },
   },
   watch: {
     screenWidth(val) {
       if (!this.timer) {
-        this.isMobile = val < 768
-        this.timer = true
+        this.isMobile = val < 768;
+        this.timer = true;
         setTimeout(() => {
           // console.log(val);
-          this.timer = false
-        }, 400)
+          this.timer = false;
+        }, 400);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>
@@ -131,24 +163,32 @@ header
       font-size: 1rem
       color: $gray-005
       cursor: pointer
+      transition: .3s
       &.active,&:hover
-        color: $gray-004
-    figure.icon
+        color: #fff
+    .svg_box
       width: 35px
       margin: 0 10px
       cursor: pointer
+      fill: $gray-004
+      transition: .3s
+      +hover
+        fill: #fff
     .ham
       width: 36px
       height: 25px
       margin-left: 40px
-      background-image: linear-gradient($gray-001 0%,$gray-001 calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),$gray-001 calc(50% - 2px),$gray-001 calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),$gray-001 calc(100% - 4px),$gray-001 100%)
+      background-image: linear-gradient($gray-004 0%,$gray-004 calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),$gray-004 calc(50% - 2px),$gray-004 calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),$gray-004 calc(100% - 4px),$gray-004 100%)
       opacity: .6
       cursor: pointer
+      transition: .3s
+      +hover
+        background-image: linear-gradient(#fff 0%,#fff calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),#fff calc(50% - 2px),#fff calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),#fff calc(100% - 4px),#fff 100%)
     .sub-menu
       padding-top: 40px
       position: absolute
       right: 0px
-      bottom: 5px
+      bottom: 10px
       transform: translateY(100%)
       .menu-box
         padding: 50px 70px
@@ -161,13 +201,13 @@ header
         margin: 20px 0
         font-size: 1rem
         letter-spacing: 2px
-        color: $gray-003
+        color: #595857
         cursor: pointer
         transition: .3s
         &:hover
           color: #000
         &.active
-          color: $gray-002
+          color: #000
       .lang-box
         display: none
       .close
@@ -184,18 +224,23 @@ header
       .ham
         margin-left: 20px
   +rwd(768px)
-    // padding: 40px 50px
+    padding: 20px 15px
     figure.logo
       width: 50vw
       // width: 400px
     .menu
       .lang
         display: none
-      figure.icon
+      .svg_box
         display: none
       .ham
+        width: 30px
+        height: 20px
+        background-image: linear-gradient($gray-004 0%,$gray-004 calc(0% + 2px),transparent calc(0% + 2px),transparent calc(50% - 2px),$gray-004 calc(50% - 1px),$gray-004 calc(50% + 1px),transparent calc(50% + 2px),transparent calc(100% - 2px),$gray-004 calc(100% - 2px),$gray-004 100%)
       .sub-menu
         .menu-box
+          padding: 20px 30px
+          background-color: rgba(#fff,.9)
           position: relative
         .page-link
           display: block
@@ -234,7 +279,7 @@ header
             height: 100%
         .social-box
           display: block
-          figure.icon
+          .svg_box
             width: 30px
             margin: 0 5px
             +dib

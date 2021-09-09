@@ -9,7 +9,7 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 export default {
-  name:'Default',
+  name: "Default",
   components: {
     Header,
     Footer,
@@ -17,10 +17,8 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-  },
-  methods: {
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
@@ -38,5 +36,4 @@ export default {
 
 article
   padding-top: 115px
-
 </style>

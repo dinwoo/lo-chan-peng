@@ -46,20 +46,20 @@ article.works
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import SearchBox from "@/components/SearchBox"
-import Paginate from "vuejs-paginate"
-import { TweenMax, gsap } from "gsap"
+import { mapState, mapActions } from "vuex";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
+import { TweenMax, gsap } from "gsap";
 
 export default {
   name: "Works",
   components: {
     SearchBox,
-    Paginate
+    Paginate,
   },
   data() {
     return {
-      pageSize: 10,
+      pageSize: 6,
       pageNum: 1,
       nowYear: "",
       searchTxt: "",
@@ -72,44 +72,44 @@ export default {
         width: null,
         height: null,
         unit: "",
-        year: ""
+        year: "",
       },
-      sceneArr: []
-    }
+      sceneArr: [],
+    };
   },
   computed: {
     ...mapState(["isLoading", "lang", "work", "screenWidth"]),
     isMobile() {
-      return this.screenWidth <= 768
-    }
+      return this.screenWidth <= 768;
+    },
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene)
-    })
+      this.$scrollmagic.removeScene(scene);
+    });
   },
   mounted() {
     this.$nextTick(() => {
       gsap.set("section.banner,.search-box", {
-        opacity: 0
-      })
-    })
+        opacity: 0,
+      });
+    });
   },
   created() {
     this.getWorkYears()
       .then(() => {
-        console.log("getWorkYears success")
+        console.log("getWorkYears success");
         if (!this.isMobile) {
-          this.nowYear = this.work.years[0]
-          this.apiList()
+          this.nowYear = this.work.years[0];
+          this.apiList();
         } else {
-          this.setInitial()
-          this.setAnimate()
+          this.setInitial();
+          this.setAnimate();
         }
       })
       .catch(() => {
-        console.log("fail")
-      })
+        console.log("fail");
+      });
   },
   methods: {
     ...mapActions(["getWorkYears", "getWorkListApi"]),
@@ -119,83 +119,83 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang
+        channel: this.lang,
       })
         .then(() => {
-          console.log("getWorkListApi success")
-          this.isSelect = false
-          this.setInitial()
-          this.setAnimate()
+          console.log("getWorkListApi success");
+          this.isSelect = false;
+          this.setInitial();
+          this.setAnimate();
         })
         .catch(() => {
-          console.log("fail")
-        })
+          console.log("fail");
+        });
     },
     apiList() {
-      this.getWorkList(this.nowYear, this.searchTxt, this.pageNum)
+      this.getWorkList(this.nowYear, this.searchTxt, this.pageNum);
     },
     searchYear(year) {
-      console.log(year)
-      this.nowYear = year
-      this.searchTxt = ""
-      this.pageNum = 1
-      this.apiList()
+      console.log(year);
+      this.nowYear = year;
+      this.searchTxt = "";
+      this.pageNum = 1;
+      this.apiList();
     },
     searchHandler(txt) {
-      this.searchTxt = txt
-      this.nowYear = ""
-      this.pageNum = 1
-      this.apiList()
+      this.searchTxt = txt;
+      this.nowYear = "";
+      this.pageNum = 1;
+      this.apiList();
     },
     pageHandler(pageNum) {
-      console.log(pageNum)
-      this.pageNum = pageNum
-      this.apiList()
+      console.log(pageNum);
+      this.pageNum = pageNum;
+      this.apiList();
     },
     showWork(work) {
-      this.isShowPopup = true
-      this.popupWork = work
+      this.isShowPopup = true;
+      this.popupWork = work;
     },
     setInitial() {
       gsap.set("section.banner", {
-        opacity: 0
-      })
+        opacity: 0,
+      });
       gsap.set(".search-box", {
-        opacity: 0
-      })
+        opacity: 0,
+      });
       gsap.set(".work-item", {
         y: 50,
-        opacity: 0
-      })
+        opacity: 0,
+      });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false
+          reverse: false,
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1
+                opacity: 1,
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5
+                delay: -0.5,
               })
-            )
-        })
+            );
+        });
       // .addIndicators({ name: "banner" })
 
       this.sceneArr[1] = this.$scrollmagic
         .scene({
           triggerElement: ".work-item",
           reverse: false,
-          triggerHook: 1
+          triggerHook: 1,
         })
         .on("enter", function() {
           TweenMax.staggerTo(
@@ -203,35 +203,35 @@ export default {
             1,
             {
               y: 0,
-              opacity: 1
+              opacity: 1,
             },
             0.2
-          )
-        })
+          );
+        });
       // .addIndicators({ name: "card-list" });
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene)
-        this.$scrollmagic.addScene(scene)
-      })
+        console.log(scene);
+        this.$scrollmagic.addScene(scene);
+      });
     },
     reSearch() {
-      this.isSelect = true
-      this.searchTxt = ""
-      this.nowYear = ""
+      this.isSelect = true;
+      this.searchTxt = "";
+      this.nowYear = "";
       window.scrollTo({
-        top: 0
-      })
+        top: 0,
+      });
     },
     goTop() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
-      })
-    }
+        behavior: "smooth",
+      });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>
@@ -274,6 +274,7 @@ article.works
         .year
           font-size: 1.6rem
           color: $gray-005
+          transition: .3s
           cursor: pointer
           position: relative
           +before
@@ -281,6 +282,7 @@ article.works
             height: 1rem
             border-radius: 50%
             background-color: $gray-005
+            transition: .3s
             position: absolute
             top: 0
             bottom: 0
@@ -288,7 +290,7 @@ article.works
             margin: auto
           & + .year
             margin-top: 3rem
-          &.active
+          &.active,&:hover
             color: #fff
             &:before
               background-color: #fff
@@ -330,10 +332,10 @@ article.works
       position: relative
       .pre-page,.go-top
         display: block
-        width: 2rem
-        height: 2rem
+        width: 4rem
+        height: 4rem
         background-image: url('../assets/images/arrow.png')
-        background-size: 1.2rem
+        background-size: 2rem
         background-position: center center
         background-repeat: no-repeat
         cursor: pointer
@@ -354,25 +356,8 @@ article.works
     left: 0
     z-index: 101
     .close
-      display: block
-      width: 3rem
-      height: 3rem
-      transform: rotate(-45deg)
-      cursor: pointer
-      position: absolute
-      top: 2rem
-      right: 2rem
-      &:before,&:after
-        content: ''
-        display: block
-        background-color: #fff
-        +pstc0
-      &:before
-        width: 100%
-        height: 2px
-      &:after
-        width: 2px
-        height: 100%
+      width: 100%
+      height: 100%
     .wrapper
       width: 80vh
       max-width: 90vw

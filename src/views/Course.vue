@@ -32,13 +32,13 @@ article.course
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapState, mapActions } from "vuex";
 
-import CardList from "@/components/CardList"
-import { VueSlideToggle } from "vue-slide-toggle"
-import SearchBox from "@/components/SearchBox"
-import Paginate from "vuejs-paginate"
-import { TweenMax, gsap } from "gsap"
+import CardList from "@/components/CardList";
+import { VueSlideToggle } from "vue-slide-toggle";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
+import { TweenMax, gsap } from "gsap";
 
 export default {
   name: "Course",
@@ -46,38 +46,38 @@ export default {
     CardList,
     VueSlideToggle,
     SearchBox,
-    Paginate
+    Paginate,
   },
   data() {
     return {
       openSwitch: [],
-      pageSize: 10,
+      pageSize: 6,
       searchTxt: "",
-      sceneArr: []
-    }
+      sceneArr: [],
+    };
   },
   computed: {
     ...mapState(["isLoading", "lang", "course"]),
     qaList() {
-      return this.$t(`QA.list`)
-    }
+      return this.$t(`QA.list`);
+    },
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene)
-    })
+      this.$scrollmagic.removeScene(scene);
+    });
   },
   mounted() {
     this.$nextTick(() => {
       this.qaList.forEach(() => {
-        this.openSwitch.push(false)
-      })
-      this.setInitial()
-      this.setAnimate()
-    })
+        this.openSwitch.push(false);
+      });
+      this.setInitial();
+      this.setAnimate();
+    });
   },
   created() {
-    this.getCourseList("", 1)
+    this.getCourseList("", 1);
   },
   methods: {
     ...mapActions(["getCourseListApi"]),
@@ -86,62 +86,62 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang
+        channel: this.lang,
       })
         .then(() => {
-          console.log("success")
+          console.log("success");
         })
         .catch(() => {
-          console.log("fail")
-        })
+          console.log("fail");
+        });
     },
     searchHandler(txt) {
-      this.searchTxt = txt
-      this.getCourseList(txt, 1)
+      this.searchTxt = txt;
+      this.getCourseList(txt, 1);
     },
     pageHandler(pageNum) {
-      this.getCourseList(this.searchTxt, pageNum)
-      console.log(pageNum)
+      this.getCourseList(this.searchTxt, pageNum);
+      console.log(pageNum);
     },
     switchHandler(index) {
-      this.$set(this.openSwitch, index, !this.openSwitch[index])
+      this.$set(this.openSwitch, index, !this.openSwitch[index]);
     },
     setInitial() {
       gsap.set("section.banner,.search-box", {
-        opacity: 0
-      })
+        opacity: 0,
+      });
       gsap.set(".qa-icon,.qa-item", {
         y: 50,
-        opacity: 0
-      })
+        opacity: 0,
+      });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false
+          reverse: false,
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1
+                opacity: 1,
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5
+                delay: -0.5,
               })
-            )
-        })
+            );
+        });
       // .addIndicators({ name: "banner" })
 
       this.sceneArr[1] = this.$scrollmagic
         .scene({
           triggerElement: ".qa-part",
-          reverse: false
+          reverse: false,
         })
         .on("enter", function() {
           gsap
@@ -149,7 +149,7 @@ export default {
             .add(
               TweenMax.to(".qa-icon", 1, {
                 y: 0,
-                opacity: 1
+                opacity: 1,
               })
             )
             .add(
@@ -158,22 +158,22 @@ export default {
                 1,
                 {
                   y: 0,
-                  opacity: 1
+                  opacity: 1,
                 },
                 0.2
               )
-            )
-        })
+            );
+        });
       // .addIndicators({ name: "qa" })
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene)
-        this.$scrollmagic.addScene(scene)
-      })
-    }
+        console.log(scene);
+        this.$scrollmagic.addScene(scene);
+      });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass">
