@@ -35,7 +35,7 @@ article.member-info(v-if="!isLoading")
       .btn(v-if="!isEdit")
         router-link(:to="{name:'ForgetPassword'}")
           Button(:title="$t(`Member.editPsw`)",type="right")
-      .btn(v-if="isEdit")
+      .btn.hide(v-if="isEdit")
       .btn(v-if="isEdit")
         Button(:title="$t(`Member.cancel`)",type="right" @click="isEdit=false")
       .btn
@@ -132,4 +132,6 @@ article.member-info
         .btn
           width: 100%
           margin-left: 0
+          &.hide
+            display: none
 </style>
