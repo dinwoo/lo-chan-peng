@@ -10,26 +10,32 @@ article.works
         @searchHandler="searchHandler"
       )
     .wrapper(v-if="!isLoading")
-      .year-mobile(v-if="!isSelect" @click="isSelect=true") {{nowYear}}
-      .years-list(v-if="isSelect")
+      .year-mobile(v-if="!isSelect") {{nowYear||searchTxt}}
+      .years-title(v-if="isMobile&&isSelect") {{$t(`Work.yearTitle`)}}
+      .years-list(v-if="!isMobile||isMobile&&isSelect")
+        .year.active(v-if="searchTxt") {{searchTxt}}
         .year(
           v-for="(year,index) in work.years" :key="index"
+          :class="{'active': year == nowYear}"
           @click="searchYear(year)"
         ) {{year}}
-      .works-box
+      .works-box(v-if="!isMobile||isMobile&&!isSelect")
         .work-item(v-for="work in work.list" :key="work.id" @click="showWork(work)")
           .work-pic(:style="`background-image: url('${work.img}')`")
           .work-name {{work.name}}
           .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
         paginate(
           v-model="pageNum"
-          :page-count="work.allPages||0"
+          :page-count="work.allPage||0"
           :click-handler="pageHandler"
           :prev-text="'Prev'"
           :next-text="'Next'"
           :container-class="'paginate-box'"
           :hide-prev-next="true"
         )
+  .btn-box(v-if="!isSelect")
+    .pre-page(@click="reSearch")
+    .go-top(@click="goTop")
   section.popup(v-if="isShowPopup")
     .close(@click="isShowPopup=false")
     .wrapper
@@ -72,7 +78,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(["isLoading", "lang", "work", "screenWidth"])
+    ...mapState(["isLoading", "lang", "work", "screenWidth"]),
+    isMobile() {
+      return this.screenWidth <= 768
+    }
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
@@ -90,8 +99,13 @@ export default {
     this.getWorkYears()
       .then(() => {
         console.log("getWorkYears success")
-        this.nowYear = this.work.years[0]
-        this.apiList()
+        if (!this.isMobile) {
+          this.nowYear = this.work.years[0]
+          this.apiList()
+        } else {
+          this.setInitial()
+          this.setAnimate()
+        }
       })
       .catch(() => {
         console.log("fail")
@@ -109,7 +123,7 @@ export default {
       })
         .then(() => {
           console.log("getWorkListApi success")
-          if (this.screenWidth <= 768) this.isSelect = false
+          this.isSelect = false
           this.setInitial()
           this.setAnimate()
         })
@@ -200,6 +214,20 @@ export default {
         console.log(scene)
         this.$scrollmagic.addScene(scene)
       })
+    },
+    reSearch() {
+      this.isSelect = true
+      this.searchTxt = ""
+      this.nowYear = ""
+      window.scrollTo({
+        top: 0
+      })
+    },
+    goTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
     }
   },
   watch: {}
@@ -223,6 +251,12 @@ article.works
       padding: 2rem 0
       .year-mobile
         display: none
+      .years-title
+        display: none
+      .search-txt
+        margin-bottom: 1rem
+        font-size: 1.6rem
+        color: $gray-004
       .years-list
         width: 120px
         display: inline-block
@@ -287,6 +321,30 @@ article.works
             font-size: 1rem
             line-height: 1.5
             color: $gray-005
+  +rwd(768px)
+    .btn-box
+      width: 100%
+      margin-top: 2rem
+      border-top: 1px solid $gray-004
+      border-bottom: 1px solid $gray-004
+      position: relative
+      .pre-page,.go-top
+        display: block
+        width: 2rem
+        height: 2rem
+        background-image: url('../assets/images/arrow.png')
+        background-size: 1.2rem
+        background-position: center center
+        background-repeat: no-repeat
+        cursor: pointer
+      .pre-page
+        border-right: 1px solid $gray-004
+      .go-top
+        border-bottom: 1px solid $gray-004
+        transform: rotate(90deg)
+        position: absolute
+        top: 0
+        right: 0
   section.popup
     width: 100%
     height: 100%
@@ -351,6 +409,12 @@ article.works
           border-bottom: 1px solid $gray-004
           text-align: center
           cursor: pointer
+        .years-title
+          display: block
+          margin-bottom: 2rem
+          font-size: 1.6rem
+          color: $gray-004
+          text-align: center
         .years-list
           width: 80px
           margin: 0 auto 2rem

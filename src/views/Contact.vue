@@ -4,28 +4,28 @@ article.contact-info
     figure.contact-icon
       img(src="@/assets/images/contact-icon.png")
   section.form
-    .title 聯絡我們
+    .title {{$t(`Contact.title`)}}
     .row
       .column-2
         .input-box
-          .input-title 姓名
+          .input-title {{$t(`Contact.name`)}}
           input(type="text" v-model="name")
       .column-2
         .input-box
-          .input-title 電話
+          .input-title {{$t(`Contact.phone`)}}
           input(type="text" v-model="phone")
     .row
       .column-1
         .input-box
-          .input-title 信箱
+          .input-title {{$t(`Contact.email`)}}
           input(type="text" v-model="email")
     .row
       .column-1
         .input-box
-          .input-title 內容
+          .input-title {{$t(`Contact.content`)}}
           textarea(v-model="content")
     .btn-box
-      Button(title='送出',type="right" @click="postEmailHandler")
+      Button(:title='$t(`Contact.send`)',type="right" @click="postEmailHandler")
 
 </template>
 

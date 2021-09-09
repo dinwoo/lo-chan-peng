@@ -28,11 +28,11 @@ header
           .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
           .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
         .close(@click="showMenu=false")
-        .page-link(@click="routeTo('About')") {{$t(`Menu.about`)}}
-        .page-link(@click="routeTo('News')") {{$t(`Menu.news`)}}
-        .page-link(@click="routeTo('Works')") {{$t(`Menu.works`)}}
-        .page-link(@click="routeTo('Contact')") {{$t(`Menu.contact`)}}
-        .page-link(@click="routeTo('Course')") {{$t(`Menu.course`)}}
+        .page-link(:class="{'active':$route.name=='About'}" @click="routeTo('About')") {{$t(`Menu.about`)}}
+        .page-link(:class="{'active':$route.name=='News'||$route.name=='NewsInfo'}" @click="routeTo('News')") {{$t(`Menu.news`)}}
+        .page-link(:class="{'active':$route.name=='Works'}" @click="routeTo('Works')") {{$t(`Menu.works`)}}
+        .page-link(:class="{'active':$route.name=='Contact'}" @click="routeTo('Contact')") {{$t(`Menu.contact`)}}
+        .page-link(:class="{'active':$route.name=='Course'||$route.name=='CourseInfo'}" @click="routeTo('Course')") {{$t(`Menu.course`)}}
         .social-box
           a(href="https://www.facebook.com/lo.c.peng" target="_blank")
             figure.icon
@@ -82,6 +82,7 @@ export default {
       this.$router.push({ name: routeName })
     },
     goMember() {
+      this.showMenu = false
       if (localStorage.getItem("account")) {
         if (this.$route.name == "Member") return
         this.$router.push({ name: "Member" })
@@ -162,6 +163,11 @@ header
         letter-spacing: 2px
         color: $gray-003
         cursor: pointer
+        transition: .3s
+        &:hover
+          color: #000
+        &.active
+          color: $gray-002
       .lang-box
         display: none
       .close

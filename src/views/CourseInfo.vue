@@ -6,10 +6,16 @@ article.course-info(v-if="!isLoading")
   section.main
     CardInfo(:cardData="course.detail")
     //- Button(title='課 程')
-    a.buy-btn(:href="course.detail.buyScript") 課 程
+    a.buy-btn(:href="course.detail.buyScript") {{$t(`Course.btn`)}}
   section.related
-    .title 相關文章
+    .title {{$t(`Course.relatedTitle`)}}
     RelatedList(:relatedListData="course.detail.otherCourses" routeName="CourseInfo")
+  .btn-box
+    router-link.pre-page(:to="{name:'Course'}")
+    .go-top(@click="goTop")
+      
+    
+    
 
 
 </template>
@@ -45,21 +51,24 @@ export default {
     this.$nextTick(() => {})
   },
   created() {
-    this.getCourseDetail({
-      id: parseInt(this.$route.params.id),
-      channel: this.lang
-    })
-      .then(() => {
-        console.log("success")
-        this.setInitial()
-        this.setAnimate()
-      })
-      .catch(() => {
-        console.log("fail")
-      })
+    this.getCourseData()
   },
   methods: {
     ...mapActions(["getCourseDetail"]),
+    getCourseData() {
+      this.getCourseDetail({
+        id: parseInt(this.$route.params.id),
+        channel: this.lang
+      })
+        .then(() => {
+          console.log("success")
+          this.setInitial()
+          this.setAnimate()
+        })
+        .catch(() => {
+          console.log("fail")
+        })
+    },
     setInitial() {
       gsap.set("section.banner", {
         opacity: 0
@@ -96,9 +105,19 @@ export default {
         console.log(scene)
         this.$scrollmagic.addScene(scene)
       })
+    },
+    goTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
     }
   },
-  watch: {}
+  watch: {
+    "$route.params.id": function() {
+      this.getCourseData()
+    }
+  }
 }
 </script>
 
@@ -144,4 +163,28 @@ article.course-info
     section.main
     section.related
       .title
+  +rwd(768px)
+    .btn-box
+      width: 100%
+      margin-top: 2rem
+      border-top: 1px solid $gray-004
+      border-bottom: 1px solid $gray-004
+      position: relative
+      .pre-page,.go-top
+        display: block
+        width: 2rem
+        height: 2rem
+        background-image: url('../assets/images/arrow.png')
+        background-size: 1.2rem
+        background-position: center center
+        background-repeat: no-repeat
+        cursor: pointer
+      .pre-page
+        border-right: 1px solid $gray-004
+      .go-top
+        border-bottom: 1px solid $gray-004
+        transform: rotate(90deg)
+        position: absolute
+        top: 0
+        right: 0
 </style>

@@ -11,7 +11,7 @@ article.news
       )
     CardList(v-if="!isLoading" :cardData="news.list" routeName="NewsInfo")
     paginate(
-      :page-count="news.allPages||0"
+      :page-count="news.allPage||0"
       :click-handler="pageHandler"
       :prev-text="'Prev'"
       :next-text="'Next'"

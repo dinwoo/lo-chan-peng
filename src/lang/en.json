@@ -17,7 +17,7 @@
     "birth": "1989 Born in Taiwan ",
     "creativeMedia": "Specialization | Oil Painting, ink and mix media",
     "info": "",
-    "title1": "簡歷",
+    "title1": "Resume",
     "educationTitle": "Education",
     "education": "MA, Department of Fine Arts, National Taiwan Normal University, Taiwan<br>BA, Department of Fin Arts, Chinese Culture University, Taiwan",
     "currentJobTitle": "Current Occupations",
@@ -37,7 +37,7 @@
         }
       ]
     },
-    "title2": "展覽/<br>藝博會",
+    "title2": "Exhibitions",
     "soloExhibitions": {
       "title": "Solo Exhibitions",
       "list": [
@@ -433,5 +433,23 @@
     "newUser": "New Member?",
     "registerBtn": "Register",
     "token": "Verification code"
+  },
+  "Work": {
+    "yearTitle": "Years"
+  },
+  "Course": {
+    "btn": "Buy",
+    "relatedTitle": "Others Course"
+  },
+  "News": {
+    "relatedTitle": "Others News"
+  },
+  "Contact": {
+    "title": "Contact",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "content": "Content",
+    "send": "Send"
   }
 }
