@@ -11,7 +11,7 @@ article.news-info
       :relatedListData="news.detail.otherNews" routeName="NewsInfo"
     )
   .btn-box
-    router-link.pre-page(:to="{name:'Course'}")
+    router-link.pre-page(:to="{name:'News'}")
     .go-top(@click="goTop")
 
 </template>
