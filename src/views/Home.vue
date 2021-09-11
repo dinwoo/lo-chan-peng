@@ -6,22 +6,22 @@ article.home
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 
-import BannerSwiper from "@/components/BannerSwiper.vue"
+import BannerSwiper from "@/components/BannerSwiper.vue";
 
 export default {
   name: "Home",
   components: {
-    BannerSwiper
+    BannerSwiper,
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
-    ...mapState(["home"])
+    ...mapState(["home"]),
   },
   created() {},
-  methods: {}
-}
+  methods: {},
+};
 </script>

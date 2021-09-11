@@ -7,17 +7,15 @@
 <script>
 import Header from "@/components/Header.vue";
 export default {
-  name:'HomeLayout',
+  name: "HomeLayout",
   components: {
-    Header
+    Header,
   },
   data() {
     return {};
   },
-  mounted() {
-  },
-  methods: {
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 

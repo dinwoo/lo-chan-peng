@@ -34,25 +34,25 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Button from "@/components/Button.vue"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Signin",
   components: {
-    Button
+    Button,
   },
   data() {
     return {
       account: "",
-      password: ""
-    }
+      password: "",
+    };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   methods: {
     ...mapActions(["postSignin"]),
@@ -66,21 +66,21 @@ export default {
       // }
       this.postSignin({
         account: this.account,
-        password: this.password
+        password: this.password,
       })
         .then((res) => {
-          console.log(res)
-          localStorage.setItem("account", res.data.account)
-          localStorage.setItem("token", res.data.token)
-          this.$router.push({ name: "Home" })
+          console.log(res);
+          localStorage.setItem("account", res.data.account);
+          localStorage.setItem("token", res.data.token);
+          this.$router.push({ name: "Home" });
         })
         .catch(() => {
-          alert("傳送失敗")
-        })
-    }
+          alert("傳送失敗");
+        });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

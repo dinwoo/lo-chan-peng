@@ -112,7 +112,7 @@ export default {
       // .addIndicators({ name: "banner" })
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene);
+        // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
     },

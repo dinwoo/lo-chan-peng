@@ -30,14 +30,14 @@ article.contact-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Button from "@/components/Button.vue"
-import mixins from "@/mixins/index.js"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
+import mixins from "@/mixins/index.js";
 
 export default {
   name: "Contact",
   components: {
-    Button
+    Button,
   },
   mixins: [mixins],
   data() {
@@ -45,52 +45,52 @@ export default {
       name: "",
       phone: "",
       email: "",
-      content: ""
-    }
+      content: "",
+    };
   },
   computed: {
-    ...mapState(["screenWidth"])
+    ...mapState(["screenWidth"]),
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   methods: {
     ...mapActions(["postEmail"]),
     postEmailHandler() {
       if (this.name == "") {
-        alert("請填寫姓名")
-        return false
+        alert("請填寫姓名");
+        return false;
       } else if (!this.verifyPhone(this.phone)) {
-        alert("電話錯誤")
-        return false
+        alert("電話錯誤");
+        return false;
       } else if (!this.verifyEmail(this.email)) {
-        alert("Email錯誤")
-        return false
+        alert("Email錯誤");
+        return false;
       } else if (this.content == "") {
-        alert("請填寫內容")
-        return false
+        alert("請填寫內容");
+        return false;
       }
 
       this.postEmail({
         name: this.name,
         phone: this.phone,
         email: this.email,
-        content: this.content
+        content: this.content,
       })
         .then(() => {
-          alert("傳送成功")
-          this.name = ""
-          this.phone = ""
-          this.email = ""
-          this.content = ""
+          alert("傳送成功");
+          this.name = "";
+          this.phone = "";
+          this.email = "";
+          this.content = "";
         })
         .catch(() => {
-          alert("傳送失敗")
-        })
-    }
+          alert("傳送失敗");
+        });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

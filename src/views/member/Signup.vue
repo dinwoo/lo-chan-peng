@@ -38,14 +38,14 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
-import Button from "@/components/Button.vue"
-import mixins from "@/mixins/index.js"
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/Button.vue";
+import mixins from "@/mixins/index.js";
 
 export default {
   name: "Signup",
   components: {
-    Button
+    Button,
   },
   mixins: [mixins],
   data() {
@@ -55,20 +55,20 @@ export default {
       account: "",
       password: "",
       confirmPassword: "",
-      email: ""
-    }
+      email: "",
+    };
   },
   computed: {
     ...mapState(["screenWidth"]),
     today() {
-      const date = new Date()
+      const date = new Date();
       let month =
-        date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
-      return `${date.getFullYear()}-${month}-${date.getDate()}`
-    }
+        date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+      return `${date.getFullYear()}-${month}-${date.getDate()}`;
+    },
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   methods: {
     ...mapActions(["postSignup"]),
@@ -101,19 +101,19 @@ export default {
         password: this.password,
         confirmPassword: this.confirmPassword,
         email: this.email,
-        type: 1
+        type: 1,
       })
         .then(() => {
-          localStorage.setItem("account", this.account)
-          this.$router.push({ name: "Validation" })
+          localStorage.setItem("account", this.account);
+          this.$router.push({ name: "Validation" });
         })
         .catch(() => {
-          alert("傳送失敗")
-        })
-    }
+          alert("傳送失敗");
+        });
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="sass" scoped>

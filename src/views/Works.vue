@@ -211,7 +211,7 @@ export default {
       // .addIndicators({ name: "card-list" });
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene);
+        // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
     },

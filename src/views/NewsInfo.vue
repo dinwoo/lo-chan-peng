@@ -97,7 +97,7 @@ export default {
       // .addIndicators({ name: "related" });
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene);
+        // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
     },
