@@ -28,11 +28,11 @@ header
           .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
           .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
         .close(@click="showMenu=false")
-        .page-link(:class="{'active':$route.name=='About'}" @click="routeTo('About')") {{$t(`Menu.about`)}}
-        .page-link(:class="{'active':$route.name=='News'||$route.name=='NewsInfo'}" @click="routeTo('News')") {{$t(`Menu.news`)}}
-        .page-link(:class="{'active':$route.name=='Works'}" @click="routeTo('Works')") {{$t(`Menu.works`)}}
-        .page-link(:class="{'active':$route.name=='Contact'}" @click="routeTo('Contact')") {{$t(`Menu.contact`)}}
-        .page-link(:class="{'active':$route.name=='Course'||$route.name=='CourseInfo'}" @click="routeTo('Course')") {{$t(`Menu.course`)}}
+        router-link.page-link(:to="{name:'About'}" @click="routeTo()") {{$t(`Menu.about`)}}
+        router-link.page-link(:to="{name:'News'}" @click="routeTo()") {{$t(`Menu.news`)}}
+        router-link.page-link(:to="{name:'Works'}" @click="routeTo()") {{$t(`Menu.works`)}}
+        router-link.page-link(:to="{name:'Contact'}" @click="routeTo()") {{$t(`Menu.contact`)}}
+        router-link.page-link(:to="{name:'Course'}" @click="routeTo()") {{$t(`Menu.course`)}}
         .social-box
           a(href="https://www.facebook.com/lo.c.peng" target="_blank")
             .svg_box
@@ -51,8 +51,8 @@ header
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { gsap } from "gsap";
+import { mapState } from "vuex"
+import { gsap } from "gsap"
 
 export default {
   name: "Header",
@@ -60,43 +60,43 @@ export default {
     return {
       isMobile: false,
       showMenu: false,
-      sceneArr: [],
-    };
+      sceneArr: []
+    }
   },
   computed: {
-    ...mapState(["lang", "screenWidth"]),
+    ...mapState(["lang", "screenWidth"])
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene);
-    });
+      this.$scrollmagic.removeScene(scene)
+    })
   },
   mounted() {
     this.$nextTick(() => {
-      this.isMobile = this.screenWidth < 768;
-      this.setAnimate();
-    });
+      this.isMobile = this.screenWidth < 768
+      this.setAnimate()
+    })
   },
   methods: {
     // 儲存切換的語系
     setLang(value) {
-      this.$store.commit("SET_LANG", value);
-      this.$i18n.locale = value;
-      localStorage.setItem("footmark-lang", value);
-      this.$router.go(0);
+      this.$store.commit("SET_LANG", value)
+      this.$i18n.locale = value
+      localStorage.setItem("footmark-lang", value)
+      this.$router.go(0)
     },
-    routeTo(routeName) {
-      this.showMenu = false;
-      this.$router.push({ name: routeName });
+    routeTo() {
+      this.showMenu = false
+      // this.$router.push({ name: routeName })
     },
     goMember() {
-      this.showMenu = false;
+      this.showMenu = false
       if (localStorage.getItem("account")) {
-        if (this.$route.name == "Member") return;
-        this.$router.push({ name: "Member" });
+        if (this.$route.name == "Member") return
+        this.$router.push({ name: "Member" })
       } else {
-        if (this.$route.name == "Signin") return;
-        this.$router.push({ name: "Signin" });
+        if (this.$route.name == "Signin") return
+        this.$router.push({ name: "Signin" })
       }
     },
     setAnimate() {
@@ -105,38 +105,38 @@ export default {
           triggerElement: "body",
           triggerHook: 0,
           offset: 120,
-          reverse: true,
+          reverse: true
         })
         .on("enter", function() {
           gsap.to("header", {
-            opacity: 0,
-          });
+            opacity: 0
+          })
         })
         .on("leave", function() {
           gsap.to("header", {
-            opacity: 1,
-          });
-        });
+            opacity: 1
+          })
+        })
       // .addIndicators({ name: "header" });
 
       this.sceneArr.forEach((scene) => {
-        this.$scrollmagic.addScene(scene);
-      });
-    },
+        this.$scrollmagic.addScene(scene)
+      })
+    }
   },
   watch: {
     screenWidth(val) {
       if (!this.timer) {
-        this.isMobile = val < 768;
-        this.timer = true;
+        this.isMobile = val < 768
+        this.timer = true
         setTimeout(() => {
           // console.log(val);
-          this.timer = false;
-        }, 400);
+          this.timer = false
+        }, 400)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
@@ -206,7 +206,7 @@ header
         transition: .3s
         &:hover
           color: #000
-        &.active
+        &.router-link-active
           color: #000
       .lang-box
         display: none

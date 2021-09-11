@@ -25,62 +25,66 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
+import mixins from "@/mixins/index.js"
 
 export default {
-  name: "Member",
+  name: "PasswordEdit",
   components: {
-    Button,
+    Button
   },
+  mixins: [mixins],
   data() {
     return {
       token: "",
       password: "",
-      confirmPassword: "",
-    };
+      confirmPassword: ""
+    }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {
       if (this.$route.query.t) {
-        this.token = this.$route.query.t;
+        this.token = this.getUrlToken()
       }
-    });
+    })
   },
   methods: {
     ...mapActions(["putPasswordInfo"]),
     putPasswordInfoHandler() {
-      if (this.token == "") {
-        alert("請填寫驗證碼");
-        return false;
-      } else if (
-        this.password == "" ||
-        this.confirmPassword == "" ||
-        this.password != this.confirmPassword
-      ) {
-        alert("密碼錯誤");
-        return false;
-      }
+      // if (this.token == "") {
+      //   alert("請填寫驗證碼");
+      //   return false;
+      // } else if (
+      //   this.password == "" ||
+      //   this.confirmPassword == "" ||
+      //   this.password != this.confirmPassword
+      // ) {
+      //   alert("密碼錯誤");
+      //   return false;
+      // }
 
       this.putPasswordInfo({
         token: this.token,
         password: this.password,
-        confirmPassword: this.confirmPassword,
+        confirmPassword: this.confirmPassword
       })
         .then(() => {
-          alert("修改成功");
-          this.$router.push({ name: "Signin" });
+          alert("修改成功")
+          localStorage.removeItem("account")
+          localStorage.removeItem("token")
+          this.$router.push({ name: "Signin" })
         })
         .catch(() => {
-          alert("傳送失敗");
-        });
-    },
+          alert("傳送失敗")
+        })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

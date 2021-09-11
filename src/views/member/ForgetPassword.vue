@@ -15,42 +15,42 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
-  name: "Member",
+  name: "ForgetPassword",
   components: {
-    Button,
+    Button
   },
   data() {
-    return { account: "" };
+    return { account: "" }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {})
   },
   methods: {
     ...mapActions(["postPasswordToken"]),
     postPasswordTokenHandler() {
       if (this.account == "") {
-        alert("請填寫帳號");
-        return false;
+        alert("請填寫帳號")
+        return false
       }
 
       this.postPasswordToken(this.account)
         .then(() => {
-          this.$router.push({ name: "PasswordEdit" });
+          this.$router.push({ name: "PasswordEdit" })
         })
         .catch(() => {
-          alert("傳送失敗");
-        });
-    },
+          alert("傳送失敗")
+        })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

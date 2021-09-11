@@ -11,7 +11,7 @@ article.member-info(v-if="!isLoading")
       .column-2
         .input-box
           .input-title {{$t(`Member.birthday`)}}
-          input(type="date" v-model="member.birthday" :disabled="!isEdit" :class="{'edit':isEdit}" v-if="isEdit")
+          input(type="date" min="1911-01-01" :max="today" v-model="member.birthday" :disabled="!isEdit" :class="{'edit':isEdit}" v-if="isEdit")
           p.input-txt(v-else) {{member.birthday}}
     .row
       .column-1
@@ -46,70 +46,76 @@ article.member-info(v-if="!isLoading")
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
-  name: "Member",
+  name: "MemberInfo",
   components: {
-    Button,
+    Button
   },
   data() {
     return {
-      isEdit: false,
-    };
+      isEdit: false
+    }
   },
   computed: {
     ...mapState(["isLoading", "member"]),
+    today() {
+      const date = new Date()
+      let month =
+        date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
+      return `${date.getFullYear()}-${month}-${date.getDate()}`
+    }
   },
   mounted() {
-    this.$nextTick(() => {});
+    this.$nextTick(() => {})
   },
   created() {
-    const account = localStorage.getItem("account");
+    const account = localStorage.getItem("account")
     if (!account) {
-      this.$router.push({ name: "Signin" });
+      this.$router.push({ name: "Signin" })
     } else {
       this.getMemberInfo(account)
         .then((res) => {
-          console.log(res);
-          localStorage.setItem("token", res.data.token);
-          this.isEdit = false;
+          console.log(res)
+          localStorage.setItem("token", res.data.token)
+          this.isEdit = false
         })
         .catch(() => {
-          console.log("fail");
-        });
+          console.log("fail")
+        })
     }
   },
   methods: {
     ...mapActions(["getMemberInfo", "putMemberInfo"]),
     btnHandler() {
       if (!this.isEdit) {
-        this.isEdit = true;
+        this.isEdit = true
       } else {
-        console.log("send");
+        console.log("send")
         this.putMemberInfo({
           token: localStorage.getItem("token"),
           name: this.member.name,
-          birthday: this.member.birthday,
+          birthday: this.member.birthday
         })
           .then(() => {
-            console.log("success");
-            this.isEdit = false;
+            console.log("success")
+            this.isEdit = false
           })
           .catch(() => {
-            console.log("fail");
-          });
+            console.log("fail")
+          })
       }
     },
     logoutHandler() {
-      localStorage.removeItem("account");
-      localStorage.removeItem("token");
-      this.$router.push({ name: "Signin" });
-    },
+      localStorage.removeItem("account")
+      localStorage.removeItem("token")
+      this.$router.push({ name: "Signin" })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>

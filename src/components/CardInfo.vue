@@ -7,7 +7,7 @@
     )
   .date {{cardData.dateTime}}
   .card-title {{cardData.title}}
-  .card-description {{cardData.description}}
+  .card-description(v-html="articleHandler(cardData.description)")
 
 </template>
 
@@ -15,67 +15,69 @@
 // import {
 //   mapState
 // } from "vuex";
-import PictureSwiper from "@/components/PictureSwiper.vue";
-import { TweenMax, gsap } from "gsap";
+import PictureSwiper from "@/components/PictureSwiper.vue"
+import { TweenMax, gsap } from "gsap"
+import mixins from "@/mixins/index.js"
 
 export default {
   name: "CardInfo",
   components: {
-    PictureSwiper,
+    PictureSwiper
   },
+  mixins: [mixins],
   props: ["cardData"],
   data() {
     return {
-      sceneArr: [],
-    };
+      sceneArr: []
+    }
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
-      this.$scrollmagic.removeScene(scene);
-    });
+      this.$scrollmagic.removeScene(scene)
+    })
   },
   watch: {},
   mounted() {
-    this.setInitial();
-    this.setAnimate();
+    this.setInitial()
+    this.setAnimate()
   },
   computed: {},
   methods: {
     setInitial() {
       gsap.set(".picture-box", {
         y: 50,
-        opacity: 0,
-      });
+        opacity: 0
+      })
       gsap.set(".date", {
         y: 50,
-        opacity: 0,
-      });
+        opacity: 0
+      })
       gsap.set(".card-title", {
         y: 50,
-        opacity: 0,
-      });
+        opacity: 0
+      })
       gsap.set(".card-description", {
         y: 50,
-        opacity: 0,
-      });
+        opacity: 0
+      })
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: ".picture-box",
           reverse: false,
-          triggerHook: 0.9,
+          triggerHook: 0.9
         })
         .setTween(".picture-box", 1, {
-          opacity: 1,
-        });
+          opacity: 1
+        })
       // .addIndicators({ name: "banner" })
 
       this.sceneArr[1] = this.$scrollmagic
         .scene({
           triggerElement: ".date",
           triggerHook: 0.9,
-          reverse: false,
+          reverse: false
         })
         .on("enter", function() {
           gsap
@@ -83,33 +85,33 @@ export default {
             .add(
               TweenMax.to(".date", 1, {
                 y: 0,
-                opacity: 1,
+                opacity: 1
               })
             )
             .add(
               TweenMax.to(".card-title", 1, {
                 y: 0,
                 opacity: 1,
-                delay: -0.5,
+                delay: -0.5
               })
             )
             .add(
               TweenMax.to(".card-description", 1, {
                 y: 0,
                 opacity: 1,
-                delay: -0.5,
+                delay: -0.5
               })
-            );
-        });
+            )
+        })
       // .addIndicators({ name: "date" });
 
       this.sceneArr.forEach((scene) => {
-        console.log(scene);
-        this.$scrollmagic.addScene(scene);
-      });
-    },
-  },
-};
+        console.log(scene)
+        this.$scrollmagic.addScene(scene)
+      })
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>

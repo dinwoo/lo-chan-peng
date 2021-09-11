@@ -16,27 +16,29 @@ article.member-info
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapState, mapActions } from "vuex"
+import Button from "@/components/Button.vue"
+import mixins from "@/mixins/index.js"
 
 export default {
-  name: "Member",
+  name: "Validation",
   components: {
-    Button,
+    Button
   },
+  mixins: [mixins],
   data() {
-    return { token: "" };
+    return { token: "" }
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {
       if (this.$route.query.t) {
-        this.token = this.$route.query.t;
-        this.postValidationHandler();
+        this.token = this.getUrlToken()
+        this.postValidationHandler()
       }
-    });
+    })
   },
   methods: {
     ...mapActions(["postValidation"]),
@@ -48,15 +50,15 @@ export default {
 
       this.postValidation(this.token)
         .then(() => {
-          this.$router.push({ name: "Member" });
+          this.$router.push({ name: "Member" })
         })
         .catch(() => {
-          alert("傳送失敗");
-        });
-    },
+          alert("傳送失敗")
+        })
+    }
   },
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style lang="sass" scoped>
