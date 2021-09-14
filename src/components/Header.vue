@@ -22,7 +22,7 @@ header
       include ../assets/pug/member.pug
     .ham(v-if="isMobile" @click="showMenu=!showMenu")
     .ham(v-else @mouseenter="showMenu=true" @mouseleave="showMenu=false")
-    .sub-menu(v-if="showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
+    .sub-menu(v-show="showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
       .menu-box
         .lang-box
           .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
