@@ -31,8 +31,9 @@ header
         router-link.page-link(:to="{name:'About'}") {{$t(`Menu.about`)}}
         router-link.page-link(:to="{name:'News'}") {{$t(`Menu.news`)}}
         router-link.page-link(:to="{name:'Works'}") {{$t(`Menu.works`)}}
-        router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
         router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
+        .page-link(@click="goMember()" v-if="!isLogin") {{$t(`Menu.login`)}}
+        router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
         .social-box
           a(href="https://www.facebook.com/lo.c.peng" target="_blank")
             .svg_box
@@ -46,7 +47,7 @@ header
           a(href="https://t.me/lochanpeng2022" target="_blank")
             .svg_box
               include ../assets/pug/telegram.pug
-        .login(@click="goMember()") {{$t(`Menu.login`)}}
+        //- .login(@click="goMember()") {{$t(`Menu.login`)}}
 
 </template>
 
@@ -65,6 +66,9 @@ export default {
   },
   computed: {
     ...mapState(["lang", "screenWidth"]),
+    isLogin() {
+      return localStorage.getItem("token") ? true : false;
+    },
   },
   beforeDestroy() {
     this.sceneArr.map((scene) => {
@@ -279,8 +283,9 @@ header
             height: 100%
         .social-box
           display: block
+          width: 140px
           .svg_box
-            width: 30px
+            width: 25px
             margin: 0 5px
             +dib
         .login
