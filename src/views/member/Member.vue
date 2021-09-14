@@ -2,7 +2,7 @@
 article.member-info
   section.banner
     figure.member-icon
-      img(src="@/assets/images/member-title.png")
+      img(src="@/assets/images/member-banner-d.png")
   router-view
           
 

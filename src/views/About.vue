@@ -2,7 +2,7 @@
 article.about
   section.banner
     figure.banner-pic
-      img(src="@/assets/images/about-banner.jpg")
+      img(src="@/assets/images/about-banner-d.jpg")
   section.intro.intro1
     .content
       .title

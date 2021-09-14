@@ -2,7 +2,7 @@
 article.works
   section.banner
     figure.works-banner
-      img(src="@/assets/images/works-banner.png")
+      img(src="@/assets/images/works-banner-d.png")
   section.main
     .search-box
       SearchBox(
