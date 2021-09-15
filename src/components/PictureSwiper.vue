@@ -11,10 +11,10 @@
         :style="`background-image:url('${pic}')`"
       )
   .arrow-control
-    figure.arrow(@click="prev()")
-      img(src="@/assets/images/arrow-left-icon.png")
-    figure.arrow(@click="next()")
-      img(src="@/assets/images/arrow-right-icon.png")
+    .arrow.svg_box(@click="prev()")
+      include ../assets/pug/arrow-left.pug
+    .arrow.svg_box(@click="next()")
+      include ../assets/pug/arrow-right.pug
 </template>
 
 <script>
@@ -107,9 +107,14 @@ export default {
     position: absolute
     bottom: 30px
     right: 0px
-    figure.arrow
+    .arrow
       width: 40px
       margin-left: 15px
       cursor: pointer
+      fill: none
+      stroke: $gray-004
+      transition: .3s
       +dib
+      +hover
+        stroke: #fff
 </style>
