@@ -36,12 +36,13 @@ article.works
   .btn-box(v-if="!isSelect")
     .pre-page(@click="reSearch")
     .go-top(@click="goTop")
-  section.popup(v-if="isShowPopup")
-    .close(@click="isShowPopup=false")
-    .wrapper
-      .work-pic(:style="`background-image: url('${popupWork.img}')`")
-      .work-name {{popupWork.name}}
-      .work-info {{popupWork.type}}  {{popupWork.width}} x {{popupWork.height}} {{popupWork.unit}}  {{popupWork.year}}
+  transition(name="fade")
+    section.popup(v-if="isShowPopup")
+      .close(@click="isShowPopup=false")
+      .wrapper
+        .work-pic(:style="`background-image: url('${popupWork.img}')`")
+        .work-name {{popupWork.name}}
+        .work-info {{popupWork.type}}  {{popupWork.width}} x {{popupWork.height}} {{popupWork.unit}}  {{popupWork.year}}
       
 </template>
 
@@ -236,6 +237,18 @@ export default {
 
 <style lang="sass" scoped>
 @import "@/assets/sass/var.sass"
+
+.fade-enter-active,
+.fade-leave-active
+  transition: .5s
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
+
+.fade-enter-to,
+.fade-leave
+  opacity: 1
 
 article.works
   section.banner
