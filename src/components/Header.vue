@@ -110,11 +110,13 @@ export default {
         .on("enter", function() {
           gsap.to("header", {
             opacity: 0,
+            display: "none",
           });
         })
         .on("leave", function() {
           gsap.to("header", {
             opacity: 1,
+            display: "flex",
           });
         });
       // .addIndicators({ name: "header" });
