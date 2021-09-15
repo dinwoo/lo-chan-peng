@@ -3,12 +3,12 @@ article.member-info(v-if="!isLoading")
   section.form
     .title(v-html="isEdit?$t(`Member.editTitle`):$t(`Member.infoTitle`)")
     .row
-      .column-2
+      .column-1
         .input-box
           .input-title {{$t(`Member.name`)}}
           input(type="text" v-model="member.name" :disabled="!isEdit" v-if="isEdit")
           p.input-txt(v-else) {{member.name}}
-      .column-2
+      //- .column-2
         .input-box
           .input-title {{$t(`Member.birthday`)}}
           input(type="date" min="1911-01-01" :max="today" v-model="member.birthday" :disabled="!isEdit" :class="{'edit':isEdit}" v-if="isEdit")
@@ -97,7 +97,7 @@ export default {
         this.putMemberInfo({
           token: localStorage.getItem("token"),
           name: this.member.name,
-          birthday: this.member.birthday,
+          // birthday: this.member.birthday,
         })
           .then(() => {
             console.log("success");

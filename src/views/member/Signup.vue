@@ -3,11 +3,11 @@ article.member-info
   section.form
     .title(v-html="$t(`Member.signupTitle`)")
     .row
-      .column-2
+      .column-1
         .input-box
           .input-title {{$t(`Member.name`)}}
           input(type="text" v-model="name")
-      .column-2
+      //- .column-2
         .input-box
           .input-title {{$t(`Member.birthday`)}}
           input.edit(type="date" min="1911-01-01" :max="today" v-model="birthday")
@@ -96,7 +96,6 @@ export default {
 
       this.postSignup({
         name: this.name,
-        birthday: this.birthday,
         account: this.account,
         password: this.password,
         confirmPassword: this.confirmPassword,
