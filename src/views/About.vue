@@ -195,6 +195,8 @@ export default {
 
 article.about
   section.banner
+    width: 90%
+    margin: auto
     border-radius: 1rem
     overflow: hidden
     figure.banner-pic

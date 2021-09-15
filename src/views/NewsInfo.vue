@@ -1,8 +1,9 @@
 <template lang="pug">
 article.news-info
   section.banner
-    figure.news-icon
-      img(src="@/assets/images/news-icon.png")
+    BannerPicture(:bannerLink="bannerLink")
+  //-   figure.news-icon
+  //-     img(src="@/assets/images/news-icon.png")
   section.main(v-if="!isLoading")
     CardInfo(:cardData="news.detail")
   section.related
@@ -18,6 +19,7 @@ article.news-info
 
 <script>
 import { mapState, mapActions } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
 import CardInfo from "@/components/CardInfo.vue";
 import RelatedList from "@/components/RelatedList.vue";
 import { gsap } from "gsap";
@@ -25,11 +27,16 @@ import { gsap } from "gsap";
 export default {
   name: "NewsInfo",
   components: {
+    BannerPicture,
     CardInfo,
     RelatedList,
   },
   data() {
     return {
+      bannerLink: {
+        desktop: "news-banner-m.jpg",
+        mobile: "news-banner-m.jpg",
+      },
       sceneArr: [],
     };
   },
@@ -116,15 +123,23 @@ export default {
 };
 </script>
 
+<style lang="sass">
+@import "@/assets/sass/var.sass"
+
++rwd(768px)
+  .scroll-box
+    display: none
+</style>
+
 <style lang="sass" scoped>
 @import "@/assets/sass/var.sass"
 
 article.news-info
-  section.banner
-    padding: 150px 0
-    .news-icon
-      width: 275px
-      margin: auto
+  // section.banner
+  //   padding: 150px 0
+  //   .news-icon
+  //     width: 275px
+  //     margin: auto
   section.main
     width: 100%
     max-width: 1280px
@@ -139,10 +154,10 @@ article.news-info
       color: $gray-005
     .related-box
   +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .news-icon
-        width: 25vw
+    // section.banner
+    //   padding: 15vw 0
+    //   .news-icon
+    //     width: 25vw
     section.related
       .title
   +rwd(768px)

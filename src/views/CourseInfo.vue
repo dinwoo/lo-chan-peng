@@ -1,8 +1,9 @@
 <template lang="pug">
 article.course-info(v-if="!isLoading")
   section.banner
-    figure.course-icon
-      img(src="@/assets/images/course-icon.png")
+    BannerPicture(:bannerLink="bannerLink")
+    //- figure.course-icon
+    //-   img(src="@/assets/images/course-icon.png")
   section.main
     CardInfo(:cardData="course.detail")
     //- Button(title='課 程')
@@ -22,6 +23,7 @@ article.course-info(v-if="!isLoading")
 
 <script>
 import { mapState, mapActions } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
 import CardInfo from "@/components/CardInfo.vue";
 import RelatedList from "@/components/RelatedList.vue";
 import Button from "@/components/Button.vue";
@@ -30,12 +32,17 @@ import { gsap } from "gsap";
 export default {
   name: "CourseInfo",
   components: {
+    BannerPicture,
     CardInfo,
     RelatedList,
     Button,
   },
   data() {
     return {
+      bannerLink: {
+        desktop: "course-banner-m.jpg",
+        mobile: "course-banner-m.jpg",
+      },
       sceneArr: [],
     };
   },
@@ -121,15 +128,23 @@ export default {
 };
 </script>
 
+<style lang="sass">
+@import "@/assets/sass/var.sass"
+
++rwd(768px)
+  .scroll-box
+    display: none
+</style>
+
 <style lang="sass" scoped>
 @import "@/assets/sass/var.sass"
 
 article.course-info
-  section.banner
-    padding: 150px 0
-    .course-icon
-      width: 275px
-      margin: auto
+  // section.banner
+  //   padding: 150px 0
+  //   .course-icon
+  //     width: 275px
+  //     margin: auto
   section.main
     width: 100%
     max-width: 1280px
@@ -144,10 +159,13 @@ article.course-info
       font-size: 1.4rem
       line-height: 4rem
       border-radius: 2rem
-      color: $gray-001
+      color: #000
       background-color: $gray-005
       text-align: center
       cursor: pointer
+      transition: .3s
+      +hover
+        background-color: #fff
   section.related
     padding-top: 100px
     .title
@@ -156,10 +174,10 @@ article.course-info
       color: $gray-005
     .related-box
   +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .course-icon
-        width: 25vw
+    // section.banner
+    //   padding: 15vw 0
+    //   .course-icon
+    //     width: 25vw
     section.main
     section.related
       .title

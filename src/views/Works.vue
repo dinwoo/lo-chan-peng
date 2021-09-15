@@ -1,8 +1,9 @@
 <template lang="pug">
 article.works
   section.banner
-    figure.works-banner
-      img(src="@/assets/images/works-banner-d.png")
+    BannerPicture(:bannerLink="bannerLink")
+    //- figure.works-banner
+    //-   img(src="@/assets/images/works-banner-d.png")
   section.main
     .search-box
       SearchBox(
@@ -48,6 +49,7 @@ article.works
 
 <script>
 import { mapState, mapActions } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
 import SearchBox from "@/components/SearchBox";
 import Paginate from "vuejs-paginate";
 import { TweenMax, gsap } from "gsap";
@@ -55,11 +57,16 @@ import { TweenMax, gsap } from "gsap";
 export default {
   name: "Works",
   components: {
+    BannerPicture,
     SearchBox,
     Paginate,
   },
   data() {
     return {
+      bannerLink: {
+        desktop: "works-banner-m.jpg",
+        mobile: "works-banner-m.jpg",
+      },
       pageSize: 6,
       pageNum: 1,
       nowYear: "",
@@ -251,9 +258,9 @@ export default {
   opacity: 1
 
 article.works
-  section.banner
-    .works-banner
-      width: 100%
+  // section.banner
+  //   .works-banner
+  //     width: 100%
   section.main
     width: 100%
     max-width: 1280px

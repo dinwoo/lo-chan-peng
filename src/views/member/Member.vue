@@ -1,8 +1,9 @@
 <template lang="pug">
 article.member-info
   section.banner
-    figure.member-icon
-      img(src="@/assets/images/member-banner-d.png")
+    BannerPicture(:bannerLink="bannerLink")
+    //- figure.member-icon
+    //-   img(src="@/assets/images/member-banner-d.png")
   router-view
           
 
@@ -11,15 +12,22 @@ article.member-info
 
 <script>
 import { mapState } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
 import Button from "@/components/Button.vue";
 
 export default {
   name: "Member",
   components: {
+    BannerPicture,
     Button,
   },
   data() {
-    return {};
+    return {
+      bannerLink: {
+        desktop: "member-banner-m.jpg",
+        mobile: "member-banner-m.jpg",
+      },
+    };
   },
   computed: {
     ...mapState(["screenWidth"]),
@@ -84,14 +92,14 @@ section.form
 @import "@/assets/sass/var.sass"
 
 article.member-info
-  section.banner
-    padding: 150px 0
-    .member-icon
-      width: 465px
-      margin: auto
-  +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .member-icon
-        width: 35vw
+  // section.banner
+  //   padding: 150px 0
+  //   .member-icon
+  //     width: 465px
+  //     margin: auto
+  // +rwd(768px)
+  //   section.banner
+  //     padding: 15vw 0
+  //     .member-icon
+  //       width: 35vw
 </style>

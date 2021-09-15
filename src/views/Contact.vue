@@ -1,8 +1,9 @@
 <template lang="pug">
 article.contact-info
   section.banner
-    figure.contact-icon
-      img(src="@/assets/images/contact-icon.png")
+    BannerPicture(:bannerLink="bannerLink")
+    //- figure.contact-icon
+    //-   img(src="@/assets/images/contact-icon.png")
   section.form
     .title {{$t(`Contact.title`)}}
     .row
@@ -31,17 +32,23 @@ article.contact-info
 
 <script>
 import { mapState, mapActions } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
 import Button from "@/components/Button.vue";
 import mixins from "@/mixins/index.js";
 
 export default {
   name: "Contact",
   components: {
+    BannerPicture,
     Button,
   },
   mixins: [mixins],
   data() {
     return {
+      bannerLink: {
+        desktop: "contact-banner-m.jpg",
+        mobile: "contact-banner-m.jpg",
+      },
       name: "",
       phone: "",
       email: "",
@@ -99,11 +106,11 @@ export default {
 +input-style
 
 article.contact-info
-  section.banner
-    padding: 150px 0
-    .contact-icon
-      width: 465px
-      margin: auto
+  // section.banner
+  //   padding: 150px 0
+  //   .contact-icon
+  //     width: 465px
+  //     margin: auto
   section.form
     width: 100%
     max-width: 960px
@@ -134,10 +141,10 @@ article.contact-info
         left: 0px
         border-bottom: 1px solid $gray-005
   +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .contact-icon
-        width: 35vw
+    // section.banner
+    //   padding: 15vw 0
+    //   .contact-icon
+    //     width: 35vw
     section.form
       .title
       .column-1

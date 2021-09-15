@@ -1,8 +1,9 @@
 <template lang="pug">
 article.news
   section.banner
-    figure.news-icon
-      img(src="@/assets/images/news-icon.png")
+    BannerPicture(:bannerLink="bannerLink")
+  //-   figure.news-icon
+  //-     img(src="@/assets/images/news-icon.png")
   section.main
     .search-box
       SearchBox(
@@ -23,6 +24,7 @@ article.news
 
 <script>
 import { mapState, mapActions } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
 import CardList from "@/components/CardList";
 import SearchBox from "@/components/SearchBox";
 import Paginate from "vuejs-paginate";
@@ -31,12 +33,17 @@ import { TweenMax, gsap } from "gsap";
 export default {
   name: "News",
   components: {
+    BannerPicture,
     CardList,
     SearchBox,
     Paginate,
   },
   data() {
     return {
+      bannerLink: {
+        desktop: "news-banner-m.jpg",
+        mobile: "news-banner-m.jpg",
+      },
       pageSize: 6,
       searchTxt: "",
       sceneArr: [],
@@ -125,11 +132,11 @@ export default {
 @import "@/assets/sass/var.sass"
 
 article.news
-  section.banner
-    padding: 150px 0
-    .news-icon
-      width: 275px
-      margin: auto
+  // section.banner
+  //   padding: 150px 0
+  //   .news-icon
+  //     width: 275px
+  //     margin: auto
   section.main
     width: 100%
     max-width: 1280px
@@ -137,8 +144,8 @@ article.news
     margin: auto
     box-sizing: border-box
   +rwd(768px)
-    section.banner
-      padding: 15vw 0
-      .news-icon
-        width: 25vw
+    // section.banner
+    //   padding: 15vw 0
+    //   .news-icon
+    //     width: 25vw
 </style>

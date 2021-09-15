@@ -1,8 +1,11 @@
 <template lang="pug">
 article.course
   section.banner
-    figure.course-icon
-      img(src="@/assets/images/course-icon.png")
+    BannerPicture(:bannerLink="bannerLink")
+    //- figure.course-icon
+    //-   img(src="@/assets/images/course-icon.png")
+    figure.course-list-banner
+      img(src="@/assets/images/course-list-banner.png")
   section.main
     .search-box
       SearchBox(
@@ -33,7 +36,7 @@ article.course
 
 <script>
 import { mapState, mapActions } from "vuex";
-
+import BannerPicture from "@/components/BannerPicture";
 import CardList from "@/components/CardList";
 import { VueSlideToggle } from "vue-slide-toggle";
 import SearchBox from "@/components/SearchBox";
@@ -43,6 +46,7 @@ import { TweenMax, gsap } from "gsap";
 export default {
   name: "Course",
   components: {
+    BannerPicture,
     CardList,
     VueSlideToggle,
     SearchBox,
@@ -50,6 +54,10 @@ export default {
   },
   data() {
     return {
+      bannerLink: {
+        desktop: "course-banner-m.jpg",
+        mobile: "course-banner-m.jpg",
+      },
       openSwitch: [],
       pageSize: 6,
       searchTxt: "",
@@ -200,10 +208,13 @@ export default {
 
 article.course
   section.banner
-    padding: 150px 0
-    .course-icon
-      width: 275px
+    figure.course-list-banner
+      width: 80%
       margin: auto
+  //   padding: 150px 0
+  //   .course-icon
+  //     width: 275px
+  //     margin: auto
   section.main
     width: 100%
     max-width: 1280px
@@ -248,9 +259,9 @@ article.course
             color: $gray-005
   +rwd(768px)
     section.banner
-      padding: 15vw 0
-      .course-icon
-        width: 25vw
+      figure.course-list-banner
+        width: calc(100% + 4rem)
+        margin: 0 -2rem
     section.qa-part
       figure.qa-icon
         width: 120px
