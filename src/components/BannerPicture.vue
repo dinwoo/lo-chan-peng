@@ -30,8 +30,8 @@ export default {
 
 .banner-wrapper
     figure.banner-desktop-pic
-      max-width: 500px
-      width: 100%
+      // max-width: 500px
+      width: 90%
       margin: auto
       +rwd(768px)
         display: none
@@ -39,7 +39,7 @@ export default {
       display: none
       +rwd(768px)
         display: block
-        max-width: 500px
+        // max-width: 500px
         width: 100%
         margin: auto
 </style>
