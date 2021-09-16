@@ -11,14 +11,14 @@ article.news
         @searchHandler="searchHandler"
       )
     CardList(v-if="!isLoading" :cardData="news.list" routeName="NewsInfo")
-    paginate(
-      :page-count="news.allPage||0"
-      :click-handler="pageHandler"
-      :prev-text="'Prev'"
-      :next-text="'Next'"
-      :container-class="'paginate-box'"
-      :hide-prev-next="true"
-    )
+    //- paginate(
+    //-   :page-count="news.allPage||0"
+    //-   :click-handler="pageHandler"
+    //-   :prev-text="'Prev'"
+    //-   :next-text="'Next'"
+    //-   :container-class="'paginate-box'"
+    //-   :hide-prev-next="true"
+    //- )
 
 </template>
 
@@ -44,7 +44,7 @@ export default {
         desktop: "news-banner-m.jpg",
         mobile: "news-banner-m.jpg",
       },
-      pageSize: 6,
+      pageSize: 500,
       searchTxt: "",
       sceneArr: [],
     };

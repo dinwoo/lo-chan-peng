@@ -25,15 +25,15 @@ article.works
           .work-pic(:style="`background-image: url('${work.img}')`")
           .work-name {{work.name}}
           .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
-        paginate(
-          v-model="pageNum"
-          :page-count="work.allPage||0"
-          :click-handler="pageHandler"
-          :prev-text="'Prev'"
-          :next-text="'Next'"
-          :container-class="'paginate-box'"
-          :hide-prev-next="true"
-        )
+        //- paginate(
+        //-   v-model="pageNum"
+        //-   :page-count="work.allPage||0"
+        //-   :click-handler="pageHandler"
+        //-   :prev-text="'Prev'"
+        //-   :next-text="'Next'"
+        //-   :container-class="'paginate-box'"
+        //-   :hide-prev-next="true"
+        //- )
   .btn-box(v-if="!isSelect")
     .pre-page(@click="reSearch")
     .go-top(@click="goTop")
@@ -67,7 +67,7 @@ export default {
         desktop: "works-banner-m.jpg",
         mobile: "works-banner-m.jpg",
       },
-      pageSize: 6,
+      pageSize: 500,
       pageNum: 1,
       nowYear: "",
       searchTxt: "",

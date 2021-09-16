@@ -13,14 +13,14 @@ article.course
         @searchHandler="searchHandler"
       )
     CardList(v-if="!isLoading" :cardData="course.list" routeName="CourseInfo")
-    paginate(
-      :page-count="course.allPage||0"
-      :click-handler="pageHandler"
-      :prev-text="'Prev'"
-      :next-text="'Next'"
-      :container-class="'paginate-box'"
-      :hide-prev-next="true"
-    )
+    //- paginate(
+    //-   :page-count="course.allPage||0"
+    //-   :click-handler="pageHandler"
+    //-   :prev-text="'Prev'"
+    //-   :next-text="'Next'"
+    //-   :container-class="'paginate-box'"
+    //-   :hide-prev-next="true"
+    //- )
   section.qa-part
     figure.qa-icon
       img(src="@/assets/images/qa-icon.png")
@@ -59,7 +59,7 @@ export default {
         mobile: "course-banner-m.jpg",
       },
       openSwitch: [],
-      pageSize: 6,
+      pageSize: 500,
       searchTxt: "",
       sceneArr: [],
     };
@@ -209,7 +209,7 @@ export default {
 article.course
   section.banner
     figure.course-list-banner
-      width: 80%
+      width: 90%
       margin: auto
   //   padding: 150px 0
   //   .course-icon
