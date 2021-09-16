@@ -37,13 +37,14 @@ article.works
   .btn-box(v-if="!isSelect")
     .pre-page(@click="reSearch")
     .go-top(@click="goTop")
-  transition(name="fade")
-    section.popup(v-if="isShowPopup")
-      .close(@click="isShowPopup=false")
-      .wrapper
-        .work-pic(:style="`background-image: url('${popupWork.img}')`")
-        .work-name {{popupWork.name}}
-        .work-info {{popupWork.type}}  {{popupWork.width}} x {{popupWork.height}} {{popupWork.unit}}  {{popupWork.year}}
+  section.popup(:class="{'show-popup':isShowPopup}")
+    .close(@click="isShowPopup=false")
+    .wrapper
+      transition(name="fade")
+        .popup-info(v-if="isShowPopup")
+          .work-pic(:style="`background-image: url('${popupWork.img}')`")
+          .work-name {{popupWork.name}}
+          .work-info {{popupWork.type}}  {{popupWork.width}} x {{popupWork.height}} {{popupWork.unit}}  {{popupWork.year}}
       
 </template>
 
@@ -252,10 +253,12 @@ export default {
 .fade-enter,
 .fade-leave-to
   opacity: 0
+  transform: scale(0.01)
 
 .fade-enter-to,
 .fade-leave
   opacity: 1
+  transform: scale(1)
 
 article.works
   // section.banner
@@ -370,14 +373,20 @@ article.works
   section.popup
     width: 100%
     height: 100%
-    background-color: rgba(#000,.9)
+    background-color: rgba(#000,0)
+    transition: .3s
     position: fixed
     top: 0
     left: 0
     z-index: 101
+    pointer-events: none
+    &.show-popup
+      background-color: rgba(#000,.7)
+      pointer-events: auto
     .close
       width: 100%
       height: 100%
+      cursor: pointer
     .wrapper
       width: 80vh
       max-width: 90vw
