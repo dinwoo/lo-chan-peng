@@ -5,7 +5,7 @@ article.course
     //- figure.course-icon
     //-   img(src="@/assets/images/course-icon.png")
     figure.course-list-banner
-      img(src="@/assets/images/course-list-banner.png")
+      img(src="@/assets/images/course-list-banner.jpg")
   section.main
     .search-box
       SearchBox(
@@ -22,8 +22,7 @@ article.course
     //-   :hide-prev-next="true"
     //- )
   section.qa-part
-    figure.qa-icon
-      img(src="@/assets/images/qa-icon.png")
+    BannerPicture(:bannerLink="qaLink")
     .qa-box
       .qa-item(v-for="(qa,index) in qaList" :key="index")
         .title 
@@ -50,28 +49,32 @@ export default {
     CardList,
     VueSlideToggle,
     SearchBox,
-    Paginate,
+    Paginate
   },
   data() {
     return {
       bannerLink: {
         desktop: "course-banner-m.jpg",
-        mobile: "course-banner-m.jpg",
+        mobile: "course-banner-m.jpg"
+      },
+      qaLink: {
+        desktop: "qa-banner-m.png",
+        mobile: "qa-banner-m.png"
       },
       openSwitch: [],
       pageSize: 500,
       searchTxt: "",
-      sceneArr: [],
+      sceneArr: []
     };
   },
   computed: {
     ...mapState(["isLoading", "lang", "course"]),
     qaList() {
       return this.$t(`QA.list`);
-    },
+    }
   },
   beforeDestroy() {
-    this.sceneArr.map((scene) => {
+    this.sceneArr.map(scene => {
       this.$scrollmagic.removeScene(scene);
     });
   },
@@ -94,7 +97,7 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang,
+        channel: this.lang
       })
         .then(() => {
           console.log("success");
@@ -116,31 +119,31 @@ export default {
     },
     setInitial() {
       gsap.set("section.banner,.search-box", {
-        opacity: 0,
+        opacity: 0
       });
       gsap.set(".qa-icon,.qa-item", {
         y: 50,
-        opacity: 0,
+        opacity: 0
       });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false,
+          reverse: false
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1,
+                opacity: 1
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5,
+                delay: -0.5
               })
             );
         });
@@ -149,7 +152,7 @@ export default {
       this.sceneArr[1] = this.$scrollmagic
         .scene({
           triggerElement: ".qa-part",
-          reverse: false,
+          reverse: false
         })
         .on("enter", function() {
           gsap
@@ -157,7 +160,7 @@ export default {
             .add(
               TweenMax.to(".qa-icon", 1, {
                 y: 0,
-                opacity: 1,
+                opacity: 1
               })
             )
             .add(
@@ -166,7 +169,7 @@ export default {
                 1,
                 {
                   y: 0,
-                  opacity: 1,
+                  opacity: 1
                 },
                 0.2
               )
@@ -174,13 +177,13 @@ export default {
         });
       // .addIndicators({ name: "qa" })
 
-      this.sceneArr.forEach((scene) => {
+      this.sceneArr.forEach(scene => {
         // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 
