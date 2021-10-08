@@ -25,7 +25,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "PictureSwiper",
   components: {
-    VueSlickCarousel,
+    VueSlickCarousel
   },
   props: ["pictureLink"],
   data() {
@@ -39,11 +39,11 @@ export default {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: false,
-        arrows: false,
+        arrows: false
       },
       slidesToShow: 0,
       showOption: false,
-      isMobile: document.body.clientWidth < 768,
+      isMobile: document.body.clientWidth < 768
     };
   },
   watch: {},
@@ -55,8 +55,8 @@ export default {
     },
     next() {
       this.$refs.carousel.next();
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -77,6 +77,9 @@ export default {
       button
         &:before
           color: $gray-001
+  +rwd(768px)
+    padding: 0
+    bottom: -20px
 </style>
 
 <style lang="sass" scoped>
@@ -95,11 +98,11 @@ export default {
     padding-bottom: 75%
     position: relative
     @include rwd(768px)
-      padding-bottom: 152%
+      // padding-bottom: 152%
     .pic
       width: 100%
       height: 100%
-      background-size: cover
+      background-size: contain
       background-position: center center
       background-repeat: no-repeat
       +pstc0
@@ -117,4 +120,6 @@ export default {
       +dib
       +hover
         stroke: #fff
+    +rwd(768px)
+      bottom: 20px
 </style>

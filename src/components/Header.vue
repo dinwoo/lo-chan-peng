@@ -61,17 +61,17 @@ export default {
     return {
       isMobile: false,
       showMenu: false,
-      sceneArr: [],
+      sceneArr: []
     };
   },
   computed: {
     ...mapState(["lang", "screenWidth"]),
     isLogin() {
       return localStorage.getItem("token") ? true : false;
-    },
+    }
   },
   beforeDestroy() {
-    this.sceneArr.map((scene) => {
+    this.sceneArr.map(scene => {
       this.$scrollmagic.removeScene(scene);
     });
   },
@@ -105,26 +105,26 @@ export default {
           triggerElement: "body",
           triggerHook: 0,
           offset: 120,
-          reverse: true,
+          reverse: true
         })
         .on("enter", function() {
           gsap.to("header", {
             opacity: 0,
-            display: "none",
+            display: "none"
           });
         })
         .on("leave", function() {
           gsap.to("header", {
             opacity: 1,
-            display: "flex",
+            display: "flex"
           });
         });
       // .addIndicators({ name: "header" });
 
-      this.sceneArr.forEach((scene) => {
+      this.sceneArr.forEach(scene => {
         this.$scrollmagic.addScene(scene);
       });
-    },
+    }
   },
   watch: {
     screenWidth(val) {
@@ -140,8 +140,8 @@ export default {
     "$route.name": function(name) {
       this.showMenu = false;
       console.log(name);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -243,6 +243,8 @@ header
         width: 30px
         height: 20px
         background-image: linear-gradient($gray-004 0%,$gray-004 calc(0% + 2px),transparent calc(0% + 2px),transparent calc(50% - 2px),$gray-004 calc(50% - 1px),$gray-004 calc(50% + 1px),transparent calc(50% + 2px),transparent calc(100% - 2px),$gray-004 calc(100% - 2px),$gray-004 100%)
+        +hover
+          background-image: linear-gradient(#fff 0%,#fff calc(0% + 2px),transparent calc(0% + 2px),transparent calc(50% - 2px),#fff calc(50% - 1px),#fff calc(50% + 1px),transparent calc(50% + 2px),transparent calc(100% - 2px),#fff calc(100% - 2px),#fff 100%)
       .sub-menu
         .menu-box
           padding: 20px 30px

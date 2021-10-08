@@ -20,11 +20,11 @@ article.member-info
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password")
+          input(type="password" v-model="password" placeholder="Password 會員密碼(6碼至15碼英數字)")
       .column-2
         .input-box
           .input-title {{$t(`Member.confirmPassword`)}}
-          input(type="password" v-model="confirmPassword")
+          input(type="password" v-model="confirmPassword" placeholder="Password 再次輸入密碼")
     .row
       .column-1
         .input-box
@@ -45,7 +45,7 @@ import mixins from "@/mixins/index.js";
 export default {
   name: "Signup",
   components: {
-    Button,
+    Button
   },
   mixins: [mixins],
   data() {
@@ -55,7 +55,7 @@ export default {
       account: "",
       password: "",
       confirmPassword: "",
-      email: "",
+      email: ""
     };
   },
   computed: {
@@ -65,7 +65,7 @@ export default {
       let month =
         date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
       return `${date.getFullYear()}-${month}-${date.getDate()}`;
-    },
+    }
   },
   mounted() {
     this.$nextTick(() => {});
@@ -100,7 +100,7 @@ export default {
         password: this.password,
         confirmPassword: this.confirmPassword,
         email: this.email,
-        type: 1,
+        type: 1
       })
         .then(() => {
           localStorage.setItem("account", this.account);
@@ -109,9 +109,9 @@ export default {
         .catch(() => {
           alert("傳送失敗");
         });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 

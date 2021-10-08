@@ -11,11 +11,11 @@ article.member-info
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password")
+          input(type="password" v-model="password" placeholder="Password 會員密碼(6碼至15碼英數字)")
       .column-2
         .input-box
           .input-title {{$t(`Member.confirmPassword`)}}
-          input(type="password" v-model="confirmPassword")
+          input(type="password" v-model="confirmPassword" placeholder="Password 再次輸入密碼")
     .btn-box
       //- Button(title='忘記密碼',type="right")
       Button(:title='$t(`Member.send`)' @click="putPasswordInfoHandler")
@@ -32,18 +32,18 @@ import mixins from "@/mixins/index.js";
 export default {
   name: "PasswordEdit",
   components: {
-    Button,
+    Button
   },
   mixins: [mixins],
   data() {
     return {
       token: "",
       password: "",
-      confirmPassword: "",
+      confirmPassword: ""
     };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {
@@ -70,7 +70,7 @@ export default {
       this.putPasswordInfo({
         token: this.token,
         password: this.password,
-        confirmPassword: this.confirmPassword,
+        confirmPassword: this.confirmPassword
       })
         .then(() => {
           alert("修改成功");
@@ -81,9 +81,9 @@ export default {
         .catch(() => {
           alert("傳送失敗");
         });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 

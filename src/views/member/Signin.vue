@@ -10,7 +10,7 @@ article.member-info
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password")
+          input(type="password" v-model="password" placeholder="Password 會員密碼(6碼至15碼英數字)")
     .btn-box
       .btn
         router-link(:to="{name:'ForgetPassword'}")
@@ -40,16 +40,16 @@ import Button from "@/components/Button.vue";
 export default {
   name: "Signin",
   components: {
-    Button,
+    Button
   },
   data() {
     return {
       account: "",
-      password: "",
+      password: ""
     };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {});
@@ -66,9 +66,9 @@ export default {
       // }
       this.postSignin({
         account: this.account,
-        password: this.password,
+        password: this.password
       })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           localStorage.setItem("account", res.data.account);
           localStorage.setItem("token", res.data.token);
@@ -77,9 +77,9 @@ export default {
         .catch(() => {
           alert("傳送失敗");
         });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 
