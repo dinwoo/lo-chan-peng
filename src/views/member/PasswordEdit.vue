@@ -11,11 +11,11 @@ article.member-info
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password" placeholder="Password 會員密碼(6碼至15碼英數字)")
+          input(type="password" v-model="password" placeholder="Password 會員密碼(6 to 15 English and Number 6碼至15碼英數字)")
       .column-2
         .input-box
           .input-title {{$t(`Member.confirmPassword`)}}
-          input(type="password" v-model="confirmPassword" placeholder="Password 再次輸入密碼")
+          input(type="password" v-model="confirmPassword" placeholder="Password again 再次輸入密碼")
     .btn-box
       //- Button(title='忘記密碼',type="right")
       Button(:title='$t(`Member.send`)' @click="putPasswordInfoHandler")

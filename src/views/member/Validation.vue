@@ -23,14 +23,14 @@ import mixins from "@/mixins/index.js";
 export default {
   name: "Validation",
   components: {
-    Button,
+    Button
   },
   mixins: [mixins],
   data() {
     return { token: "" };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {
@@ -43,11 +43,6 @@ export default {
   methods: {
     ...mapActions(["postValidation"]),
     postValidationHandler() {
-      // if (this.token == "") {
-      //   alert("請填寫驗證碼");
-      //   return false;
-      // }
-
       this.postValidation(this.token)
         .then(() => {
           this.$router.push({ name: "Member" });
@@ -55,9 +50,9 @@ export default {
         .catch(() => {
           alert("傳送失敗");
         });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 

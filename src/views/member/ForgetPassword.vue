@@ -6,7 +6,7 @@ article.member-info
       .column-1
         .input-box
           .input-title {{$t(`Member.account`)}}
-          input(type="text" v-model="account")
+          input(type="text" v-model="account" placeholder="Account 會員帳號(English and Number 英數字)")
     .btn-box
       Button(:title='$t(`Member.send`)' @click="postPasswordTokenHandler")
           
@@ -21,13 +21,13 @@ import Button from "@/components/Button.vue";
 export default {
   name: "ForgetPassword",
   components: {
-    Button,
+    Button
   },
   data() {
     return { account: "" };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {});
@@ -47,9 +47,9 @@ export default {
         .catch(() => {
           alert("傳送失敗");
         });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 

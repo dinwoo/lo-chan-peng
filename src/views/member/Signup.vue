@@ -15,21 +15,21 @@ article.member-info
       .column-1
         .input-box
           .input-title {{$t(`Member.account`)}}
-          input(type="text" v-model="account")
+          input(type="text" v-model="account" placeholder="Account 會員帳號(English and Number 英數字)")
     .row
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password" placeholder="Password 會員密碼(6碼至15碼英數字)")
+          input(type="password" v-model="password" placeholder="Password 會員密碼(6 to 15 English and Number 6碼至15碼英數字)")
       .column-2
         .input-box
           .input-title {{$t(`Member.confirmPassword`)}}
-          input(type="password" v-model="confirmPassword" placeholder="Password 再次輸入密碼")
+          input(type="password" v-model="confirmPassword" placeholder="Password again 再次輸入密碼")
     .row
       .column-1
         .input-box
           .input-title {{$t(`Member.email`)}}
-          input(type="text" v-model="email")
+          input(type="text" v-model="email" placeholder="ex: abc@gmail.com")
     .btn-box
       Button(:title='$t(`Member.registerBtn`)',type="right" @click="postSignupHandler")
           
