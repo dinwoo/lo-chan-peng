@@ -12,7 +12,13 @@ export default new Vuex.Store({
     home: {
       banner: {
         pc: ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"],
-        mobile: ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"]
+        mobile: [
+          "bg1-m.jpg",
+          "bg2-m.jpg",
+          "bg3-m.jpg",
+          "bg4-m.jpg",
+          "bg5-m.jpg"
+        ]
       }
     },
     news: {
