@@ -7,11 +7,11 @@ article.member-info
       .column-2
         .input-box
           .input-title {{$t(`Member.account`)}}
-          input(type="text" v-model="account" placeholder="Account 會員帳號(English and Number 英數字)")
+          input(type="text" v-model="account" :placeholder="$t(`Member.accountPlaceholder`)")
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password" placeholder="Password 會員密碼(6 to 15 English and Number 6碼至15碼英數字)")
+          input(type="password" v-model="password" :placeholder="$t(`Member.passwordPlaceholder`)")
     .btn-box
       .btn
         router-link(:to="{name:'ForgetPassword'}")
