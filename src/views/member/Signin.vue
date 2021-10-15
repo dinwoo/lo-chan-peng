@@ -1,6 +1,7 @@
 <template lang="pug">
 article.member-info
   section.form
+    p.remark(v-html="$t(`Member.remark`)")
     .title(v-html="$t(`Member.signinTitle`)")
     .row
       .column-2
@@ -90,6 +91,10 @@ export default {
 
 article.member-info
   section.form
+    p.remark
+      padding: 1rem 0 2rem
+      font-size: 1rem
+      color: $gray-005
     .btn-box
       display: flex
       justify-content: flex-end

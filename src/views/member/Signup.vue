@@ -1,6 +1,7 @@
 <template lang="pug">
 article.member-info
   section.form
+    p.remark(v-html="$t(`Member.remark`)")
     .title(v-html="$t(`Member.signupTitle`)")
     .row
       .column-1
@@ -15,21 +16,21 @@ article.member-info
       .column-1
         .input-box
           .input-title {{$t(`Member.account`)}}
-          input(type="text" v-model="account" placeholder="Account 會員帳號(English and Number 英數字)")
+          input(type="text" v-model="account" :placeholder="$t(`Member.accountPlaceholder`)")
     .row
       .column-2
         .input-box
           .input-title {{$t(`Member.password`)}}
-          input(type="password" v-model="password" placeholder="Password 會員密碼(6 to 15 English and Number 6碼至15碼英數字)")
+          input(type="password" v-model="password" :placeholder="$t(`Member.passwordPlaceholder`)")
       .column-2
         .input-box
           .input-title {{$t(`Member.confirmPassword`)}}
-          input(type="password" v-model="confirmPassword" placeholder="Password again 再次輸入密碼")
+          input(type="password" v-model="confirmPassword" :placeholder="$t(`Member.confirmPasswordPlaceholder`)")
     .row
       .column-1
         .input-box
           .input-title {{$t(`Member.email`)}}
-          input(type="text" v-model="email" placeholder="ex: abc@gmail.com")
+          input(type="text" v-model="email" :placeholder="$t(`Member.emailPlaceholder`)")
     .btn-box
       Button(:title='$t(`Member.registerBtn`)',type="right" @click="postSignupHandler")
           
@@ -117,4 +118,11 @@ export default {
 
 <style lang="sass" scoped>
 @import "@/assets/sass/var.sass"
+
+article.member-info
+  section.form
+    p.remark
+      padding: 1rem 0 2rem
+      font-size: 1rem
+      color: $gray-005
 </style>

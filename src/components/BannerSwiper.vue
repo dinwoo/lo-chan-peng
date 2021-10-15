@@ -26,7 +26,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   name: "BannerSwiper",
   components: {
-    VueSlickCarousel,
+    VueSlickCarousel
   },
   props: ["pictureLink"],
   data() {
@@ -41,11 +41,11 @@ export default {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        arrows: false,
+        arrows: false
       },
       slidesToShow: 0,
       showOption: false,
-      isMobile: document.body.clientWidth < 768,
+      isMobile: document.body.clientWidth < 768
     };
   },
   watch: {
@@ -60,14 +60,14 @@ export default {
       //     that.timer = false;
       //   }, 400);
       // }
-    },
+    }
   },
   mounted() {},
   computed: {
     ...mapState(["screenWidth"]),
     linkIndex() {
       return this.isMobile ? "mobile" : "pc";
-    },
+    }
   },
   methods: {
     prev() {
@@ -75,8 +75,8 @@ export default {
     },
     next() {
       this.$refs.carousel.next();
-    },
-  },
+    }
+  }
 };
 </script>
 

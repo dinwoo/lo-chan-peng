@@ -11,23 +11,23 @@ export default new Vuex.Store({
     screenWidth: document.body.clientWidth,
     home: {
       banner: {
-        pc: ["bg.jpg", "bg2.jpg"],
-        mobile: ["bg.jpg", "bg2.jpg"],
-      },
+        pc: ["bg1.png", "bg2.png", "bg3.png", "bg4.jpg", "bg5.png"],
+        mobile: ["bg1.png", "bg2.png", "bg3.png", "bg4.jpg", "bg5.png"]
+      }
     },
     news: {
       list: [],
-      detail: {},
+      detail: {}
     },
     work: {
       years: [],
-      list: [],
+      list: []
     },
     course: {
       list: [],
-      detail: {},
+      detail: {}
     },
-    member: {},
+    member: {}
   },
   mutations: {
     // 切換語系設定
@@ -72,7 +72,7 @@ export default new Vuex.Store({
     },
     SET_MEMBER_INFO(state, data) {
       state.member = data;
-    },
+    }
   },
   actions: {
     getBanner(context) {
@@ -104,7 +104,7 @@ export default new Vuex.Store({
           select,
           pageSize,
           currentPage,
-          channel,
+          channel
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -173,7 +173,7 @@ export default new Vuex.Store({
           select,
           pageSize,
           currentPage,
-          channel,
+          channel
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -199,7 +199,7 @@ export default new Vuex.Store({
           name,
           phone,
           email,
-          content,
+          content
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -225,7 +225,7 @@ export default new Vuex.Store({
           select,
           pageSize,
           currentPage,
-          channel,
+          channel
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -275,7 +275,7 @@ export default new Vuex.Store({
           password,
           confirmPassword,
           email,
-          type,
+          type
         })
           .then(({ data }) => {
             console.log(data);
@@ -297,7 +297,7 @@ export default new Vuex.Store({
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
         ApiService.post("api/member/validation", {
-          token,
+          token
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -340,7 +340,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         ApiService.post("api/member/edit", {
           token,
-          name,
+          name
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -363,7 +363,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         ApiService.post("api/member/signin", {
           account,
-          password,
+          password
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -384,7 +384,7 @@ export default new Vuex.Store({
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
         ApiService.post("api/member/password/trigger", {
-          account,
+          account
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -408,7 +408,7 @@ export default new Vuex.Store({
         ApiService.post("api/member/password/edit", {
           token,
           password,
-          confirmPassword,
+          confirmPassword
         })
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
@@ -424,7 +424,7 @@ export default new Vuex.Store({
             reject();
           });
       });
-    },
+    }
   },
-  modules: {},
+  modules: {}
 });

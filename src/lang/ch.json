@@ -281,9 +281,13 @@
     "name": "姓名",
     "birthday": "生日",
     "account": "帳號",
+    "accountPlaceholder": "會員帳號 (英數字)",
     "password": "密碼",
+    "passwordPlaceholder": "會員密碼 (6碼至15碼英數字)",
     "confirmPassword": "密碼確認",
+    "confirmPasswordPlaceholder": "再次輸入密碼",
     "email": "信箱",
+    "emailPlaceholder": "ex: abc@gmail.com",
     "editPsw": "修改密碼",
     "send": "送出",
     "cancel": "取消",
@@ -293,7 +297,8 @@
     "signin": "登入",
     "newUser": "新用戶？",
     "registerBtn": "註冊",
-    "token": "驗證碼"
+    "token": "驗證碼",
+    "remark": "註冊會員您將可以收到羅展鵬的最新展覽資訊、新增課程、各種活動訊息。<br><br>課程付款後將會直接寄發信件至您填寫的信箱中，請在信箱中開設資料夾以儲存本網站的課程，未來的課程後續更新直接點擊信件即可。"
   },
   "Work": {
     "yearTitle": "作品年代"

@@ -423,9 +423,13 @@
     "name": "Name",
     "birthday": "Birthday",
     "account": "Account",
+    "accountPlaceholder": "Account (English and Number)",
     "password": "Password",
+    "passwordPlaceholder": "Password (6 to 15 English and Number)",
     "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Password again",
     "email": "Email",
+    "emailPlaceholder": "ex: abc@gmail.com",
     "editPsw": "Change Password",
     "send": "Send",
     "cancel": "Cancel",
@@ -435,7 +439,8 @@
     "signin": "Login",
     "newUser": "New Member?",
     "registerBtn": "Register",
-    "token": "Verification code"
+    "token": "Verification code",
+    "remark": "Registering as a member will allow LoChanPeng to update you about his exhibitions, new lessons available and other acctivities.<br><br>For lessons purchased, please look for the email sent to you. The link in that email will connect you to those lessons."
   },
   "Work": {
     "yearTitle": "Years"
