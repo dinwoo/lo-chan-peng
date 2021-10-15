@@ -11,8 +11,8 @@ export default new Vuex.Store({
     screenWidth: document.body.clientWidth,
     home: {
       banner: {
-        pc: ["bg1.png", "bg2.png", "bg3.png", "bg4.jpg", "bg5.png"],
-        mobile: ["bg1.png", "bg2.png", "bg3.png", "bg4.jpg", "bg5.png"]
+        pc: ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"],
+        mobile: ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"]
       }
     },
     news: {
