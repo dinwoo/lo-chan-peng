@@ -18,6 +18,9 @@ header
     a(href="https://t.me/lochanpeng2022" target="_blank")
       .svg_box
         include ../assets/pug/telegram.pug
+    a(href="https://t.me/lochanpeng2022" target="_blank")
+      .svg_box
+        include ../assets/pug/telegram.pug
     .svg_box(@click="goMember()")
       include ../assets/pug/member.pug
     .ham(@click="showMenu=!showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
@@ -45,6 +48,9 @@ header
           a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
             .svg_box
               include ../assets/pug/yt.pug
+          a(href="https://t.me/lochanpeng2022" target="_blank")
+            .svg_box
+              include ../assets/pug/telegram.pug
           a(href="https://t.me/lochanpeng2022" target="_blank")
             .svg_box
               include ../assets/pug/telegram.pug
@@ -288,10 +294,10 @@ header
             height: 100%
         .social-box
           display: block
-          width: 140px
+          width: 150px
           .svg_box
             width: 25px
-            margin: 0 5px
+            margin: 0 2px
             +dib
         .login
           display: block
