@@ -18,9 +18,9 @@ header
     a(href="https://t.me/lochanpeng2022" target="_blank")
       .svg_box
         include ../assets/pug/telegram.pug
-    a(href="https://t.me/lochanpeng2022" target="_blank")
+    a(href="https://opensea.io/collection/lochanpeng?fbclid=IwAR3yBx-H56Y_VlObikRbSmYyRaB-_4JWH7w47W1-h2v8LQFLqbkUz1U_z-4" target="_blank")
       .svg_box
-        include ../assets/pug/telegram.pug
+        include ../assets/pug/opensea.pug
     .svg_box(@click="goMember()")
       include ../assets/pug/member.pug
     .ham(@click="showMenu=!showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
@@ -51,9 +51,9 @@ header
           a(href="https://t.me/lochanpeng2022" target="_blank")
             .svg_box
               include ../assets/pug/telegram.pug
-          a(href="https://t.me/lochanpeng2022" target="_blank")
+          a(href="https://opensea.io/collection/lochanpeng?fbclid=IwAR3yBx-H56Y_VlObikRbSmYyRaB-_4JWH7w47W1-h2v8LQFLqbkUz1U_z-4" target="_blank")
             .svg_box
-              include ../assets/pug/telegram.pug
+              include ../assets/pug/opensea.pug
         //- .login(@click="goMember()") {{$t(`Menu.login`)}}
 
 </template>
@@ -294,10 +294,10 @@ header
             height: 100%
         .social-box
           display: block
-          width: 150px
+          width: 160px
           .svg_box
             width: 25px
-            margin: 0 2px
+            margin: 0 3px
             +dib
         .login
           display: block
