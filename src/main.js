@@ -4,36 +4,52 @@ import router from "./router";
 import store from "./store";
 
 import VueI18n from "vue-i18n"; // 引入 Vue I18n
-import zh from "./lang/zh"; // 存放中文語系檔
-import en from "./lang/en"; // 存放英文語系檔
-import ch from "./lang/ch"; // 存放英文語系檔
+import ch from "./lang/ch";
+import en from "./lang/en";
+
+import VueScrollmagic from "vue-scrollmagic";
 
 import mixinMethod from "@/mixins/index.js";
 
+import VueMeta from "vue-meta";
+
+import "./plugins/axios";
+// mock
+import "./fake-db/index.js";
+
+Vue.use(VueMeta);
 
 Vue.use(VueI18n);
 Vue.mixin(mixinMethod);
+router.afterEach(() => {
+  window.scrollTo(0, 0); //切换路由之后滚动条始终在最顶部
+});
+
 // 預設使用的語系
-let locale = "zh";
+let locale = "en";
 
 // 檢查 localStorage 是否已有保存使用者選用的語系資訊
 if (localStorage.getItem("footmark-lang")) {
   locale = localStorage.getItem("footmark-lang");
-  store.commit("setLang", locale);
+  store.commit("SET_LANG", locale);
 } else {
-  store.commit("setLang", locale);
+  store.commit("SET_LANG", locale);
 }
 
 const i18n = new VueI18n({
   locale: locale,
   messages: {
-    zh,
+    ch,
     en,
-    ch
-  }
+  },
 });
 
-
+Vue.use(VueScrollmagic, {
+  verical: true,
+  globalSceneOptions: {},
+  loglevel: 2,
+  refreshInterval: 100,
+});
 
 Vue.config.productionTip = false;
 
@@ -41,5 +57,5 @@ new Vue({
   router,
   store,
   i18n,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

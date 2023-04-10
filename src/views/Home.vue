@@ -1,27 +1,27 @@
 <template lang="pug">
 article.home
   BannerSwiper(
-    :pictureLink="bannerLink"
+    :pictureLink="home.banner"
   )
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import BannerSwiper from "@/components/BannerSwiper.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     BannerSwiper,
   },
   data() {
-    return {
-      bannerLink: [
-        {
-          1: "bg.jpg",
-          2: "bg2.jpg",
-        },
-      ],
-    }
+    return {};
   },
-}
+  computed: {
+    ...mapState(["home"]),
+  },
+  created() {},
+  methods: {},
+};
 </script>

@@ -1,259 +1,376 @@
 {
-  "Header": {
-    "home": "首页",
-    "plastics": "南亚塑胶城",
-    "application": "防火材应用",
-    "pipe": "塑料管材防火包覆",
-    "welding": "电焊防火用",
-    "household": "家庭防火用",
-    "seats": "座椅内包覆防火材",
-    "daily": "民生防火材",
-    "insulation": "耐燃绝缘包覆材",
-    "customize": "客制产品开发",
-    "test": "防火测试",
-    "case": "成功案例",
-    "certificate": "品质证书",
-    "contact": "联络我们",
-    "lang": "语系"
+  "Meta": {
+    "title": "羅展鵬",
+    "description": "description",
+    "keyword": "keyword"
   },
-  "Home": {
-    "title": "123",
-    "card": [{
-      "link": "Application",
-      "img": "btnCard-1.jpg",
-      "imgMob": "btnCard-1-m.jpg",
-      "title": "塑膠管材",
-      "desc": "給你住家、辦公大樓最好的防護"
-    }, {
-      "link": "#",
-      "img": "btnCard-2.jpg",
-      "imgMob": "btnCard-2-m.jpg",
-      "title": "電焊用",
-      "desc": "防火毯耐拉扯、阻攔電焊熔渣飛濺"
-    }, {
-      "link": "#",
-      "img": "btnCard-3.jpg",
-      "imgMob": "btnCard-3-m.jpg",
-      "title": "家庭/飯店",
-      "desc": "家庭、飯店防火安全防護最佳守衛"
-    }, {
-      "link": "#",
-      "img": "btnCard-4.jpg",
-      "imgMob": "btnCard-4-m.jpg",
-      "title": "座椅內用",
-      "desc": "通過多項BS國際認證與  ISO 5660:2015測試"
-    }, {
-      "link": "#",
-      "img": "btnCard-5.jpg",
-      "imgMob": "btnCard-5-m.jpg",
-      "title": "排風管",
-      "desc": "排風管防火、防水包覆"
-    }, {
-      "link": "#",
-      "img": "btnCard-6.jpg",
-      "imgMob": "btnCard-6-m.jpg",
-      "title": "電線管路",
-      "desc": "電線管路防火、耐燃絕緣、 防水的首選"
-    }, {
-      "link": "#",
-      "img": "btnCard-7.jpg",
-      "imgMob": "btnCard-7-m.jpg",
-      "title": "客製開發",
-      "desc": "提供定製開發，問題解決方案"
-    }, {
-      "link": "#",
-      "img": "btnCard-8.jpg",
-      "imgMob": "btnCard-8-m.jpg",
-      "title": "防火測試",
-      "desc": "耐瞬燃1200℃，長時耐熱350℃ 具不燃不熔融、焚燒無毒特性。"
-    }]
+  "Menu": {
+    "about": "關於藝術家",
+    "news": "最新消息",
+    "works": "作品導覽",
+    "contact": "聯絡資訊",
+    "course": "線上課程",
+    "login": "會員登入"
   },
   "About": {
-    "title": "123"
-  },
-  "Application": {
-    "seats": {
-      "title": "seats的標題",
-      "content": [{
-        "name": "產品簡介",
-        "data": [{
-          "img": "different.jpg",
-          "title": "產品差異",
-          "desc": "比起他牌防火毯防火能力更佳、對人體無影響"
-        }, {
-          "img": "size.jpg",
-          "title": "產品尺寸",
-          "desc": "認證厚度為2.5mm，寬幅為150公分"
-        }, {
-          "img": "transaction.jpg",
-          "title": "交易模式",
-          "desc": "50碼以下由材料商提供，50碼以上由公司直接提供"
-        }, {
-          "img": "min.jpg",
-          "title": "最低購量",
-          "desc": "50碼"
-        }]
-      }, {
-        "name": "產品特性",
-        "data": [{
-          "img": "safe.jpg",
-          "title": "產品安全",
-          "desc": "無毒、無煙、不引起皮膚不適"
-        }, {
-          "img": "soft.jpg",
-          "title": "產品施工",
-          "desc": "相較於其他防火毯柔軟、好施工"
-        }, {
-          "img": "stable.jpg",
-          "title": "品質穩定",
-          "desc": "製程控制、產品測試"
-        }, {
-          "img": "custom.jpg",
-          "title": "客製展品開發",
-          "desc": "用量大時可配合客戶要求做調整"
-        }]
-      }, {
-        "name": "品質證書",
-        "data": [{
-          "img": "safe.jpg",
-          "title": "產品安全",
-          "desc": "無毒、無煙、不引起皮膚不適"
-        }, {
-          "img": "soft.jpg",
-          "title": "產品施工",
-          "desc": "相較於其他防火毯柔軟、好施工"
-        }, {
-          "img": "stable.jpg",
-          "title": "品質穩定",
-          "desc": "製程控制、產品測試"
-        }, {
-          "img": "custom.jpg",
-          "title": "客製展品開發",
-          "desc": "用量大時可配合客戶要求做調整"
-        }]
-      }]
+    "name": "羅 展鵬",
+    "birth": "1983 生於臺灣",
+    "creativeMedia": "主要創作媒材|油畫、水墨、複合媒材",
+    "info": "早年陸續榮獲國內外多個大型藝術獎項，如: ARC收藏獎|藝術復興中心，美國、肖像畫類榮譽獎|藝術復興中心，美國、ARC 最佳人氣獎|藝術復興中心，美國（2020）、聯邦美術新人獎(2004)、奇美藝術獎 (2007)。2011年起以 駐村藝術家的身份，參與多項國際大型藝術交流計劃，如:德國柏林(2011)和美國洛杉 磯ESMoA當代美術館(El Segundo Museum of Arts)(2013)。近年來參與的主要展覽與 博覽會，如:《2020 「被歷史改變的人與改變歷史的人」，台灣》、 《肖像2020聯展(Portraiture 2020，美國》、《墨嵐2017》，臺北以及倫 敦、東京、大阪、釜山、首爾、莫斯科、新加坡等地國際藝術博覽會。作品被典藏於美國洛 杉磯ESMoA當代美術館、國立臺灣美術館、奇美博物館、聯邦文教基金會以及國內外諸多私人收藏家。<br><br>羅展鵬的作品以人物肖像畫為主要主題，創作媒材涵蓋油畫與水墨。在作品中，羅展鵬時常探究時間、歷史與生死虛實的議題。透過具象且細膩的人物肖像畫，以及如折舊、破損、燃燒、污漬等的痕跡，帶給觀者強烈的視覺體驗，藉此將時間、歷史等這類抽象的概念，轉化為可見的要素並轉化為其獨特的藝術語彙。",
+    "title1": "簡歷",
+    "educationTitle": "學歷",
+    "education": "藝術學碩士|國立臺灣師範大學美術系⻄畫組<br>藝術學學士|中國文化大學美術系",
+    "currentJobTitle": "現職",
+    "currentJob": "職業藝術家<br>助理教授，私立玄奘大學，臺灣",
+    "experience": {
+      "title": "經歷",
+      "list": [
+        {
+          "year": "2013",
+          "items": ["駐村美國洛杉磯ESMoA當代美術館(El Segundo Museum of Arts)"]
+        },
+        { "year": "2011", "items": ["駐村德國柏林"] }
+      ]
+    },
+    "title2": "展覽/<span class='break'>藝博會</span>",
+    "soloExhibitions": {
+      "title": "個展",
+      "list": [
+        {
+          "year": "2020",
+          "items": [
+            "「被歷史改變的人與改變歷史的人」，大觀藝術空間，臺北，台灣"
+          ]
+        },
+        {
+          "year": "2017",
+          "items": ["「墨嵐」，大觀藝術空間，臺北，臺灣"]
+        },
+        {
+          "year": "2014",
+          "items": ["「人間草紙-靈魂的墨漬」，也趣藝廊，臺北 ，臺灣"]
+        },
+        {
+          "year": "2013",
+          "items": ["「黑的邊緣」，也趣藝廊，臺北，臺灣"]
+        },
+        {
+          "year": "2009",
+          "items": ["「草莓族工作室入侵」，也趣藝廊，臺北，臺灣"]
+        }
+      ]
+    },
+    "groupExhibitions": {
+      "title": "聯展/藝博會",
+      "list": [
+        {
+          "year": "2022",
+          "items": [
+            "Los Angeles Art Show,阿卡迪亞畫廊，紐約，美國",
+            "「人鼠之間」Verduyn Gallery，比利時",
+            "「裸體 - 人體之謎 / 人體的神秘性」Artglorieux 畫廊（由 Gallery Sumire 策 展），東京，日本",
+            "「具象繪畫聯展」Gallery， Suchi， 東京，日本",
+            "「ART OSAKA 2022 」，Gallery Suchi 畫廊，東京，日本"
+          ]
+        },
+        {
+          "year": "2021",
+          "items": [
+            "ArtLift Fest 2021，莫斯科，俄羅斯",
+            "ARC 沙龍展 ，西班牙現代藝術博物館 ，巴賽隆納，西班牙",
+            "ARC 沙龍展 ，蘇富比紐約 ，美國",
+            "ART TAIPEI 台北國際藝術博覽會，臺北，臺灣"
+          ]
+        },
+        {
+          "year": "2020",
+          "items": [
+            "「肖像畫 2020」，阿卡迪亞畫廊，洛杉磯，美國",
+            "ART TAIPEI 台北國際藝術博覽會，臺北，臺灣"
+          ]
+        },
+        {
+          "year": "2019",
+          "items": [
+            "「Mondo Tondo」，阿卡迪亞畫廊，洛杉磯，美國",
+            "「奇麗之美 - 台灣精微寫實藝術大展」，奇美博物館，臺南，臺灣",
+            "「台灣禮讚」，台南市立美術館，臺南，臺灣"
+          ]
+        },
+        {
+          "year": "2018",
+          "items": ["ART TAIPEI 台北國際藝術博覽會，臺北，臺灣"]
+        },
+        {
+          "year": "2017",
+          "items": [
+            "「香港水墨藝博會」，香港會議展覽中心，香港",
+            "港都國際藝術博覽會，高雄，臺灣",
+            "ART FAIR TOKYO 2016 東京藝術博覽會，東京，日本",
+            "「存在的情境─東亞當代寫實藝術展」，毓繡美術館，南投，臺灣"
+          ]
+        },
+        {
+          "year": "2015",
+          "items": [
+            "ART TAIPEI 2015 臺北國際藝術博覽會，臺北，臺灣",
+            "ART 15 LONDON 倫敦藝術博覽會，倫敦，英國",
+            "ART FAIR TOKYO 2015 東京藝術博覽會，東京，日本"
+          ]
+        },
+        {
+          "year": "2014",
+          "items": [
+            "ART TAIPEI 2014 臺北國際藝術博覽會，臺北，臺灣",
+            "「界：臺灣當代藝術展1995-2013」，康乃爾大學強生美術館，伊薩卡，美國",
+            "ART 14 LONDON 倫敦藝術博覽會，倫敦，英國"
+          ]
+        },
+        {
+          "year": "2013",
+          "items": [
+            "ART TAIPEI 2013 臺北國際藝術博覽會，臺北，臺灣",
+            "「EXPERIENCE03:TRUTH」，ESMoA美術館，洛杉磯，美國"
+          ]
+        },
+        {
+          "year": "2012",
+          "items": [
+            "ART TAIPEI 2012 臺北國際藝術博覽會，臺北，臺灣",
+            "ART FAIR TOKYO 2012 東京藝術博覽會，東京，日本",
+            "「亞洲具像─四國聯展」，YOSHIAKI INOUE Gallery，大阪，日本",
+            "Galleryseoul12首爾頂級藝博，首爾，韓國",
+            "「YES Taiwan IV-Young Emerging Stars Taiwan」，也趣藝廊，臺北，臺灣",
+            "Mancy’s Tokyo Art Nights，東京，日本"
+          ]
+        },
+        {
+          "year": "2011",
+          "items": [
+            "「白日夢」，LOWER Akihabara Gallery，東京，日本",
+            "「James Reid printshop」，Artlab21 studio，波昂，德國",
+            "ART TAIPEI 2011 臺北國際藝術博覽會，臺北，臺灣",
+            "「複感‧動觀」2011海峽兩岸當代藝術展，中國美術館，北京，中國",
+            "Art Stage 新加坡藝術博覽會，Mariner Bay Sands，新加坡"
+          ]
+        },
+        {
+          "year": "2010",
+          "items": [
+            "「臺灣報到」2010臺灣雙年展，國立臺灣美術館，臺中，臺灣",
+            "ShContemporary 10 上海當代藝術博覽會，上海，中國",
+            "「汽球人間」，Lower Akihabara Gallery，東京，日本",
+            "ART TAIPEI 2010臺北國際藝術博覽會，臺北，臺灣",
+            "「後青春」，國立臺灣美術館，臺中，臺灣 / 關渡美術館，臺北，臺灣",
+            "Mancy’s Tokyo Art Nights ，東京，日本"
+          ]
+        },
+        {
+          "year": "2009",
+          "items": [
+            "ShContemporary 上海當代藝術博覽會，上海，中國",
+            "「YOUNG ART TAIPEI」臺北國際當代藝術博覽會，臺北，臺灣",
+            "「似曾相似的小宇宙」SMALL WORLD，E105藝術設計中心，波昂，德國 "
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "ART FAIR 21當代藝術博覽會，科隆，德國",
+            "「碩果與新芽」奇美藝術獎20年成果展，新光三越新天地，臺南，臺灣 / 國立臺灣藝術大學，臺北，臺灣",
+            "「ART TAIPEI 2008」臺北國際藝術博覽會，臺北，臺灣",
+            "「高雄美術獎」，高雄市立美術館，高雄，臺灣"
+          ]
+        }
+      ]
+    },
+    "title3": "獲獎",
+    "awards": {
+      "list": [
+        {
+          "year": "2020",
+          "items": [
+            "ARC收藏獎|藝術復興中心，美國",
+            "肖像畫類榮譽獎|藝術復興中心，美國",
+            "ARC 最佳人氣獎|藝術復興中心，美國",
+            "美國肖像畫學會第二十二屆國際年度肖像畫大賽 精選五十"
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "高雄美術獎 首獎",
+            "溫世仁百合獎 美術類水彩寫生比賽金獎",
+            "高雄美術獎 得主",
+            "國立美術館 青年藝術典藏計畫"
+          ]
+        },
+        { "year": "2007", "items": ["奇美人材培訓計畫獎"] },
+        { "year": "2006", "items": ["桃源美展 油彩類佳作",
+          "警察節美展 西畫類第一名",
+          "中國文化大學寫生比賽 第二名",
+          "警察節美展 西畫組第一名",
+          "國泰藝術獎 新世紀潛力畫展銀獎"
+          ] },
+        { "year": "2005", "items": [
+          "雙和美展 社會組第二名",
+          "桃源美展 水彩類第一名",
+          "全國百號油畫大展 優選",
+          "行天宮人文獎全國美術創作比賽 西畫成人組第三名",
+          "警察節美展 西畫入選",
+          "警察節美展 西畫第一名",
+          "全省美展 油畫類優選",
+          "全國美展 油畫類佳作",
+          "中國文化大學 美術系系展西畫組第一名",
+          "奇美人才培訓獎"] },
+        {
+          "year": "2004",
+          "items": ["全國青年寫生比賽 大專組第一名 ", "聯邦新人獎 首獎",
+          "警察專科學校校慶美展 西畫第二名",
+          "第六屆新莊美展 水彩類大專組第一名",
+          "第九屆大墩美展 水彩組優選",
+          "雙和美展 西畫部雙和獎(第一名)"
+        ]
+        },
+        {
+          "year": "2003",
+          "items": [
+            "警察節美展 西畫部第三名",
+            "國際藝術獎 油彩部優選",
+            "光華獅子盃寫生 大專社會組金獅獎(第一名)",
+            "全省美展 油彩部入選",
+            "中國文化大學 美術系系展第一名另得校長獎",
+            "臺陽美展 水彩類優選",
+            "警察節美展 水彩入選",
+            "全國油畫 大賞入選"
+          ]
+        },
+        {
+          "year": "2002",
+          "items": [
+            "全國學生美展 西畫部大專美術系組第一名",
+            "全國青年寫生比賽 高中組第二名",
+            "緬懷楊三郎寫生 高中組優選",
+            "風野藝術協會寫生 社會組第一名",
+            "北縣七縣市寫生比賽 社會組第二名",
+            "敏盛杯寫生比賽 社會組第二名",
+            "後輩軍人親子寫生 社會組第三名",
+            "基隆市畫家鄉寫生比賽 高中組第二名",
+            "北縣七縣市寫生 社會組佳作",
+            "桃園百景 高中組佳作",
+            "第八屆風野寫生 高中組佳作",
+            "臺灣區我愛河川 高中組佳作",
+            "張其昀先生獎學金 特殊才藝傑出表現獎"
+          ]
+        }
+      ]
+    },
+    "title4": "典藏",
+    "collections": {
+      "list": [
+        {
+          "year": "",
+          "items": [
+            "美國洛杉磯ESMoA當代美術館，洛杉磯，美國",
+            "國立臺灣美術館，臺中，臺灣",
+            "奇美博物館，臺南，臺灣",
+            "警察專科學校，臺北，臺灣",
+            "行天宮文化基金會，臺北，臺灣",
+            "桃園縣文化局，桃園，臺灣",
+            "國父紀念館，臺北，臺灣",
+            "中和庄文史研究協會，臺北，臺灣",
+            "聯邦文教基金會，臺北，臺灣",
+            "光華獅子會，臺北，臺灣"
+          ]
+        }
+      ]
     }
   },
-  "Examples": {
-    "card": [{
-      "link": "#swiperTarget",
-      "img": "taoyuan.jpg",
-      "imgMob": "taoyuan.jpg",
-      "title": "桃園 芙蓉匯"
-    }, {
-      "link": "#swiperTarget",
-      "img": "xinzhuang.jpg",
-      "imgMob": "xinzhuang.jpg",
-      "title": "新莊 麗寶雙璽"
-    }, {
-      "link": "#swiperTarget",
-      "img": "building95.jpg",
-      "imgMob": "building95.jpg",
-      "title": "遠雄95大樓"
-    }, {
-      "link": "#swiperTarget",
-      "img": "seaPalace.jpg",
-      "imgMob": "seaPalace.jpg",
-      "title": "海上皇宮"
-    }, {
-      "link": "#swiperTarget",
-      "img": "sea.jpg",
-      "imgMob": "sea.jpg",
-      "title": "海洋都心三期"
-    }]
-  },
-  "Certificate": {
-    "content": [{
-      "btnImg": "tab01.jpg",
-      "name": "塑膠管材防火包覆",
-      "data": [{
-        "img": "certificate01-1.jpg",
-        "title": "CNS 14705認證"
-      }, {
-        "img": "certificate01-2.jpg",
-        "title": "新技術新工法證書"
-      }, {
-        "img": "certificate01-3.jpg",
-        "title": "新技術新工法證書"
-      }]
-    }, {
-      "btnImg": "tab02.jpg",
-      "name": "電焊防火用",
-      "data": [{
-        "img": "certificate01-1.jpg",
-        "title": "CNS 14705認證"
-      }, {
-        "img": "certificate01-2.jpg",
-        "title": "新技術新工法證書"
-      }, {
-        "img": "certificate01-3.jpg",
-        "title": "新技術新工法證書"
-      }]
-    }, {
-      "btnImg": "tab03.jpg",
-      "name": "座椅內包防火材",
-      "data": [{
-        "img": "certificate01-1.jpg",
-        "title": "CNS 14705認證"
-      }, {
-        "img": "certificate01-2.jpg",
-        "title": "新技術新工法證書"
-      }, {
-        "img": "certificate01-3.jpg",
-        "title": "新技術新工法證書"
-      }]
-    }, {
-      "btnImg": "tab04.jpg",
-      "name": "家庭、飯店防火毯",
-      "data": [{
-        "img": "certificate01-1.jpg",
-        "title": "CNS 14705認證"
-      }, {
-        "img": "certificate01-2.jpg",
-        "title": "新技術新工法證書"
-      }, {
-        "img": "certificate01-3.jpg",
-        "title": "新技術新工法證書"
-      }]
-    }, {
-      "btnImg": "tab05.jpg",
-      "name": "耐燃絕緣包覆材",
-      "data": [{
-        "img": "certificate01-1.jpg",
-        "title": "CNS 14705認證"
-      }, {
-        "img": "certificate01-2.jpg",
-        "title": "新技術新工法證書"
-      }, {
-        "img": "certificate01-3.jpg",
-        "title": "新技術新工法證書"
-      }]
-    }, {
-      "btnImg": "tab06.jpg",
-      "name": "ISO認證",
-      "data": [{
-        "img": "certificate01-1.jpg",
-        "title": "CNS 14705認證"
-      }, {
-        "img": "certificate01-2.jpg",
-        "title": "新技術新工法證書"
-      }, {
-        "img": "certificate01-3.jpg",
-        "title": "新技術新工法證書"
-      }]
-    }]
-  },
-  "Swiper": {
-    "pic": [{
-        "title": "ch1",
-        "subTitle": "飞机座椅1",
-        "link": ["fuli.jpg", "blackcat1.jpg", "blackcat2.jpg"]
+  "QA": {
+    "list": [
+      {
+        "question": "Q1.上課前，需要準備什麼工具與先備知識呢？",
+        "answer": "➤ 建議要具備素描基礎再加入課程唷！<br>若無任何繪畫經驗，可先參考羅老師的人像素描課程（超連結<br>➤ 油畫用具：油彩、畫筆、油畫用油、調色盤、油畫刀……"
       },
       {
-        "title": "ch2",
-        "subTitle": "飞机座椅2",
-        "link": ["test.jpg", "test2.png", "test3.png", "test4.png"]
+        "question": "Q2.我需要油畫基礎嗎？",
+        "answer": "這堂課的程度設定在初級到中級，很適合完全沒有基礎並期望逐步進階到中級的同學。<br>羅老師正在製作高階難度的課程，未來也可以循序漸進的深入專研您的技術喔！"
+      },
+      {
+        "question": "Q3.羅老師是誰？",
+        "answer": "藝術家羅展鵬，從事職業藝術創作，獲得許多國際藝術獎項，並在世界各地展覽發表作品。更多資訊請看簡歷（超連結）。"
+      },
+      {
+        "question": "Q4.這門課可以看多久？",
+        "answer": "開課後，即可使用電腦、手機及平板登入上線上課，不用受到上課時間及地點的限制，皆可無限次數重複觀看課程內容。"
+      },
+      {
+        "question": "Q5.可以問老師問題嗎？",
+        "answer": "當然！歡迎到「羅展鵬藝術村(<a href='https://t.me/lochanpeng2022' target='_blank'>超連結</a>）」Telegram 群組發問，在上面還有數百位同學與您一起討論、分享心得喔！"
+      },
+      {
+        "question": "Q6.我要如何購買課程呢？",
+        "answer": "非常的簡單！點擊「立即購買」的字樣，就可以成為本堂線上課程的其中一位學員！"
+      },
+      {
+        "question": "Q7.目前有哪些付款方式呢？",
+        "answer": "目前只有提供透過PayPal 線上刷卡ㄧ種付款方式，請您先註冊PayPal 帳號。"
+      },
+      {
+        "question": "Q8.羅展鵬藝術村（<a href='https://t.me/lochanpeng2022' target='_blank'>超連結</a>）Telegram 群組可以用英文溝通嗎？",
+        "answer": "羅老師可以溝通英文，但更深入的英文講解則需要群組（<a href='https://t.me/lochanpeng2022' target='_blank'>超連結</a>）的成員們互相輔助，這個群組裡面存在著許多優秀的高手，以及來自全世界各地對於藝術熱愛的人們，羅老師期望這是一個無國界大家庭，彼此幫助並專注追求藝術之路，歡迎你先加入看看。<br>其實，不一定要每張作業都得到講解，長期在群組分享創作，並且觀看別人的創作無形之中就會獲得進步，並且開闊眼界，這也是我們的初衷。"
+      },
+      {
+        "question": "Q9.觀看課程後如果有更多問題該怎麼辦？",
+        "answer": "完全可以在羅展鵬藝術村（<a href='https://t.me/lochanpeng2022' target='_blank'>超連結</a>）Telegram 群組提出問題，無論是什麼語言，我們的成員非常熱情，並且居於世界各地。"
       }
     ]
+  },
+  "Member": {
+    "infoTitle": "會員資料",
+    "editTitle": "修改會員資料",
+    "signinTitle": "登入帳戶",
+    "signupTitle": "建立帳戶",
+    "forgotPswTitle": "修改密碼",
+    "validateTitle": "會員驗證",
+    "name": "姓名",
+    "birthday": "生日",
+    "account": "帳號",
+    "accountPlaceholder": "會員帳號 (英數字)",
+    "password": "密碼",
+    "passwordPlaceholder": "會員密碼 (6碼至15碼英數字)",
+    "confirmPassword": "密碼確認",
+    "confirmPasswordPlaceholder": "再次輸入密碼",
+    "email": "信箱",
+    "emailPlaceholder": "ex: abc@gmail.com",
+    "editPsw": "修改密碼",
+    "send": "送出",
+    "cancel": "取消",
+    "edit": "編輯",
+    "forgotPsw": "忘記密碼",
+    "logout": "登出",
+    "signin": "登入",
+    "newUser": "新用戶？",
+    "registerBtn": "註冊",
+    "token": "驗證碼",
+    "remark": "註冊會員您將可以收到羅展鵬的最新展覽資訊、新增課程、各種活動訊息。<br><br>課程付款後將會直接寄發信件至您填寫的信箱中，請在信箱中開設資料夾以儲存本網站的課程，未來的課程後續更新直接點擊信件即可。"
+  },
+  "Work": {
+    "yearTitle": "作品年代"
+  },
+  "Course": {
+    "btn": "課 程",
+    "relatedTitle": "相關文章"
+  },
+  "News": {
+    "relatedTitle": "相關新聞"
+  },
+  "Contact": {
+    "title": "聯絡我們",
+    "name": "姓名",
+    "phone": "電話",
+    "email": "信箱",
+    "content": "內容",
+    "send": "送出"
   }
 }

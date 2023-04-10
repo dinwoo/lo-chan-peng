@@ -1,48 +1,155 @@
 <template lang="pug">
 header
-  figure.logo
-    img(src="@/assets/images/logo.png")
+  router-link.page-link(:to="{name:'Home'}")
+    figure.logo
+      img(src="@/assets/images/logo.png")
   .menu
-    .lang En
-    .lang Ch
-    figure.icon
-      img(src="@/assets/images/fb-icon.png")
-    figure.icon
-      img(src="@/assets/images/ig-icon.png")
-    figure.icon
-      img(src="@/assets/images/yt-icon.png")
-    figure.icon
-      img(src="@/assets/images/telegram-icon.png")
-    figure.icon
-      img(src="@/assets/images/member-icon.png")
-    .ham
-    .sub-menu
-      .lang-box
-        .lang En
-        .lang Ch
-      .close
-      router-link.page-link(:to="{name:'About'}") 關於藝術家
-      router-link.page-link(:to="{name:'About'}") 最新消息
-      router-link.page-link(:to="{name:'About'}") 作品導覽
-      router-link.page-link(:to="{name:'About'}") 聯絡資訊
-      router-link.page-link(:to="{name:'About'}") 線上課程
-      .social-box
-        figure.icon
-          img(src="@/assets/images/fb-icon.png")
-        figure.icon
-          img(src="@/assets/images/ig-icon.png")
-        figure.icon
-          img(src="@/assets/images/yt-icon.png")
-        figure.icon
-          img(src="@/assets/images/telegram-icon.png")
-      .login 登入
+    .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
+    .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
+    a(href="https://www.facebook.com/lo.c.peng" target="_blank")
+      .svg_box
+        include ../assets/pug/fb.pug
+    a(href="https://www.instagram.com/lochanpeng/" target="_blank")
+      .svg_box
+        include ../assets/pug/ig.pug
+    a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
+      .svg_box
+        include ../assets/pug/yt.pug
+    a(href="https://t.me/lochanpeng2022" target="_blank")
+      .svg_box
+        include ../assets/pug/telegram.pug
+    a(href="https://opensea.io/collection/lochanpeng?fbclid=IwAR3yBx-H56Y_VlObikRbSmYyRaB-_4JWH7w47W1-h2v8LQFLqbkUz1U_z-4" target="_blank")
+      .svg_box
+        include ../assets/pug/opensea.pug
+    .svg_box(@click="goMember()")
+      include ../assets/pug/member.pug
+    .ham(@click="showMenu=!showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
+    //- .ham(v-if="isMobile" @click="showMenu=!showMenu")
+    //- .ham(v-else @mouseenter="showMenu=true" @mouseleave="showMenu=false")
+    .sub-menu(v-show="showMenu" @mouseenter="showMenu=true" @mouseleave="showMenu=false")
+      .menu-box
+        .lang-box
+          .lang(@click="setLang('en')" :class="{'active':lang=='en'}") En
+          .lang(@click="setLang('ch')" :class="{'active':lang=='ch'}") Ch
+        .close(@click="showMenu=false")
+        router-link.page-link(:to="{name:'About'}") {{$t(`Menu.about`)}}
+        router-link.page-link(:to="{name:'News'}") {{$t(`Menu.news`)}}
+        router-link.page-link(:to="{name:'Works'}") {{$t(`Menu.works`)}}
+        router-link.page-link(:to="{name:'Course'}") {{$t(`Menu.course`)}}
+        .page-link(@click="goMember()" v-if="!isLogin") {{$t(`Menu.login`)}}
+        router-link.page-link(:to="{name:'Contact'}") {{$t(`Menu.contact`)}}
+        .social-box
+          a(href="https://www.facebook.com/lo.c.peng" target="_blank")
+            .svg_box
+              include ../assets/pug/fb.pug
+          a(href="https://www.instagram.com/lochanpeng/" target="_blank")
+            .svg_box
+              include ../assets/pug/ig.pug
+          a(href="https://www.youtube.com/user/Lochanpeng/featured" target="_blank")
+            .svg_box
+              include ../assets/pug/yt.pug
+          a(href="https://t.me/lochanpeng2022" target="_blank")
+            .svg_box
+              include ../assets/pug/telegram.pug
+          a(href="https://opensea.io/collection/lochanpeng?fbclid=IwAR3yBx-H56Y_VlObikRbSmYyRaB-_4JWH7w47W1-h2v8LQFLqbkUz1U_z-4" target="_blank")
+            .svg_box
+              include ../assets/pug/opensea.pug
+        //- .login(@click="goMember()") {{$t(`Menu.login`)}}
 
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { gsap } from "gsap";
+
 export default {
-  name: 'Header',
-}
+  name: "Header",
+  data() {
+    return {
+      isMobile: false,
+      showMenu: false,
+      sceneArr: []
+    };
+  },
+  computed: {
+    ...mapState(["lang", "screenWidth"]),
+    isLogin() {
+      return localStorage.getItem("token") ? true : false;
+    }
+  },
+  beforeDestroy() {
+    this.sceneArr.map(scene => {
+      this.$scrollmagic.removeScene(scene);
+    });
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.isMobile = this.screenWidth < 768;
+      this.setAnimate();
+    });
+  },
+  methods: {
+    // 儲存切換的語系
+    setLang(value) {
+      this.$store.commit("SET_LANG", value);
+      this.$i18n.locale = value;
+      localStorage.setItem("footmark-lang", value);
+      this.$router.go(0);
+    },
+    goMember() {
+      this.showMenu = false;
+      if (localStorage.getItem("account")) {
+        if (this.$route.name == "Member") return;
+        this.$router.push({ name: "Member" });
+      } else {
+        if (this.$route.name == "Signin") return;
+        this.$router.push({ name: "Signin" });
+      }
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: "body",
+          triggerHook: 0,
+          offset: 120,
+          reverse: true
+        })
+        .on("enter", function() {
+          gsap.to("header", {
+            opacity: 0,
+            display: "none"
+          });
+        })
+        .on("leave", function() {
+          gsap.to("header", {
+            opacity: 1,
+            display: "flex"
+          });
+        });
+      // .addIndicators({ name: "header" });
+
+      this.sceneArr.forEach(scene => {
+        this.$scrollmagic.addScene(scene);
+      });
+    }
+  },
+  watch: {
+    screenWidth(val) {
+      if (!this.timer) {
+        this.isMobile = val < 768;
+        this.timer = true;
+        setTimeout(() => {
+          // console.log(val);
+          this.timer = false;
+        }, 400);
+      }
+    },
+    "$route.name": function(name) {
+      this.showMenu = false;
+      console.log(name);
+    }
+  }
+};
 </script>
 
 <style lang="sass" scoped>
@@ -67,36 +174,53 @@ header
     .lang
       margin: 0 10px
       font-size: 1rem
-      color: #fff
+      color: $gray-005
       cursor: pointer
-    figure.icon
+      transition: .3s
+      &.active,&:hover
+        color: #fff
+    .svg_box
       width: 35px
       margin: 0 10px
       cursor: pointer
+      fill: $gray-004
+      transition: .3s
+      +hover
+        fill: #fff
     .ham
       width: 36px
       height: 25px
       margin-left: 40px
-      background-image: linear-gradient($gray-001 0%,$gray-001 calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),$gray-001 calc(50% - 2px),$gray-001 calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),$gray-001 calc(100% - 4px),$gray-001 100%)
+      background-image: linear-gradient($gray-004 0%,$gray-004 calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),$gray-004 calc(50% - 2px),$gray-004 calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),$gray-004 calc(100% - 4px),$gray-004 100%)
       opacity: .6
       cursor: pointer
+      transition: .3s
+      +hover
+        background-image: linear-gradient(#fff 0%,#fff calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),#fff calc(50% - 2px),#fff calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),#fff calc(100% - 4px),#fff 100%)
     .sub-menu
-      display: none
-      padding: 50px 70px
-      border-radius: 1rem
-      background-color: rgba($gray-002,.75)
-      box-shadow: 5px 5px 10px rgba(#494949,.75%)
-      text-align: center
+      padding-top: 40px
       position: absolute
-      right: 0
-      bottom: -35px
+      right: 0px
+      bottom: 10px
       transform: translateY(100%)
+      .menu-box
+        padding: 50px 70px
+        border-radius: 1rem
+        background-color: rgba($gray-002,.75)
+        box-shadow: 5px 5px 10px rgba(#494949,.75%)
+        text-align: center
       .page-link
         display: block
         margin: 20px 0
         font-size: 1rem
         letter-spacing: 2px
-        color: $gray-003
+        color: #595857
+        cursor: pointer
+        transition: .3s
+        &:hover
+          color: #000
+        &.router-link-active
+          color: #000
       .lang-box
         display: none
       .close
@@ -105,33 +229,34 @@ header
         display: none
       .login
         display: none
+  +rwd(960px)
+    padding: 40px 20px
+    figure.logo
+      width: 300px
+    .menu
+      .ham
+        margin-left: 20px
   +rwd(768px)
-    // padding: 40px 50px
+    padding: 20px 15px
     figure.logo
       width: 50vw
       // width: 400px
     .menu
       .lang
         display: none
-      figure.icon
+      .svg_box
         display: none
       .ham
-        width: 36px
-        height: 25px
-        margin-left: 40px
-        background-image: linear-gradient($gray-001 0%,$gray-001 calc(0% + 4px),transparent calc(0% + 4px),transparent calc(50% - 2px),$gray-001 calc(50% - 2px),$gray-001 calc(50% + 2px),transparent calc(50% + 2px),transparent calc(100% - 4px),$gray-001 calc(100% - 4px),$gray-001 100%)
-        opacity: .6
-        cursor: pointer
+        width: 30px
+        height: 20px
+        background-image: linear-gradient($gray-004 0%,$gray-004 calc(0% + 2px),transparent calc(0% + 2px),transparent calc(50% - 2px),$gray-004 calc(50% - 1px),$gray-004 calc(50% + 1px),transparent calc(50% + 2px),transparent calc(100% - 2px),$gray-004 calc(100% - 2px),$gray-004 100%)
+        +hover
+          background-image: linear-gradient(#fff 0%,#fff calc(0% + 2px),transparent calc(0% + 2px),transparent calc(50% - 2px),#fff calc(50% - 1px),#fff calc(50% + 1px),transparent calc(50% + 2px),transparent calc(100% - 2px),#fff calc(100% - 2px),#fff 100%)
       .sub-menu
-        padding: 50px 70px
-        border-radius: 1rem
-        background-color: rgba($gray-002,.75)
-        box-shadow: 5px 5px 10px rgba(#494949,.75%)
-        text-align: center
-        position: absolute
-        right: 0
-        bottom: -35px
-        transform: translateY(100%)
+        .menu-box
+          padding: 20px 30px
+          background-color: rgba(#fff,.9)
+          position: relative
         .page-link
           display: block
           margin: 20px 0
@@ -152,6 +277,7 @@ header
           width: 30px
           height: 30px
           transform: rotate(-45deg)
+          cursor: pointer
           position: absolute
           top: 15px
           right: 15px
@@ -168,9 +294,10 @@ header
             height: 100%
         .social-box
           display: block
-          figure.icon
-            width: 30px
-            margin: 0 5px
+          width: 160px
+          .svg_box
+            width: 25px
+            margin: 0 3px
             +dib
         .login
           display: block
@@ -181,4 +308,5 @@ header
           color: #fff
           background-color: #000
           border-radius: 1.5rem
+          cursor: pointer
 </style>

@@ -1,34 +1,473 @@
 {
-  "title": "MIS footmark",
-  "description": "IT learn",
-  "About": {
-    "title": "456"
+  "Meta": {
+    "title": "Lo Chan Peng",
+    "description": "description",
+    "keyword": "keyword"
   },
-  "Application": {
-    "material1": {
-      "title": "material1 title",
-      "content": [{
-          "name": "name1",
-          "link": "blackcat.jpg"
+  "Menu": {
+    "about": "About",
+    "news": "News",
+    "works": "Works",
+    "contact": "Contact",
+    "course": "Course",
+    "login": "Login"
+  },
+  "About": {
+    "name": "Lo Chan Peng",
+    "birth": "1983 Born in Taiwan ",
+    "creativeMedia": "Specialization | Oil Painting, ink and mix media",
+    "info": "Born in 1983 in Taiwan, Lo Chan-Peng graduated from the Chinese Culture University and National Taiwan Normal University with an MFA in Western Painting. Lo is a constant prize winner in Taiwan since his young age. Lo has awarded :ARC Purchase Award | Art Renewal Center (ARC), USA Honorable Mention / Portraiture | Art Renewal Center (ARC), USA ARC People’s Choice Award | Art Renewal Center (ARC), USA (2020)    The Chi-mei Cultivation Award (2007)The Kaohsiung Award (2008).<br><br>Lo has been working as an artist in resident in worldwide institutions such as ARC Salon,Sotheby’s NY(2021  ),European museum of modern art，Barcelona, Spain(2021  )and in Berlin (2011). The recent exhibitions include From hyperrealism to the reality – Lo Chan Peng Solo Exhibition 2020 (Taipei, 2020), Portraiture 2020 (Los Angles, 2020), and Misty (Taipei, 2017). He also attended International Art Fairs hold in London, Tokyo, Osaka, Busan, Soul, Masco, Singapore, Taipei, etc. Lo’s works have been collected by galleries, museums, and collectors around the world, such as ESMoA, National Taiwan Museum of Fine Arts, Chi-met museum, and Union Culture Foundation.<br><br>Most of Lo Chan-Peng’s works are focusing on portraitures by using oil colour or ink. In his creation, Lo likes to discuss issues such as time, history, and life and death. With his vivid and exquisite portraits, Lo adds elements to “spoil” the pictures, thereby bringing a strong and unique visual experience to the viewers, also transferring the abstract concept into something that can be seen.",
+    "title1": "Resume",
+    "educationTitle": "Education",
+    "education": "MA, Department of Fine Arts, National Taiwan Normal University, Taiwan <br>BA, Department of Fin Arts, Chinese Culture University, Taiwan",
+    "currentJobTitle": "Current Occupations",
+    "currentJob": "Professional Artist<br>Assistant Professor, Department of Art of Creative Design, Hsuan Chuang University, Taiwan",
+    "experience": {
+      "title": "Artist Residency",
+      "list": [
+        {
+          "year": "2013",
+          "items": [
+            "Artist Residency in ESMoA (El Segundo Museum of Arts), Los Angeles, USA."
+          ]
         },
         {
-          "name": "name2",
-          "link": "blackcat.jpg"
+          "year": "2011",
+          "items": ["Artist Residency in Berlin, Germany"]
+        }
+      ]
+    },
+    "title2": "Exhibitions",
+    "soloExhibitions": {
+      "title": "Solo Exhibitions",
+      "list": [
+        {
+          "year": "2020",
+          "items": [
+            "Historic Movers and Shakers, and the Doomed, Daguan Gallery, Taipei, Taiwan"
+          ]
+        },
+        { "year": "2017", "items": ["Misty, Daguan Gallery, Taipei"] },
+        {
+          "year": "2014",
+          "items": ["The Spiritual Portrait, AKI Gallery, Taipei"]
+        },
+        {
+          "year": "2013",
+          "items": ["The Edge of Darkness, AKI Gallery, Taipei"]
+        },
+        {
+          "year": "2010",
+          "items": [
+            "Art HK10: HONG KONG INTERNATIONAL ART FAIR 2010, Hong Kong"
+          ]
+        },
+        {
+          "year": "2009",
+          "items": ["Strawberry Generation Studio, AKI Gallery, Taipei"]
+        }
+      ]
+    },
+    "groupExhibitions": {
+      "title": "Group Exhibitions",
+      "list": [
+        {
+          "year": "2022",
+          "items": [
+            "Arcadia Contemporary, Los Angeles Art Show,ＬＡ ,USA",
+            "“Of Mice and Men“ Verduyn Gallery, Belgium",
+            "“The Nude - Mysteries of the Human Body “ Artglorieux gallery (curated by Gallery Sumire), Tokyo, Japan",
+            "Group Exhibitions Gallery Suchi, Tokyo, Japan",
+            "ART OSAKA 2022 Gallery Suchi ブース,Tokyo ,Japan"
+          ]
+        },
+        {
+          "year": "2021",
+          "items": [
+            "ArtLift Fest 2021,Moscow, Russia",
+            "ARC Salon,Sotheby’s NY,European museum of modern art，Barcelona, Spain",
+            "ARC Salon,Sotheby’s NY,US",
+            "ART TAIPEI, Taipei, Taiwan"
+          ]
+        },
+        {
+          "year": "2020",
+          "items": [
+            "The Possibility of of Watercolour, Department of Culture Affairs, Taoyuan, Taiwan ",
+            "ART TAIPEI, Taipei, Taiwan",
+            "Portraiture 2020, Arcadia Contemporary, Los Angeles, US",
+            "ART TAIPEI, Taipei, Taiwan"
+          ]
+        },
+        {
+          "year": "2019",
+          "items": [
+            "Mondo Tondo, Arcadia Contemporary, Los Angeles, US",
+            "Hyperrealism Art in Taiwan, Chimei Museum, Tainan, Taiwan",
+            "Taiwan Panegyric, Tainan Art Museum, Tainan, Taiwan"
+          ]
+        },
+        {
+          "year": "2018",
+          "items": [
+            "ART TAIPEI, Taipei, Taiwan",
+            "Passing by/Emplacing: sealing one’s reminisce and oblivion, Daguan Gallery, Taipei, Taiwan",
+            "Spring Frolicking with Puppies, Daguan Gallery, Taipei, Taiwan",
+            "Ink Asia, Hong Kong Exhibition and Convention Centre, Hong Kong"
+          ]
+        },
+        {
+          "year": "2017",
+          "items": [
+            "Let’s Talk History – the Trilogy of Art Gallery industry in Taiwan, Daguan Gallery, Taipei, Taiwan"
+          ]
+        },
+        {
+          "year": "2016",
+          "items": [
+            "Kaohsiung Harbor International Art Fair, Kaohsiung Exhibition Center (KEC), Kaohsiung, Taiwan",
+            "ART FAIR TOKYO 2016, Tokyo, Japan",
+            "Situation of Existence: Contemporary Realistic Art in East Asia, YU-HSIU MUSEUM, Nantou, Taiwan"
+          ]
+        },
+        {
+          "year": "2015",
+          "items": [
+            "ART TAIPEI 2015, Taipei World Trade Center I, Taipei, Taiwan",
+            "ART BUSAN 2015, Bexco, Busan, South Korea",
+            "ART 15 London’s New Modern and Contemporary Art Fair, Olympia Grand Hall, London, UK",
+            "ART FAIR TOKYO 2015, Tokyo, Japan"
+          ]
+        },
+        {
+          "year": "2014",
+          "items": [
+            "ART TAIPEI 2014, Taipei World Trade Center I, Taipei, Taiwan",
+            "Asian Realism II, AKI Gallery, Taipei, Taiwan",
+            "Asian Realism II, YOSHIAKI INOUE GALLERY, Osaka, Japan",
+            "Jie : Boundaries of Self in Contemporary Art from Taiwan 1995-2013, Herbert F. Johnson Museum of Art, Cornell University, USA",
+            "ART 14 London’s New Modern and Contemporary Art Fair, Olympia Grand Hall, London, UK"
+          ]
+        },
+        {
+          "year": "2013",
+          "items": [
+            "ART TAIPEI 2013, Taipei World Trade Center I, Taipei, Taiwan",
+            "EXPERIENCE03:TRUTH, El Segundo Museum of art, ESMoA, Los Angeles, U.S.A",
+            "ART TAINAN 2013, Tainan, Taiwan",
+            "Symbiosis AKI Gallery, Taipei, Taiwan"
+          ]
+        },
+        {
+          "year": "2012",
+          "items": [
+            "Art Taipei 2012, Taipei, World Trade Center I, Taipei, Taiwan",
+            "ART FAIR TOKYO, Tokyo, Japan",
+            "ASIAN REALISM, YOSHIAKI INOUE Gallery, Osaka, Japan",
+            "Galleryseoul12, Seoul, Korea",
+            "Y.E.S., Taiwan-- Young Emerging Stars, AKI Gallery, Taipei, Taiwan",
+            "Mancy’s Art Night, Tokyo, Japan"
+          ]
+        },
+        {
+          "year": "2011",
+          "items": [
+            "Perceive TCAC, Taipei, Taiwan",
+            "白日夢 a Daydream, LOWER Akihabara Gallery, Tokyo, Japan",
+            "James Reid printshop, artlab21 studio, Bonn, Germany",
+            "Art Taipei 2011, Taipei World Trade Center I, Taipei, Taiwan",
+            "Dual Senses and Dynamic Views —— Contemporary Art Exhibition across the Taiwan Straits of 2011",
+            "Art Stage Singapore, Mariner By Sads, Singapore"
+          ]
+        },
+        {
+          "year": "2010",
+          "items": [
+            "YES TAIWAN, Taiwan Biennial, National Taiwan Museum of Fine Arts, Taichung, Taiwan",
+            "ShContemporary 10, Shanghai, China",
+            "汽球人間, Lower Akihabara Gallery, Tokyo",
+            "Art Taipei 2010, Taipei World Trade Center I, Taipei, Taiwan",
+            "Post-Adolescence, National Taiwan Museum of Fine Arts,Taichung; Kuandu Museum of Fine Arts, Taipei            ",
+            "Mancy’s Tokyo Art Nights Tokyo, Japan"
+          ]
+        },
+        {
+          "year": "2009",
+          "items": [
+            "ShContemporary Shanghai, China",
+            "YOUNG ART TAIPEI, Sunworld Dynasty Hotel, Taipei, Taiwan",
+            "SMALL WORLD, E105 Gallery, Bonn, Germany",
+            "National Elite Art Graduates, The NHCUE Gallery, Hsinchu, Taiwan"
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "Karma: The Samsara Of Contemporary Painting, The NTNU Gallery, Taipei, Taiwan",
+            "ART FAIR 21, Cologne, Germany",
+            "Seasoned by Generation, Chi-Mei Art Award 20th Anniversary Tour Exhibition Shin Kong New Life Square, Tainan/ National Taiwan University of the Arts, Taipei, Taiwan",
+            "ART TAIPEI 2008, Taipei World Trade Center I, Taipei, Taiwan",
+            "ID, identification of new generation, Aki Gallery, Taipei",
+            "New Eight Stars Show Capital Art Center, Taipei, Taiwan",
+            "11st Session of Beijing International Art Exposition China World Trade Center, Beijing",
+            "Kaohsiung Arts Award, Kaohsiung Museum of Fine Arts, Kaohsiung, Taiwan"
+          ]
+        },
+        {
+          "year": "2007",
+          "items": [
+            "Contemporary Dialogue, Impressions Art Gallery Taipei Assumed, Taiwanese Aki Gallery"
+          ]
+        },
+        {
+          "year": "2006",
+          "items": [
+            "The Sha Mao Mt. Painting Association Yearly Exhibition of 2003, Dr. Sun Yat-Sen Memorial Hall",
+            "Hua- Gang experimental art space group exhibition, Hua- Gang gallery",
+            "Taiwan Now-‘UP STAIRS, DOWN STAIRS’ group exhibition, Pacific Cultural Foundation Art Center"
+          ]
+        },
+        {
+          "year": "2005",
+          "items": [
+            "Oriental Avant-garde Taipei Art Festival -The RT style spin cooperation performer",
+            "National Art Exhibition of the Republic of China traveling exhibition Taichung, Taipei, Kaohsiung",
+            "Union Culture &Art foundation traveling exhibition "
+          ]
+        },
+        {
+          "year": "2004",
+          "items": [
+            "Sexy Baby The Circus Art Organization group exhibition, Hua- Gang Gallery",
+            "The 4th exhibition of Hu Tou Mt. Painting Association, Dan-shui Art Center",
+            "Atypical realistic syndrome, Pacific Cultural Foundation Art Center",
+            "Oh~! The six S.A.R.D.I.N.E group exhibition, South North Gallery Hua- Gang Gallery"
+          ]
+        }
+      ]
+    },
+    "title3": "Awards",
+    "awards": {
+      "list": [
+        {
+          "year": "2020",
+          "items": [
+            "ARC Purchase Award | Art Renewal Center (ARC), USA ",
+            "Honorable Mention / Portraiture | Art Renewal Center (ARC), USA",
+            "ARC People’s Choice Award | Art Renewal Center (ARC), USA",
+            "Select 50!, 22nd International Annual Portrait Competition, Portrait Society of America, USA"
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "The Sketching Competition Of Sayling Wen Cultural & Educational Foundation, golden award",
+            "Kaohsiung Awards2008"
+          ]
+        },
+        {
+          "year": "2007",
+          "items": ["The Chi-Mei Art Cultivation Awards"]
+        },
+        {
+          "year": "2006",
+          "items": [
+            "The 24th Tao Yuan Arts Exhibition of Tao Yuan County ,excellent painting",
+            "Taiwan Police College anniversary art exhibition, first prize",
+            "The Sketching Competition of CCU, second place",
+            "Taipei county police bureau art exhibition, first prize",
+            "The Cathay New Age Potential Art Award, silver award"
+          ]
+        },
+        {
+          "year": "2005",
+          "items": [
+            "Shuang-He art exhibition, second place",
+            "The 23rd Tao Yuan Arts Exhibition of Tao Yuan County, first prize (water color)",
+            "National Large-sized Oil Paintings Exhibition, honorable mention award",
+            "The National Art Award Of Xing Tian Temple, third place of adults",
+            "Taipei county police bureau art exhibition, finalist",
+            "Taipei county police bureau art exhibition, first prize",
+            "National Fine Arts Exhibition, honorable mention award",
+            "National Art Exhibition of the Republic of China, excellent painting award",
+            "CCU Fine Arts Exhibition (western painting), first prize",
+            "The Chi-Mei Art Cultivation Awards"
+          ]
+        },
+        {
+          "year": "2004",
+          "items": [
+            "The Sketching Competition of National Youth, first prize of university",
+            "Union Culture &Art foundation Young Artist Award, top prize",
+            "Taiwan Police College anniversary art exhibition, second place",
+            "The 6th Xin Zhuang Art Exhibition Of Xin Zhuang City, first prize of water color of university",
+            "The 9th Da-Dun Art Exhibition Of Tai Chung City, honorable mention award (water color)",
+            "Shuang-He art exhibition, Shuang-He award (first prize)"
+          ]
+        },
+        {
+          "year": "2003",
+          "items": [
+            "Taipei county police bureau art exhibition, third place",
+            "International Art Prize of oil painting, honorable mention award",
+            "Guang Hua Lions Club sketching competition ,golden lion award (first prize)",
+            "National Fine Arts Exhibition, finalist",
+            "CCU Fine Arts Exhibition (western painting), first prize & principal prize",
+            "Tai Yang Art exhibition, honorable mention award (water color)",
+            "National oil painting prize, finalist"
+          ]
+        },
+        {
+          "year": "2002",
+          "items": [
+            "National Student Arts Exhibition , first prize of university"
+          ]
+        },
+        {
+          "year": "2000",
+          "items": [
+            "National Youth sketching competition, second place of senior high school",
+            "Yang San Lang Memorial water painting sketching competition, honorable mention award of senior high school",
+            "The Sketching Competition Of Feng Ye Art Association ,first prize",
+            "The Sketching Competition Of the Seven County of Taipei County , second place",
+            "Min Cheng Cup Sketching Competition, second place",
+            "Reserve Serviceman Sketching Competition, third place",
+            "The Painting Hometown Sketching Competition Of Kee Lung City, second place of senior high school",
+            "The Special Talent scholarship of The Zhang Qi Yun Scholarship of 2001"
+          ]
+        }
+      ]
+    },
+    "title4": "Collections",
+    "collections": {
+      "list": [
+        {
+          "year": "2013",
+          "items": [
+            "Ashen face -Strolling in the Fog of TRUTH Exhibition El Segundo Museum of Arts, Los Angeles, USA"
+          ]
+        },
+        {
+          "year": "2008",
+          "items": [
+            "Youth Diary of the Strawberry Cell Division 3, National Taiwan Museum, Taichung "
+          ]
+        },
+        {
+          "year": "2007",
+          "items": ["Chi-Mei Art Foundation Chi-Mei Museum, Tainan"]
+        },
+        {
+          "year": "2005",
+          "items": [
+            "Chi-Mei Art Foundation Chi-Mei Museum ,Tainan",
+            "Taiwan Police College anniversary art exhibition of 2005 Taiwan Police College anniversary, Taipei",
+            "Xing Tian Temple Art Award of 2005　 Xing Tian Temple Cultural Foundation, Taipei",
+            "National Youth sketching competition of 2004 Dr. Sun Yat- Sen Memorial Hall, Taipei"
+          ]
+        },
+        {
+          "year": "2004",
+          "items": [
+            "Tao Yuan Arts Exhibition of TaoYuan County of 2004 Department of Cultural Affairs of Tao Yuan County, Taipei",
+            "Shuang-He art exhibition of 2004 The Chung He Town Cultural History Research Association,Taipei",
+            "Union Culture &Art foundation Young Artist Award 0f 2004 Union Culture &Art foundation, Taipei"
+          ]
+        },
+        {
+          "year": "2003",
+          "items": [
+            "Guang Hua Lions Club sketching competition 0f 2003 Guang Hua Lions Club, Taipei"
+          ]
         }
       ]
     }
   },
-  "Swiper": {
-    "pic": [{
-        "title": "en1",
-        "subTitle": "en1",
-        "link": ["fuli.jpg", "blackcat1.jpg", "blackcat2.jpg"]
+  "QA": {
+    "list": [
+      {
+        "question": "Q1. Do I need any tool and knowledge before the lessons?",
+        "answer": "-We suggest you sign up for these lessons with a drawing understanding. For those without any experience, Lo has drawing lessons and the link is here.<br>-Oil painting materials: paints, brushes, oils, palette, palette knives"
       },
       {
-        "title": "en2",
-        "subTitle": "en2",
-        "link": ["test.jpg", "test2.png", "test3.png", "test4.png"]
+        "question": "Q2. Do I need oil painting foundation",
+        "answer": "These lessons are for beginners to intermediate students. They are suitable for beginners and intermediate students who wish to advance. Lo is working on lessons for advanced students. He will gradually introduce them in the future."
+      },
+      {
+        "question": "Q3. Who is Lo Chan Peng",
+        "answer": "Lo Chan Peng is an international acclaimed artist with exhibitions around the world. For more please click on the link"
+      },
+      {
+        "question": "Q4. How long can I watch these lessons for?",
+        "answer": "You have unlimited access to the lessons from your computers, tables, or cellphones without the limitation of time or location."
+      },
+      {
+        "question": "Q5. How can I get my questions answered?",
+        "answer": "Welcome to send questions to <a href='https://t.me/lochanpeng2022' target='_blank'>Lo’s Telegram Group</a> There are hundreds of students here as well."
+      },
+      {
+        "question": "Q6 How do I purchase?",
+        "answer": "Simple! Click on “Purchase” and you will become a member."
+      },
+      {
+        "question": "Q7. What are payments methods",
+        "answer": "Currently we only accept payment via Paypal. Please register with paypal first."
+      },
+      {
+        "question": "Q8. Can I send English in Lo’s Telegram link ",
+        "answer": "Lo can communicate with English. However, if in depth in English, the members in Lo’s Telegram group will help. These members consist of great artists from around the world. Lo hopes this group will help one another as a big family without border. You are welcome to join first. Not all homework will get critics but watching others’ works in the group will improve your skills as well."
+      },
+      {
+        "question": "Q9. If I have further questions after these lessons, what to do?",
+        "answer": "Join Lo’s Telegram group and ask away. Our members are passionate and they are around the world."
       }
     ]
+  },
+  "Member": {
+    "infoTitle": "Profile",
+    "editTitle": "Edit<span class='break'>Profile</span>",
+    "signinTitle": "Login<span class='break'>Account</span>",
+    "signupTitle": "Create<span class='break'>Account</span>",
+    "forgotPswTitle": "Change<span class='break'>Password</span>",
+    "validateTitle": "Verification",
+    "name": "Name",
+    "birthday": "Birthday",
+    "account": "Account",
+    "accountPlaceholder": "Account (English and Number)",
+    "password": "Password",
+    "passwordPlaceholder": "Password (6 to 15 English and Number)",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Password again",
+    "email": "Email",
+    "emailPlaceholder": "ex: abc@gmail.com",
+    "editPsw": "Change Password",
+    "send": "Send",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "forgotPsw": "Forgot Password",
+    "logout": "Logout",
+    "signin": "Login",
+    "newUser": "New Member?",
+    "registerBtn": "Register",
+    "token": "Verification code",
+    "remark": "Registering as a member will allow LoChanPeng to update you about his exhibitions, new lessons available and other acctivities.<br><br>For lessons purchased, please look for the email sent to you. The link in that email will connect you to those lessons."
+  },
+  "Work": {
+    "yearTitle": "Years"
+  },
+  "Course": {
+    "btn": "Buy",
+    "relatedTitle": "Others Course"
+  },
+  "News": {
+    "relatedTitle": "Others News"
+  },
+  "Contact": {
+    "title": "Contact",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "content": "Content",
+    "send": "Send"
   }
 }

@@ -1,0 +1,151 @@
+<template lang="pug">
+article.news
+  section.banner
+    BannerPicture(:bannerLink="bannerLink")
+  //-   figure.news-icon
+  //-     img(src="@/assets/images/news-icon.png")
+  section.main
+    .search-box
+      SearchBox(
+        :searchTxt="searchTxt"
+        @searchHandler="searchHandler"
+      )
+    CardList(v-if="!isLoading" :cardData="news.list" routeName="NewsInfo")
+    //- paginate(
+    //-   :page-count="news.allPage||0"
+    //-   :click-handler="pageHandler"
+    //-   :prev-text="'Prev'"
+    //-   :next-text="'Next'"
+    //-   :container-class="'paginate-box'"
+    //-   :hide-prev-next="true"
+    //- )
+
+</template>
+
+<script>
+import { mapState, mapActions } from "vuex";
+import BannerPicture from "@/components/BannerPicture";
+import CardList from "@/components/CardList";
+import SearchBox from "@/components/SearchBox";
+import Paginate from "vuejs-paginate";
+import { TweenMax, gsap } from "gsap";
+
+export default {
+  name: "News",
+  components: {
+    BannerPicture,
+    CardList,
+    SearchBox,
+    Paginate,
+  },
+  data() {
+    return {
+      bannerLink: {
+        desktop: "news-banner-m.jpg",
+        mobile: "news-banner-m.jpg",
+      },
+      pageSize: 500,
+      searchTxt: "",
+      sceneArr: [],
+    };
+  },
+  computed: {
+    ...mapState(["isLoading", "lang", "news"]),
+  },
+  beforeDestroy() {
+    this.sceneArr.map((scene) => {
+      this.$scrollmagic.removeScene(scene);
+    });
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.setInitial();
+      this.setAnimate();
+    });
+  },
+  created() {
+    this.getNewsList("", 1);
+  },
+  methods: {
+    ...mapActions(["getNewsListApi"]),
+    getNewsList(select, currentPage) {
+      this.getNewsListApi({
+        select,
+        pageSize: this.pageSize,
+        currentPage,
+        channel: this.lang,
+      })
+        .then(() => {
+          console.log("success");
+        })
+        .catch(() => {
+          console.log("fail");
+        });
+    },
+    searchHandler(txt) {
+      this.searchTxt = txt;
+      this.getNewsList(txt, 1);
+    },
+    pageHandler(pageNum) {
+      this.getNewsList(this.searchTxt, pageNum);
+      console.log(pageNum);
+    },
+    setInitial() {
+      gsap.set("section.banner,.search-box", {
+        opacity: 0,
+      });
+    },
+    setAnimate() {
+      this.sceneArr[0] = this.$scrollmagic
+        .scene({
+          triggerElement: "section.banner",
+          reverse: false,
+        })
+        .on("enter", function() {
+          gsap
+            .timeline()
+            .add(
+              TweenMax.to("section.banner", 1, {
+                opacity: 1,
+              })
+            )
+            .add(
+              TweenMax.to(".search-box", 1, {
+                opacity: 1,
+                delay: -0.5,
+              })
+            );
+        });
+      // .addIndicators({ name: "banner" })
+
+      this.sceneArr.forEach((scene) => {
+        // console.log(scene);
+        this.$scrollmagic.addScene(scene);
+      });
+    },
+  },
+  watch: {},
+};
+</script>
+
+<style lang="sass" scoped>
+@import "@/assets/sass/var.sass"
+
+article.news
+  // section.banner
+  //   padding: 150px 0
+  //   .news-icon
+  //     width: 275px
+  //     margin: auto
+  section.main
+    width: 100%
+    max-width: 1280px
+    padding: 0 15px
+    margin: auto
+    box-sizing: border-box
+  +rwd(768px)
+    // section.banner
+    //   padding: 15vw 0
+    //   .news-icon
+    //     width: 25vw
+</style>

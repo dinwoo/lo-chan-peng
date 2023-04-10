@@ -1,24 +1,32 @@
 <template lang="pug">
-  #banner-swiper
-    VueSlickCarousel(
-      v-bind="settings"
+#banner-swiper
+  VueSlickCarousel(
+    v-bind="settings"
+    ref="carousel"
+  )
+    .banner-pic(
+      v-for="(pic,index) in pictureLink[linkIndex]" :key="index"
     )
-      .banner-pic(
-        v-for="(pic,index) in pictureLink[linkIndex]" :key="index"
+      .pic(
+        :style="`background-image:url('${compileFilePath(pic)}')`"
       )
-        .pic(
-          :style="`background-image:url('${compileFilePath(pic)}')`"
-        )
+  .arrow-control
+    .arrow.svg_box(@click="prev()")
+      include ../assets/pug/arrow-left.pug
+    .arrow.svg_box(@click="next()")
+      include ../assets/pug/arrow-right.pug
 </template>
 
 <script>
+import { mapState } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
+  name: "BannerSwiper",
   components: {
-    VueSlickCarousel,
+    VueSlickCarousel
   },
   props: ["pictureLink"],
   data() {
@@ -28,47 +36,47 @@ export default {
         dotsClass: "slick-dots custom-dot-class banner-dots",
         edgeFriction: 0.35,
         infinite: true,
-        speed: 500,
+        autoplaySpeed: 5000,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
-        arrows: false,
+        autoplay: true,
+        arrows: false
       },
       slidesToShow: 0,
       showOption: false,
-      screenWidth: document.body.clientWidth,
-      isMobile: document.body.clientWidth < 768,
+      isMobile: document.body.clientWidth < 768
     };
   },
   watch: {
     screenWidth(val) {
       this.isMobile = val < 768;
-      if (!this.timer) {
-        this.screenWidth = val;
-        this.timer = true;
-        let that = this;
-        setTimeout(function() {
-          // console.log(val);
-          that.timer = false;
-        }, 400);
-      }
-    },
+      // if (!this.timer) {
+      //   this.screenWidth = val;
+      //   this.timer = true;
+      //   let that = this;
+      //   setTimeout(function() {
+      //     // console.log(val);
+      //     that.timer = false;
+      //   }, 400);
+      // }
+    }
   },
-  mounted() {
-    const that = this;
-    window.onresize = () => {
-      return (() => {
-        window.screenWidth = document.body.clientWidth;
-        that.screenWidth = window.screenWidth;
-      })();
-    };
-  },
+  mounted() {},
   computed: {
+    ...mapState(["screenWidth"]),
     linkIndex() {
-      return this.isMobile ? 1 : 0;
-    },
+      return this.isMobile ? "mobile" : "pc";
+    }
   },
-  methods: {},
+  methods: {
+    prev() {
+      this.$refs.carousel.prev();
+    },
+    next() {
+      this.$refs.carousel.next();
+    }
+  }
 };
 </script>
 
@@ -76,19 +84,21 @@ export default {
 @import "@/assets/sass/var.sass"
 
 .banner-dots
-  padding: 0 70px
-  bottom: 60px
+  padding: 0 60px
+  bottom: 50px
   text-align: left
   li
-    margin: 0 10px
+    margin: 0 5px
     button
       &:before
-        color: $gray-004
+        color: $gray-005
         opacity: 1
     &.slick-active
       button
         &:before
           color: $gray-001
+  +rwd(768px)
+    padding: 0 15px
 </style>
 
 <style lang="sass" scoped>
@@ -101,13 +111,14 @@ export default {
 #banner-swiper
   width: 100%
   // padding-bottom: 40px
+  position: relative
   overflow: hidden
   .banner-pic
     width: 100%
     padding-bottom: 100vh
     position: relative
     @include rwd(768px)
-      padding-bottom: 152%
+      // padding-bottom: 152%
     .pic
       width: 100%
       height: 100%
@@ -115,4 +126,22 @@ export default {
       background-position: center center
       background-repeat: no-repeat
       +pstc0
+  .arrow-control
+    width: 40px
+    position: absolute
+    bottom: 45px
+    right: 65px
+    .arrow
+      margin-bottom: 10px
+      cursor: pointer
+      fill: none
+      stroke: $gray-004
+      transition: .3s
+      +hover
+        stroke: #fff
+    +rwd(768px)
+      width: 30px
+      right: 15px
+      .arrow
+        margin-bottom: 5px
 </style>

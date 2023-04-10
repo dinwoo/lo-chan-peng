@@ -1,37 +1,63 @@
 <template lang="pug">
 #app
-  Header
-  router-view
-  Footer
+  component(:is="$route.meta.layout")
+  .loading-mask(v-if="isLoading")
+    figure.loding-icon
+      img(src="@/assets/images/loading-icon.svg")
+    
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import { mapState } from "vuex";
+import HomeLayout from "@/layouts/HomeLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
   components: {
-    Header,
-    Footer,
+    HomeLayout,
+    DefaultLayout,
   },
   data() {
     return {};
+  },
+  metaInfo() {
+    return {
+      title: this.$t(`Meta.title`),
+      // title: this.$route.meta.title,
+      meta: [
+        {
+          name: "title",
+          content: this.$t(`Meta.title`),
+        },
+        {
+          name: "description",
+          content: this.$t(`Meta.description`),
+        },
+        {
+          name: "keyword",
+          content: this.$t(`Meta.keyword`),
+        },
+        {
+          name: "og:title",
+          content: this.$t(`Meta.title`),
+        },
+        {
+          name: "og:description",
+          content: this.$t(`Meta.description`),
+        },
+      ],
+    };
+  },
+  computed: {
+    ...mapState(["isLoading", "lang", "course"]),
   },
   mounted() {
     window.onresize = () => {
       return (() => {
         window.screenWidth = document.body.clientWidth;
-        this.$store.commit("setScreenWidth", window.screenWidth);
+        this.$store.commit("SET_SCREEN_WIDTH", window.screenWidth);
         // that.screenWidth = window.screenWidth;
       })();
     };
-  },
-  methods: {
-    // 儲存切換的語系
-    setLang(value) {
-      this.$store.commit("setLang", value);
-      this.$i18n.locale = value;
-      localStorage.setItem("footmark-lang", value);
-    },
   },
 };
 </script>
@@ -43,7 +69,7 @@ export default {
   src: url("assets/fonts/Axininca-Ft-SILDoulos-Italic.ttf") format("truetype")
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600&display=swap');
-  
+
 // @font-face
 //   font-family: 'SourceHanSerif'
 //   src: url("assets/fonts/SourceHanSerif-Regular.ttc") format("truetype")
@@ -56,18 +82,45 @@ export default {
 
 img
 	width: 100%
-	vertical-align: top
+	vertical-align: middle
 
 a
 	color: #000
 	text-decoration: none
 
 html
-  width: 100%
-  padding: 0 50px
-  font-size: 20px
   background-color: #000
-  box-sizing: border-box
+  font-size: 16px
   +rwd(768px)
-    padding: 0 2rem
+    font-size: 12px
+
+ul.paginate-box
+  width: 100%
+  margin: 2rem 0
+  list-style: none
+  display: flex
+  justify-content: center
+  li
+    margin: 0 .5rem
+    a
+      color: $gray-005
+    &.active
+      a
+        color: $gray-004
+</style>
+
+<style lang="sass" scoped>
+@import "@/assets/sass/var.sass"
+
+.loading-mask
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  left: 0
+  background-color: rgba(#000,.7)
+  z-index: 101
+  figure.loding-icon
+    width: 50px
+    +pstc5
 </style>
