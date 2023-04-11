@@ -21,12 +21,10 @@ article.works
           @click="searchYear(year)"
         ) {{year}}
       .works-box(v-if="!isMobile||isMobile&&!isSelect")
-        .work-item(v-for="work,index in work.list" :key="work.id" @click="showWork(work)")
+        .work-item(v-for="work in work.list" :key="work.id" @click="showWork(work)")
           .work-pic(:style="`background-image: url('${work.img}')`")
-            img(:src="work.img")
-          .work-content
-            .work-name {{work.name}}
-            .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
+          .work-name {{work.name}}
+          .work-info {{work.type}}  {{work.width}} x {{work.height}} {{work.unit}}  {{work.year}}
         //- paginate(
         //-   v-model="pageNum"
         //-   :page-count="work.allPage||0"
@@ -62,13 +60,13 @@ export default {
   components: {
     BannerPicture,
     SearchBox,
-    Paginate
+    Paginate,
   },
   data() {
     return {
       bannerLink: {
         desktop: "works-banner-m.jpg",
-        mobile: "works-banner-m.jpg"
+        mobile: "works-banner-m.jpg",
       },
       pageSize: 500,
       pageNum: 1,
@@ -83,26 +81,26 @@ export default {
         width: null,
         height: null,
         unit: "",
-        year: ""
+        year: "",
       },
-      sceneArr: []
+      sceneArr: [],
     };
   },
   computed: {
     ...mapState(["isLoading", "lang", "work", "screenWidth"]),
     isMobile() {
       return this.screenWidth <= 768;
-    }
+    },
   },
   beforeDestroy() {
-    this.sceneArr.map(scene => {
+    this.sceneArr.map((scene) => {
       this.$scrollmagic.removeScene(scene);
     });
   },
   mounted() {
     this.$nextTick(() => {
       gsap.set("section.banner,.search-box", {
-        opacity: 0
+        opacity: 0,
       });
     });
   },
@@ -130,7 +128,7 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang
+        channel: this.lang,
       })
         .then(() => {
           console.log("getWorkListApi success");
@@ -169,34 +167,34 @@ export default {
     },
     setInitial() {
       gsap.set("section.banner", {
-        opacity: 0
+        opacity: 0,
       });
       gsap.set(".search-box", {
-        opacity: 0
+        opacity: 0,
       });
       gsap.set(".work-item", {
         y: 50,
-        opacity: 0
+        opacity: 0,
       });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false
+          reverse: false,
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1
+                opacity: 1,
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5
+                delay: -0.5,
               })
             );
         });
@@ -206,7 +204,7 @@ export default {
         .scene({
           triggerElement: ".work-item",
           reverse: false,
-          triggerHook: 1
+          triggerHook: 1,
         })
         .on("enter", function() {
           TweenMax.staggerTo(
@@ -214,14 +212,14 @@ export default {
             1,
             {
               y: 0,
-              opacity: 1
+              opacity: 1,
             },
             0.2
           );
         });
       // .addIndicators({ name: "card-list" });
 
-      this.sceneArr.forEach(scene => {
+      this.sceneArr.forEach((scene) => {
         // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
@@ -231,17 +229,17 @@ export default {
       this.searchTxt = "";
       this.nowYear = "";
       window.scrollTo({
-        top: 0
+        top: 0,
       });
     },
     goTop() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
-    }
+    },
   },
-  watch: {}
+  watch: {},
 };
 </script>
 
@@ -324,7 +322,7 @@ article.works
         display: inline-block
         vertical-align: top
         .work-item
-          width: 100%
+          width: 50%
           padding: 0 5%
           margin-bottom: 3rem
           box-sizing: border-box
@@ -332,29 +330,22 @@ article.works
           vertical-align: top
           text-align: center
           cursor: pointer
-          display: flex
-          align-content: flex-start
           .work-pic
-            width: 40%
-            max-width: 400px
-            // padding-bottom: 100%
-            // margin-bottom: 1.5rem
+            width: 100%
+            padding-bottom: 100%
+            margin-bottom: 1.5rem
             // background-image: url('../assets/images/works-example.png')
-            // background-size: contain
-            // background-position: center center
-            // background-repeat: no-repeat
-          .work-content
-            flex: 1
-            padding-left: 1rem
-            text-align: left
-            .work-name
-              font-size: 1.4rem
-              line-height: 1.5
-              color: $gray-004
-            .work-info
-              font-size: 1rem
-              line-height: 1.5
-              color: $gray-005
+            background-size: contain
+            background-position: center center
+            background-repeat: no-repeat
+          .work-name
+            font-size: 1.4rem
+            line-height: 1.5
+            color: $gray-004
+          .work-info
+            font-size: 1rem
+            line-height: 1.5
+            color: $gray-005
   +rwd(768px)
     .btn-box
       width: 100%
@@ -455,19 +446,7 @@ article.works
             width: 100%
             padding: 0 5%
             margin-bottom: 3rem
-            display: block
             .work-pic
-              width: 100%
-              max-width: none
-              // padding-bottom: 100%
-              margin-bottom: 1.5rem
-              // background-image: url('../assets/images/works-example.png')
-              // background-size: contain
-              // background-position: center center
-              // background-repeat: no-repeat
-            .work-content
-              padding-left: 0
-              text-align: center
-              .work-name
-              .work-info
+            .work-name
+            .work-info
 </style>
