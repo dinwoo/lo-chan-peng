@@ -6,91 +6,91 @@ article.about
   section.intro.intro1
     .content
       .title
-        | {{$t(`About.name`)}}
+        | {{about.name}}
         .slide-switch(@click="open1=!open1") {{open1?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open1")
           .info.colum-1.mb.dark
-            | {{$t(`About.birth`)}}
+            | {{about.birth}}
             br
-            | {{$t(`About.creativeMedia`)}}
-          .info.colum-1.separate(v-html="$t(`About.info`)")
+            | {{about.creativeMedia}}
+          .info.colum-1.separate(v-html="about.info")
   section.intro.intro2
     .content
       .title
-        p(v-html="$t(`About.title1`)")
+        p(v-html="about.title1")
         .slide-switch(@click="open2=!open2") {{open2?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open2")
           .info.colum-2.mb
-            .sub-title {{$t(`About.educationTitle`)}}
-            p(v-html="$t(`About.education`)")
+            .sub-title {{about.educationTitle}}
+            p(v-html="about.education")
           .info.colum-2.mb
-            .sub-title {{$t(`About.currentJobTitle`)}}
-            p(v-html="$t(`About.currentJob`)")
+            .sub-title {{about.currentJobTitle}}
+            p(v-html="about.currentJob")
           .info.colum-1
-            .sub-title {{$t(`About.experience.title`)}}
-            .year(v-for="yearList in $t(`About.experience.list`)" :key="yearList.year")
+            .sub-title {{about.experience.title}}
+            .year(v-for="yearList in about.experience.list" :key="yearList.year")
               p {{yearList.year}}
               ul
                 li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
   section.intro.intro3
     .content
       .title
-        p(v-html="$t(`About.title2`)")
+        p(v-html="about.title2")
         .slide-switch(@click="open3=!open3") {{open3?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open3")
           .info.colum-1.mb
-            .sub-title {{$t(`About.soloExhibitions.title`)}}
-            .year(v-for="yearList in $t(`About.soloExhibitions.list`)" :key="yearList.year")
+            .sub-title {{about.soloExhibitions.title}}
+            .year(v-for="yearList in about.soloExhibitions.list" :key="yearList.year")
               p {{yearList.year}}
               ul
                 li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
           .info.colum-1mb
-            .sub-title {{$t(`About.groupExhibitions.title`)}}
+            .sub-title {{about.groupExhibitions.title}}
             .separate
-              .year(v-for="yearList in $t(`About.groupExhibitions.list`)" :key="yearList.year")
+              .year(v-for="yearList in about.groupExhibitions.list" :key="yearList.year")
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
   section.intro.intro4
     .content
       .title
-        p(v-html="$t(`About.title3`)")
+        p(v-html="about.title3")
         .slide-switch(@click="open4=!open4") {{open4?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open4")
           .info.colum-1.mb
             .separate
-              .year(v-for="yearList in $t(`About.awards.list`)" :key="yearList.year")
+              .year(v-for="yearList in about.awards.list" :key="yearList.year")
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
   section.intro.intro5
     .content
       .title
-        p(v-html="$t(`About.title4`)")
+        p(v-html="about.title4")
         .slide-switch(@click="open5=!open5") {{open5?"－":"＋"}}
       .intro-box
         VueSlideToggle(:open="open5")
           .info.colum-1
             .separate
-              .year(v-for="yearList in $t(`About.collections.list`)" :key="yearList.year")
+              .year(v-for="yearList in about.collections.list" :key="yearList.year")
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import { VueSlideToggle } from "vue-slide-toggle";
 import { TweenMax, gsap } from "gsap";
 
 export default {
   name: "About",
   components: {
-    VueSlideToggle,
+    VueSlideToggle
   },
   data() {
     return {
@@ -99,28 +99,30 @@ export default {
       open3: true,
       open4: true,
       open5: true,
-      sceneArr: [],
+      sceneArr: []
     };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["about", "screenWidth"]),
     isOpen() {
       return this.screenWidth > 768 ? true : false;
-    },
+    }
   },
   beforeDestroy() {
-    this.sceneArr.map((scene) => {
+    this.sceneArr.map(scene => {
       this.$scrollmagic.removeScene(scene);
     });
   },
   mounted() {
     this.$nextTick(() => {
+      this.getAboutData();
       this.setSwitch();
       this.setInitial();
       this.setAnimate();
     });
   },
   methods: {
+    ...mapActions(["getAbout"]),
     setSwitch() {
       this.open1 = this.isOpen;
       this.open2 = this.isOpen;
@@ -131,11 +133,11 @@ export default {
     setInitial() {
       gsap.set("section.banner", {
         y: 100,
-        opacity: 0,
+        opacity: 0
       });
       gsap.set("section.intro", {
         y: 100,
-        opacity: 0,
+        opacity: 0
       });
     },
     setAnimate() {
@@ -143,7 +145,7 @@ export default {
         .scene({
           triggerElement: "section.banner",
           triggerHook: 1,
-          reverse: false,
+          reverse: false
         })
         // .setTween(tl)
         .on("enter", function() {
@@ -151,7 +153,7 @@ export default {
             .timeline()
             .to("section.banner", 1, {
               y: 0,
-              opacity: 1,
+              opacity: 1
             })
             .add(
               TweenMax.staggerTo(
@@ -160,7 +162,7 @@ export default {
                 {
                   y: 0,
                   opacity: 1,
-                  delay: -1,
+                  delay: -1
                 },
                 0.5
               )
@@ -168,16 +170,25 @@ export default {
         });
       // .addIndicators({ name: "banner" });
 
-      this.sceneArr.forEach((scene) => {
+      this.sceneArr.forEach(scene => {
         this.$scrollmagic.addScene(scene);
       });
     },
+    getAboutData() {
+      this.getAbout({})
+        .then(() => {
+          console.log("success");
+        })
+        .catch(() => {
+          console.log("fail");
+        });
+    }
   },
   watch: {
     screenWidth() {
       this.setSwitch();
-    },
-  },
+    }
+  }
 };
 </script>
 

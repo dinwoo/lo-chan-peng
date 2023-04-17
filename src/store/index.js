@@ -21,6 +21,7 @@ export default new Vuex.Store({
         ]
       }
     },
+    about: {},
     news: {
       list: [],
       detail: {}
@@ -48,6 +49,9 @@ export default new Vuex.Store({
     },
     SET_BANNER(state, data) {
       state.home.banner = data;
+    },
+    SET_ABOUT(state, data) {
+      state.about = data;
     },
     SET_NEWS_LIST(state, data) {
       state.news.list = data.news;
@@ -89,6 +93,26 @@ export default new Vuex.Store({
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
               context.commit("SET_BANNER", data.data);
+              resolve();
+            } else {
+              alert(data.msg);
+            }
+          })
+          .catch(({ response }) => {
+            context.commit("SET_LOADING", false);
+            console.log(response);
+            reject();
+          });
+      });
+    },
+    getAbout(context) {
+      context.commit("SET_LOADING", true);
+      return new Promise((resolve, reject) => {
+        ApiService.get("api/about", "", {})
+          .then(({ data }) => {
+            context.commit("SET_LOADING", false);
+            if (data.code == 200) {
+              context.commit("SET_ABOUT", data.data);
               resolve();
             } else {
               alert(data.msg);
