@@ -14,7 +14,7 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 export default {
   components: {
     HomeLayout,
-    DefaultLayout,
+    DefaultLayout
   },
   data() {
     return {};
@@ -26,29 +26,29 @@ export default {
       meta: [
         {
           name: "title",
-          content: this.$t(`Meta.title`),
+          content: this.$t(`Meta.title`)
         },
         {
           name: "description",
-          content: this.$t(`Meta.description`),
+          content: this.$t(`Meta.description`)
         },
         {
           name: "keyword",
-          content: this.$t(`Meta.keyword`),
+          content: this.$t(`Meta.keyword`)
         },
         {
           name: "og:title",
-          content: this.$t(`Meta.title`),
+          content: this.$t(`Meta.title`)
         },
         {
           name: "og:description",
-          content: this.$t(`Meta.description`),
-        },
-      ],
+          content: this.$t(`Meta.description`)
+        }
+      ]
     };
   },
   computed: {
-    ...mapState(["isLoading", "lang", "course"]),
+    ...mapState(["isLoading", "lang", "course"])
   },
   mounted() {
     window.onresize = () => {
@@ -58,7 +58,7 @@ export default {
         // that.screenWidth = window.screenWidth;
       })();
     };
-  },
+  }
 };
 </script>
 
@@ -78,7 +78,7 @@ export default {
 *
   padding: 0
   margin: 0
-  font-family: Axininca,'Noto Serif TC', serif
+  font-family: 'Microsoft JhengHei'
 
 img
 	width: 100%
