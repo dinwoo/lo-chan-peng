@@ -1,85 +1,86 @@
 <template lang="pug">
 article.about
-  section.banner
-    figure.banner-pic
-      img(src="@/assets/images/about-banner-d.jpg")
-  section.intro.intro1
-    .content
-      .title
-        | {{about.name}}
-        .slide-switch(@click="open1=!open1") {{open1?"－":"＋"}}
-      .intro-box
-        VueSlideToggle(:open="open1")
-          .info.colum-1.mb.dark
-            | {{about.birth}}
-            br
-            | {{about.creativeMedia}}
-          .info.colum-1.separate(v-html="about.info")
-  section.intro.intro2
-    .content
-      .title
-        p(v-html="about.title1")
-        .slide-switch(@click="open2=!open2") {{open2?"－":"＋"}}
-      .intro-box
-        VueSlideToggle(:open="open2")
-          .info.colum-2.mb
-            .sub-title {{about.educationTitle}}
-            p(v-html="about.education")
-          .info.colum-2.mb
-            .sub-title {{about.currentJobTitle}}
-            p(v-html="about.currentJob")
-          .info.colum-1
-            .sub-title {{about.experience.title}}
-            .year(v-for="yearList in about.experience.list" :key="yearList.year")
-              p {{yearList.year}}
-              ul
-                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-  section.intro.intro3
-    .content
-      .title
-        p(v-html="about.title2")
-        .slide-switch(@click="open3=!open3") {{open3?"－":"＋"}}
-      .intro-box
-        VueSlideToggle(:open="open3")
-          .info.colum-1.mb
-            .sub-title {{about.soloExhibitions.title}}
-            .year(v-for="yearList in about.soloExhibitions.list" :key="yearList.year")
-              p {{yearList.year}}
-              ul
-                li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-          .info.colum-1mb
-            .sub-title {{about.groupExhibitions.title}}
-            .separate
-              .year(v-for="yearList in about.groupExhibitions.list" :key="yearList.year")
+  template(v-if="!isLoading")
+    section.banner
+      figure.banner-pic
+        img(src="@/assets/images/about-banner-d.jpg")
+    section.intro.intro1
+      .content
+        .title
+          | {{about.name}}
+          .slide-switch(@click="open1=!open1") {{open1?"－":"＋"}}
+        .intro-box
+          VueSlideToggle(:open="open1")
+            .info.colum-1.mb.dark
+              | {{about.birth}}
+              br
+              | {{about.creativeMedia}}
+            .info.colum-1.separate(v-html="about.info")
+    section.intro.intro2
+      .content
+        .title
+          p(v-html="about.title1")
+          .slide-switch(@click="open2=!open2") {{open2?"－":"＋"}}
+        .intro-box
+          VueSlideToggle(:open="open2")
+            .info.colum-2.mb
+              .sub-title {{about.educationTitle}}
+              p(v-html="about.education")
+            .info.colum-2.mb
+              .sub-title {{about.currentJobTitle}}
+              p(v-html="about.currentJob")
+            .info.colum-1
+              .sub-title {{about.experience.title}}
+              .year(v-for="yearList in about.experience.list" :key="yearList.year")
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-  section.intro.intro4
-    .content
-      .title
-        p(v-html="about.title3")
-        .slide-switch(@click="open4=!open4") {{open4?"－":"＋"}}
-      .intro-box
-        VueSlideToggle(:open="open4")
-          .info.colum-1.mb
-            .separate
-              .year(v-for="yearList in about.awards.list" :key="yearList.year")
+    section.intro.intro3
+      .content
+        .title
+          p(v-html="about.title2")
+          .slide-switch(@click="open3=!open3") {{open3?"－":"＋"}}
+        .intro-box
+          VueSlideToggle(:open="open3")
+            .info.colum-1.mb
+              .sub-title {{about.soloExhibitions.title}}
+              .year(v-for="yearList in about.soloExhibitions.list" :key="yearList.year")
                 p {{yearList.year}}
                 ul
                   li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
-  section.intro.intro5
-    .content
-      .title
-        p(v-html="about.title4")
-        .slide-switch(@click="open5=!open5") {{open5?"－":"＋"}}
-      .intro-box
-        VueSlideToggle(:open="open5")
-          .info.colum-1
-            .separate
-              .year(v-for="yearList in about.collections.list" :key="yearList.year")
-                p {{yearList.year}}
-                ul
-                  li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+            .info.colum-1mb
+              .sub-title {{about.groupExhibitions.title}}
+              .separate
+                .year(v-for="yearList in about.groupExhibitions.list" :key="yearList.year")
+                  p {{yearList.year}}
+                  ul
+                    li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+    section.intro.intro4
+      .content
+        .title
+          p(v-html="about.title3")
+          .slide-switch(@click="open4=!open4") {{open4?"－":"＋"}}
+        .intro-box
+          VueSlideToggle(:open="open4")
+            .info.colum-1.mb
+              .separate
+                .year(v-for="yearList in about.awards.list" :key="yearList.year")
+                  p {{yearList.year}}
+                  ul
+                    li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
+    section.intro.intro5
+      .content
+        .title
+          p(v-html="about.title4")
+          .slide-switch(@click="open5=!open5") {{open5?"－":"＋"}}
+        .intro-box
+          VueSlideToggle(:open="open5")
+            .info.colum-1
+              .separate
+                .year(v-for="yearList in about.collections.list" :key="yearList.year")
+                  p {{yearList.year}}
+                  ul
+                    li(v-for="(yearItem,index) in yearList.items" :key="index" v-html="yearItem")
 </template>
 
 <script>
@@ -103,7 +104,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["about", "screenWidth"]),
+    ...mapState(["isLoading", "about", "screenWidth"]),
     isOpen() {
       return this.screenWidth > 768 ? true : false;
     }
@@ -175,7 +176,7 @@ export default {
       });
     },
     getAboutData() {
-      this.getAbout({})
+      this.getAbout(this.lang === "ch" ? "tw" : "us")
         .then(() => {
           console.log("success");
         })

@@ -6,19 +6,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isLoading: false,
+    isLoading: true,
     lang: null, // 存放使用者選用的語系
     screenWidth: document.body.clientWidth,
     home: {
       banner: {
-        pc: ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"],
-        mobile: [
-          "bg1-m.jpg",
-          "bg2-m.jpg",
-          "bg3-m.jpg",
-          "bg4-m.jpg",
-          "bg5-m.jpg"
-        ]
+        pc: [],
+        mobile: []
       }
     },
     about: {},
@@ -105,14 +99,14 @@ export default new Vuex.Store({
           });
       });
     },
-    getAbout(context) {
+    getAbout(context, lang) {
       context.commit("SET_LOADING", true);
       return new Promise((resolve, reject) => {
-        ApiService.get("api/about", "", {})
+        ApiService.get("api/about?l=" + lang, "", {})
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
-              context.commit("SET_ABOUT", data.data);
+              context.commit("SET_ABOUT", JSON.parse(data.data));
               resolve();
             } else {
               alert(data.msg);
