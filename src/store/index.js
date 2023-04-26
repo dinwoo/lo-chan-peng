@@ -133,7 +133,20 @@ export default new Vuex.Store({
           .then(({ data }) => {
             context.commit("SET_LOADING", false);
             if (data.code == 200) {
-              context.commit("SET_NEWS_LIST", data.data);
+              // context.commit("SET_NEWS_LIST", data.data);
+              context.commit("SET_NEWS_LIST", {
+                news: [
+                  {
+                    id: 1000,
+                    dateTime: "12 Apr. 2023",
+                    description:
+                      "test <img src='https://lochanpeng-dash.mizuso.com.tw/upload/article/2023-04-12/33f46617f352af48d7e7200ee2a9cc27.jpg'>",
+                    img:
+                      "https://lochanpeng-dash.mizuso.com.tw/upload/article/2023-04-12/33f46617f352af48d7e7200ee2a9cc27.jpg",
+                    title: "test title"
+                  }
+                ]
+              });
               resolve();
             } else {
               alert(data.msg);
