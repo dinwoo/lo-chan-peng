@@ -271,6 +271,7 @@ header
           .lang
             margin: 0 5px
             font-size: 1rem
+            color: $gray-003
             +dib
         .close
           display: block
@@ -298,6 +299,7 @@ header
           .svg_box
             width: 25px
             margin: 0 3px
+            fill: $gray-003
             +dib
         .login
           display: block
