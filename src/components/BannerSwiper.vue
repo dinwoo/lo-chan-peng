@@ -1,20 +1,24 @@
 <template lang="pug">
 #banner-swiper
-  VueSlickCarousel(
-    v-bind="settings"
-    ref="carousel"
+  template(
+    v-if="!isLoading"
+
   )
-    .banner-pic(
-      v-for="(pic,index) in pictureLink[linkIndex]" :key="index"
+    VueSlickCarousel(
+      v-bind="settings"
+      ref="carousel"
     )
-      .pic(
-        :style="`background-image:url('${compileFilePath(pic)}')`"
+      .banner-pic(
+        v-for="(pic,index) in pictureLink[linkIndex]" :key="index"
       )
-  .arrow-control
-    .arrow.svg_box(@click="prev()")
-      include ../assets/pug/arrow-left.pug
-    .arrow.svg_box(@click="next()")
-      include ../assets/pug/arrow-right.pug
+        .pic(
+          :style="`background-image:url('${pic}')`"
+        )
+    .arrow-control
+      .arrow.svg_box(@click="prev()")
+        include ../assets/pug/arrow-left.pug
+      .arrow.svg_box(@click="next()")
+        include ../assets/pug/arrow-right.pug
 </template>
 
 <script>
@@ -64,7 +68,7 @@ export default {
   },
   mounted() {},
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["isLoading", "screenWidth"]),
     linkIndex() {
       return this.isMobile ? "mobile" : "pc";
     }

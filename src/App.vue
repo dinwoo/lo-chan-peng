@@ -107,6 +107,9 @@ ul.paginate-box
     &.active
       a
         color: $gray-004
+
+.cart-button
+  display: none !important
 </style>
 
 <style lang="sass" scoped>

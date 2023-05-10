@@ -11,7 +11,7 @@
         img(:src="card.img")
       .card-info
         .card-title {{card.title}}
-        .card-description {{card.description}}
+        .card-description(v-html="articleHandler(card.description)")
 
 </template>
 
@@ -80,6 +80,12 @@ export default {
   }
 };
 </script>
+
+<style lang="sass">
+.card-description
+  img
+    display: none
+</style>
 
 <style lang="sass" scoped>
 @import "@/assets/sass/var.sass"
