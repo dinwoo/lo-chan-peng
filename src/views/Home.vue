@@ -1,5 +1,5 @@
 <template lang="pug">
-article.home
+article.home(v-if="!isLoading")
   BannerSwiper(
     :pictureLink="home.banner"
   )
@@ -19,7 +19,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["home"])
+    ...mapState(["isLoading", "home"])
   },
   created() {
     this.getBannerList();
