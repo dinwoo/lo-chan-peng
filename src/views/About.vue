@@ -269,7 +269,7 @@ article.about
         .mb
           margin-bottom: 60px
         .separate
-          column-count: 2
+          // column-count: 2
           column-gap: 30px
   +rwd(1080px)
     section.intro
