@@ -270,7 +270,7 @@ header
           left: 10px
           .lang
             margin: 0 5px
-            font-size: 1rem
+            font-size: 1.3rem
             color: $gray-003
             +dib
         .close
