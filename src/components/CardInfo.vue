@@ -7,7 +7,8 @@
     )
   .date {{cardData.dateTime}}
   .card-title {{cardData.title}}
-  .card-description(v-html="articleHandler(cardData.description)")
+  .card-description(
+    v-html="isProcessingDescription?articleHandler(cardData.description):cardData.description")
 
 </template>
 
@@ -25,7 +26,7 @@ export default {
     PictureSwiper
   },
   mixins: [mixins],
-  props: ["cardData"],
+  props: ["cardData", "isProcessingDescription"],
   data() {
     return {
       sceneArr: []
@@ -136,4 +137,14 @@ export default {
     +rwd(768px)
       font-size: 1.2rem
       color: $gray-004
+</style>
+
+<style lang="sass">
+@import "@/assets/sass/var.sass"
+.article-link
+  color: $blue-001
+  text-decoration: underline
+  transition: .3s
+  &:hover
+    opacity: .8
 </style>

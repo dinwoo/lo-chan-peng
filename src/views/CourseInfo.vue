@@ -5,7 +5,7 @@ article.course-info(v-if="!isLoading")
     //- figure.course-icon
     //-   img(src="@/assets/images/course-icon.png")
   section.main
-    CardInfo(:cardData="course.detail")
+    CardInfo(:cardData="course.detail" :isProcessingDescription="true")
     //- Button(title='課 程')
     a.buy-btn(:href="course.detail.buyScript") {{$t(`Course.btn`)}}
   section.related
@@ -35,22 +35,22 @@ export default {
     BannerPicture,
     CardInfo,
     RelatedList,
-    Button,
+    Button
   },
   data() {
     return {
       bannerLink: {
         desktop: "course-banner-m.jpg",
-        mobile: "course-banner-m.jpg",
+        mobile: "course-banner-m.jpg"
       },
-      sceneArr: [],
+      sceneArr: []
     };
   },
   computed: {
-    ...mapState(["isLoading", "course"]),
+    ...mapState(["isLoading", "course"])
   },
   beforeDestroy() {
-    this.sceneArr.map((scene) => {
+    this.sceneArr.map(scene => {
       this.$scrollmagic.removeScene(scene);
     });
   },
@@ -65,7 +65,7 @@ export default {
     getCourseData() {
       this.getCourseDetail({
         id: parseInt(this.$route.params.id),
-        channel: this.lang,
+        channel: this.lang
       })
         .then(() => {
           console.log("success");
@@ -78,21 +78,21 @@ export default {
     },
     setInitial() {
       gsap.set("section.banner", {
-        opacity: 0,
+        opacity: 0
       });
       gsap.set("section.related", {
         y: 50,
-        opacity: 0,
+        opacity: 0
       });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false,
+          reverse: false
         })
         .setTween("section.banner", 1, {
-          opacity: 1,
+          opacity: 1
         });
       // .addIndicators({ name: "banner" })
 
@@ -100,15 +100,15 @@ export default {
         .scene({
           triggerElement: "section.related",
           reverse: false,
-          triggerHook: 0.8,
+          triggerHook: 0.8
         })
         .setTween("section.related", 1, {
           y: 0,
-          opacity: 1,
+          opacity: 1
         });
       // .addIndicators({ name: "related" })
 
-      this.sceneArr.forEach((scene) => {
+      this.sceneArr.forEach(scene => {
         // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
@@ -116,15 +116,15 @@ export default {
     goTop() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: "smooth"
       });
-    },
+    }
   },
   watch: {
     "$route.params.id": function() {
       this.getCourseData();
-    },
-  },
+    }
+  }
 };
 </script>
 
