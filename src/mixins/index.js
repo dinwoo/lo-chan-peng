@@ -28,7 +28,13 @@ export default {
       return t
     },
     articleHandler(article) {
-      return article.replace(/\n/g, "<br>").replace(/\t/g, " ")
+      return article
+        .replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" class="article-link" target="_blank">$1</a>'
+        )
+        .replace(/\n/g, "<br>")
+        .replace(/\t/g, " ");
     }
   }
 }
