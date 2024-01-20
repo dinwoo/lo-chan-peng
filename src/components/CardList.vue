@@ -11,7 +11,7 @@
         img(:src="card.img")
       .card-info
         .card-title {{card.title}}
-        .card-description(v-html="articleHandler(card.description)")
+        .card-description(v-html="articleHandler(card.subTitle?card.subTitle:card.description)")
 
 </template>
 
