@@ -5,7 +5,7 @@ article.news-info
   //-   figure.news-icon
   //-     img(src="@/assets/images/news-icon.png")
   section.main(v-if="!isLoading")
-    CardInfo(:cardData="news.detail" :isProcessingDescription="!news.detail.isNewStructure")
+    CardInfo(:cardData="news.detail" :isProcessingDescription="false")
   section.related
     .title {{$t(`News.relatedTitle`)}}
     RelatedList(

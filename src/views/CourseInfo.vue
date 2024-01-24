@@ -5,7 +5,7 @@ article.course-info(v-if="!isLoading")
     //- figure.course-icon
     //-   img(src="@/assets/images/course-icon.png")
   section.main
-    CardInfo(:cardData="course.detail" :isProcessingDescription="!course.detail.isNewStructure")
+    CardInfo(:cardData="course.detail" :isProcessingDescription="true")
     //- Button(title='課 程')
     a.buy-btn(:href="course.detail.buyScript") {{$t(`Course.btn`)}}
   section.related
