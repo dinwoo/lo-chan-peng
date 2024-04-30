@@ -1,7 +1,7 @@
 <template lang="pug">
 article.news
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
   //-   figure.news-icon
   //-     img(src="@/assets/images/news-icon.png")
   section.main
@@ -36,24 +36,26 @@ export default {
     BannerPicture,
     CardList,
     SearchBox,
-    Paginate,
+    Paginate
   },
   data() {
     return {
       bannerLink: {
-        desktop: "news-banner-m.jpg",
-        mobile: "news-banner-m.jpg",
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0286.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0286.jpeg"
       },
       pageSize: 500,
       searchTxt: "",
-      sceneArr: [],
+      sceneArr: []
     };
   },
   computed: {
-    ...mapState(["isLoading", "lang", "news"]),
+    ...mapState(["isLoading", "lang", "news"])
   },
   beforeDestroy() {
-    this.sceneArr.map((scene) => {
+    this.sceneArr.map(scene => {
       this.$scrollmagic.removeScene(scene);
     });
   },
@@ -73,7 +75,7 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang,
+        channel: this.lang
       })
         .then(() => {
           console.log("success");
@@ -92,39 +94,39 @@ export default {
     },
     setInitial() {
       gsap.set("section.banner,.search-box", {
-        opacity: 0,
+        opacity: 0
       });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false,
+          reverse: false
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1,
+                opacity: 1
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5,
+                delay: -0.5
               })
             );
         });
       // .addIndicators({ name: "banner" })
 
-      this.sceneArr.forEach((scene) => {
+      this.sceneArr.forEach(scene => {
         // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 

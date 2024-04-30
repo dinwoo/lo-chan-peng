@@ -1,9 +1,9 @@
 <template lang="pug">
 .banner-wrapper
     figure.banner-desktop-pic
-      img(:src="compileFilePath(bannerLink.desktop)")
+      img(:src="isLink?bannerLink.desktop:compileFilePath(bannerLink.desktop)")
     figure.banner-mobile-pic
-      img(:src="compileFilePath(bannerLink.mobile)")
+      img(:src="isLink?bannerLink.mobile:compileFilePath(bannerLink.mobile)")
 </template>
 
 <script>
@@ -14,14 +14,14 @@
 export default {
   name: "BannerPicture",
   components: {},
-  props: ["bannerLink"],
+  props: ["bannerLink", "isLink"],
   data() {
     return {};
   },
   watch: {},
   mounted() {},
   computed: {},
-  methods: {},
+  methods: {}
 };
 </script>
 

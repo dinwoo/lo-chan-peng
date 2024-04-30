@@ -1,7 +1,7 @@
 <template lang="pug">
 article.member-info
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
     //- figure.member-icon
     //-   img(src="@/assets/images/member-banner-d.png")
   router-view
@@ -19,24 +19,26 @@ export default {
   name: "Member",
   components: {
     BannerPicture,
-    Button,
+    Button
   },
   data() {
     return {
       bannerLink: {
-        desktop: "member-banner-m.jpg",
-        mobile: "member-banner-m.jpg",
-      },
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0284.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0284.jpeg"
+      }
     };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {});
   },
   methods: {},
-  watch: {},
+  watch: {}
 };
 </script>
 

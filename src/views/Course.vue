@@ -1,7 +1,7 @@
 <template lang="pug">
 article.course
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
     //- figure.course-icon
     //-   img(src="@/assets/images/course-icon.png")
     figure.course-list-banner
@@ -22,7 +22,7 @@ article.course
     //-   :hide-prev-next="true"
     //- )
   section.qa-part
-    BannerPicture(:bannerLink="qaLink")
+    BannerPicture(:bannerLink="qaLink" :isLink="true")
     .qa-box
       .qa-item(v-for="(qa,index) in qaList" :key="index")
         .title 
@@ -54,12 +54,16 @@ export default {
   data() {
     return {
       bannerLink: {
-        desktop: "course-banner-m.jpg",
-        mobile: "course-banner-m.jpg"
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0283.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0283.jpeg"
       },
       qaLink: {
-        desktop: "qa-banner-m.png",
-        mobile: "qa-banner-m.png"
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0286.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0286.jpeg"
       },
       openSwitch: [],
       pageSize: 500,

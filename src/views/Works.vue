@@ -1,7 +1,7 @@
 <template lang="pug">
 article.works
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
     //- figure.works-banner
     //-   img(src="@/assets/images/works-banner-d.png")
   section.main
@@ -60,13 +60,15 @@ export default {
   components: {
     BannerPicture,
     SearchBox,
-    Paginate,
+    Paginate
   },
   data() {
     return {
       bannerLink: {
-        desktop: "works-banner-m.jpg",
-        mobile: "works-banner-m.jpg",
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0288.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0288.jpeg"
       },
       pageSize: 500,
       pageNum: 1,
@@ -81,26 +83,26 @@ export default {
         width: null,
         height: null,
         unit: "",
-        year: "",
+        year: ""
       },
-      sceneArr: [],
+      sceneArr: []
     };
   },
   computed: {
     ...mapState(["isLoading", "lang", "work", "screenWidth"]),
     isMobile() {
       return this.screenWidth <= 768;
-    },
+    }
   },
   beforeDestroy() {
-    this.sceneArr.map((scene) => {
+    this.sceneArr.map(scene => {
       this.$scrollmagic.removeScene(scene);
     });
   },
   mounted() {
     this.$nextTick(() => {
       gsap.set("section.banner,.search-box", {
-        opacity: 0,
+        opacity: 0
       });
     });
   },
@@ -128,7 +130,7 @@ export default {
         select,
         pageSize: this.pageSize,
         currentPage,
-        channel: this.lang,
+        channel: this.lang
       })
         .then(() => {
           console.log("getWorkListApi success");
@@ -167,34 +169,34 @@ export default {
     },
     setInitial() {
       gsap.set("section.banner", {
-        opacity: 0,
+        opacity: 0
       });
       gsap.set(".search-box", {
-        opacity: 0,
+        opacity: 0
       });
       gsap.set(".work-item", {
         y: 50,
-        opacity: 0,
+        opacity: 0
       });
     },
     setAnimate() {
       this.sceneArr[0] = this.$scrollmagic
         .scene({
           triggerElement: "section.banner",
-          reverse: false,
+          reverse: false
         })
         .on("enter", function() {
           gsap
             .timeline()
             .add(
               TweenMax.to("section.banner", 1, {
-                opacity: 1,
+                opacity: 1
               })
             )
             .add(
               TweenMax.to(".search-box", 1, {
                 opacity: 1,
-                delay: -0.5,
+                delay: -0.5
               })
             );
         });
@@ -204,7 +206,7 @@ export default {
         .scene({
           triggerElement: ".work-item",
           reverse: false,
-          triggerHook: 1,
+          triggerHook: 1
         })
         .on("enter", function() {
           TweenMax.staggerTo(
@@ -212,14 +214,14 @@ export default {
             1,
             {
               y: 0,
-              opacity: 1,
+              opacity: 1
             },
             0.2
           );
         });
       // .addIndicators({ name: "card-list" });
 
-      this.sceneArr.forEach((scene) => {
+      this.sceneArr.forEach(scene => {
         // console.log(scene);
         this.$scrollmagic.addScene(scene);
       });
@@ -229,17 +231,17 @@ export default {
       this.searchTxt = "";
       this.nowYear = "";
       window.scrollTo({
-        top: 0,
+        top: 0
       });
     },
     goTop() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: "smooth"
       });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 

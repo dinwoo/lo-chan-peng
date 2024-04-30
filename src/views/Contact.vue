@@ -1,7 +1,7 @@
 <template lang="pug">
 article.contact-info
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
     //- figure.contact-icon
     //-   img(src="@/assets/images/contact-icon.png")
   section.form
@@ -40,23 +40,25 @@ export default {
   name: "Contact",
   components: {
     BannerPicture,
-    Button,
+    Button
   },
   mixins: [mixins],
   data() {
     return {
       bannerLink: {
-        desktop: "contact-banner-m.jpg",
-        mobile: "contact-banner-m.jpg",
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0282.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0282.jpeg"
       },
       name: "",
       phone: "",
       email: "",
-      content: "",
+      content: ""
     };
   },
   computed: {
-    ...mapState(["screenWidth"]),
+    ...mapState(["screenWidth"])
   },
   mounted() {
     this.$nextTick(() => {});
@@ -82,7 +84,7 @@ export default {
         name: this.name,
         phone: this.phone,
         email: this.email,
-        content: this.content,
+        content: this.content
       })
         .then(() => {
           alert("傳送成功");
@@ -94,9 +96,9 @@ export default {
         .catch(() => {
           alert("傳送失敗");
         });
-    },
+    }
   },
-  watch: {},
+  watch: {}
 };
 </script>
 
