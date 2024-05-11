@@ -1,7 +1,7 @@
 <template lang="pug">
 article.course-info(v-if="!isLoading")
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
     //- figure.course-icon
     //-   img(src="@/assets/images/course-icon.png")
   section.main
@@ -40,8 +40,10 @@ export default {
   data() {
     return {
       bannerLink: {
-        desktop: "course-banner-m.jpg",
-        mobile: "course-banner-m.jpg"
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0283.jpeg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0283.jpeg"
       },
       sceneArr: []
     };

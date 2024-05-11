@@ -5,7 +5,7 @@ article.course
     //- figure.course-icon
     //-   img(src="@/assets/images/course-icon.png")
     figure.course-list-banner
-      img(src="@/assets/images/course-list-banner.jpg")
+      img(src="@/assets/images/course-new-banner.jpg")
   section.main
     .search-box
       SearchBox(
