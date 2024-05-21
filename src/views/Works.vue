@@ -66,9 +66,9 @@ export default {
     return {
       bannerLink: {
         desktop:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0288.jpeg",
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87-06.jpg",
         mobile:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0288.jpeg"
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87-06.jpg"
       },
       pageSize: 500,
       pageNum: 1,

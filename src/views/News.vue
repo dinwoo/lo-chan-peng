@@ -42,9 +42,9 @@ export default {
     return {
       bannerLink: {
         desktop:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0286.jpeg",
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.jpg",
         mobile:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/IMG_0286.jpeg"
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.jpg"
       },
       pageSize: 500,
       searchTxt: "",

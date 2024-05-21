@@ -1,7 +1,7 @@
 <template lang="pug">
 article.news-info
   section.banner
-    BannerPicture(:bannerLink="bannerLink")
+    BannerPicture(:bannerLink="bannerLink" :isLink="true")
   //-   figure.news-icon
   //-     img(src="@/assets/images/news-icon.png")
   section.main(v-if="!isLoading")
@@ -34,8 +34,10 @@ export default {
   data() {
     return {
       bannerLink: {
-        desktop: "news-banner-m.jpg",
-        mobile: "news-banner-m.jpg"
+        desktop:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.jpg",
+        mobile:
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%201.jpg"
       },
       sceneArr: []
     };
