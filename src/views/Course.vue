@@ -55,15 +55,15 @@ export default {
     return {
       bannerLink: {
         desktop:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87-03.jpg",
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/3/%E5%9C%96%E7%89%87%E8%AA%BF%E6%95%B4-03.jpg",
         mobile:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87-03.jpg"
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/3/%E5%9C%96%E7%89%87%E8%AA%BF%E6%95%B4-03.jpg"
       },
       qaLink: {
         desktop:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87-05.jpg",
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/3/%E5%9C%96%E7%89%87%E8%AA%BF%E6%95%B4-05.jpg",
         mobile:
-          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/2/%E7%B6%B2%E7%AB%99%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87-05.jpg"
+          "https://mizusoimg.sgp1.cdn.digitaloceanspaces.com/lochanpeng/banner/2024/3/%E5%9C%96%E7%89%87%E8%AA%BF%E6%95%B4-05.jpg"
       },
       openSwitch: [],
       pageSize: 500,
